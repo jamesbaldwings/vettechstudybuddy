@@ -32,10 +32,15 @@ let drafted = 0;
 for (const q of drafts) {
   const r = await client.query(
     `INSERT INTO questions (id, domain, stem, options, answer, explanation, status, source)
-     VALUES ($1, $2, $3, $4, $5, $6, 'draft', 'ai_draft') ON CONFLICT (id) DO NOTHING`,
+     VALUES ($1, $2, $3, $4, $5, $6, 'draft', 'ai_draft')
+     ON CONFLICT (id) DO UPDATE SET domain = EXCLUDED.domain, stem = EXCLUDED.stem, options = EXCLUDED.options,
+       answer = EXCLUDED.answer, explanation = EXCLUDED.explanation, created_at = now(), updated_at = now()
+     -- Only refresh drafts nobody has touched in the admin editor.
+     WHERE questions.status = 'draft' AND questions.source = 'ai_draft' AND questions.updated_at = questions.created_at
+       AND (questions.stem, questions.options, questions.answer, questions.explanation) IS DISTINCT FROM (EXCLUDED.stem, EXCLUDED.options, EXCLUDED.answer, EXCLUDED.explanation)`,
     [q.id, q.domain, q.stem, JSON.stringify(q.options), q.answer, q.explanation],
   );
   drafted += r.rowCount;
 }
 await client.end();
-console.log(`Database schema is up to date.${added ? ` Seeded ${added} questions.` : ""}${drafted ? ` Added ${drafted} draft questions.` : ""}`);
+console.log(`Database schema is up to date.${added ? ` Seeded ${added} questions.` : ""}${drafted ? ` Added or refreshed ${drafted} draft questions.` : ""}`);
