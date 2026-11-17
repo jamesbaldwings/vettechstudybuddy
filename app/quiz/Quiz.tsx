@@ -369,7 +369,7 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
           <label className="check">
             <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required />
             <span>
-              Send me my plan and check-ins from {BUDDY_NAME} before and after my exam. I can unsubscribe anytime.
+              Send me my plan and check-ins from {BUDDY_NAME} before and after my VTNE. I can unsubscribe anytime.
             </span>
           </label>
         </div>

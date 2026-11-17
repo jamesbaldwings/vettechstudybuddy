@@ -39,7 +39,7 @@ export default function Home() {
           <p>
             Hi, I&apos;m {BUDDY_NAME}. We&apos;ll go through it together, one question at a time, and I&apos;ll explain every
             answer as we go. Then we can talk through what you missed, out loud, and I&apos;ll check in before and after
-            your exam.
+            your VTNE.
           </p>
         </Buddy>
       </section>

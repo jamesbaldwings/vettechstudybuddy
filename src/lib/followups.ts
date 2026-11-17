@@ -51,7 +51,7 @@ export function welcomeEmail(lead: LeadRow) {
       },
       {
         paragraphs: [
-          "Want to talk it through? Open your results page and tap Start talking. I'll walk you through what you missed, out loud. I'll also check in before your exam and again afterward to see how it went.",
+          "Want to talk it through? Open your results page and tap Start talking. I'll walk you through what you missed, out loud. I'll also check in before your VTNE and again afterward to see how it went.",
         ],
       },
     ],
