@@ -64,7 +64,7 @@ export function layout(opts: { greeting: string; blocks: EmailBlock[]; unsubscri
         ? `<div style="margin:6px 0 18px">${b.buttons
             .map(
               (btn) =>
-                `<a href="${btn.url}" style="display:inline-block;margin:0 8px 8px 0;padding:11px 18px;border-radius:999px;background:#1f6f5c;color:#fff;text-decoration:none;font-weight:600">${esc(btn.label)}</a>`,
+                `<a href="${btn.url}" style="display:inline-block;margin:0 8px 8px 0;padding:11px 18px;border-radius:999px;background:#0b5a45;color:#fff;text-decoration:none;font-weight:600">${esc(btn.label)}</a>`,
             )
             .join("")}</div>`
         : "";
@@ -73,7 +73,7 @@ export function layout(opts: { greeting: string; blocks: EmailBlock[]; unsubscri
     .join("");
   const html = `<!doctype html><html><body style="margin:0;background:#f6f3ee;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1d2a26">
 <div style="max-width:560px;margin:0 auto;padding:28px 20px">
-<div style="font-weight:700;color:#1f6f5c;margin-bottom:18px">${esc(BRAND_NAME)}</div>
+<div style="margin-bottom:18px"><img src="${appUrl()}/images/logo.png" alt="${esc(BRAND_NAME)}" width="190" height="44" style="display:block;border:0;height:44px;width:auto"></div>
 <div style="background:#fff;border-radius:14px;padding:24px">
 <p style="margin:0 0 14px;line-height:1.55">${esc(opts.greeting)}</p>
 ${htmlBlocks}

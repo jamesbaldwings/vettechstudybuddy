@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { BRAND_NAME, TRADEMARK_NOTE } from "@/config";
-import { BuddyAvatar } from "@/components/Buddy";
 import { RegisterSW } from "@/components/PWA";
 
 export const metadata: Metadata = {
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1f6f5c",
+  themeColor: "#0b5a45",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -36,9 +35,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <RegisterSW />
         <header className="site-header">
           <div className="wrap">
-            <Link href="/" className="brand">
-              <BuddyAvatar size={34} />
-              {BRAND_NAME}
+            <Link href="/" className="brand" aria-label={`${BRAND_NAME} home`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo.webp" alt={BRAND_NAME} width={760} height={176} className="logo" />
             </Link>
           </div>
         </header>

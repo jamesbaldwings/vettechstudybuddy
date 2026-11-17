@@ -2,7 +2,7 @@
 // Pages: network first, falling back to the cached copy, then to /offline.
 // Built assets: cache first (their file names change on every deploy).
 // API calls are never cached.
-const VERSION = "v1";
+const VERSION = "v2";
 const STATIC = `static-${VERSION}`;
 const PAGES = `pages-${VERSION}`;
 const PRECACHE = ["/", "/quiz", "/offline", "/manifest.webmanifest", "/icons/icon-192.png", "/icons/icon-512.png"];
