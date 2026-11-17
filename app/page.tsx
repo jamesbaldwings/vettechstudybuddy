@@ -5,20 +5,32 @@ import { BUDDY_NAME, FOUNDER_LINE } from "@/config";
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <h1>A study buddy for the VTNE. Only the VTNE.</h1>
-        <p className="lede">
-          Take a free 25-question diagnostic weighted like the real exam. See where you stand, get a plan built around your
-          test date, and have someone in your corner until you pass.
-        </p>
-        <Link href="/quiz" className="btn">
-          Start the free diagnostic
-        </Link>
-        <div className="pills">
-          <span className="pill">About 15 minutes</span>
-          <span className="pill">No timer</span>
-          <span className="pill">Free</span>
-          <span className="pill">🎙️ Voice study buddy</span>
+      <section className="hero-photo">
+        <picture>
+          <source media="(max-width: 700px)" srcSet="/images/hero-vet-techs-800.webp" />
+          <img
+            src="/images/hero-vet-techs.webp"
+            alt="Smiling veterinary technicians in scrubs holding a cat, a rabbit, a bearded dragon and a parrot, with a golden retriever"
+            width={1280}
+            height={720}
+            fetchPriority="high"
+          />
+        </picture>
+        <div className="hero-copy">
+          <h1>A study buddy for the VTNE. Only the VTNE.</h1>
+          <p className="lede">
+            Take a free 25-question diagnostic weighted like the real exam. See where you stand, get a plan built around your
+            test date, and talk it through out loud with {BUDDY_NAME} until you pass.
+          </p>
+          <Link href="/quiz" className="btn">
+            Start the free diagnostic
+          </Link>
+          <div className="pills">
+            <span className="pill">About 15 minutes</span>
+            <span className="pill">No timer</span>
+            <span className="pill">Free</span>
+            <span className="pill">🎙️ Voice study buddy</span>
+          </div>
         </div>
       </section>
 

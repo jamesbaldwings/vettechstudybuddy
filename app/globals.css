@@ -34,6 +34,8 @@ p { margin: 0 0 14px; }
 
 .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
 .site-header { padding: 18px 0; }
+.site-header .wrap { max-width: 1120px; }
+@media (min-width: 900px) { .site-header .wrap { padding: 0 40px; } }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; }
 .brand { font-weight: 800; color: var(--brand); text-decoration: none; display: flex; align-items: center; gap: 10px; }
 .site-footer { color: var(--muted); font-size: 13px; padding: 40px 0 30px; }
@@ -157,3 +159,20 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .cap.sara strong { color: var(--brand); }
 .cap.you strong { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .voice-orb.talking { animation: none; box-shadow: 0 0 0 8px var(--brand-soft); } }
+
+/* Photo hero: full-bleed image with the headline over the open window side on desktop, stacked on phones. */
+.hero-photo { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-top: -6px; margin-bottom: 8px; }
+.hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 96% 40%; }
+.hero-copy { max-width: 760px; margin: 0 auto; padding: 22px 20px 6px; }
+.hero-copy .lede { font-size: 19px; color: var(--muted); }
+@media (min-width: 900px) {
+  .hero-photo { min-height: 620px; overflow: hidden; }
+  .hero-photo img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: right 22%; }
+  .hero-photo::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(246,243,238,0.98) 0%, rgba(246,243,238,0.92) 34%, rgba(246,243,238,0.3) 50%, rgba(246,243,238,0) 58%);
+  }
+  .hero-copy { position: relative; z-index: 2; max-width: 1120px; padding: 90px 40px; }
+  .hero-copy > * { max-width: 440px; }
+  .hero-copy h1 { font-size: 48px; }
+}

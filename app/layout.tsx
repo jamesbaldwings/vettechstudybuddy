@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   description:
     "A free 25-question VTNE diagnostic weighted like the real exam, with a study plan built around your exam date and a study buddy who checks in until test day.",
   applicationName: BRAND_NAME,
+  metadataBase: new URL(process.env.APP_URL || "https://vettechstudybuddy.com"),
+  openGraph: {
+    title: `${BRAND_NAME}: your VTNE study buddy`,
+    description: "Free VTNE diagnostic, a plan around your exam date, and a voice study buddy who helps you pass.",
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
+    type: "website",
+  },
   appleWebApp: { capable: true, title: "Study Buddy", statusBarStyle: "default" },
   icons: { apple: "/icons/apple-touch-icon.png" },
   formatDetection: { telephone: false },
