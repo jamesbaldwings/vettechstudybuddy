@@ -182,9 +182,6 @@ export default function VoiceBuddy({ attemptToken }: { attemptToken: string }) {
           {remaining !== null && (remaining > 0 ? `You have ${remaining} more today.` : "That was your last one for today. See you tomorrow!")}
         </p>
       )}
-      <p className="muted small" style={{ marginTop: 10, marginBottom: 0 }}>
-        {BUDDY_NAME} is an AI study buddy for exam prep, not veterinary advice. For a real animal, call your veterinarian.
-      </p>
     </section>
   );
 }
