@@ -14,6 +14,14 @@ A free 25-question VTNE diagnostic with a study-buddy guide ("Scout"), exam-date
 | `/unsubscribe/[token]` | Unsubscribe page; email clients also get one-click unsubscribe |
 | `/admin?key=ADMIN_KEY` | Starts, completions, email capture rate, average score and confidence, reported pass rate, exam months, most-missed questions, emails sent, latest sign-ups |
 
+## Installable app (PWA)
+
+The site installs to the home screen on iPhone, Android and desktop, opening full screen with its own icon.
+- `app/manifest.ts` is the app manifest; the icons are in `public/icons`.
+- `public/sw.js` is the service worker. Pages already opened, such as a student's results and plan, work offline; other pages fall back to `/offline`. API calls are never cached.
+- The results page shows an install card: a one-tap Install button on Android and desktop Chrome, and "Add to Home Screen" instructions on iPhone.
+- When you change `sw.js`, bump `VERSION` so old caches are cleared.
+
 ## Automatic emails
 
 Sent by a daily job (`POST /api/cron`). Each email goes out once per lead, even if the job runs twice.

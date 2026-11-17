@@ -138,3 +138,5 @@ table.stats th, table.stats td { text-align: left; padding: 8px 6px; border-bott
 .review summary::after { content: "Show answer"; display: block; color: var(--brand); font-size: 14px; font-weight: 600; margin-top: 6px; }
 .review[open] summary::after { content: "Hide answer"; }
 .review[open] summary { margin-bottom: 10px; }
+.install { border-color: var(--brand); background: var(--brand-soft); }
+body { padding-bottom: env(safe-area-inset-bottom); }

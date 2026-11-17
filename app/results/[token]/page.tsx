@@ -6,6 +6,7 @@ import { BAND_COPY, DomainScore, bandFor, rankWeakDomains } from "@/lib/scoring"
 import { buildPlan, examLabel } from "@/lib/plan";
 import { todayISO } from "@/lib/dates";
 import { Buddy } from "@/components/Buddy";
+import { InstallPrompt } from "@/components/PWA";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Your VTNE diagnostic results", robots: { index: false } };
@@ -66,6 +67,8 @@ export default async function ResultsPage({ params }: { params: Promise<{ token:
           {band.line}
         </p>
       </div>
+
+      <InstallPrompt />
 
       <section className="card">
         <h2>Where to focus first</h2>
