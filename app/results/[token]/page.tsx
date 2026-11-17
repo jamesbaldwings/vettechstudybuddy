@@ -8,6 +8,7 @@ import { todayISO } from "@/lib/dates";
 import { Buddy } from "@/components/Buddy";
 import { InstallPrompt } from "@/components/PWA";
 import VoiceBuddy from "@/components/VoiceBuddy";
+import { currentLead } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Your VTNE diagnostic results", robots: { index: false } };
@@ -25,8 +26,16 @@ interface Row {
   lead_token: string | null;
 }
 
-export default async function ResultsPage({ params }: { params: Promise<{ token: string }> }) {
+export default async function ResultsPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ token: string }>;
+  searchParams: Promise<{ signin?: string }>;
+}) {
   const { token } = await params;
+  const { signin } = await searchParams;
+  const me = await currentLead();
   const res = await db().query<Row>(
     `SELECT a.confidence, a.answers, a.score, a.domain_scores, l.first_name, l.exam_date, l.target_month, l.token AS lead_token
      FROM attempts a LEFT JOIN leads l ON l.id = a.lead_id
@@ -68,6 +77,19 @@ export default async function ResultsPage({ params }: { params: Promise<{ token:
           {band.line}
         </p>
       </div>
+
+      {signin === "sent" && (
+        <div className="card notice">
+          <strong>You already have an account with that email.</strong> We emailed you a sign-in link. Use it to get back to your study home.
+        </div>
+      )}
+      {me && (
+        <p className="center">
+          <Link href="/home" className="btn">
+            Go to my study home
+          </Link>
+        </p>
+      )}
 
       {r.lead_token && <VoiceBuddy attemptToken={token} />}
 

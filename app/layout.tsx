@@ -39,13 +39,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/logo.webp" alt={BRAND_NAME} width={760} height={176} className="logo" />
             </Link>
+            <nav className="site-nav">
+              <Link href="/pricing">Pricing</Link>
+              <Link href="/home" className="btn secondary">
+                My study home
+              </Link>
+            </nav>
           </div>
         </header>
         <main className="wrap">{children}</main>
         <footer className="site-footer">
           <div className="wrap">
             <p>
-              {TRADEMARK_NOTE} <Link href="/privacy">Privacy</Link>
+              {TRADEMARK_NOTE} <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}
+              <Link href="/refunds">Refunds and pass guarantee</Link>
             </p>
           </div>
         </footer>

@@ -300,7 +300,7 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
       });
       const j = await res.json();
       if (!res.ok) throw new Error(j.error || "Something went wrong.");
-      onSaved(j.resultsUrl);
+      onSaved(j.signInSent ? `${j.resultsUrl}?signin=sent` : j.resultsUrl);
     } catch (e2) {
       setErr(String((e2 as Error).message));
       setBusy(false);

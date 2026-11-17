@@ -91,3 +91,17 @@ curl -X POST "http://localhost:3000/api/cron?today=2027-03-08" -H "authorization
 - A full practice-question bank and timed practice exams
 - Text chat with Sara using the same rules as voice
 - A retake plan built from the student's AAVSB score report
+
+## Student platform
+
+- **Accounts:** email sign-in links (no passwords). Signing up from the diagnostic signs a new student in. An email that already has an account gets a link instead, so nobody can get into someone else's account by typing their email.
+- **Study home** (`/home`): VTNE countdown, pass status with "Start my 90 days", readiness score, voice minutes.
+- **Passes:** Stripe Checkout (`/api/checkout`), webhook at `/api/stripe/webhook` (event `checkout.session.completed`, plus `charge.refunded`). Passes wait until the student presses Start (must start within 12 months). Founding price for the first `FOUNDING_LIMIT` Exam Passes.
+- **Voice minutes:** every account gets 10 free minutes. Passes add 300/100/200; extra voice adds 60. Sessions are charged on the server by elapsed time; sessions the browser never closes are charged 10 minutes after 15 minutes.
+- **Practice** (`/practice`): smart mix weighted by VTNE topic weight and weakness, by topic, or missed questions. Free accounts get `FREE_DAILY_PRACTICE` a day.
+- **Practice exams** (`/exam`, pass holders): up to 150 questions weighted like the VTNE, 72 seconds each, flags, autosave, scored automatically when time runs out.
+- **Text chat with Sara** (`/sara?mode=text`, pass holders): same ElevenLabs agent in text-only mode.
+- **Owner admin** (`/admin`, sign in with `ADMIN_KEY`): overview, sales, students (grant free passes, e.g. the pass guarantee), question bank editor (draft → reviewed → retired), question reports.
+- **Daily job** also sends a reminder 7 days before a pass ends.
+
+To turn on payments: set `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`, and add a webhook endpoint `https://vettechstudybuddy.com/api/stripe/webhook` for `checkout.session.completed` and `charge.refunded`.

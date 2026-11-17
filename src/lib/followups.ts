@@ -1,3 +1,5 @@
+import { passEndingMessage } from "@/lib/accountEmails";
+import { PLANS, PlanId } from "@/config";
 import { db } from "@/lib/db";
 import { addDays, prettyDate, todayISO } from "@/lib/dates";
 import { layout, links, sendEmail } from "@/lib/email";
@@ -208,7 +210,7 @@ export const LEAD_SELECT = `
   ) a ON true`;
 
 // Claim the email in the log first, so two overlapping runs can't double-send.
-export async function sendOnce(lead: LeadRow, kind: string, build: () => ReturnType<typeof welcomeEmail>) {
+export async function sendOnce(lead: { id: string }, kind: string, build: () => ReturnType<typeof welcomeEmail>) {
   const claim = await db().query(
     `INSERT INTO email_log (lead_id, kind, status) VALUES ($1, $2, 'pending')
      ON CONFLICT (lead_id, kind) DO UPDATE SET status = 'pending', error = NULL WHERE email_log.status = 'error'
@@ -226,7 +228,7 @@ export async function sendOnce(lead: LeadRow, kind: string, build: () => ReturnT
 }
 
 export async function runFollowups(today = todayISO()) {
-  const leads = (await db().query<LeadRow>(`${LEAD_SELECT} WHERE l.unsubscribed_at IS NULL AND (l.outcome IS NULL OR l.outcome <> 'passed')`)).rows;
+  const leads = (await db().query<LeadRow>(`${LEAD_SELECT} WHERE l.unsubscribed_at IS NULL AND l.marketing_ok AND (l.outcome IS NULL OR l.outcome <> 'passed')`)).rows;
   const logs = await db().query<{ lead_id: string; kind: string }>(`SELECT lead_id, kind FROM email_log WHERE status <> 'error'`);
   const sentByLead = new Map<string, Set<string>>();
   for (const r of logs.rows) {
@@ -243,6 +245,20 @@ export async function runFollowups(today = todayISO()) {
         summary[k] = (summary[k] ?? 0) + 1;
       }
     }
+  }
+  // Passes ending in the next 7 days, for students who haven't opted out of email.
+  const ending = await db().query<{ id: string; lead_id: string; plan: PlanId; expires_at: Date; email: string; first_name: string | null; token: string }>(
+    `SELECT p.id, p.lead_id, p.plan, p.expires_at, l.email, l.first_name, l.token FROM purchases p JOIN leads l ON l.id = p.lead_id
+     WHERE p.status = 'paid' AND l.unsubscribed_at IS NULL AND p.expires_at > $1::date AND p.expires_at <= $1::date + 7
+       AND NOT EXISTS (SELECT 1 FROM purchases n WHERE n.lead_id = p.lead_id AND n.status = 'paid' AND n.plan <> 'extra_voice' AND n.id <> p.id
+                       AND (n.activated_at IS NULL OR n.expires_at > p.expires_at))`,
+    [today],
+  );
+  for (const p of ending.rows) {
+    const status = await sendOnce({ id: p.lead_id }, `pass_ending:${p.id}`, () =>
+      passEndingMessage(p.email, p.first_name, p.token, PLANS[p.plan].name, p.expires_at),
+    );
+    if (status) summary[`pass_ending:${status}`] = (summary[`pass_ending:${status}`] ?? 0) + 1;
   }
   return { today, leadsChecked: leads.length, sent: summary };
 }

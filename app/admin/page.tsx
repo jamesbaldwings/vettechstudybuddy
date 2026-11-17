@@ -1,4 +1,5 @@
-import { notFound } from "next/navigation";
+import { requireAdmin } from "@/lib/auth";
+import AdminNav from "./AdminNav";
 import { db } from "@/lib/db";
 import { QUESTIONS, domainById } from "@/data/questions";
 
@@ -7,9 +8,8 @@ export const metadata = { title: "Admin", robots: { index: false } };
 
 const pct = (a: number, b: number) => (b ? `${Math.round((a / b) * 100)}%` : "–");
 
-export default async function Admin({ searchParams }: { searchParams: Promise<{ key?: string }> }) {
-  const { key } = await searchParams;
-  if (!process.env.ADMIN_KEY || key !== process.env.ADMIN_KEY) notFound();
+export default async function Admin() {
+  await requireAdmin();
   const q = <T,>(sql: string, p: unknown[] = []) => db().query(sql, p).then((r) => r.rows as T[]);
 
   const [[totals], firstOutcomes, months, emails, answers, recent, [voice]] = await Promise.all([
@@ -61,6 +61,7 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
 
   return (
     <>
+      <AdminNav current="/admin" />
       <h1>Diagnostic dashboard</h1>
       <div className="kpis" style={{ marginBottom: 18 }}>
         <div className="kpi"><span className="muted small">Started</span><b>{starts}</b></div>
