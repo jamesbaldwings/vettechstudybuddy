@@ -1,0 +1,2004 @@
+[
+ {
+  "id": "d-pharm-001",
+  "domain": "pharm",
+  "stem": "Which DEA form is required to order Schedule II controlled substances?",
+  "options": [
+   "DEA Form 106",
+   "DEA Form 222",
+   "DEA Form 41",
+   "DEA Form 224"
+  ],
+  "answer": 1,
+  "explanation": "DEA Form 222 (or its electronic equivalent, CSOS) is used to order Schedule I and II drugs. Form 41 records destruction, Form 106 reports theft or loss, and Form 224 is the practitioner registration."
+ },
+ {
+  "id": "d-pharm-002",
+  "domain": "pharm",
+  "stem": "A clinic discovers that a bottle of ketamine is missing and theft is suspected. Which DEA form is used to report it?",
+  "options": [
+   "DEA Form 222",
+   "DEA Form 106",
+   "DEA Form 41",
+   "DEA Form 224"
+  ],
+  "answer": 1,
+  "explanation": "Theft or significant loss of a controlled substance is reported to the DEA on Form 106. Form 41 is for drugs that were destroyed, not lost."
+ },
+ {
+  "id": "d-pharm-003",
+  "domain": "pharm",
+  "stem": "A 10 kg dog is prescribed enrofloxacin 5 mg/kg. The injectable concentration is 22.7 mg/mL. How many mL should be given?",
+  "options": [
+   "0.45 mL",
+   "1.1 mL",
+   "2.2 mL",
+   "4.5 mL"
+  ],
+  "answer": 2,
+  "explanation": "10 kg × 5 mg/kg = 50 mg. 50 mg ÷ 22.7 mg/mL = 2.2 mL. Answer 1.1 mL uses half the dose; 0.45 mL divides the wrong way."
+ },
+ {
+  "id": "d-pharm-004",
+  "domain": "pharm",
+  "stem": "A 4.5 kg cat is to receive buprenorphine at 0.02 mg/kg. The concentration is 0.3 mg/mL. What volume is drawn up?",
+  "options": [
+   "0.03 mL",
+   "0.3 mL",
+   "0.9 mL",
+   "3 mL"
+  ],
+  "answer": 1,
+  "explanation": "4.5 kg × 0.02 mg/kg = 0.09 mg. 0.09 mg ÷ 0.3 mg/mL = 0.3 mL. The other choices are decimal-place slips, the most common error with small doses."
+ },
+ {
+  "id": "d-pharm-005",
+  "domain": "pharm",
+  "stem": "Using a maintenance rate of 60 mL/kg/day, what hourly fluid rate is needed for a 20 kg dog?",
+  "options": [
+   "25 mL/h",
+   "50 mL/h",
+   "120 mL/h",
+   "1,200 mL/h"
+  ],
+  "answer": 1,
+  "explanation": "20 kg × 60 mL/kg/day = 1,200 mL/day. 1,200 mL ÷ 24 h = 50 mL/h. 1,200 is the daily total, not the hourly rate."
+ },
+ {
+  "id": "d-pharm-006",
+  "domain": "pharm",
+  "stem": "A cat needs 30 mL/h of fluids using a 60 drops/mL microdrip set. How many drops per minute should the drip run?",
+  "options": [
+   "10 drops/min",
+   "15 drops/min",
+   "30 drops/min",
+   "60 drops/min"
+  ],
+  "answer": 2,
+  "explanation": "30 mL/h × 60 drops/mL = 1,800 drops/h. 1,800 ÷ 60 min = 30 drops/min. With a 60 drop set, mL/h always equals drops/min."
+ },
+ {
+  "id": "d-pharm-007",
+  "domain": "pharm",
+  "stem": "Why should an NSAID not be given together with a corticosteroid?",
+  "options": [
+   "The steroid blocks the NSAID's pain relief",
+   "The combination greatly increases the risk of GI ulceration",
+   "Together they cause severe hypoglycemia",
+   "The NSAID inactivates the steroid in the liver"
+  ],
+  "answer": 1,
+  "explanation": "Both drug classes reduce protective prostaglandins in the stomach lining. Combined, they sharply raise the risk of gastrointestinal ulceration and perforation. A washout period is used when switching between them."
+ },
+ {
+  "id": "d-pharm-008",
+  "domain": "pharm",
+  "stem": "What is the main cardiovascular side effect of acepromazine?",
+  "options": [
+   "Tachyarrhythmias",
+   "Hypertension",
+   "Increased cardiac contractility",
+   "Hypotension from vasodilation"
+  ],
+  "answer": 3,
+  "explanation": "Acepromazine blocks alpha-1 receptors, causing vasodilation and hypotension. Use it cautiously in dehydrated, hypovolemic, or shock patients."
+ },
+ {
+  "id": "d-pharm-009",
+  "domain": "pharm",
+  "stem": "Which drug reverses the effects of dexmedetomidine?",
+  "options": [
+   "Atipamezole",
+   "Glycopyrrolate",
+   "Flumazenil",
+   "Naloxone"
+  ],
+  "answer": 0,
+  "explanation": "Atipamezole is an alpha-2 antagonist and reverses dexmedetomidine and medetomidine. Naloxone reverses opioids, and flumazenil reverses benzodiazepines."
+ },
+ {
+  "id": "d-pharm-010",
+  "domain": "pharm",
+  "stem": "A dog recovering from hydromorphone is profoundly sedated with slow breathing. Which drug reverses the opioid?",
+  "options": [
+   "Flumazenil",
+   "Glycopyrrolate",
+   "Naloxone",
+   "Atipamezole"
+  ],
+  "answer": 2,
+  "explanation": "Naloxone is a pure opioid antagonist. Remember it reverses the analgesia too, so the patient may become painful, and its action can be shorter than the opioid's."
+ },
+ {
+  "id": "d-pharm-011",
+  "domain": "pharm",
+  "stem": "Collies, Australian Shepherds, and Shelties can have severe reactions to ivermectin. What causes this?",
+  "options": [
+   "A liver enzyme deficiency",
+   "An allergy to the drug's carrier",
+   "An MDR1 (ABCB1) gene mutation that lets the drug cross the blood-brain barrier",
+   "Low serum albumin in herding breeds"
+  ],
+  "answer": 2,
+  "explanation": "The MDR1 mutation impairs P-glycoprotein, which normally pumps certain drugs out of the brain. Affected dogs can develop neurotoxicity from ivermectin, loperamide, and some chemotherapy drugs. A genetic test is available."
+ },
+ {
+  "id": "d-pharm-012",
+  "domain": "pharm",
+  "stem": "Which over-the-counter drug is especially toxic to cats because they have limited glucuronidation?",
+  "options": [
+   "Acetaminophen",
+   "Loratadine",
+   "Famotidine",
+   "Diphenhydramine"
+  ],
+  "answer": 0,
+  "explanation": "Cats can't glucuronidate acetaminophen well, so toxic metabolites cause methemoglobinemia, Heinz body anemia, and facial swelling. Even one tablet can kill a cat."
+ },
+ {
+  "id": "d-pharm-013",
+  "domain": "pharm",
+  "stem": "Which antidote is used for ethylene glycol (antifreeze) toxicity?",
+  "options": [
+   "N-acetylcysteine",
+   "Atropine",
+   "Vitamin K1",
+   "Fomepizole (4-MP)"
+  ],
+  "answer": 3,
+  "explanation": "Fomepizole blocks alcohol dehydrogenase so ethylene glycol isn't converted to its toxic metabolites. It must be given early. Ethanol is an older alternative. N-acetylcysteine is for acetaminophen."
+ },
+ {
+  "id": "d-pharm-014",
+  "domain": "pharm",
+  "stem": "A prescription reads \"1 tab PO q12h.\" What does this mean?",
+  "options": [
+   "One tablet by mouth 12 times a day",
+   "One tablet by mouth twice weekly",
+   "One tablet by mouth every 12 hours",
+   "One tablet under the tongue every 12 hours"
+  ],
+  "answer": 2,
+  "explanation": "PO means by mouth (per os) and q12h means every 12 hours, the same as BID. Spelling out instructions on the client label avoids confusion."
+ },
+ {
+  "id": "d-pharm-015",
+  "domain": "pharm",
+  "stem": "How should an unopened vial of insulin generally be stored?",
+  "options": [
+   "Refrigerated at about 2–8 °C (36–46 °F)",
+   "Frozen",
+   "In a warm water bath",
+   "At room temperature in a sunny window"
+  ],
+  "answer": 0,
+  "explanation": "Insulin is a protein and is damaged by heat, freezing, and light. Keep it refrigerated and follow the product label for how to mix it, since some products are rolled and others are shaken."
+ },
+ {
+  "id": "d-pharm-016",
+  "domain": "pharm",
+  "stem": "A dog on long-term furosemide should be monitored for which electrolyte change?",
+  "options": [
+   "Hypokalemia",
+   "Hypercalcemia",
+   "Hyperkalemia",
+   "Hypernatremia only"
+  ],
+  "answer": 0,
+  "explanation": "Furosemide is a loop diuretic that increases urinary loss of potassium, so hypokalemia is a concern, along with dehydration. Recheck electrolytes and kidney values periodically."
+ },
+ {
+  "id": "d-pharm-017",
+  "domain": "pharm",
+  "stem": "Maropitant (Cerenia) prevents vomiting by which mechanism?",
+  "options": [
+   "Blocking NK-1 receptors for substance P",
+   "Speeding gastric emptying",
+   "Neutralizing stomach acid",
+   "Blocking dopamine receptors"
+  ],
+  "answer": 0,
+  "explanation": "Maropitant is an NK-1 receptor antagonist that blocks substance P in the vomiting center. Metoclopramide is the dopamine antagonist; antacids and prokinetics act differently."
+ },
+ {
+  "id": "d-pharm-018",
+  "domain": "pharm",
+  "stem": "Why should staff wear gloves when handling chloramphenicol?",
+  "options": [
+   "It is a strong skin irritant",
+   "It can cause aplastic anemia in people",
+   "It is absorbed and causes hypoglycemia",
+   "It stains the skin"
+  ],
+  "answer": 1,
+  "explanation": "Chloramphenicol can cause a rare but often fatal idiosyncratic aplastic anemia in humans. Avoid skin contact and inhaling crushed tablets."
+ },
+ {
+  "id": "d-pharm-019",
+  "domain": "pharm",
+  "stem": "Pimobendan is used in dogs with congestive heart failure because it:",
+  "options": [
+   "Is a positive inotrope and vasodilator (inodilator)",
+   "Prevents blood clots",
+   "Is a loop diuretic",
+   "Slows the heart rate"
+  ],
+  "answer": 0,
+  "explanation": "Pimobendan increases the heart's contractility and dilates vessels, reducing the workload. It is commonly used for dilated cardiomyopathy and mitral valve disease."
+ },
+ {
+  "id": "d-pharm-020",
+  "domain": "pharm",
+  "stem": "Giving enrofloxacin to cats above the recommended dose is associated with which adverse effect?",
+  "options": [
+   "Tooth discoloration",
+   "Hearing loss",
+   "Retinal degeneration and blindness",
+   "Hepatic lipidosis"
+  ],
+  "answer": 2,
+  "explanation": "High doses of enrofloxacin can cause acute, sometimes permanent, retinal degeneration in cats. Never exceed the labeled feline dose."
+ },
+ {
+  "id": "d-surgery-001",
+  "domain": "surgery",
+  "stem": "Which organism is used in biological indicators to test steam sterilization?",
+  "options": [
+   "Bacillus atrophaeus",
+   "Staphylococcus aureus",
+   "Geobacillus stearothermophilus",
+   "Escherichia coli"
+  ],
+  "answer": 2,
+  "explanation": "Geobacillus stearothermophilus spores are highly resistant to moist heat, so if they are killed, the steam cycle worked. Bacillus atrophaeus is used for dry heat and ethylene oxide."
+ },
+ {
+  "id": "d-surgery-002",
+  "domain": "surgery",
+  "stem": "What must be done with items after ethylene oxide sterilization before they are used?",
+  "options": [
+   "Aerate them for the recommended time",
+   "Autoclave them again",
+   "Store them in a freezer",
+   "Rinse them in sterile saline"
+  ],
+  "answer": 0,
+  "explanation": "Ethylene oxide is toxic and carcinogenic and remains in materials after the cycle. Items must be aerated so residual gas dissipates before contact with patients or staff."
+ },
+ {
+  "id": "d-surgery-003",
+  "domain": "surgery",
+  "stem": "Which scissors are best for dissecting delicate tissue?",
+  "options": [
+   "Mayo scissors",
+   "Lister bandage scissors",
+   "Wire-cutting scissors",
+   "Metzenbaum scissors"
+  ],
+  "answer": 3,
+  "explanation": "Metzenbaum scissors are long and fine for delicate tissue. Mayo scissors are heavier and used for dense tissue such as fascia. Never use tissue scissors to cut suture."
+ },
+ {
+  "id": "d-surgery-004",
+  "domain": "surgery",
+  "stem": "Which needle holder has scissors built into its jaws?",
+  "options": [
+   "Mayo-Hegar",
+   "Castroviejo",
+   "Olsen-Hegar",
+   "Mathieu"
+  ],
+  "answer": 2,
+  "explanation": "The Olsen-Hegar combines a needle holder and scissors, letting a surgeon tie and cut without switching instruments. The Mayo-Hegar has no cutting blade."
+ },
+ {
+  "id": "d-surgery-005",
+  "domain": "surgery",
+  "stem": "Which of these suture materials is nonabsorbable?",
+  "options": [
+   "Polyglactin 910",
+   "Polydioxanone",
+   "Nylon",
+   "Poliglecaprone 25"
+  ],
+  "answer": 2,
+  "explanation": "Nylon is a nonabsorbable synthetic monofilament often used for skin. Polyglactin 910 (Vicryl), poliglecaprone 25 (Monocryl), and polydioxanone (PDS) are all absorbable."
+ },
+ {
+  "id": "d-surgery-006",
+  "domain": "surgery",
+  "stem": "Which suture size is the smallest diameter?",
+  "options": [
+   "2",
+   "0",
+   "2-0",
+   "4-0"
+  ],
+  "answer": 3,
+  "explanation": "With the zero system, more zeros mean a smaller diameter, so 4-0 is finer than 2-0, which is finer than 0. Sizes without zeros (1, 2) get larger as the number rises."
+ },
+ {
+  "id": "d-surgery-007",
+  "domain": "surgery",
+  "stem": "During the surgical hand scrub, how should the hands be held?",
+  "options": [
+   "Above the elbows so water runs from fingertips toward the elbows",
+   "Level with the floor",
+   "It does not matter if the scrub is long enough",
+   "Below the elbows so water runs off the fingers last"
+  ],
+  "answer": 0,
+  "explanation": "Holding the hands above the elbows lets water flow from the cleanest area (fingertips) toward the less clean area (elbows), not back onto the hands."
+ },
+ {
+  "id": "d-surgery-008",
+  "domain": "surgery",
+  "stem": "A penetrating towel clamp has been placed through a drape. If it needs to move, what is the correct action?",
+  "options": [
+   "Remove it and sterilize it with alcohol",
+   "Have the surgeon move it with a gloved hand",
+   "Reposition it carefully",
+   "Leave it in place, because its tips are now contaminated"
+  ],
+  "answer": 3,
+  "explanation": "Once a penetrating towel clamp has passed through the drape, its tips touched non-sterile skin below. Moving it could drag contamination into the field, so it should not be repositioned."
+ },
+ {
+  "id": "d-surgery-009",
+  "domain": "surgery",
+  "stem": "Which antiseptic is commonly used for the patient surgical prep because it has residual activity?",
+  "options": [
+   "Quaternary ammonium",
+   "Isopropyl alcohol alone",
+   "Hydrogen peroxide",
+   "Chlorhexidine gluconate"
+  ],
+  "answer": 3,
+  "explanation": "Chlorhexidine binds to the skin and keeps killing bacteria for hours, and it isn't inactivated by organic material as easily as povidone-iodine. Alcohol alone acts fast but has no residual effect."
+ },
+ {
+  "id": "d-surgery-010",
+  "domain": "surgery",
+  "stem": "What is the correct order for processing instruments after surgery?",
+  "options": [
+   "Clean, ultrasonic clean, lubricate, dry, pack, sterilize",
+   "Lubricate, clean, pack, sterilize",
+   "Autoclave, clean, lubricate, pack",
+   "Pack, sterilize, clean, lubricate"
+  ],
+  "answer": 0,
+  "explanation": "Debris must be removed first so sterilant can reach every surface. Ultrasonic cleaning reaches box locks and serrations, instrument milk protects the joints, and then items are dried, packed, and sterilized."
+ },
+ {
+  "id": "d-surgery-011",
+  "domain": "surgery",
+  "stem": "How should hinged instruments be placed in a pack for autoclaving?",
+  "options": [
+   "Fully closed and locked",
+   "Locked on the first ratchet",
+   "Wrapped tightly in tape",
+   "Open or unlocked"
+  ],
+  "answer": 3,
+  "explanation": "Steam must reach the box lock and jaws. Locking an instrument blocks steam and can cause cracks at the box lock from heat expansion."
+ },
+ {
+  "id": "d-surgery-012",
+  "domain": "surgery",
+  "stem": "Which instrument is used to locate and lift the uterine horn during a canine spay?",
+  "options": [
+   "Rochester-Carmalt forceps",
+   "Senn retractor",
+   "Ovariectomy (spay/Snook) hook",
+   "Allis tissue forceps"
+  ],
+  "answer": 2,
+  "explanation": "The spay hook is slid along the body wall to hook the uterine horn and lift it through a small incision. Carmalt forceps are then used to clamp the pedicles."
+ },
+ {
+  "id": "d-surgery-013",
+  "domain": "surgery",
+  "stem": "For a routine canine castration, where is the incision usually made?",
+  "options": [
+   "On the ventral midline of the abdomen",
+   "Through the scrotal skin",
+   "In the inguinal fold",
+   "Prescrotal, just cranial to the scrotum"
+  ],
+  "answer": 3,
+  "explanation": "The prescrotal approach avoids the thin, sensitive scrotal skin. Feline castration, by contrast, is done through scrotal incisions."
+ },
+ {
+  "id": "d-surgery-014",
+  "domain": "surgery",
+  "stem": "Two days after surgery, a dog has a soft, fluctuant, non-painful swelling under the incision with no discharge. What is the most likely cause?",
+  "options": [
+   "Abscess",
+   "Suture reaction with infection",
+   "Wound dehiscence",
+   "Seroma"
+  ],
+  "answer": 3,
+  "explanation": "A seroma is a pocket of serum, often from dead space or too much activity. An abscess is usually hot and painful, and dehiscence means the wound edges have separated."
+ },
+ {
+  "id": "d-surgery-015",
+  "domain": "surgery",
+  "stem": "Which of these is a self-retaining retractor?",
+  "options": [
+   "Allis",
+   "Gelpi",
+   "Army-Navy",
+   "Senn"
+  ],
+  "answer": 1,
+  "explanation": "Gelpi and Weitlaner retractors lock open on their own. Senn and Army-Navy are handheld retractors, and Allis forceps grasp tissue."
+ },
+ {
+  "id": "d-surgery-016",
+  "domain": "surgery",
+  "stem": "Why must the electrosurgery ground plate have good contact with the patient?",
+  "options": [
+   "To improve hemostasis at the incision",
+   "To stop the unit from beeping",
+   "To prevent burns where current exits the body",
+   "To lower the anesthetic requirement"
+  ],
+  "answer": 2,
+  "explanation": "With poor contact, the returning current concentrates in a small area and can cause serious burns. Use conductive gel and check the plate whenever the patient is moved."
+ },
+ {
+  "id": "d-surgery-017",
+  "domain": "surgery",
+  "stem": "Which of these makes a sterile pack contaminated?",
+  "options": [
+   "Its wrap became wet",
+   "It was stored on a closed shelf",
+   "It was handled with clean, dry hands",
+   "It has an external indicator that changed color"
+  ],
+  "answer": 0,
+  "explanation": "Moisture wicks bacteria through the wrap (strike-through). A wet, torn, or dropped pack must be considered contaminated."
+ },
+ {
+  "id": "d-surgery-018",
+  "domain": "surgery",
+  "stem": "Surgery to repair a perforated intestine that leaked into the abdomen is classified as:",
+  "options": [
+   "Clean-contaminated",
+   "Contaminated",
+   "Clean",
+   "Dirty"
+  ],
+  "answer": 3,
+  "explanation": "A dirty wound has an existing infection or a perforated viscus. Clean-contaminated means a hollow organ was entered under controlled conditions with minimal spillage."
+ },
+ {
+  "id": "d-surgery-019",
+  "domain": "surgery",
+  "stem": "Which forceps are designed to grasp hollow organs like the intestine with minimal trauma?",
+  "options": [
+   "Allis",
+   "Rat-tooth thumb forceps",
+   "Babcock",
+   "Backhaus towel clamps"
+  ],
+  "answer": 2,
+  "explanation": "Babcock forceps have wide, smooth, fenestrated jaws that hold bowel gently. Allis forceps have small teeth and are more traumatic."
+ },
+ {
+  "id": "d-surgery-020",
+  "domain": "surgery",
+  "stem": "An assistant is not sure whether an item on the instrument table is still sterile. What should be done?",
+  "options": [
+   "Ask the client",
+   "Wipe it with alcohol",
+   "Use it, since it was sterile when opened",
+   "Consider it contaminated and replace it"
+  ],
+  "answer": 3,
+  "explanation": "The rule of aseptic technique is: if in doubt, consider it contaminated. A doubtful item is replaced."
+ },
+ {
+  "id": "d-dentistry-001",
+  "domain": "dentistry",
+  "stem": "How many permanent teeth does an adult dog have?",
+  "options": [
+   "28",
+   "30",
+   "42",
+   "44"
+  ],
+  "answer": 2,
+  "explanation": "Dogs have 42 permanent teeth. Cats have 30. Puppies have 28 deciduous teeth."
+ },
+ {
+  "id": "d-dentistry-002",
+  "domain": "dentistry",
+  "stem": "How many permanent teeth does an adult cat have?",
+  "options": [
+   "26",
+   "30",
+   "38",
+   "42"
+  ],
+  "answer": 1,
+  "explanation": "Cats have 30 permanent teeth and 26 deciduous teeth."
+ },
+ {
+  "id": "d-dentistry-003",
+  "domain": "dentistry",
+  "stem": "Using the modified Triadan system, what is the number of a cat's left mandibular first molar?",
+  "options": [
+   "309",
+   "409",
+   "307",
+   "209"
+  ],
+  "answer": 0,
+  "explanation": "Quadrant 3 is the left mandible. The rule of 4 and 9 says the canine is always 04 and the first molar always 09, even though cats are missing some teeth, so the tooth is 309."
+ },
+ {
+  "id": "d-dentistry-004",
+  "domain": "dentistry",
+  "stem": "Which hand instrument is designed for use below the gumline?",
+  "options": [
+   "Extraction forceps",
+   "Curette",
+   "Sickle scaler",
+   "Ultrasonic scaler on high power"
+  ],
+  "answer": 1,
+  "explanation": "Curettes have a rounded toe and back so they can go into the sulcus without cutting the gingiva. Sickle scalers have a sharp tip and are for above the gumline only."
+ },
+ {
+  "id": "d-dentistry-005",
+  "domain": "dentistry",
+  "stem": "What is the normal gingival sulcus depth in a dog?",
+  "options": [
+   "8–10 mm",
+   "0–3 mm",
+   "More than 10 mm",
+   "5–7 mm"
+  ],
+  "answer": 1,
+  "explanation": "In dogs, a sulcus up to about 3 mm is normal (about 0.5–1 mm in cats). Deeper probing depths suggest periodontal pockets."
+ },
+ {
+  "id": "d-dentistry-006",
+  "domain": "dentistry",
+  "stem": "Why are the teeth polished after scaling?",
+  "options": [
+   "To whiten the enamel",
+   "To smooth microscopic scratches so plaque doesn't build up as quickly",
+   "To remove calculus below the gumline",
+   "To numb the gums"
+  ],
+  "answer": 1,
+  "explanation": "Scaling leaves a rough surface. Polishing smooths it so plaque has less to attach to. Use light pressure and keep the cup moving to avoid heating the tooth."
+ },
+ {
+  "id": "d-dentistry-007",
+  "domain": "dentistry",
+  "stem": "Which common feline dental condition involves progressive destruction of the tooth by the body's own cells?",
+  "options": [
+   "Tooth resorption",
+   "Enamel hypoplasia",
+   "Caries",
+   "Gingival hyperplasia"
+  ],
+  "answer": 0,
+  "explanation": "Tooth resorption (formerly FORLs) is very common in cats. Many lesions are below the gumline, which is why full-mouth dental radiographs are so important."
+ },
+ {
+  "id": "d-dentistry-008",
+  "domain": "dentistry",
+  "stem": "Why is the bisecting angle technique used for many dental radiographs?",
+  "options": [
+   "It uses less radiation than any other view",
+   "It removes the need for positioning aids",
+   "The film or sensor can't be placed parallel to the tooth's long axis",
+   "It shows only the crown"
+  ],
+  "answer": 2,
+  "explanation": "The palate and jaw shape prevent a parallel sensor for most teeth. Aiming the beam perpendicular to the line bisecting the angle between tooth and sensor reduces elongation and foreshortening."
+ },
+ {
+  "id": "d-dentistry-009",
+  "domain": "dentistry",
+  "stem": "A 7-month-old puppy has a retained deciduous canine next to the erupted permanent canine. What is usually recommended?",
+  "options": [
+   "Extract the deciduous tooth",
+   "Extract the permanent canine",
+   "Wait until it falls out",
+   "File the deciduous tooth down"
+  ],
+  "answer": 0,
+  "explanation": "Two teeth should never occupy the same space. Retained deciduous teeth trap plaque and push permanent teeth out of place, so prompt extraction is recommended."
+ },
+ {
+  "id": "d-dentistry-010",
+  "domain": "dentistry",
+  "stem": "During a dental procedure, why is the patient's head positioned slightly lower than the body?",
+  "options": [
+   "To let fluid and debris drain out of the mouth instead of toward the airway",
+   "To make the teeth easier to see",
+   "To improve blood flow to the brain",
+   "To lower blood pressure"
+  ],
+  "answer": 0,
+  "explanation": "Lowering the head and keeping a properly inflated endotracheal tube cuff help keep water and debris out of the airway. Packing the pharynx with gauze adds protection."
+ },
+ {
+  "id": "d-dentistry-011",
+  "domain": "dentistry",
+  "stem": "On an AVDC dental chart, what does the abbreviation X mean?",
+  "options": [
+   "Mobile tooth",
+   "Fractured tooth",
+   "Missing tooth",
+   "Extraction"
+  ],
+  "answer": 3,
+  "explanation": "AVDC uses X for an extraction. A missing tooth is O. Charting each finding clearly matters for legal records and later visits."
+ },
+ {
+  "id": "d-lab-001",
+  "domain": "lab",
+  "stem": "Where on a blood smear should a white blood cell differential be performed?",
+  "options": [
+   "The thick base near the drop",
+   "The monolayer, just behind the feathered edge",
+   "The very tip of the feathered edge",
+   "The edges of the slide"
+  ],
+  "answer": 1,
+  "explanation": "In the monolayer, cells lie flat and don't overlap, so they can be identified accurately. Large cells collect at the feathered edge, which would skew the count."
+ },
+ {
+  "id": "d-lab-002",
+  "domain": "lab",
+  "stem": "In a spun PCV tube, what makes up the buffy coat?",
+  "options": [
+   "Plasma proteins",
+   "Fibrinogen only",
+   "White blood cells and platelets",
+   "Red blood cells"
+  ],
+  "answer": 2,
+  "explanation": "The buffy coat is the thin white layer between packed RBCs and plasma. A thick buffy coat suggests a high WBC count."
+ },
+ {
+  "id": "d-lab-003",
+  "domain": "lab",
+  "stem": "Which blood tube contains sodium citrate and is used for coagulation tests?",
+  "options": [
+   "Red top",
+   "Light blue top",
+   "Green top",
+   "Lavender top"
+  ],
+  "answer": 1,
+  "explanation": "Light blue tubes contain sodium citrate for PT and aPTT. They must be filled to the line so the blood-to-anticoagulant ratio is correct."
+ },
+ {
+  "id": "d-lab-004",
+  "domain": "lab",
+  "stem": "Which practice is most likely to cause hemolysis in a blood sample?",
+  "options": [
+   "Using a large-gauge needle",
+   "Gently inverting the tube",
+   "Forcing blood quickly through a small needle into the tube",
+   "Spinning the sample promptly"
+  ],
+  "answer": 2,
+  "explanation": "Shear force ruptures red cells. Remove the needle and let blood flow gently down the side of the tube. Hemolysis interferes with many chemistry values."
+ },
+ {
+  "id": "d-lab-005",
+  "domain": "lab",
+  "stem": "A urine specific gravity of 1.010 in a dehydrated dog is called:",
+  "options": [
+   "Normal concentration",
+   "Isosthenuria",
+   "Glucosuria",
+   "Hypersthenuria"
+  ],
+  "answer": 1,
+  "explanation": "Isosthenuria (about 1.008–1.012) means urine is the same concentration as plasma. In a dehydrated patient, it suggests the kidneys can't concentrate urine."
+ },
+ {
+  "id": "d-lab-006",
+  "domain": "lab",
+  "stem": "Most in-clinic heartworm antigen tests detect:",
+  "options": [
+   "Larvae in the mosquito",
+   "Antigen from adult female worms",
+   "Antibodies from the dog",
+   "Microfilariae"
+  ],
+  "answer": 1,
+  "explanation": "Antigen tests detect a protein released mostly by adult female Dirofilaria immitis. Infections with only male worms or very young worms may be missed."
+ },
+ {
+  "id": "d-lab-007",
+  "domain": "lab",
+  "stem": "What is the main purpose of the modified Knott test?",
+  "options": [
+   "Culturing bacteria",
+   "Detecting heartworm antigen",
+   "Measuring clotting time",
+   "Concentrating microfilariae so they can be identified"
+  ],
+  "answer": 3,
+  "explanation": "The modified Knott test lyses red cells and concentrates microfilariae, which helps tell Dirofilaria immitis from Acanthocheilonema reconditum by size and shape."
+ },
+ {
+  "id": "d-lab-008",
+  "domain": "lab",
+  "stem": "Which urine crystals look like \"coffin lids\"?",
+  "options": [
+   "Struvite (magnesium ammonium phosphate)",
+   "Ammonium urate",
+   "Bilirubin",
+   "Calcium oxalate dihydrate"
+  ],
+  "answer": 0,
+  "explanation": "Struvite crystals are colorless prisms shaped like coffin lids and are common in alkaline urine. Calcium oxalate dihydrate crystals look like envelopes."
+ },
+ {
+  "id": "d-lab-009",
+  "domain": "lab",
+  "stem": "Which urine crystals are most associated with ethylene glycol toxicity?",
+  "options": [
+   "Cystine",
+   "Calcium oxalate monohydrate",
+   "Struvite",
+   "Bilirubin"
+  ],
+  "answer": 1,
+  "explanation": "Ethylene glycol is metabolized to oxalate. Calcium oxalate monohydrate crystals look like picket fences or dumbbells and may appear within hours of ingestion."
+ },
+ {
+  "id": "d-lab-010",
+  "domain": "lab",
+  "stem": "On ear cytology, you see many small, peanut- or footprint-shaped organisms. What are they?",
+  "options": [
+   "Malassezia yeast",
+   "Rods",
+   "Otodectes mites",
+   "Cocci"
+  ],
+  "answer": 0,
+  "explanation": "Malassezia pachydermatis has a distinctive peanut or snowman shape. Cocci are tiny round bacteria and rods are rod-shaped. Ear mites are seen in mineral-oil preparations, not stained slides."
+ },
+ {
+  "id": "d-lab-011",
+  "domain": "lab",
+  "stem": "On dermatophyte test medium (DTM), which finding suggests a dermatophyte?",
+  "options": [
+   "A white or pale colony with the medium turning red at the same time",
+   "A black colony with yellow medium",
+   "Any growth after 4 weeks",
+   "A dark green colony with no color change"
+  ],
+  "answer": 0,
+  "explanation": "Dermatophytes use protein first, raising the pH and turning the medium red as the pale colony appears. Contaminants often turn it red later, after dark colonies grow."
+ },
+ {
+  "id": "d-lab-012",
+  "domain": "lab",
+  "stem": "How deep should a skin scraping for Demodex be?",
+  "options": [
+   "Deep enough to cut the dermis",
+   "Only the surface crust",
+   "Just touching the hair",
+   "Until capillary bleeding is seen"
+  ],
+  "answer": 3,
+  "explanation": "Demodex lives in hair follicles, so scraping until capillary oozing appears is needed. Squeezing the skin first helps push mites out."
+ },
+ {
+  "id": "d-lab-013",
+  "domain": "lab",
+  "stem": "Which stain is used to count reticulocytes?",
+  "options": [
+   "Diff-Quik",
+   "Acid-fast stain",
+   "Gram stain",
+   "New methylene blue"
+  ],
+  "answer": 3,
+  "explanation": "New methylene blue stains the ribosomal RNA in reticulocytes, which shows as blue granules. Reticulocyte counts show whether an anemia is regenerative."
+ },
+ {
+  "id": "d-lab-014",
+  "domain": "lab",
+  "stem": "What happens to the glucose value if a blood sample sits for an hour before the serum is separated?",
+  "options": [
+   "It becomes unmeasurable",
+   "It stays the same",
+   "It drops falsely",
+   "It rises falsely"
+  ],
+  "answer": 2,
+  "explanation": "Red cells keep using glucose, so the value can fall by roughly 10% per hour. Separate serum promptly or use a fluoride tube."
+ },
+ {
+  "id": "d-nursing-001",
+  "domain": "nursing",
+  "stem": "What is the normal rectal temperature range for an adult dog?",
+  "options": [
+   "97.0–98.5 °F",
+   "100.0–102.5 °F",
+   "103.0–104.5 °F",
+   "98.6 °F exactly"
+  ],
+  "answer": 1,
+  "explanation": "Normal canine rectal temperature is about 100–102.5 °F (37.8–39.2 °C). Stress in the clinic can push it a little higher."
+ },
+ {
+  "id": "d-nursing-002",
+  "domain": "nursing",
+  "stem": "What is a normal resting respiratory rate for an adult dog?",
+  "options": [
+   "4–8 breaths/min",
+   "10–30 breaths/min",
+   "40–60 breaths/min",
+   "60–80 breaths/min"
+  ],
+  "answer": 1,
+  "explanation": "A resting adult dog breathes about 10–30 times a minute. Panting is not a resting rate. Count when the patient is calm."
+ },
+ {
+  "id": "d-nursing-003",
+  "domain": "nursing",
+  "stem": "What is a normal capillary refill time?",
+  "options": [
+   "5–6 seconds",
+   "More than 6 seconds",
+   "3–4 seconds",
+   "Less than 2 seconds"
+  ],
+  "answer": 3,
+  "explanation": "Pink gums that refill in under 2 seconds indicate adequate peripheral perfusion. A prolonged CRT suggests poor perfusion, as in shock or dehydration."
+ },
+ {
+  "id": "d-nursing-004",
+  "domain": "nursing",
+  "stem": "A dog's skin tent returns slowly and mucous membranes are tacky, but eyes are normal. Estimated dehydration is about:",
+  "options": [
+   "6–8%",
+   "Over 15%",
+   "Less than 5%",
+   "10–12%"
+  ],
+  "answer": 0,
+  "explanation": "Mild tenting delay with tacky membranes fits about 6–8%. Sunken eyes and a markedly prolonged tent suggest 10–12%, and shock signs suggest 12% or more."
+ },
+ {
+  "id": "d-nursing-005",
+  "domain": "nursing",
+  "stem": "On a 9-point body condition scale, which score is ideal?",
+  "options": [
+   "1",
+   "3",
+   "5",
+   "9"
+  ],
+  "answer": 2,
+  "explanation": "A BCS of 5/9 is ideal: ribs easily felt with slight fat cover and a visible waist. 1 is emaciated and 9 is severely obese."
+ },
+ {
+  "id": "d-nursing-006",
+  "domain": "nursing",
+  "stem": "Which formula calculates resting energy requirement (RER)?",
+  "options": [
+   "70 × BW(kg)^0.75",
+   "30 × BW(kg) + 70",
+   "100 × BW(kg)",
+   "BW(kg) × 2.2"
+  ],
+  "answer": 0,
+  "explanation": "RER = 70 × body weight in kg to the 0.75 power. The linear formula (30 × BW + 70) is a shortcut that only works for animals roughly 2–45 kg."
+ },
+ {
+  "id": "d-nursing-007",
+  "domain": "nursing",
+  "stem": "What is the approximate resting energy requirement of a 10 kg dog?",
+  "options": [
+   "170 kcal/day",
+   "394 kcal/day",
+   "700 kcal/day",
+   "1,000 kcal/day"
+  ],
+  "answer": 1,
+  "explanation": "70 × 10^0.75 = 70 × 5.62 ≈ 394 kcal/day. The shortcut 30 × 10 + 70 = 370 kcal/day gives a similar answer."
+ },
+ {
+  "id": "d-nursing-008",
+  "domain": "nursing",
+  "stem": "What is the most reliable way to confirm a nasogastric tube is in the right place?",
+  "options": [
+   "The patient doesn't cough",
+   "The tube passes easily",
+   "Hearing gurgling when air is injected",
+   "A lateral radiograph"
+  ],
+  "answer": 3,
+  "explanation": "A radiograph confirms the tip is in the esophagus or stomach and not in the airway. Other checks help but can be misleading, especially in sedated patients."
+ },
+ {
+  "id": "d-nursing-009",
+  "domain": "nursing",
+  "stem": "When a starved patient starts eating again, which electrolyte drop is the hallmark of refeeding syndrome?",
+  "options": [
+   "Hypophosphatemia",
+   "Hypernatremia",
+   "Hyperkalemia",
+   "Hypercalcemia"
+  ],
+  "answer": 0,
+  "explanation": "Refeeding drives phosphorus, potassium, and magnesium into cells, so blood levels fall. Low phosphorus can cause hemolysis and weakness. Feed gradually, starting around a third of RER."
+ },
+ {
+  "id": "d-nursing-010",
+  "domain": "nursing",
+  "stem": "To prevent pressure sores in a recumbent patient, how often should it be turned?",
+  "options": [
+   "Every 2–4 hours",
+   "Every 12 hours",
+   "Only when soiled",
+   "Once a day"
+  ],
+  "answer": 0,
+  "explanation": "Turning every 2–4 hours, thick padding, and keeping the patient clean and dry all reduce decubital ulcers and lung congestion."
+ },
+ {
+  "id": "d-nursing-011",
+  "domain": "nursing",
+  "stem": "Why is a closed collection system used with an indwelling urinary catheter?",
+  "options": [
+   "It removes the need to monitor output",
+   "It reduces the risk of urinary tract infection",
+   "It measures urine color",
+   "It speeds urine flow"
+  ],
+  "answer": 1,
+  "explanation": "An open system lets bacteria travel up into the bladder. Keep the bag below the patient but off the floor."
+ },
+ {
+  "id": "d-nursing-012",
+  "domain": "nursing",
+  "stem": "What is the main reason to flush an IV catheter regularly?",
+  "options": [
+   "To clean the skin",
+   "To keep it patent and check that it's still in the vein",
+   "To measure blood pressure",
+   "To give fluids"
+  ],
+  "answer": 1,
+  "explanation": "Regular flushing (often every 4–6 hours) prevents clots blocking the catheter and shows whether it is still in the vein. Swelling or pain on flushing suggests it's out of the vein."
+ },
+ {
+  "id": "d-nursing-013",
+  "domain": "nursing",
+  "stem": "A Robert Jones bandage is most often used for:",
+  "options": [
+   "Temporary support of fractures below the elbow or stifle",
+   "Shoulder luxation",
+   "Hip luxation after reduction",
+   "Abdominal wounds"
+  ],
+  "answer": 0,
+  "explanation": "The bulky, padded Robert Jones bandage immobilizes the distal limb and reduces swelling until surgery. It does not stabilize fractures above the elbow or stifle."
+ },
+ {
+  "id": "d-nursing-014",
+  "domain": "nursing",
+  "stem": "Which sling is used after reduction of a hip luxation to keep the leg from bearing weight?",
+  "options": [
+   "Carpal flexion bandage",
+   "Spica splint",
+   "Velpeau sling",
+   "Ehmer sling"
+  ],
+  "answer": 3,
+  "explanation": "The Ehmer sling flexes the pelvic limb and rotates the foot inward to keep the femoral head seated. The Velpeau sling is for the thoracic limb."
+ },
+ {
+  "id": "d-nursing-015",
+  "domain": "nursing",
+  "stem": "Under long-standing AAFP guidelines, where is the rabies vaccine given to a cat?",
+  "options": [
+   "Between the shoulder blades",
+   "Left forelimb",
+   "In the neck",
+   "Distal right pelvic limb"
+  ],
+  "answer": 3,
+  "explanation": "Giving it low on the right hind limb allows amputation if an injection-site sarcoma develops. FeLV goes in the left pelvic limb and FVRCP in the right thoracic limb. Some newer guidance also allows the tail."
+ },
+ {
+  "id": "d-nursing-016",
+  "domain": "nursing",
+  "stem": "Which disinfectant is a poor choice against canine parvovirus?",
+  "options": [
+   "Accelerated hydrogen peroxide",
+   "Quaternary ammonium compounds",
+   "Diluted bleach",
+   "Potassium peroxymonosulfate"
+  ],
+  "answer": 1,
+  "explanation": "Parvovirus is a non-enveloped virus that resists most quaternary ammonium products. Diluted bleach, accelerated hydrogen peroxide, and potassium peroxymonosulfate work when the contact time is followed."
+ },
+ {
+  "id": "d-nursing-017",
+  "domain": "nursing",
+  "stem": "Leptospirosis is spread to people mainly through contact with:",
+  "options": [
+   "Feces",
+   "Infected urine",
+   "Dander",
+   "Saliva"
+  ],
+  "answer": 1,
+  "explanation": "Leptospira is shed in urine. Wear gloves and eye protection when handling urine from suspected patients and avoid spraying urine during cleaning."
+ },
+ {
+  "id": "d-nursing-018",
+  "domain": "nursing",
+  "stem": "For cephalic venipuncture, where does the restrainer hold off the vein?",
+  "options": [
+   "At the shoulder",
+   "Just below the elbow, rolling the vein to the outside",
+   "Over the hock",
+   "Over the carpus"
+  ],
+  "answer": 1,
+  "explanation": "The restrainer's thumb presses across the front of the forearm just below the elbow and rotates outward slightly to hold the vein in place. The other arm holds the head."
+ },
+ {
+  "id": "d-nursing-019",
+  "domain": "nursing",
+  "stem": "Why do newborn puppies and kittens need an external heat source?",
+  "options": [
+   "They shiver too much",
+   "They have too much body fat",
+   "They can't regulate their body temperature well in the first weeks",
+   "Heat helps their eyes open"
+  ],
+  "answer": 2,
+  "explanation": "Neonates can't shiver effectively until around 1 week and don't regulate temperature well for several weeks. Chilled neonates can't nurse or digest milk."
+ },
+ {
+  "id": "d-nursing-020",
+  "domain": "nursing",
+  "stem": "Within about how long after birth must a puppy or kitten get colostrum to absorb its antibodies?",
+  "options": [
+   "24 hours",
+   "3 days",
+   "1 week",
+   "2 weeks"
+  ],
+  "answer": 0,
+  "explanation": "The gut absorbs antibodies intact only for about the first 24 hours, best in the first hours. After gut closure, colostrum no longer gives passive immunity."
+ },
+ {
+  "id": "d-nursing-021",
+  "domain": "nursing",
+  "stem": "Why are phosphate (Fleet-type) enemas not used in cats or small dogs?",
+  "options": [
+   "They can cause life-threatening hyperphosphatemia and hypocalcemia",
+   "They cause constipation",
+   "They are too weak",
+   "They irritate the skin"
+  ],
+  "answer": 0,
+  "explanation": "Small patients absorb enough phosphate to cause severe electrolyte problems. Use warm water or other safe enemas as directed by the veterinarian."
+ },
+ {
+  "id": "d-nursing-022",
+  "domain": "nursing",
+  "stem": "Where are a dog's anal sacs located?",
+  "options": [
+   "At about 4 and 8 o'clock around the anus",
+   "On the base of the tail",
+   "At about 12 and 6 o'clock",
+   "Inside the rectum near the colon"
+  ],
+  "answer": 0,
+  "explanation": "The anal sacs sit at roughly 4 and 8 o'clock. They can be expressed externally or internally with a gloved, lubricated finger."
+ },
+ {
+  "id": "d-nursing-023",
+  "domain": "nursing",
+  "stem": "During a nail trim the quick is cut and bleeds. What is the best first step?",
+  "options": [
+   "Apply ice for 10 minutes",
+   "Bandage the whole foot tightly",
+   "Ignore it; it stops quickly",
+   "Apply styptic powder or a silver nitrate stick with pressure"
+  ],
+  "answer": 3,
+  "explanation": "Styptic powder (ferric subsulfate) or silver nitrate with pressure stops most nail bleeding within a minute or two. Stay calm so the pet stays calm."
+ },
+ {
+  "id": "d-nursing-024",
+  "domain": "nursing",
+  "stem": "In what order should patients be treated if one is in isolation?",
+  "options": [
+   "Isolation patients last",
+   "Order doesn't matter with gloves",
+   "Isolation patients first",
+   "Alternate between wards"
+  ],
+  "answer": 0,
+  "explanation": "Treat healthy and immunocompromised patients first and isolation patients last, using dedicated protective equipment, to avoid carrying infection between wards."
+ },
+ {
+  "id": "d-nursing-025",
+  "domain": "nursing",
+  "stem": "A 20 kg dog is estimated to be 8% dehydrated. What is the fluid deficit?",
+  "options": [
+   "160 mL",
+   "800 mL",
+   "1.6 L",
+   "16 L"
+  ],
+  "answer": 2,
+  "explanation": "Deficit (L) = body weight (kg) × % dehydration as a decimal. 20 × 0.08 = 1.6 L. This is replaced on top of maintenance and ongoing losses."
+ },
+ {
+  "id": "d-nursing-026",
+  "domain": "nursing",
+  "stem": "How is a nasal oxygen catheter premeasured?",
+  "options": [
+   "From the nostril to the ear",
+   "From the nostril to the medial canthus of the eye",
+   "From the nostril to the last rib",
+   "From the nostril to the thoracic inlet"
+  ],
+  "answer": 1,
+  "explanation": "Measuring to the medial canthus places the tip in the ventral nasal meatus. Numbing the nostril with a topical anesthetic first makes placement easier."
+ },
+ {
+  "id": "d-nursing-027",
+  "domain": "nursing",
+  "stem": "A dog weighs 33 lb. What is its weight in kilograms?",
+  "options": [
+   "7.5 kg",
+   "15 kg",
+   "33 kg",
+   "72.6 kg"
+  ],
+  "answer": 1,
+  "explanation": "Divide pounds by 2.2: 33 ÷ 2.2 = 15 kg. Multiplying instead (72.6) is the usual mistake. Always dose in kg."
+ },
+ {
+  "id": "d-nursing-028",
+  "domain": "nursing",
+  "stem": "Which breed is at the highest risk of heatstroke?",
+  "options": [
+   "Greyhound",
+   "Whippet",
+   "English Bulldog",
+   "Siberian Husky"
+  ],
+  "answer": 2,
+  "explanation": "Brachycephalic breeds have narrow airways and can't cool efficiently by panting, so heat and stress quickly become dangerous. Thick-coated dogs are at risk too, but bulldogs top the list."
+ },
+ {
+  "id": "d-nursing-029",
+  "domain": "nursing",
+  "stem": "After pilling a cat with doxycycline, why should you follow it with about 5 mL of water or food?",
+  "options": [
+   "To prevent vomiting",
+   "To prevent the pill lodging in the esophagus and causing esophagitis or stricture",
+   "To improve the taste",
+   "To speed absorption"
+  ],
+  "answer": 1,
+  "explanation": "Tablets like doxycycline and clindamycin can stick in the cat's esophagus and cause severe inflammation and stricture. A water chaser or treat moves it into the stomach."
+ },
+ {
+  "id": "d-nursing-030",
+  "domain": "nursing",
+  "stem": "What should make up most of a pet rabbit's diet?",
+  "options": [
+   "Pellets",
+   "Grass hay",
+   "Fruit",
+   "Seed mixes"
+  ],
+  "answer": 1,
+  "explanation": "Unlimited grass hay provides the fiber rabbits need for gut motility and to wear down their constantly growing teeth. Pellets, greens, and fruit are given in limited amounts."
+ },
+ {
+  "id": "d-imaging-001",
+  "domain": "imaging",
+  "stem": "Where should a radiation dosimeter badge be worn?",
+  "options": [
+   "Clipped to the X-ray machine",
+   "In a pocket",
+   "Under the lead apron at the waist",
+   "At the collar, outside the lead apron"
+  ],
+  "answer": 3,
+  "explanation": "Worn at the collar outside the apron, the badge measures exposure to the unprotected head, neck, and thyroid. Badges are personal and never shared."
+ },
+ {
+  "id": "d-imaging-002",
+  "domain": "imaging",
+  "stem": "What is the minimum lead equivalent recommended for protective aprons and gloves?",
+  "options": [
+   "0.05 mm",
+   "0.5 mm",
+   "5 mm",
+   "2 cm"
+  ],
+  "answer": 1,
+  "explanation": "Aprons and gloves should be at least 0.5 mm lead equivalent. Even then, hands should never be in the primary beam."
+ },
+ {
+  "id": "d-imaging-003",
+  "domain": "imaging",
+  "stem": "When measuring a patient with calipers to set radiographic technique, where do you measure?",
+  "options": [
+   "The length of the body",
+   "The thinnest part of the area",
+   "The thickest part of the area being radiographed",
+   "Anywhere on the body"
+  ],
+  "answer": 2,
+  "explanation": "Measuring the thickest part ensures enough penetration. For the abdomen, this is usually at the last rib; for the thorax, the widest part of the chest."
+ },
+ {
+  "id": "d-imaging-004",
+  "domain": "imaging",
+  "stem": "Increasing kVp mainly affects which property of the X-ray beam?",
+  "options": [
+   "The number of X-rays produced",
+   "The exposure time only",
+   "The energy and penetrating power of the X-rays",
+   "The focal spot size"
+  ],
+  "answer": 2,
+  "explanation": "kVp controls beam energy and penetration, which affects contrast. Higher kVp gives more shades of gray (lower contrast). mAs controls the number of X-rays."
+ },
+ {
+  "id": "d-imaging-005",
+  "domain": "imaging",
+  "stem": "Which setting mainly controls the number of X-rays produced (density)?",
+  "options": [
+   "kVp",
+   "mAs",
+   "Collimation",
+   "Focal-film distance"
+  ],
+  "answer": 1,
+  "explanation": "mAs (milliamperes × seconds) sets how many X-rays are produced and therefore overall density. Doubling mAs doubles the number of X-rays."
+ },
+ {
+  "id": "d-imaging-006",
+  "domain": "imaging",
+  "stem": "For a ventrodorsal (VD) view of the thorax, the patient is positioned in:",
+  "options": [
+   "Dorsal recumbency",
+   "Right lateral recumbency",
+   "Sternal recumbency",
+   "Left lateral recumbency"
+  ],
+  "answer": 0,
+  "explanation": "In a VD view the beam enters ventrally and exits dorsally, so the patient lies on its back. A DV view is done in sternal recumbency."
+ },
+ {
+  "id": "d-imaging-007",
+  "domain": "imaging",
+  "stem": "What is the minimum number of views for a standard radiographic study?",
+  "options": [
+   "Four",
+   "One",
+   "Two orthogonal views",
+   "Three"
+  ],
+  "answer": 2,
+  "explanation": "Two views taken at 90° to each other are needed to judge an object's location and shape. Thoracic studies often add a third view to look at both lung fields."
+ },
+ {
+  "id": "d-imaging-008",
+  "domain": "imaging",
+  "stem": "Why is gel applied to the skin for an ultrasound exam?",
+  "options": [
+   "To cool the probe",
+   "To remove air between probe and skin so sound can pass",
+   "To act as a contrast agent",
+   "To numb the skin"
+  ],
+  "answer": 1,
+  "explanation": "Sound waves don't travel well through air. Clipping the hair and applying coupling gel give good contact. Alcohol can also help but may damage some probes."
+ },
+ {
+  "id": "d-imaging-009",
+  "domain": "imaging",
+  "stem": "For the standard OFA hip-extended view, how should the femurs and patellae be positioned?",
+  "options": [
+   "Femurs crossed, patellae lateral",
+   "Femurs flexed at 90°",
+   "Femurs parallel, patellae centered over the stifles",
+   "Femurs abducted like a frog"
+  ],
+  "answer": 2,
+  "explanation": "In dorsal recumbency the femurs are pulled parallel to each other and the table, with the stifles rotated so the patellae are centered. The pelvis must be symmetrical."
+ },
+ {
+  "id": "d-anesthesia-001",
+  "domain": "anesthesia",
+  "stem": "A healthy 6-month-old dog presented for an elective spay is classified as ASA:",
+  "options": [
+   "I",
+   "II",
+   "III",
+   "IV"
+  ],
+  "answer": 0,
+  "explanation": "ASA I is a normal healthy patient. ASA II has mild systemic disease, ASA III severe systemic disease, and ASA IV disease that is a constant threat to life."
+ },
+ {
+  "id": "d-anesthesia-002",
+  "domain": "anesthesia",
+  "stem": "Which patients need a shorter preanesthetic fast?",
+  "options": [
+   "Obese cats",
+   "Very young or small patients at risk of hypoglycemia",
+   "Brachycephalic dogs",
+   "Large-breed adult dogs"
+  ],
+  "answer": 1,
+  "explanation": "Pediatric and toy patients have small energy reserves and can become hypoglycemic with long fasts. Diabetic patients also need a modified plan."
+ },
+ {
+  "id": "d-anesthesia-003",
+  "domain": "anesthesia",
+  "stem": "What does MAC (minimum alveolar concentration) describe?",
+  "options": [
+   "The oxygen flow rate",
+   "The concentration that causes apnea",
+   "The alveolar concentration that prevents movement to a painful stimulus in 50% of patients",
+   "The maximum safe vaporizer setting"
+  ],
+  "answer": 2,
+  "explanation": "MAC measures an inhalant's potency. A lower MAC means a more potent drug. Patients usually need about 1.2–1.5 × MAC for surgery, less with good premedication."
+ },
+ {
+  "id": "d-anesthesia-004",
+  "domain": "anesthesia",
+  "stem": "What is an approximate tidal volume used for anesthetic calculations?",
+  "options": [
+   "1–2 mL/kg",
+   "10–15 mL/kg",
+   "50 mL/kg",
+   "100 mL/kg"
+  ],
+  "answer": 1,
+  "explanation": "Tidal volume is about 10–15 mL/kg. It is used to choose reservoir bag size, which is about 6 times the tidal volume (roughly 60 mL/kg)."
+ },
+ {
+  "id": "d-anesthesia-005",
+  "domain": "anesthesia",
+  "stem": "What happens if the pop-off (APL) valve is accidentally left closed during anesthesia?",
+  "options": [
+   "Pressure builds in the circuit and lungs, risking barotrauma",
+   "The patient wakes up",
+   "The vaporizer turns off",
+   "Oxygen flow stops"
+  ],
+  "answer": 0,
+  "explanation": "With the valve closed, gas can't escape, so the bag fills and pressure rises in the lungs. This can cause pneumothorax and impair venous return. Check the valve before every case."
+ },
+ {
+  "id": "d-anesthesia-006",
+  "domain": "anesthesia",
+  "stem": "Which sign shows that soda lime is exhausted?",
+  "options": [
+   "The oxygen flowmeter drops",
+   "The bag shrinks",
+   "Granules change color (often to violet) and become hard",
+   "Granules are soft and white"
+  ],
+  "answer": 2,
+  "explanation": "Exhausted absorbent changes color and hardens because it can no longer absorb CO2. Color may revert after rest, so track hours of use and change it on schedule."
+ },
+ {
+  "id": "d-anesthesia-007",
+  "domain": "anesthesia",
+  "stem": "For a patient breathing 100% oxygen under anesthesia, SpO2 should be at least:",
+  "options": [
+   "70%",
+   "95%",
+   "85%",
+   "Any reading is fine"
+  ],
+  "answer": 1,
+  "explanation": "On 100% oxygen, SpO2 should be 95% or higher. Below 90% indicates significant hypoxemia and needs attention right away."
+ },
+ {
+  "id": "d-anesthesia-008",
+  "domain": "anesthesia",
+  "stem": "Below what mean arterial pressure is kidney perfusion at risk?",
+  "options": [
+   "120 mmHg",
+   "90 mmHg",
+   "60 mmHg",
+   "35 mmHg"
+  ],
+  "answer": 2,
+  "explanation": "MAP should stay at or above about 60–70 mmHg to perfuse the kidneys and brain. Report persistent lower readings to the veterinarian."
+ },
+ {
+  "id": "d-anesthesia-009",
+  "domain": "anesthesia",
+  "stem": "How does hypothermia affect anesthetic recovery?",
+  "options": [
+   "It has no effect",
+   "It speeds recovery",
+   "It slows drug metabolism and prolongs recovery",
+   "It prevents pain"
+  ],
+  "answer": 2,
+  "explanation": "Cold patients metabolize drugs more slowly, need less anesthetic, and recover slowly. Use warming devices, warm fluids, and insulation from cold tables."
+ },
+ {
+  "id": "d-anesthesia-010",
+  "domain": "anesthesia",
+  "stem": "When should a dog generally be extubated?",
+  "options": [
+   "As soon as the vaporizer is turned off",
+   "After it stands up",
+   "When the swallowing reflex returns",
+   "Only after 30 minutes"
+  ],
+  "answer": 2,
+  "explanation": "Extubate dogs once they swallow, after deflating the cuff, so they can protect their airway. Brachycephalic dogs are left intubated as long as tolerated."
+ },
+ {
+  "id": "d-anesthesia-011",
+  "domain": "anesthesia",
+  "stem": "Why is lidocaine sprayed on a cat's larynx before intubation?",
+  "options": [
+   "To prevent infection",
+   "To lubricate the tube",
+   "To reduce bleeding",
+   "To prevent laryngospasm"
+  ],
+  "answer": 3,
+  "explanation": "Cats' larynxes spasm easily. Topical lidocaine numbs the arytenoids, which makes intubation smoother and safer."
+ },
+ {
+  "id": "d-anesthesia-012",
+  "domain": "anesthesia",
+  "stem": "What eye care is needed in a cat given ketamine?",
+  "options": [
+   "Apply ocular lubricant because the eyes stay open",
+   "Apply atropine drops",
+   "Tape the eyes shut",
+   "None"
+  ],
+  "answer": 0,
+  "explanation": "With ketamine, the eyes remain open and central and blinking is reduced, so the corneas dry quickly. Lubricate them regularly."
+ },
+ {
+  "id": "d-anesthesia-013",
+  "domain": "anesthesia",
+  "stem": "What is a common side effect of giving propofol too quickly?",
+  "options": [
+   "Excess salivation",
+   "Diarrhea",
+   "Apnea",
+   "Hypertension"
+  ],
+  "answer": 2,
+  "explanation": "Rapid propofol injection often causes apnea. Give it slowly to effect and be ready to ventilate. Oxygen preloading helps."
+ },
+ {
+  "id": "d-anesthesia-014",
+  "domain": "anesthesia",
+  "stem": "In a dog at a surgical plane of isoflurane anesthesia, where are the eyes usually positioned?",
+  "options": [
+   "Rotated dorsally",
+   "Rotated ventromedially",
+   "Central with dilated pupils",
+   "Moving rapidly back and forth"
+  ],
+  "answer": 1,
+  "explanation": "At a surgical plane, the eyes typically rotate down and in. Central eyes with a lost palpebral reflex may mean the patient is too deep."
+ },
+ {
+  "id": "d-anesthesia-015",
+  "domain": "anesthesia",
+  "stem": "Which effect on heart rate is expected after dexmedetomidine?",
+  "options": [
+   "Tachycardia",
+   "Bradycardia",
+   "Ventricular fibrillation",
+   "No change"
+  ],
+  "answer": 1,
+  "explanation": "Dexmedetomidine causes vasoconstriction and a reflex drop in heart rate. This bradycardia is expected and isn't routinely treated with an anticholinergic."
+ },
+ {
+  "id": "d-anesthesia-016",
+  "domain": "anesthesia",
+  "stem": "Which drug is commonly used to treat bradycardia under anesthesia?",
+  "options": [
+   "Acepromazine",
+   "Furosemide",
+   "Propofol",
+   "Atropine"
+  ],
+  "answer": 3,
+  "explanation": "Atropine and glycopyrrolate are anticholinergics that raise heart rate when bradycardia is significant. Always tell the veterinarian before giving them."
+ },
+ {
+  "id": "d-anesthesia-017",
+  "domain": "anesthesia",
+  "stem": "What oxygen flow rate is generally used with a non-rebreathing circuit?",
+  "options": [
+   "5–10 mL/kg/min",
+   "20–40 mL/kg/min",
+   "200–300 mL/kg/min",
+   "1,000 mL/kg/min"
+  ],
+  "answer": 2,
+  "explanation": "Non-rebreathing circuits need high flows (about 200–300 mL/kg/min) to flush out exhaled CO2. Rebreathing circuits use far lower maintenance flows."
+ },
+ {
+  "id": "d-anesthesia-018",
+  "domain": "anesthesia",
+  "stem": "Why is a pressure (leak) check done on the anesthetic machine before each use?",
+  "options": [
+   "To test the vaporizer level",
+   "To find leaks that would waste gas and expose staff",
+   "To heat the soda lime",
+   "To calibrate the monitor"
+  ],
+  "answer": 1,
+  "explanation": "Leaks release anesthetic gas into the room and can make it hard to keep a patient anesthetized. Close the valve, fill to about 20–30 cm H2O, and make sure pressure holds."
+ },
+ {
+  "id": "d-anesthesia-019",
+  "domain": "anesthesia",
+  "stem": "Why is a brachycephalic dog left intubated longer during recovery?",
+  "options": [
+   "Its narrow upper airway can obstruct when it is still sedated",
+   "To keep it warm",
+   "To prevent vomiting",
+   "To give more oxygen"
+  ],
+  "answer": 0,
+  "explanation": "Elongated soft palate and narrow nostrils can block the airway in a sedated dog. Extubate when it is very alert, and keep it in sternal position with the tongue pulled forward."
+ },
+ {
+  "id": "d-anesthesia-020",
+  "domain": "anesthesia",
+  "stem": "Right after intubation, the capnograph shows no waveform and no CO2. What is the most likely cause?",
+  "options": [
+   "The patient is too deep",
+   "The patient is hyperventilating",
+   "The tube is in the esophagus",
+   "The soda lime is exhausted"
+  ],
+  "answer": 2,
+  "explanation": "No exhaled CO2 means gas isn't coming from the lungs. Check tube placement right away. Exhausted soda lime would show rising inspired CO2, not a flat line."
+ },
+ {
+  "id": "d-ecc-001",
+  "domain": "ecc",
+  "stem": "A large, deep-chested dog is retching unproductively with a distended abdomen. Which condition is most likely?",
+  "options": [
+   "Kidney failure",
+   "Gastric dilatation-volvulus (GDV)",
+   "Pancreatitis",
+   "Pyometra"
+  ],
+  "answer": 1,
+  "explanation": "Unproductive retching and abdominal distension in a deep-chested dog are classic for GDV, a surgical emergency. Alert the veterinarian immediately."
+ },
+ {
+  "id": "d-ecc-002",
+  "domain": "ecc",
+  "stem": "During emergency triage, what is checked first?",
+  "options": [
+   "Airway",
+   "Vaccination status",
+   "Body weight",
+   "Temperature"
+  ],
+  "answer": 0,
+  "explanation": "Triage follows A-B-C: airway, breathing, circulation. A blocked airway kills fastest."
+ },
+ {
+  "id": "d-ecc-003",
+  "domain": "ecc",
+  "stem": "During CPR in an intubated dog, how often should breaths be given?",
+  "options": [
+   "2 breaths/min",
+   "10 breaths/min",
+   "30 breaths/min",
+   "60 breaths/min"
+  ],
+  "answer": 1,
+  "explanation": "RECOVER guidelines recommend about 10 breaths a minute with a short inspiratory time. Over-ventilating reduces blood return to the heart."
+ },
+ {
+  "id": "d-ecc-004",
+  "domain": "ecc",
+  "stem": "A male cat with a urethral obstruction has a slow heart rate and tall, peaked T waves. Which electrolyte is most likely elevated?",
+  "options": [
+   "Chloride",
+   "Sodium",
+   "Calcium",
+   "Potassium"
+  ],
+  "answer": 3,
+  "explanation": "Obstruction stops potassium excretion. Hyperkalemia causes bradycardia and ECG changes and can lead to cardiac arrest. It is treated before or while relieving the blockage."
+ },
+ {
+  "id": "d-ecc-005",
+  "domain": "ecc",
+  "stem": "Which compound in chocolate is toxic to dogs?",
+  "options": [
+   "Capsaicin",
+   "Theobromine",
+   "Xylitol",
+   "Caffeine only"
+  ],
+  "answer": 1,
+  "explanation": "Theobromine (with some caffeine) causes vomiting, restlessness, tachycardia, and seizures. Dark and baking chocolate contain the most."
+ },
+ {
+  "id": "d-ecc-006",
+  "domain": "ecc",
+  "stem": "A dog ate sugar-free gum containing xylitol. What are the main concerns?",
+  "options": [
+   "Hypothermia",
+   "Bleeding from rodenticide",
+   "Low blood sugar and liver failure",
+   "High blood sugar and kidney stones"
+  ],
+  "answer": 2,
+  "explanation": "Xylitol triggers a large insulin release in dogs, causing hypoglycemia within minutes to hours, and can cause liver failure at higher doses."
+ },
+ {
+  "id": "d-ecc-007",
+  "domain": "ecc",
+  "stem": "What is the antidote for anticoagulant rodenticide poisoning?",
+  "options": [
+   "Calcium gluconate",
+   "Fomepizole",
+   "Vitamin K1",
+   "Atropine"
+  ],
+  "answer": 2,
+  "explanation": "Anticoagulant rodenticides block vitamin K recycling, so clotting factors run out. Oral vitamin K1 is given for several weeks, depending on the product."
+ },
+ {
+  "id": "d-ecc-008",
+  "domain": "ecc",
+  "stem": "When actively cooling a dog with heatstroke, at about what temperature should cooling stop?",
+  "options": [
+   "98 °F (36.7 °C)",
+   "100 °F (37.8 °C)",
+   "103 °F (39.4 °C)",
+   "106 °F (41.1 °C)"
+  ],
+  "answer": 2,
+  "explanation": "Stop active cooling at about 103 °F to avoid rebound hypothermia. Use cool (not ice-cold) water and fans."
+ },
+ {
+  "id": "d-ecc-009",
+  "domain": "ecc",
+  "stem": "What is the first-aid step for a bleeding wound on a limb?",
+  "options": [
+   "Apply a tourniquet immediately",
+   "Apply firm direct pressure",
+   "Pour hydrogen peroxide on it",
+   "Leave it open to air"
+  ],
+  "answer": 1,
+  "explanation": "Direct pressure controls most bleeding. Add more layers rather than lifting the gauze. Tourniquets are a last resort."
+ },
+ {
+  "id": "d-ecc-010",
+  "domain": "ecc",
+  "stem": "Where is the needle usually inserted for thoracocentesis to remove air?",
+  "options": [
+   "Through the sternum",
+   "Ventral third of the chest, 2nd intercostal space",
+   "In the last intercostal space ventrally",
+   "Dorsal third of the chest, around the 7th–9th intercostal space"
+  ],
+  "answer": 3,
+  "explanation": "Air rises, so it is removed dorsally around the 7th–9th intercostal space. The needle enters at the cranial edge of the rib to avoid the vessels and nerves on the caudal edge."
+ },
+ {
+  "id": "d-ecc-011",
+  "domain": "ecc",
+  "stem": "A dog was bitten by a pit viper. Which first-aid measure should be avoided?",
+  "options": [
+   "Carrying the dog instead of letting it walk",
+   "Getting to a clinic quickly",
+   "Applying a tourniquet or ice",
+   "Keeping the dog calm"
+  ],
+  "answer": 2,
+  "explanation": "Tourniquets, ice, and cutting the wound make tissue damage worse. Keep the dog still and calm and get it to a hospital for antivenom and supportive care."
+ },
+ {
+  "id": "d-pain-001",
+  "domain": "pain",
+  "stem": "Which behavior most suggests a cat is in pain?",
+  "options": [
+   "Hiding, hunched posture, and less grooming",
+   "Purring while eating",
+   "Kneading",
+   "Rolling over to play"
+  ],
+  "answer": 0,
+  "explanation": "Cats hide pain. Hiding, a hunched posture, squinting, reduced grooming, and poor appetite are common signs. Purring can occur even in pain."
+ },
+ {
+  "id": "d-pain-002",
+  "domain": "pain",
+  "stem": "Which is a validated acute pain scale for dogs?",
+  "options": [
+   "Body condition score",
+   "Glasgow Composite Measure Pain Scale (short form)",
+   "Feline Grimace Scale",
+   "Modified Knott scale"
+  ],
+  "answer": 1,
+  "explanation": "The Glasgow CMPS-SF scores dogs' behavior and posture. A score of 6/24 or more (5/20 when mobility can't be assessed) suggests analgesia is needed."
+ },
+ {
+  "id": "d-pain-003",
+  "domain": "pain",
+  "stem": "Which local anesthetic must never be given intravenously?",
+  "options": [
+   "Benzocaine gel",
+   "Lidocaine",
+   "Proparacaine drops",
+   "Bupivacaine"
+  ],
+  "answer": 3,
+  "explanation": "Bupivacaine is cardiotoxic when it enters the bloodstream. Aspirate before injecting any local block to make sure you aren't in a vessel."
+ },
+ {
+  "id": "d-pain-004",
+  "domain": "pain",
+  "stem": "Which of these is a pure mu-opioid agonist?",
+  "options": [
+   "Naloxone",
+   "Butorphanol",
+   "Hydromorphone",
+   "Buprenorphine"
+  ],
+  "answer": 2,
+  "explanation": "Hydromorphone, morphine, methadone, and fentanyl are full mu agonists for moderate to severe pain. Buprenorphine is a partial agonist, butorphanol is an agonist-antagonist, and naloxone is a reversal agent."
+ },
+ {
+  "id": "d-pain-005",
+  "domain": "pain",
+  "stem": "Which statement about butorphanol is most accurate?",
+  "options": [
+   "It gives good sedation but short, mild pain relief",
+   "It is an NSAID",
+   "It cannot be reversed",
+   "It is the best choice for severe orthopedic pain"
+  ],
+  "answer": 0,
+  "explanation": "Butorphanol lasts about 1–2 hours for pain and works mainly for mild visceral pain. It is often used for its sedative effect."
+ },
+ {
+  "id": "d-pain-006",
+  "domain": "pain",
+  "stem": "Which side effect of hydromorphone is seen especially in cats?",
+  "options": [
+   "Seizures at every dose",
+   "Hypothermia only",
+   "Hypoglycemia",
+   "Hyperthermia"
+  ],
+  "answer": 3,
+  "explanation": "Some cats develop high body temperature after hydromorphone, sometimes over 105 °F. Monitor temperature during recovery."
+ },
+ {
+  "id": "d-pain-007",
+  "domain": "pain",
+  "stem": "Gabapentin is commonly used for which purposes?",
+  "options": [
+   "Chronic and nerve pain, and calming cats before visits",
+   "Stopping vomiting",
+   "Reversing sedation",
+   "Treating bacterial infections"
+  ],
+  "answer": 0,
+  "explanation": "Gabapentin helps with chronic and neuropathic pain and is often given to cats before a vet visit to reduce stress. Sedation is its main side effect."
+ },
+ {
+  "id": "d-pain-008",
+  "domain": "pain",
+  "stem": "Why should NSAIDs be avoided in a dehydrated or hypotensive patient?",
+  "options": [
+   "They raise blood pressure dangerously",
+   "They cause excess urination",
+   "They reduce blood flow to the kidneys, risking kidney injury",
+   "They cause hyperthermia"
+  ],
+  "answer": 2,
+  "explanation": "Prostaglandins protect kidney blood flow when blood pressure is low. NSAIDs block them, so dehydrated or hypotensive patients face a high risk of acute kidney injury."
+ },
+ {
+  "id": "d-pain-009",
+  "domain": "pain",
+  "stem": "How long does a fentanyl transdermal patch usually take to reach effective levels in a dog?",
+  "options": [
+   "5 minutes",
+   "12–24 hours",
+   "3 days",
+   "1 week"
+  ],
+  "answer": 1,
+  "explanation": "Patches take 12–24 hours (sooner in cats) to reach effective levels, so another painkiller is needed in the meantime. Be careful with disposal because of human abuse risk."
+ },
+ {
+  "id": "d-pain-010",
+  "domain": "pain",
+  "stem": "What is the benefit of preemptive analgesia?",
+  "options": [
+   "It lowers the cost of drugs",
+   "Giving pain relief before the painful stimulus prevents wind-up and makes pain easier to control",
+   "It replaces general anesthesia",
+   "It removes the need to monitor pain"
+  ],
+  "answer": 1,
+  "explanation": "Treating pain before it starts keeps the nervous system from becoming sensitized (wind-up). It usually means less pain and lower drug needs afterward."
+ },
+ {
+  "id": "d-pain-011",
+  "domain": "pain",
+  "stem": "For the first 24–72 hours after orthopedic surgery, which therapy helps reduce swelling and pain?",
+  "options": [
+   "Heat packs",
+   "Full exercise",
+   "Massage of the incision",
+   "Cold therapy (cryotherapy)"
+  ],
+  "answer": 3,
+  "explanation": "Cold compresses for about 10–15 minutes several times a day reduce swelling and pain in the first few days. Heat is used later to improve circulation and flexibility."
+ },
+ {
+  "id": "d-communication-001",
+  "domain": "communication",
+  "stem": "What must informed consent include?",
+  "options": [
+   "Only the client's signature",
+   "Only the cost",
+   "A guarantee of the outcome",
+   "The procedure, its risks, the alternatives, and the estimated cost"
+  ],
+  "answer": 3,
+  "explanation": "Clients can only consent meaningfully if they understand what will happen, the risks, the options, and the cost. The signed form goes in the medical record."
+ },
+ {
+  "id": "d-communication-002",
+  "domain": "communication",
+  "stem": "In a SOAP medical record, what does the A stand for?",
+  "options": [
+   "Anesthesia",
+   "Allergies",
+   "Appointment",
+   "Assessment"
+  ],
+  "answer": 3,
+  "explanation": "SOAP is Subjective, Objective, Assessment, Plan. The assessment is the veterinarian's interpretation, such as a diagnosis or a list of possible diagnoses."
+ },
+ {
+  "id": "d-communication-003",
+  "domain": "communication",
+  "stem": "A client is crying after deciding on euthanasia for her dog. Which response is most appropriate?",
+  "options": [
+   "\"I know exactly how you feel.\"",
+   "\"You can always get another dog.\"",
+   "\"At least he had a long life.\"",
+   "\"I'm so sorry. Take all the time you need.\""
+  ],
+  "answer": 3,
+  "explanation": "Acknowledge the loss and give time without minimizing the client's feelings. Phrases like \"at least\" or \"you can get another\" sound dismissive."
+ },
+ {
+  "id": "d-communication-004",
+  "domain": "communication",
+  "stem": "Who can establish a veterinarian-client-patient relationship (VCPR)?",
+  "options": [
+   "A licensed veterinarian",
+   "The practice manager",
+   "Any staff member",
+   "A credentialed veterinary technician"
+  ],
+  "answer": 0,
+  "explanation": "Only a licensed veterinarian can establish a VCPR, which is needed before prescribing. Technicians support the relationship but can't create it."
+ },
+ {
+  "id": "d-communication-005",
+  "domain": "communication",
+  "stem": "Which task is outside a credentialed veterinary technician's legal scope in all states?",
+  "options": [
+   "Diagnosing, prescribing, and performing surgery",
+   "Placing an IV catheter",
+   "Inducing anesthesia under supervision",
+   "Taking radiographs"
+  ],
+  "answer": 0,
+  "explanation": "Diagnosing, prescribing, giving a prognosis, and performing surgery are reserved for veterinarians. Other tasks vary by state practice act."
+ },
+ {
+  "id": "d-communication-006",
+  "domain": "communication",
+  "stem": "How should an error in a paper medical record be corrected?",
+  "options": [
+   "Tear out the page",
+   "Use correction fluid",
+   "Draw a single line through it, write the correction, then initial and date it",
+   "Scribble over it completely"
+  ],
+  "answer": 2,
+  "explanation": "The original entry must stay readable because medical records are legal documents. A single line, the correction, and your initials and date keep the record honest."
+ },
+ {
+  "id": "d-communication-007",
+  "domain": "communication",
+  "stem": "A dog bites a staff member during an exam. Beyond first aid, what is usually required?",
+  "options": [
+   "Asking the client to pay for treatment",
+   "Nothing if the dog is vaccinated",
+   "Euthanizing the dog",
+   "Reporting the bite according to state and local law"
+  ],
+  "answer": 3,
+  "explanation": "Most jurisdictions require animal bites to be reported to public health or animal control, regardless of vaccination status. Follow clinic protocol and document the incident."
+ },
+ {
+  "id": "d-communication-008",
+  "domain": "communication",
+  "stem": "What does OSHA require for hazardous chemicals in the clinic?",
+  "options": [
+   "Only veterinarians may know where they are kept",
+   "They must be stored at home",
+   "Safety Data Sheets (SDS) must be readily accessible to staff",
+   "No labeling is needed"
+  ],
+  "answer": 2,
+  "explanation": "OSHA's Hazard Communication Standard requires labeled containers, accessible SDSs, and staff training on the chemicals they use."
+ }
+]

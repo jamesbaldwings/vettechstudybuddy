@@ -26,5 +26,16 @@ for (const q of seed) {
   );
   added += r.rowCount;
 }
+// Draft questions for vet tech review. They stay hidden from students until marked reviewed in the admin editor.
+const drafts = JSON.parse(readFileSync(path.join(here, "..", "db", "draft-questions.json"), "utf8"));
+let drafted = 0;
+for (const q of drafts) {
+  const r = await client.query(
+    `INSERT INTO questions (id, domain, stem, options, answer, explanation, status, source)
+     VALUES ($1, $2, $3, $4, $5, $6, 'draft', 'ai_draft') ON CONFLICT (id) DO NOTHING`,
+    [q.id, q.domain, q.stem, JSON.stringify(q.options), q.answer, q.explanation],
+  );
+  drafted += r.rowCount;
+}
 await client.end();
-console.log(`Database schema is up to date.${added ? ` Seeded ${added} questions.` : ""}`);
+console.log(`Database schema is up to date.${added ? ` Seeded ${added} questions.` : ""}${drafted ? ` Added ${drafted} draft questions.` : ""}`);
