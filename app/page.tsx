@@ -17,7 +17,7 @@ export default function Home() {
           />
         </picture>
         <div className="hero-copy">
-          <h1>A study buddy for the VTNE. Only the VTNE.</h1>
+          <h1>A study buddy for the VTNE.</h1>
           <p className="lede">
             Take a free 25-question diagnostic weighted like the real exam. See where you stand, get a plan built around your
             test date, and talk it through out loud with {BUDDY_NAME} until you pass.
