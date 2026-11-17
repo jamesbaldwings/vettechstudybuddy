@@ -2000,5 +2000,4503 @@
   ],
   "answer": 2,
   "explanation": "OSHA's Hazard Communication Standard requires labeled containers, accessible SDSs, and staff training on the chemicals they use."
+ },
+ {
+  "id": "d-pharm-021",
+  "domain": "pharm",
+  "stem": "A veterinarian orders 0.4 mg/kg of a drug for a 12 kg dog. The liquid is 2 mg/mL. What volume is needed?",
+  "options": [
+   "0.6 mL",
+   "2.4 mL",
+   "4.8 mL",
+   "6 mL"
+  ],
+  "answer": 1,
+  "explanation": "12 kg × 0.4 mg/kg = 4.8 mg; at 2 mg/mL, the volume is 2.4 mL."
+ },
+ {
+  "id": "d-pharm-022",
+  "domain": "pharm",
+  "stem": "A 6 kg cat is prescribed 0.1 mg/kg from a 1 mg/mL solution. What volume delivers the prescribed dose?",
+  "options": [
+   "0.6 mL",
+   "1.6 mL",
+   "6 mL",
+   "0.06 mL"
+  ],
+  "answer": 0,
+  "explanation": "The dose is 0.6 mg; dividing by 1 mg/mL gives 0.6 mL."
+ },
+ {
+  "id": "d-pharm-023",
+  "domain": "pharm",
+  "stem": "A tablet contains 50 mg. The prescribed dose is 25 mg. What fraction of a tablet is one dose?",
+  "options": [
+   "One half",
+   "One tablet",
+   "One eighth",
+   "One quarter"
+  ],
+  "answer": 0,
+  "explanation": "25 mg is half of a 50 mg tablet."
+ },
+ {
+  "id": "d-pharm-024",
+  "domain": "pharm",
+  "stem": "A 15 kg dog needs 30 mL/kg/day of maintenance fluids. What is the hourly rate?",
+  "options": [
+   "450 mL/h",
+   "9.4 mL/h",
+   "18.8 mL/h",
+   "30 mL/h"
+  ],
+  "answer": 2,
+  "explanation": "15 × 30 = 450 mL/day; 450 ÷ 24 = 18.75 mL/h."
+ },
+ {
+  "id": "d-pharm-025",
+  "domain": "pharm",
+  "stem": "A pump is set to deliver 12 mL/h through a 20 drops/mL set. What is the approximate drip rate?",
+  "options": [
+   "2 drops/min",
+   "4 drops/min",
+   "12 drops/min",
+   "24 drops/min"
+  ],
+  "answer": 1,
+  "explanation": "12 × 20 ÷ 60 = 4 drops/min."
+ },
+ {
+  "id": "d-pharm-026",
+  "domain": "pharm",
+  "stem": "A drug is prescribed at 3 mg/kg for a 4 kg patient. The concentration is 6 mg/mL. What volume is required?",
+  "options": [
+   "2 mL",
+   "3 mL",
+   "12 mL",
+   "0.5 mL"
+  ],
+  "answer": 0,
+  "explanation": "The dose is 12 mg; 12 mg ÷ 6 mg/mL = 2 mL."
+ },
+ {
+  "id": "d-pharm-027",
+  "domain": "pharm",
+  "stem": "A 1:1000 solution contains how many milligrams per milliliter?",
+  "options": [
+   "10 mg/mL",
+   "100 mg/mL",
+   "0.1 mg/mL",
+   "1 mg/mL"
+  ],
+  "answer": 3,
+  "explanation": "A 1:1000 solution is 1 g per 1000 mL, or 1 mg/mL."
+ },
+ {
+  "id": "d-pharm-028",
+  "domain": "pharm",
+  "stem": "A technician is asked to prepare a medication but the patient name on the label differs from the treatment sheet. What should happen next?",
+  "options": [
+   "Give half the dose",
+   "Use the medication if the dose matches",
+   "Ask the client to select the patient",
+   "Pause and resolve the identity discrepancy before administration"
+  ],
+  "answer": 3,
+  "explanation": "Patient identity discrepancies must be resolved before treatment to prevent a wrong-patient medication error."
+ },
+ {
+  "id": "d-pharm-029",
+  "domain": "pharm",
+  "stem": "A prescription says give 0.25 mL, but the syringe markings are difficult to read at that volume. What is the safest approach?",
+  "options": [
+   "Estimate by eye",
+   "Use an appropriately sized calibrated syringe",
+   "Use a 60 mL syringe",
+   "Round up to 0.5 mL"
+  ],
+  "answer": 1,
+  "explanation": "A small calibrated syringe improves measurement accuracy for small volumes."
+ },
+ {
+  "id": "d-pharm-030",
+  "domain": "pharm",
+  "stem": "A bottle contains 100 mg in 5 mL. What is its concentration?",
+  "options": [
+   "20 mg/mL",
+   "50 mg/mL",
+   "500 mg/mL",
+   "5 mg/mL"
+  ],
+  "answer": 0,
+  "explanation": "100 mg ÷ 5 mL = 20 mg/mL."
+ },
+ {
+  "id": "d-pharm-031",
+  "domain": "pharm",
+  "stem": "A 22 kg dog is prescribed 2 mg/kg. How many milligrams are required per dose?",
+  "options": [
+   "44 mg",
+   "110 mg",
+   "11 mg",
+   "22 mg"
+  ],
+  "answer": 0,
+  "explanation": "22 kg × 2 mg/kg = 44 mg."
+ },
+ {
+  "id": "d-pharm-032",
+  "domain": "pharm",
+  "stem": "A 500 mg tablet is prescribed at 125 mg per dose. How many tablets are needed?",
+  "options": [
+   "Two tablets",
+   "One eighth",
+   "One quarter",
+   "One half"
+  ],
+  "answer": 2,
+  "explanation": "125 mg is one quarter of a 500 mg tablet."
+ },
+ {
+  "id": "d-pharm-033",
+  "domain": "pharm",
+  "stem": "A medication label states “for otic use only.” Which route is intended?",
+  "options": [
+   "Into the ear canal",
+   "Into the eye",
+   "By mouth",
+   "Under the skin"
+  ],
+  "answer": 0,
+  "explanation": "Otic medications are administered into the ear, following the product and veterinarian’s directions."
+ },
+ {
+  "id": "d-pharm-034",
+  "domain": "pharm",
+  "stem": "A suspension has settled during storage. What should the technician do before measuring a dose if the label directs “shake well”?",
+  "options": [
+   "Remove the clear layer only",
+   "Filter it through gauze",
+   "Add water without authorization",
+   "Shake it to redistribute the particles"
+  ],
+  "answer": 3,
+  "explanation": "Shaking resuspends the medication so the measured concentration is representative."
+ },
+ {
+  "id": "d-pharm-035",
+  "domain": "pharm",
+  "stem": "Which route delivers medication directly into a vein?",
+  "options": [
+   "Intramuscular",
+   "Topical",
+   "Intravenous",
+   "Subcutaneous"
+  ],
+  "answer": 2,
+  "explanation": "Intravenous administration places the medication into the vascular space."
+ },
+ {
+  "id": "d-pharm-036",
+  "domain": "pharm",
+  "stem": "A medication is labeled to be protected from light. Where should it be stored?",
+  "options": [
+   "Beside a heat source",
+   "In a clear bottle on the counter",
+   "In its light-resistant packaging or an appropriate protected location",
+   "In direct sunlight"
+  ],
+  "answer": 2,
+  "explanation": "Light-sensitive products should be stored according to label instructions to preserve stability."
+ },
+ {
+  "id": "d-pharm-037",
+  "domain": "pharm",
+  "stem": "What is the main reason to verify the expiration date before dispensing a medication?",
+  "options": [
+   "To confirm the product is within its labeled usable period",
+   "To determine the patient’s dose",
+   "To identify the manufacturer",
+   "To avoid documenting the lot number"
+  ],
+  "answer": 0,
+  "explanation": "The expiration date indicates the manufacturer’s supported period of product quality when stored as directed."
+ },
+ {
+  "id": "d-pharm-038",
+  "domain": "pharm",
+  "stem": "A technician discovers a medication was stored outside its required temperature range. What is the best action?",
+  "options": [
+   "Quarantine it and ask the veterinarian or pharmacist how to proceed",
+   "Freeze it immediately",
+   "Dilute it to restore potency",
+   "Use it if the appearance is unchanged"
+  ],
+  "answer": 0,
+  "explanation": "Temperature excursions can affect stability; the product should not be assumed usable based on appearance."
+ },
+ {
+  "id": "d-pharm-039",
+  "domain": "pharm",
+  "stem": "Which action is appropriate when a client asks for a refill that has no authorization in the record?",
+  "options": [
+   "Change the dose to a standard dose",
+   "Send a substitute medication",
+   "Provide it based on the client’s request",
+   "Obtain authorization from the veterinarian before dispensing"
+  ],
+  "answer": 3,
+  "explanation": "Medication refills require appropriate veterinary authorization."
+ },
+ {
+  "id": "d-pharm-040",
+  "domain": "pharm",
+  "stem": "A drug’s half-life is 4 hours. Approximately how much remains after 8 hours, assuming first-order elimination and no additional dose?",
+  "options": [
+   "None immediately",
+   "One half",
+   "One quarter",
+   "One eighth"
+  ],
+  "answer": 2,
+  "explanation": "Two half-lives have elapsed, leaving approximately one quarter of the starting amount."
+ },
+ {
+  "id": "d-pharm-041",
+  "domain": "pharm",
+  "stem": "Which statement best describes an adverse drug reaction?",
+  "options": [
+   "An unintended harmful response at a normally used dose",
+   "A desired therapeutic response",
+   "A medication’s brand name",
+   "A route of administration"
+  ],
+  "answer": 0,
+  "explanation": "An adverse drug reaction is an unintended harmful response associated with medication use."
+ },
+ {
+  "id": "d-pharm-042",
+  "domain": "pharm",
+  "stem": "A patient vomits shortly after an oral medication. What should the technician do?",
+  "options": [
+   "Document the event and contact the veterinarian for instructions",
+   "Double the next dose",
+   "Give an injectable equivalent independently",
+   "Automatically repeat the dose"
+  ],
+  "answer": 0,
+  "explanation": "Whether to repeat a dose depends on the medication and circumstances; the veterinarian should direct the next step."
+ },
+ {
+  "id": "d-pharm-043",
+  "domain": "pharm",
+  "stem": "Why should a medication order be read back when it is communicated verbally?",
+  "options": [
+   "To let the technician change the order",
+   "To shorten the treatment record",
+   "To confirm the drug, dose, route, and timing were heard correctly",
+   "To avoid entering it in the record"
+  ],
+  "answer": 2,
+  "explanation": "Read-back communication helps catch errors before medication preparation or administration."
+ },
+ {
+  "id": "d-pharm-044",
+  "domain": "pharm",
+  "stem": "A technician draws medication from a multidose vial. Which practice helps preserve asepsis?",
+  "options": [
+   "Touch the needle to the counter",
+   "Use a sterile needle and syringe for each entry",
+   "Reuse the same needle if it looks clean",
+   "Leave the stopper uncovered"
+  ],
+  "answer": 1,
+  "explanation": "A new sterile needle and syringe reduce contamination risk during each vial entry."
+ },
+ {
+  "id": "d-pharm-045",
+  "domain": "pharm",
+  "stem": "Which medication form is designed to dissolve or disperse in water before administration?",
+  "options": [
+   "Powder for reconstitution",
+   "Transdermal patch",
+   "Ointment",
+   "Enteric-coated tablet"
+  ],
+  "answer": 0,
+  "explanation": "A powder for reconstitution is prepared with the specified diluent and volume before use."
+ },
+ {
+  "id": "d-pharm-046",
+  "domain": "pharm",
+  "stem": "A reconstituted medication has a specified beyond-use period. What should be done after preparation?",
+  "options": [
+   "Use it indefinitely if refrigerated",
+   "Remove the original drug name",
+   "Store it in an unmarked syringe",
+   "Label it with the preparation date and applicable beyond-use information"
+  ],
+  "answer": 3,
+  "explanation": "Clear labeling supports correct identification and use within the specified period."
+ },
+ {
+  "id": "d-pharm-047",
+  "domain": "pharm",
+  "stem": "Which is the best response to a calculation that produces a dose ten times larger than expected?",
+  "options": [
+   "Round it down",
+   "Ask the client to approve it",
+   "Verify units, arithmetic, concentration, and the order before preparing it",
+   "Proceed because the calculator gave the answer"
+  ],
+  "answer": 2,
+  "explanation": "A tenfold discrepancy is a warning to stop and independently verify the calculation and prescription."
+ },
+ {
+  "id": "d-pharm-048",
+  "domain": "pharm",
+  "stem": "A 3 kg patient is ordered 0.5 mg/kg. How many milligrams are in the dose?",
+  "options": [
+   "6 mg",
+   "0.6 mg",
+   "1.5 mg",
+   "3 mg"
+  ],
+  "answer": 2,
+  "explanation": "3 kg × 0.5 mg/kg = 1.5 mg."
+ },
+ {
+  "id": "d-pharm-049",
+  "domain": "pharm",
+  "stem": "A 2 mg/mL solution is prescribed at 0.8 mg. What volume should be measured?",
+  "options": [
+   "0.2 mL",
+   "0.4 mL",
+   "1.6 mL",
+   "4 mL"
+  ],
+  "answer": 1,
+  "explanation": "0.8 mg ÷ 2 mg/mL = 0.4 mL."
+ },
+ {
+  "id": "d-pharm-050",
+  "domain": "pharm",
+  "stem": "What is the primary purpose of an enteric coating?",
+  "options": [
+   "Make a tablet easier to split",
+   "Increase the medication’s concentration",
+   "Prevent all adverse effects",
+   "Delay dissolution until the medication passes through the stomach"
+  ],
+  "answer": 3,
+  "explanation": "Enteric coatings resist dissolution in the stomach and dissolve farther along the gastrointestinal tract."
+ },
+ {
+  "id": "d-pharm-051",
+  "domain": "pharm",
+  "stem": "Which drug class reduces inflammation by inhibiting cyclooxygenase pathways?",
+  "options": [
+   "Antihistamines",
+   "Antifungals",
+   "Nonsteroidal anti-inflammatory drugs",
+   "Antacids"
+  ],
+  "answer": 2,
+  "explanation": "NSAIDs inhibit cyclooxygenase pathways and reduce prostaglandin production."
+ },
+ {
+  "id": "d-pharm-052",
+  "domain": "pharm",
+  "stem": "A patient receiving an opioid is unusually sedate with shallow respirations. What should the technician do?",
+  "options": [
+   "Offer food",
+   "Assess the patient and immediately alert the veterinarian",
+   "Give an antagonist without direction",
+   "Wait for the next scheduled check"
+  ],
+  "answer": 1,
+  "explanation": "Respiratory depression and profound sedation require prompt assessment and veterinary notification."
+ },
+ {
+  "id": "d-pharm-053",
+  "domain": "pharm",
+  "stem": "Which agent is commonly used to reverse benzodiazepine effects?",
+  "options": [
+   "Flumazenil",
+   "Naloxone",
+   "Atipamezole",
+   "Atropine"
+  ],
+  "answer": 0,
+  "explanation": "Flumazenil is a benzodiazepine receptor antagonist."
+ },
+ {
+  "id": "d-pharm-054",
+  "domain": "pharm",
+  "stem": "Which agent reverses many alpha-2 agonist effects?",
+  "options": [
+   "Flumazenil",
+   "Naloxone",
+   "Vitamin K1",
+   "Atipamezole"
+  ],
+  "answer": 3,
+  "explanation": "Atipamezole is an alpha-2 adrenergic antagonist used to reverse drugs such as dexmedetomidine."
+ },
+ {
+  "id": "d-pharm-055",
+  "domain": "pharm",
+  "stem": "Which agent is used to antagonize opioid effects?",
+  "options": [
+   "Flumazenil",
+   "Diphenhydramine",
+   "Naloxone",
+   "Atipamezole"
+  ],
+  "answer": 2,
+  "explanation": "Naloxone is an opioid receptor antagonist."
+ },
+ {
+  "id": "d-pharm-056",
+  "domain": "pharm",
+  "stem": "Why should an opioid antagonist be used under veterinary direction?",
+  "options": [
+   "It has no physiologic effects",
+   "It can reverse analgesia as well as unwanted opioid effects",
+   "It increases opioid absorption",
+   "It prevents all sedation"
+  ],
+  "answer": 1,
+  "explanation": "Reversal may remove pain relief and can precipitate other clinically important changes."
+ },
+ {
+  "id": "d-pharm-057",
+  "domain": "pharm",
+  "stem": "A drug is prescribed at 10 mcg/kg for a 5 kg patient. How many micrograms are required?",
+  "options": [
+   "2 mcg",
+   "15 mcg",
+   "50 mcg",
+   "500 mcg"
+  ],
+  "answer": 2,
+  "explanation": "10 mcg/kg × 5 kg = 50 mcg."
+ },
+ {
+  "id": "d-pharm-058",
+  "domain": "pharm",
+  "stem": "How many milligrams are in 0.25 grams?",
+  "options": [
+   "0.25 mg",
+   "25 mg",
+   "250 mg",
+   "0.025 mg"
+  ],
+  "answer": 2,
+  "explanation": "One gram equals 1000 mg, so 0.25 g equals 250 mg."
+ },
+ {
+  "id": "d-pharm-059",
+  "domain": "pharm",
+  "stem": "How many milliliters are in 0.75 liters?",
+  "options": [
+   "750 mL",
+   "7,500 mL",
+   "7.5 mL",
+   "75 mL"
+  ],
+  "answer": 0,
+  "explanation": "One liter equals 1000 mL; 0.75 L equals 750 mL."
+ },
+ {
+  "id": "d-pharm-060",
+  "domain": "pharm",
+  "stem": "A prescription is written in mg/kg but the patient weight is recorded in pounds. What should happen before calculating the dose?",
+  "options": [
+   "Multiply the prescribed dose by 2.2",
+   "Convert the weight to kilograms and verify the conversion",
+   "Use pounds as kilograms",
+   "Ignore the weight"
+  ],
+  "answer": 1,
+  "explanation": "A mg/kg calculation requires weight in kilograms; unit conversion prevents a major dosing error."
+ },
+ {
+  "id": "d-pharm-061",
+  "domain": "pharm",
+  "stem": "Which action is appropriate after a medication error is discovered?",
+  "options": [
+   "Assess the patient, notify the veterinarian promptly, and document according to policy",
+   "Hide the error if the patient appears normal",
+   "Correct the record without noting the change",
+   "Wait until discharge"
+  ],
+  "answer": 0,
+  "explanation": "Prompt disclosure supports patient assessment and appropriate follow-up; documentation should follow clinic policy."
+ },
+ {
+  "id": "d-pharm-062",
+  "domain": "pharm",
+  "stem": "A technician finds an unlabeled syringe in the treatment area. What is the safest action?",
+  "options": [
+   "Taste it to identify the medication",
+   "Ask the next client",
+   "Use it if the color is familiar",
+   "Discard or handle it according to policy; do not administer an unidentified drug"
+  ],
+  "answer": 3,
+  "explanation": "An unidentified medication cannot be safely verified and should not be administered."
+ },
+ {
+  "id": "d-pharm-063",
+  "domain": "pharm",
+  "stem": "What should be included on a dispensed medication label?",
+  "options": [
+   "Only the clinic phone number",
+   "The technician’s preferred dose",
+   "Patient and drug identification, directions, and required safety information",
+   "Only the drug color"
+  ],
+  "answer": 2,
+  "explanation": "A complete label identifies the medication and patient and communicates the authorized directions and warnings."
+ },
+ {
+  "id": "d-pharm-064",
+  "domain": "pharm",
+  "stem": "A medication is prescribed every 8 hours. How many doses are scheduled in 24 hours?",
+  "options": [
+   "Eight",
+   "Two",
+   "Three",
+   "Four"
+  ],
+  "answer": 2,
+  "explanation": "Twenty-four hours divided by 8 hours per dose equals three doses."
+ },
+ {
+  "id": "d-pharm-065",
+  "domain": "pharm",
+  "stem": "A continuous infusion is ordered at 2 mcg/kg/min for a 10 kg patient. What is the total dose per minute?",
+  "options": [
+   "2 mcg/min",
+   "10 mcg/min",
+   "20 mcg/min",
+   "200 mcg/min"
+  ],
+  "answer": 2,
+  "explanation": "2 mcg/kg/min × 10 kg = 20 mcg/min; preparation and pump settings require the prescribed concentration."
+ },
+ {
+  "id": "d-pharm-066",
+  "domain": "pharm",
+  "stem": "Why should the medication concentration be checked each time a dose volume is calculated?",
+  "options": [
+   "Concentration affects only tablet size",
+   "Concentration is always identical across products",
+   "The volume never depends on concentration",
+   "Different concentrations produce different volumes for the same milligram dose"
+  ],
+  "answer": 3,
+  "explanation": "Volume equals the required dose divided by concentration; using the wrong concentration changes the delivered dose."
+ },
+ {
+  "id": "d-pharm-067",
+  "domain": "pharm",
+  "stem": "A tablet is scored, but the prescription requires a fraction that cannot be split accurately. What should the technician do?",
+  "options": [
+   "Give the whole tablet",
+   "Crush it and estimate a portion",
+   "Ask the veterinarian whether another strength or formulation is appropriate",
+   "Break it by eye"
+  ],
+  "answer": 2,
+  "explanation": "The intended dose should be delivered accurately; the veterinarian can authorize an appropriate formulation."
+ },
+ {
+  "id": "d-surg-021",
+  "domain": "surgery",
+  "stem": "Why is a sterile field considered contaminated when it falls below waist level?",
+  "options": [
+   "The patient’s temperature changes",
+   "It is outside the sterile team member’s visual control",
+   "Gravity sterilizes the lower area",
+   "The drape becomes waterproof"
+  ],
+  "answer": 1,
+  "explanation": "A sterile field must remain visible and controlled; below-waist areas are treated as contaminated."
+ },
+ {
+  "id": "d-surg-022",
+  "domain": "surgery",
+  "stem": "A sterile glove touches the edge of a nonsterile table. What should the team member do?",
+  "options": [
+   "Continue if the glove looks clean",
+   "Replace the contaminated glove using sterile technique",
+   "Wipe the glove with alcohol",
+   "Cover the contact point with a towel"
+  ],
+  "answer": 1,
+  "explanation": "Contact with a nonsterile surface contaminates the glove."
+ },
+ {
+  "id": "d-surg-023",
+  "domain": "surgery",
+  "stem": "Which instrument is designed to hold a suture needle?",
+  "options": [
+   "Adson tissue forceps",
+   "Metzenbaum scissors",
+   "Backhaus towel clamp",
+   "Mayo-Hegar needle holder"
+  ],
+  "answer": 3,
+  "explanation": "A needle holder securely grasps the needle during suturing."
+ },
+ {
+  "id": "d-surg-024",
+  "domain": "surgery",
+  "stem": "Which scissors are commonly used to cut delicate tissue?",
+  "options": [
+   "Bandage scissors",
+   "Wire cutters",
+   "Metzenbaum scissors",
+   "Mayo scissors"
+  ],
+  "answer": 2,
+  "explanation": "Metzenbaum scissors are designed for delicate tissue dissection."
+ },
+ {
+  "id": "d-surg-025",
+  "domain": "surgery",
+  "stem": "Which instrument is used to clamp a blood vessel temporarily?",
+  "options": [
+   "Suction tip",
+   "Hemostat",
+   "Allis tissue forceps",
+   "Thumb forceps"
+  ],
+  "answer": 1,
+  "explanation": "A hemostat is used to occlude vessels or grasp tissue as appropriate."
+ },
+ {
+  "id": "d-surg-026",
+  "domain": "surgery",
+  "stem": "Why are hinged instruments generally opened before steam sterilization?",
+  "options": [
+   "To expose the joints and surfaces to the sterilizing agent",
+   "To keep the hinges lubricated",
+   "To make the pack heavier",
+   "To prevent the indicator from changing"
+  ],
+  "answer": 0,
+  "explanation": "Opening hinges helps steam contact instrument surfaces and joints."
+ },
+ {
+  "id": "d-surg-027",
+  "domain": "surgery",
+  "stem": "What should be done to visibly soiled instruments before sterilization?",
+  "options": [
+   "Place them directly into a sterile pack",
+   "Spray with fragrance",
+   "Wrap them while wet",
+   "Clean them according to protocol"
+  ],
+  "answer": 3,
+  "explanation": "Organic material can interfere with sterilization; cleaning precedes sterilization."
+ },
+ {
+  "id": "d-surg-028",
+  "domain": "surgery",
+  "stem": "What does a chemical indicator on a sterilization pack show?",
+  "options": [
+   "That the pack is sterile indefinitely",
+   "That the instruments are sharp",
+   "That the pack was exposed to specified process conditions",
+   "That every microorganism was killed"
+  ],
+  "answer": 2,
+  "explanation": "Chemical indicators show exposure to one or more process parameters but do not prove sterility alone."
+ },
+ {
+  "id": "d-surg-029",
+  "domain": "surgery",
+  "stem": "What does a biological indicator test?",
+  "options": [
+   "The pack’s weight",
+   "Whether the sterilization process can inactivate resistant spores",
+   "The patient’s blood pressure",
+   "Instrument sharpness"
+  ],
+  "answer": 1,
+  "explanation": "Biological indicators provide a direct challenge to the sterilization process using resistant spores."
+ },
+ {
+  "id": "d-surg-030",
+  "domain": "surgery",
+  "stem": "A wrapped instrument pack is damp after autoclaving. How should it be handled?",
+  "options": [
+   "Consider it compromised and reprocess it according to protocol",
+   "Store it for later use",
+   "Dry it with a paper towel and use it",
+   "Place it in a warmer"
+  ],
+  "answer": 0,
+  "explanation": "Moisture can allow contamination to penetrate packaging, so a wet pack is not considered sterile."
+ },
+ {
+  "id": "d-surg-031",
+  "domain": "surgery",
+  "stem": "Which packaging practice supports effective steam sterilization?",
+  "options": [
+   "Pack instruments as tightly as possible",
+   "Block all air removal ports",
+   "Use any plastic bag",
+   "Avoid overloading the chamber and follow the pack’s validated arrangement"
+  ],
+  "answer": 3,
+  "explanation": "Proper loading permits air removal and sterilant circulation."
+ },
+ {
+  "id": "d-surg-032",
+  "domain": "surgery",
+  "stem": "What is the purpose of a surgical scrub?",
+  "options": [
+   "Replace sterile gloves",
+   "Remove the need for hand hygiene",
+   "Reduce transient and resident microorganisms on the hands and forearms",
+   "Sterilize the skin completely"
+  ],
+  "answer": 2,
+  "explanation": "Surgical hand antisepsis reduces microbial burden but does not make skin sterile."
+ },
+ {
+  "id": "d-surg-033",
+  "domain": "surgery",
+  "stem": "During a surgical scrub, which direction is generally maintained?",
+  "options": [
+   "Hands below elbows throughout",
+   "From the fingertips toward the elbows, keeping hands above elbows",
+   "From elbows toward fingertips",
+   "Back and forth over the same area"
+  ],
+  "answer": 1,
+  "explanation": "Keeping hands above elbows helps prevent contaminated water from flowing back toward the hands."
+ },
+ {
+  "id": "d-surg-034",
+  "domain": "surgery",
+  "stem": "What is the purpose of a sterile gown’s front and sleeves?",
+  "options": [
+   "Provide the sterile areas when properly donned",
+   "Make the wearer waterproof",
+   "Replace the need for gloves",
+   "Protect only the back"
+  ],
+  "answer": 0,
+  "explanation": "The front and sleeves are treated as sterile areas under standard gowning conventions."
+ },
+ {
+  "id": "d-surg-035",
+  "domain": "surgery",
+  "stem": "A sterile drape becomes wet from fluid beneath it. What is the concern?",
+  "options": [
+   "Wetness improves the sterile barrier",
+   "It changes the patient’s blood type",
+   "It makes the drape self-sterilizing",
+   "Strike-through can transfer contamination through the drape"
+  ],
+  "answer": 3,
+  "explanation": "Moisture can permit microorganisms to pass through a barrier."
+ },
+ {
+  "id": "d-surg-036",
+  "domain": "surgery",
+  "stem": "Which action is appropriate when opening a sterile pack?",
+  "options": [
+   "Let the wrapper touch the floor",
+   "Touch the inner surface with bare hands",
+   "Open the first flap away from the body",
+   "Reach across the sterile contents"
+  ],
+  "answer": 2,
+  "explanation": "Opening the far flap first reduces the chance of reaching over the sterile field."
+ },
+ {
+  "id": "d-surg-037",
+  "domain": "surgery",
+  "stem": "A circulating technician needs an item for the sterile field. What is the correct approach?",
+  "options": [
+   "Hand it directly to the surgeon with bare hands",
+   "Present it without contaminating the sterile field",
+   "Reach across the field",
+   "Place it on the patient’s uncovered skin"
+  ],
+  "answer": 1,
+  "explanation": "The circulating technician must transfer items while preserving the sterile field."
+ },
+ {
+  "id": "d-surg-038",
+  "domain": "surgery",
+  "stem": "What is the purpose of a surgical instrument count?",
+  "options": [
+   "Help ensure instruments and materials are accounted for",
+   "Determine anesthetic depth",
+   "Measure blood loss exactly",
+   "Set the oxygen flow rate"
+  ],
+  "answer": 0,
+  "explanation": "Counts reduce the risk of retained items and support patient safety."
+ },
+ {
+  "id": "d-surg-039",
+  "domain": "surgery",
+  "stem": "A count discrepancy occurs before closure. What should happen?",
+  "options": [
+   "Ignore it if the incision is small",
+   "Document it after discharge",
+   "Remove the drapes and end the procedure without telling anyone",
+   "Notify the surgical team and follow the count-discrepancy procedure"
+  ],
+  "answer": 3,
+  "explanation": "The team must respond to a discrepancy before closure according to protocol."
+ },
+ {
+  "id": "d-surg-040",
+  "domain": "surgery",
+  "stem": "Which instrument is used to secure a drape to the patient or drapes?",
+  "options": [
+   "Olsen-Hegar forceps",
+   "Rongeur",
+   "Backhaus towel clamp",
+   "Mayo-Hegar needle holder"
+  ],
+  "answer": 2,
+  "explanation": "A Backhaus towel clamp secures surgical towels or drapes."
+ },
+ {
+  "id": "d-surg-041",
+  "domain": "surgery",
+  "stem": "What is the main purpose of surgical skin preparation?",
+  "options": [
+   "Prevent all postoperative infection",
+   "Reduce microbial contamination at the surgical site",
+   "Sterilize the entire patient",
+   "Replace sterile draping"
+  ],
+  "answer": 1,
+  "explanation": "Skin preparation lowers microbial burden but cannot sterilize living tissue or eliminate all infection risk."
+ },
+ {
+  "id": "d-surg-042",
+  "domain": "surgery",
+  "stem": "How should repeated antiseptic applications generally be performed during site preparation?",
+  "options": [
+   "Use separate clean materials and avoid returning a used sponge to the prepared area",
+   "Use one sponge for the entire patient",
+   "Start at the outer edge and scrub inward repeatedly",
+   "Reuse the same gauze after it touches hair"
+  ],
+  "answer": 0,
+  "explanation": "Fresh materials and a controlled pattern reduce recontamination."
+ },
+ {
+  "id": "d-surg-043",
+  "domain": "surgery",
+  "stem": "Why is clipping hair close to the time of surgery generally preferred?",
+  "options": [
+   "It eliminates the need for antiseptic preparation",
+   "It sterilizes the hair follicles",
+   "It prevents all postoperative inflammation",
+   "It reduces skin trauma and bacterial multiplication associated with older clipping"
+  ],
+  "answer": 3,
+  "explanation": "Close-to-procedure clipping limits microabrasions from becoming a prolonged contamination risk."
+ },
+ {
+  "id": "d-surg-044",
+  "domain": "surgery",
+  "stem": "Which statement about surgical masks is correct?",
+  "options": [
+   "They replace hand hygiene",
+   "They are reusable indefinitely",
+   "They help reduce droplet contamination and should be handled according to infection-control policy",
+   "They sterilize the operating room air"
+  ],
+  "answer": 2,
+  "explanation": "Masks are one part of barrier precautions and must be changed and used appropriately."
+ },
+ {
+  "id": "d-surg-045",
+  "domain": "surgery",
+  "stem": "A team member’s sterile gown is splashed with fluid during a procedure. What should the team member do?",
+  "options": [
+   "Cover it with a nonsterile towel",
+   "Alert the team and manage the contamination according to sterile-field protocol",
+   "Ignore it if the fluid is clear",
+   "Wipe it with a bare hand"
+  ],
+  "answer": 1,
+  "explanation": "A wet or contaminated sterile barrier may be compromised and should be addressed promptly."
+ },
+ {
+  "id": "d-surg-046",
+  "domain": "surgery",
+  "stem": "Which needle type is commonly selected for tough tissue such as skin?",
+  "options": [
+   "Cutting needle",
+   "Taper needle",
+   "Blunt needle",
+   "Round-bodied atraumatic needle only"
+  ],
+  "answer": 0,
+  "explanation": "Cutting needles are designed to penetrate dense tissues such as skin."
+ },
+ {
+  "id": "d-surg-047",
+  "domain": "surgery",
+  "stem": "Which needle type is generally appropriate for many soft tissues where cutting trauma should be minimized?",
+  "options": [
+   "Reverse-cutting needle",
+   "Lancet",
+   "Straight cutting blade",
+   "Taper needle"
+  ],
+  "answer": 3,
+  "explanation": "Taper needles separate tissue rather than cutting a slit through it."
+ },
+ {
+  "id": "d-surg-048",
+  "domain": "surgery",
+  "stem": "What is a benefit of monofilament suture compared with braided suture?",
+  "options": [
+   "More tissue drag in all cases",
+   "It is always absorbable",
+   "Less capillarity and reduced bacterial wicking",
+   "Greater capillarity"
+  ],
+  "answer": 2,
+  "explanation": "Monofilament material has less interstitial space for fluid and bacterial wicking."
+ },
+ {
+  "id": "d-surg-049",
+  "domain": "surgery",
+  "stem": "What does tensile strength describe in suture material?",
+  "options": [
+   "The diameter of the needle",
+   "The force the suture can withstand before breaking",
+   "The time until it dissolves",
+   "The color of the suture"
+  ],
+  "answer": 1,
+  "explanation": "Tensile strength is resistance to breaking under tension."
+ },
+ {
+  "id": "d-surg-050",
+  "domain": "surgery",
+  "stem": "Which closure pattern is generally considered an appositional pattern?",
+  "options": [
+   "Simple interrupted",
+   "Lembert",
+   "Cushing",
+   "Connell"
+  ],
+  "answer": 0,
+  "explanation": "Simple interrupted sutures bring wound edges together without intentionally inverting them."
+ },
+ {
+  "id": "d-surg-051",
+  "domain": "surgery",
+  "stem": "Which pattern is commonly used to invert gastrointestinal serosa?",
+  "options": [
+   "Simple continuous skin closure",
+   "Ford interlocking",
+   "Cruciate skin pattern",
+   "Lembert"
+  ],
+  "answer": 3,
+  "explanation": "Lembert is an inverting pattern used for hollow viscera."
+ },
+ {
+  "id": "d-surg-052",
+  "domain": "surgery",
+  "stem": "What is the purpose of a horizontal mattress suture pattern?",
+  "options": [
+   "Close a vessel lumen",
+   "Attach a drape",
+   "Distribute tension across wound edges",
+   "Invert all tissue layers"
+  ],
+  "answer": 2,
+  "explanation": "Horizontal mattress sutures distribute tension and can help evert wound edges."
+ },
+ {
+  "id": "d-surg-053",
+  "domain": "surgery",
+  "stem": "When should a sterile surgical instrument be considered contaminated after being dropped?",
+  "options": [
+   "Never if it remains shiny",
+   "When it falls below the level of the sterile field",
+   "Only if it visibly breaks",
+   "Only if it lands on the floor"
+  ],
+  "answer": 1,
+  "explanation": "An instrument that falls below the sterile field is treated as contaminated."
+ },
+ {
+  "id": "d-surg-054",
+  "domain": "surgery",
+  "stem": "Which finding should prompt replacement of a sterile package before use?",
+  "options": [
+   "A torn wrapper",
+   "A legible sterilization indicator",
+   "A dry wrapper",
+   "An intact seal"
+  ],
+  "answer": 0,
+  "explanation": "A torn wrapper compromises the package barrier."
+ },
+ {
+  "id": "d-surg-055",
+  "domain": "surgery",
+  "stem": "Why should instrument tips be protected during packaging?",
+  "options": [
+   "To prevent the sterilizer from heating",
+   "To make the instruments sterile without processing",
+   "To increase pack weight",
+   "To prevent damage and reduce package puncture risk"
+  ],
+  "answer": 3,
+  "explanation": "Tip protection helps preserve instrument function and packaging integrity."
+ },
+ {
+  "id": "d-surg-056",
+  "domain": "surgery",
+  "stem": "What is an appropriate use of an ultrasonic cleaner?",
+  "options": [
+   "Sharpen blades",
+   "Dry wrapped packs",
+   "Remove debris from compatible instruments after gross soil is addressed",
+   "Sterilize instruments without further processing"
+  ],
+  "answer": 2,
+  "explanation": "Ultrasonic cleaning assists soil removal but is not a sterilization method."
+ },
+ {
+  "id": "d-surg-057",
+  "domain": "surgery",
+  "stem": "What should be verified before using an electrosurgical unit?",
+  "options": [
+   "The instrument count alone",
+   "Cables, settings, patient contact, and equipment function per protocol",
+   "Only the patient’s collar size",
+   "The oxygen cylinder color"
+  ],
+  "answer": 1,
+  "explanation": "Pre-use checks help reduce electrical and thermal injury risks."
+ },
+ {
+  "id": "d-surg-058",
+  "domain": "surgery",
+  "stem": "Where should the electrosurgical return electrode be placed when required?",
+  "options": [
+   "On an appropriate, well-contacting area per the device and clinic protocol",
+   "Over a bony prominence",
+   "On wet fur",
+   "Anywhere convenient"
+  ],
+  "answer": 0,
+  "explanation": "Correct placement supports the circuit and reduces burn risk."
+ },
+ {
+  "id": "d-surg-059",
+  "domain": "surgery",
+  "stem": "What is the purpose of a surgical suction system?",
+  "options": [
+   "Measure anesthetic concentration",
+   "Sterilize the incision",
+   "Replace hemostasis",
+   "Remove fluid and debris from the operative field"
+  ],
+  "answer": 3,
+  "explanation": "Suction improves visualization by removing fluid and debris."
+ },
+ {
+  "id": "d-surg-060",
+  "domain": "surgery",
+  "stem": "Why should sterile instruments be arranged so the team can see them?",
+  "options": [
+   "To avoid instrument counts",
+   "To eliminate the need for a circulating technician",
+   "To support safe, efficient retrieval and reduce contamination risk",
+   "To make the table look full"
+  ],
+  "answer": 2,
+  "explanation": "Organized, visible instruments improve workflow and help maintain the sterile field."
+ },
+ {
+  "id": "d-surg-061",
+  "domain": "surgery",
+  "stem": "A sterile team member turns away from the sterile field. What is the concern?",
+  "options": [
+   "The instrument count changes",
+   "The field may no longer be under visual control",
+   "The room becomes contaminated instantly",
+   "The patient’s temperature will rise"
+  ],
+  "answer": 1,
+  "explanation": "Sterile fields must remain in view and controlled by sterile personnel."
+ },
+ {
+  "id": "d-surg-062",
+  "domain": "surgery",
+  "stem": "Which action is appropriate when a sterile instrument is passed to a surgeon?",
+  "options": [
+   "Pass it in a controlled manner with the working end oriented safely",
+   "Throw it onto the field",
+   "Pass it over the patient’s face",
+   "Touch the sterile end with bare hands"
+  ],
+  "answer": 0,
+  "explanation": "Controlled passing protects the sterile field and reduces injury risk."
+ },
+ {
+  "id": "d-surg-063",
+  "domain": "surgery",
+  "stem": "What is the role of the scrub technician during an operation?",
+  "options": [
+   "Handle all nonsterile traffic outside the room",
+   "Provide anesthesia without authorization",
+   "Leave the room after the incision",
+   "Maintain the sterile field and anticipate the surgical team’s instrument needs"
+  ],
+  "answer": 3,
+  "explanation": "The scrub technician works within the sterile field to support the procedure."
+ },
+ {
+  "id": "d-surg-064",
+  "domain": "surgery",
+  "stem": "Which factor can impair steam sterilization?",
+  "options": [
+   "Validated cycle parameters",
+   "Dry packaging after cooling",
+   "Trapped air in the chamber or pack",
+   "Correctly spaced packs"
+  ],
+  "answer": 2,
+  "explanation": "Air pockets interfere with steam contact and heat transfer."
+ },
+ {
+  "id": "d-surg-065",
+  "domain": "surgery",
+  "stem": "Why should sterilized packs cool before handling or storage?",
+  "options": [
+   "To shorten the sterilization cycle retroactively",
+   "To avoid condensation and maintain package integrity",
+   "To make the indicators change back",
+   "To increase moisture penetration"
+  ],
+  "answer": 1,
+  "explanation": "Handling hot packs can cause condensation and compromise the sterile barrier."
+ },
+ {
+  "id": "d-surg-066",
+  "domain": "surgery",
+  "stem": "Which information should be recorded after a sterilization cycle?",
+  "options": [
+   "Cycle details and monitoring results required by clinic policy",
+   "Only the person’s favorite instrument",
+   "The client’s phone number",
+   "No information if the indicator changed"
+  ],
+  "answer": 0,
+  "explanation": "Sterilization records support traceability and quality assurance."
+ },
+ {
+  "id": "d-surg-067",
+  "domain": "surgery",
+  "stem": "A procedure requires a sterile implant. What should be confirmed before opening it?",
+  "options": [
+   "Only the package color",
+   "That the implant is the heaviest available",
+   "That it was stored beside the sink",
+   "Package integrity, sterility indicators, and expiration or lot details as required"
+  ],
+  "answer": 3,
+  "explanation": "Implant traceability and package integrity are essential before use."
+ },
+ {
+  "id": "d-dental-012",
+  "domain": "dentistry",
+  "stem": "During a dental procedure, the technician identifies a fractured tooth with pulp exposure. What should happen?",
+  "options": [
+   "Ignore it if the tooth is white",
+   "Apply fluoride and discharge the patient",
+   "Document the finding and alert the veterinarian",
+   "Polish over the fracture"
+  ],
+  "answer": 2,
+  "explanation": "Pulp exposure is clinically important and should be documented and reported for veterinary evaluation."
+ },
+ {
+  "id": "d-dental-013",
+  "domain": "dentistry",
+  "stem": "Which structure anchors the tooth within the alveolar socket?",
+  "options": [
+   "Tongue frenulum",
+   "Periodontal ligament",
+   "Enamel pellicle",
+   "Salivary gland"
+  ],
+  "answer": 1,
+  "explanation": "The periodontal ligament connects the tooth root to alveolar bone."
+ },
+ {
+  "id": "d-dental-014",
+  "domain": "dentistry",
+  "stem": "What is the purpose of dental probing around each tooth?",
+  "options": [
+   "Assess periodontal pocket depth and attachment",
+   "Measure the patient’s jaw strength",
+   "Estimate anesthetic depth",
+   "Determine tooth color"
+  ],
+  "answer": 0,
+  "explanation": "Probing evaluates gingival sulcus depth and periodontal attachment."
+ },
+ {
+  "id": "d-dental-015",
+  "domain": "dentistry",
+  "stem": "Why is a complete oral examination performed under anesthesia in many patients?",
+  "options": [
+   "It eliminates the need for monitoring",
+   "It makes dental radiographs unnecessary",
+   "It prevents all aspiration",
+   "It permits systematic assessment and treatment while reducing movement risk"
+  ],
+  "answer": 3,
+  "explanation": "Anesthesia allows thorough examination and instrumentation with controlled patient movement and airway protection."
+ },
+ {
+  "id": "d-dental-016",
+  "domain": "dentistry",
+  "stem": "Which area is most likely to be missed by visual examination alone?",
+  "options": [
+   "Visible crown surface",
+   "External cheek surface",
+   "Subgingival tooth and root structures",
+   "Incisal edge"
+  ],
+  "answer": 2,
+  "explanation": "Subgingival and root disease may not be apparent without probing and imaging."
+ },
+ {
+  "id": "d-dental-017",
+  "domain": "dentistry",
+  "stem": "A dental radiograph shows a widened periodontal ligament space. What is an appropriate interpretation?",
+  "options": [
+   "It confirms normal occlusion",
+   "It may indicate periodontal or periapical change requiring evaluation",
+   "It proves the tooth is healthy",
+   "It measures pulp vitality directly"
+  ],
+  "answer": 1,
+  "explanation": "A widened ligament space can be associated with pathology and must be interpreted with the full study."
+ },
+ {
+  "id": "d-dental-018",
+  "domain": "dentistry",
+  "stem": "What is the main purpose of scaling?",
+  "options": [
+   "Remove plaque and calculus from tooth surfaces",
+   "Shorten the tooth roots",
+   "Polish the tongue",
+   "Close extraction sockets"
+  ],
+  "answer": 0,
+  "explanation": "Scaling removes deposits from supragingival and subgingival tooth surfaces."
+ },
+ {
+  "id": "d-dental-019",
+  "domain": "dentistry",
+  "stem": "Why is polishing performed after scaling?",
+  "options": [
+   "Remove healthy enamel layers",
+   "Replace periodontal probing",
+   "Sterilize the teeth",
+   "Smooth surfaces and remove residual debris after instrumentation"
+  ],
+  "answer": 3,
+  "explanation": "Polishing smooths surfaces after scaling; it does not sterilize or replace other assessment."
+ },
+ {
+  "id": "d-dental-020",
+  "domain": "dentistry",
+  "stem": "Which instrument is commonly used for dental extraction of a tooth root fragment?",
+  "options": [
+   "Suture scissors",
+   "Needle driver",
+   "Dental elevator",
+   "Towel clamp"
+  ],
+  "answer": 2,
+  "explanation": "Elevators are used to loosen periodontal ligament attachments during extraction."
+ },
+ {
+  "id": "d-dental-021",
+  "domain": "dentistry",
+  "stem": "What is an important safety step before using a powered dental scaler?",
+  "options": [
+   "Remove the handpiece guard",
+   "Check the unit, water supply, and tip condition per protocol",
+   "Use it dry on every patient",
+   "Hold the tip stationary on one tooth"
+  ],
+  "answer": 1,
+  "explanation": "Equipment and water flow checks support safe use and reduce thermal injury risk."
+ },
+ {
+  "id": "d-dental-022",
+  "domain": "dentistry",
+  "stem": "Why should a dental scaler tip remain in motion when applied to a tooth?",
+  "options": [
+   "To reduce heat buildup and local tissue injury",
+   "To increase heat intentionally",
+   "To deepen the periodontal pocket",
+   "To prevent water flow"
+  ],
+  "answer": 0,
+  "explanation": "Continuous movement and appropriate technique reduce heat concentration."
+ },
+ {
+  "id": "d-dental-023",
+  "domain": "dentistry",
+  "stem": "Which finding may support a diagnosis of tooth resorption in a cat?",
+  "options": [
+   "A normal incisor color",
+   "A strong femoral pulse",
+   "A low urine specific gravity",
+   "A focal defect in the tooth surface or root on exam or radiographs"
+  ],
+  "answer": 3,
+  "explanation": "Feline tooth resorption can produce visible lesions and radiographic changes."
+ },
+ {
+  "id": "d-dental-024",
+  "domain": "dentistry",
+  "stem": "What is the purpose of an occlusal examination?",
+  "options": [
+   "Check the tympanic membrane",
+   "Determine body condition score",
+   "Assess how the teeth meet when the jaws close",
+   "Measure salivary volume"
+  ],
+  "answer": 2,
+  "explanation": "Occlusion describes the relationship between upper and lower teeth."
+ },
+ {
+  "id": "d-dental-025",
+  "domain": "dentistry",
+  "stem": "A patient has a painful fractured tooth. What should the technician do?",
+  "options": [
+   "Cover it with polishing paste",
+   "Document the finding and notify the veterinarian",
+   "Extract the tooth without authorization",
+   "Tell the client it will heal without care"
+  ],
+  "answer": 1,
+  "explanation": "Diagnosis and treatment planning are veterinary responsibilities; the finding should be escalated."
+ },
+ {
+  "id": "d-dental-026",
+  "domain": "dentistry",
+  "stem": "Which nerve block is used to desensitize mandibular teeth on one side?",
+  "options": [
+   "Inferior alveolar nerve block",
+   "Infraorbital nerve block",
+   "Auriculopalpebral block",
+   "Retrobulbar block"
+  ],
+  "answer": 0,
+  "explanation": "An inferior alveolar block desensitizes mandibular teeth and associated tissues on that side."
+ },
+ {
+  "id": "d-dental-027",
+  "domain": "dentistry",
+  "stem": "Which nerve block commonly desensitizes maxillary teeth rostral to the maxillary foramen?",
+  "options": [
+   "Inferior alveolar nerve block",
+   "Femoral nerve block",
+   "Sciatic nerve block",
+   "Infraorbital nerve block"
+  ],
+  "answer": 3,
+  "explanation": "The infraorbital nerve supplies rostral maxillary structures, depending on anatomy and technique."
+ },
+ {
+  "id": "d-dental-028",
+  "domain": "dentistry",
+  "stem": "What should be included in a dental chart?",
+  "options": [
+   "Only the client’s preferred brand of food",
+   "The room temperature",
+   "Tooth-by-tooth findings and procedures performed",
+   "Only the patient’s weight"
+  ],
+  "answer": 2,
+  "explanation": "Dental charts document findings and treatment at the individual tooth level."
+ },
+ {
+  "id": "d-dental-029",
+  "domain": "dentistry",
+  "stem": "Why should dental radiographs be obtained before and after an extraction when indicated?",
+  "options": [
+   "To sterilize the socket",
+   "To assess roots before removal and confirm the extraction site afterward",
+   "To replace the anesthesia record",
+   "To determine the patient’s blood type"
+  ],
+  "answer": 1,
+  "explanation": "Radiographs help identify root anatomy and assess completeness of extraction."
+ },
+ {
+  "id": "d-dental-030",
+  "domain": "dentistry",
+  "stem": "Which tissue covers the visible crown of a healthy tooth?",
+  "options": [
+   "Enamel",
+   "Cementum",
+   "Pulp",
+   "Periodontal ligament"
+  ],
+  "answer": 0,
+  "explanation": "Enamel covers the crown; cementum covers the root."
+ },
+ {
+  "id": "d-dental-031",
+  "domain": "dentistry",
+  "stem": "What is the primary concern when a dental instrument is damaged or has a rough surface?",
+  "options": [
+   "It changes the patient’s blood type",
+   "It prevents anesthesia monitoring",
+   "It improves calculus removal",
+   "It may injure tissue or impair effective treatment"
+  ],
+  "answer": 3,
+  "explanation": "Damaged instruments can cause trauma and should be removed from service for repair or replacement."
+ },
+ {
+  "id": "d-dental-032",
+  "domain": "dentistry",
+  "stem": "Which tooth numbering system records each tooth using a three-digit identifier?",
+  "options": [
+   "Glasgow coma scale",
+   "BCS system",
+   "Modified Triadan system",
+   "ASA physical status"
+  ],
+  "answer": 2,
+  "explanation": "The Modified Triadan system assigns three-digit numbers to individual teeth."
+ },
+ {
+  "id": "d-dental-033",
+  "domain": "dentistry",
+  "stem": "A dental patient is recovering from anesthesia. Which observation is important?",
+  "options": [
+   "Client’s parking location",
+   "Airway patency and return of protective reflexes",
+   "Dental chart color",
+   "Number of unused scalers"
+  ],
+  "answer": 1,
+  "explanation": "Airway and recovery monitoring remain important after dental procedures."
+ },
+ {
+  "id": "d-lab-015",
+  "domain": "lab",
+  "stem": "Which tube additive is commonly used for a CBC?",
+  "options": [
+   "EDTA",
+   "Sodium citrate",
+   "Plain fluoride only",
+   "Formalin"
+  ],
+  "answer": 0,
+  "explanation": "EDTA preserves cellular components for hematology when used at the correct ratio."
+ },
+ {
+  "id": "d-lab-016",
+  "domain": "lab",
+  "stem": "Which additive is commonly used for coagulation testing?",
+  "options": [
+   "EDTA",
+   "Lithium heparin",
+   "Formalin",
+   "Sodium citrate"
+  ],
+  "answer": 3,
+  "explanation": "Citrate binds calcium reversibly and is used for coagulation assays at the specified blood-to-additive ratio."
+ },
+ {
+  "id": "d-lab-017",
+  "domain": "lab",
+  "stem": "Why must a citrate tube be filled to the indicated volume?",
+  "options": [
+   "It is needed only for labeling",
+   "It prevents hemolysis in every sample",
+   "The blood-to-anticoagulant ratio affects coagulation test accuracy",
+   "It changes the patient’s clotting time"
+  ],
+  "answer": 2,
+  "explanation": "Underfilling changes the citrate ratio and can produce unreliable coagulation results."
+ },
+ {
+  "id": "d-lab-018",
+  "domain": "lab",
+  "stem": "What is serum?",
+  "options": [
+   "Urine after centrifugation",
+   "The fluid portion of clotted blood",
+   "The cellular portion of anticoagulated blood",
+   "Whole blood with EDTA"
+  ],
+  "answer": 1,
+  "explanation": "Serum is the liquid remaining after blood has clotted and cells have been removed."
+ },
+ {
+  "id": "d-lab-019",
+  "domain": "lab",
+  "stem": "What is plasma?",
+  "options": [
+   "The fluid portion of anticoagulated blood",
+   "The liquid after blood has clotted",
+   "Packed red cells only",
+   "A urine sediment"
+  ],
+  "answer": 0,
+  "explanation": "Plasma is obtained from anticoagulated blood and contains clotting proteins."
+ },
+ {
+  "id": "d-lab-020",
+  "domain": "lab",
+  "stem": "A sample is lipemic. What does this describe?",
+  "options": [
+   "Red cell rupture",
+   "Bacterial contamination only",
+   "Low platelet count",
+   "Excess lipid in the serum or plasma"
+  ],
+  "answer": 3,
+  "explanation": "Lipemia is turbidity from elevated lipid content and may interfere with some assays."
+ },
+ {
+  "id": "d-lab-021",
+  "domain": "lab",
+  "stem": "What is a buffy coat?",
+  "options": [
+   "The packed red cell layer",
+   "The urine sediment",
+   "The layer enriched with leukocytes and platelets after centrifugation",
+   "The clear top layer of serum"
+  ],
+  "answer": 2,
+  "explanation": "The buffy coat lies between plasma and packed erythrocytes in a spun hematocrit tube."
+ },
+ {
+  "id": "d-lab-022",
+  "domain": "lab",
+  "stem": "What is the purpose of a reticulocyte count?",
+  "options": [
+   "Identify bacterial species",
+   "Assess immature red blood cells and regenerative response",
+   "Measure platelet function",
+   "Determine urine concentration"
+  ],
+  "answer": 1,
+  "explanation": "Reticulocytes are immature erythrocytes; their number helps evaluate marrow response to anemia."
+ },
+ {
+  "id": "d-lab-023",
+  "domain": "lab",
+  "stem": "Which blood cell type is primarily involved in hemostasis?",
+  "options": [
+   "Platelet",
+   "Erythrocyte",
+   "Lymphocyte",
+   "Eosinophil"
+  ],
+  "answer": 0,
+  "explanation": "Platelets participate in primary hemostasis and clot formation."
+ },
+ {
+  "id": "d-lab-024",
+  "domain": "lab",
+  "stem": "A urine sample has a specific gravity of 1.045. What does specific gravity primarily estimate?",
+  "options": [
+   "Urine pH",
+   "Glucose concentration alone",
+   "Number of bacteria per field",
+   "Urine concentration relative to water"
+  ],
+  "answer": 3,
+  "explanation": "Specific gravity reflects the concentration of dissolved substances in urine."
+ },
+ {
+  "id": "d-lab-025",
+  "domain": "lab",
+  "stem": "Which urine test pad detects heme-associated peroxidase activity?",
+  "options": [
+   "Protein pad",
+   "pH pad",
+   "Blood pad",
+   "Ketone pad"
+  ],
+  "answer": 2,
+  "explanation": "The reagent pad detects heme activity and may react with intact cells, hemoglobin, or myoglobin."
+ },
+ {
+  "id": "d-lab-026",
+  "domain": "lab",
+  "stem": "Why should urine sediment be examined after centrifugation and resuspension?",
+  "options": [
+   "To determine serum electrolytes",
+   "To evaluate cells, casts, crystals, and other formed elements",
+   "To measure blood pressure",
+   "To count red blood cells in circulation"
+  ],
+  "answer": 1,
+  "explanation": "Urine sediment microscopy identifies formed elements that dipstick analysis cannot characterize."
+ },
+ {
+  "id": "d-lab-027",
+  "domain": "lab",
+  "stem": "Which finding is most consistent with bacteriuria on urine sediment examination?",
+  "options": [
+   "Bacteria observed in a properly collected sample",
+   "A single hyaline cast",
+   "A normal squamous cell",
+   "A negative dipstick protein result"
+  ],
+  "answer": 0,
+  "explanation": "Microscopic bacteria may support bacteriuria, but collection method and clinical context matter."
+ },
+ {
+  "id": "d-lab-028",
+  "domain": "lab",
+  "stem": "What is the purpose of a fecal flotation?",
+  "options": [
+   "Measure blood glucose",
+   "Identify heart murmurs",
+   "Determine urine pH",
+   "Recover parasite eggs or oocysts based on specific gravity"
+  ],
+  "answer": 3,
+  "explanation": "Flotation concentrates many parasite ova and oocysts for microscopic examination."
+ },
+ {
+  "id": "d-lab-029",
+  "domain": "lab",
+  "stem": "A fecal sample for parasite testing is delayed. What should the technician do?",
+  "options": [
+   "Leave it in direct sunlight",
+   "Mix it with urine",
+   "Store and submit it according to the receiving laboratory’s instructions",
+   "Add formalin to every sample"
+  ],
+  "answer": 2,
+  "explanation": "Specimen preservation requirements vary by test, so laboratory instructions should be followed."
+ },
+ {
+  "id": "d-lab-030",
+  "domain": "lab",
+  "stem": "Why should a blood smear be prepared promptly after collection?",
+  "options": [
+   "To remove leukocytes",
+   "To limit cell morphology artifacts from storage and anticoagulant effects",
+   "To make the sample clot faster",
+   "To increase platelet count"
+  ],
+  "answer": 1,
+  "explanation": "Delayed smear preparation can alter cellular morphology and distribution."
+ },
+ {
+  "id": "d-lab-031",
+  "domain": "lab",
+  "stem": "Which stain is commonly used for routine blood-smear evaluation?",
+  "options": [
+   "Wright-Giemsa-type stain",
+   "Gram iodine only",
+   "India ink only",
+   "Acid-fast stain only"
+  ],
+  "answer": 0,
+  "explanation": "Romanowsky-type stains such as Wright-Giemsa are used for blood-cell morphology."
+ },
+ {
+  "id": "d-lab-032",
+  "domain": "lab",
+  "stem": "A packed cell volume is measured after centrifugation. What is being quantified?",
+  "options": [
+   "The total plasma protein concentration only",
+   "The platelet count",
+   "The urine volume",
+   "The proportion of blood volume occupied by erythrocytes"
+  ],
+  "answer": 3,
+  "explanation": "PCV estimates the fraction of whole blood made up of packed red cells."
+ },
+ {
+  "id": "d-lab-033",
+  "domain": "lab",
+  "stem": "A plasma sample appears pink after centrifugation. What is a likely cause?",
+  "options": [
+   "Icterus",
+   "Leukocytosis",
+   "Hemolysis",
+   "Lipemia"
+  ],
+  "answer": 2,
+  "explanation": "Free hemoglobin can discolor plasma pink to red after red-cell rupture."
+ },
+ {
+  "id": "d-lab-034",
+  "domain": "lab",
+  "stem": "A plasma sample appears yellow. What is a possible cause?",
+  "options": [
+   "High urine specific gravity",
+   "Increased bilirubin",
+   "Hemolysis",
+   "Thrombocytopenia"
+  ],
+  "answer": 1,
+  "explanation": "Icterus causes yellow discoloration from bilirubin."
+ },
+ {
+  "id": "d-lab-035",
+  "domain": "lab",
+  "stem": "Why should a sample be labeled at collection rather than later?",
+  "options": [
+   "To maintain reliable patient and specimen identification",
+   "To save label stock",
+   "To avoid recording collection time",
+   "To let the laboratory identify the patient by appearance"
+  ],
+  "answer": 0,
+  "explanation": "Immediate labeling prevents mix-ups and preserves specimen traceability."
+ },
+ {
+  "id": "d-lab-036",
+  "domain": "lab",
+  "stem": "Which information is important on an outside laboratory submission?",
+  "options": [
+   "Only the technician’s initials",
+   "Only the clinic’s street address",
+   "The patient’s favorite treat",
+   "Patient identifiers, specimen type, requested tests, and relevant clinical information"
+  ],
+  "answer": 3,
+  "explanation": "Complete submission information supports accurate processing and interpretation."
+ },
+ {
+  "id": "d-lab-037",
+  "domain": "lab",
+  "stem": "A chemistry analyzer produces a control result outside the accepted range. What should the technician do?",
+  "options": [
+   "Alter the control value",
+   "Delete the control record",
+   "Stop relying on patient results from the affected run and troubleshoot per protocol",
+   "Release all results unchanged"
+  ],
+  "answer": 2,
+  "explanation": "Out-of-range quality controls indicate the run may not be reliable."
+ },
+ {
+  "id": "d-lab-038",
+  "domain": "lab",
+  "stem": "What is the purpose of calibration on an analyzer?",
+  "options": [
+   "Remove the need for controls",
+   "Relate instrument response to known reference values",
+   "Sterilize the sample probe",
+   "Increase sample volume"
+  ],
+  "answer": 1,
+  "explanation": "Calibration establishes the instrument’s measurement relationship to known standards."
+ },
+ {
+  "id": "d-lab-039",
+  "domain": "lab",
+  "stem": "Why should laboratory pipettes be maintained and checked?",
+  "options": [
+   "Accurate volume delivery is essential for reliable results",
+   "Pipettes identify the animal’s species",
+   "Maintenance prevents all sample clotting",
+   "They replace the need to label specimens"
+  ],
+  "answer": 0,
+  "explanation": "Pipette accuracy and function directly affect test measurements."
+ },
+ {
+  "id": "d-lab-040",
+  "domain": "lab",
+  "stem": "Which organism type is identified by a Gram stain’s reaction and morphology?",
+  "options": [
+   "Helminth eggs only",
+   "Red blood cells only",
+   "Serum proteins",
+   "Bacteria"
+  ],
+  "answer": 3,
+  "explanation": "Gram staining helps classify bacteria by cell-wall reaction and morphology."
+ },
+ {
+  "id": "d-lab-041",
+  "domain": "lab",
+  "stem": "What is the primary purpose of culturing a specimen?",
+  "options": [
+   "Measure urine concentration",
+   "Determine anesthetic depth",
+   "Grow and identify microorganisms for evaluation, often with susceptibility testing",
+   "Count red blood cells"
+  ],
+  "answer": 2,
+  "explanation": "Culture allows microbial growth and identification; susceptibility testing can guide treatment selection."
+ },
+ {
+  "id": "d-lab-042",
+  "domain": "lab",
+  "stem": "Why should a swab for culture be collected before antimicrobial therapy when feasible and directed?",
+  "options": [
+   "Culture is unaffected by prior treatment",
+   "Prior treatment may reduce organism recovery",
+   "Antimicrobials increase bacterial growth",
+   "It changes the sample color"
+  ],
+  "answer": 1,
+  "explanation": "Antimicrobials can suppress microbial growth and reduce culture yield."
+ },
+ {
+  "id": "d-lab-043",
+  "domain": "lab",
+  "stem": "Which sample is generally best for a blood culture?",
+  "options": [
+   "Aseptically collected blood placed in the appropriate culture system",
+   "Blood from a dirty floor surface",
+   "A dried smear",
+   "Serum in a plain tube left overnight"
+  ],
+  "answer": 0,
+  "explanation": "Blood culture requires aseptic collection and the appropriate culture medium."
+ },
+ {
+  "id": "d-lab-044",
+  "domain": "lab",
+  "stem": "A cytology slide is thick and heavily smeared. What may be impaired?",
+  "options": [
+   "Patient identification",
+   "The sample’s pH",
+   "The analyzer’s calibration",
+   "Cellular detail and interpretation"
+  ],
+  "answer": 3,
+  "explanation": "Thick, crushed preparations can obscure cell morphology and diagnostic features."
+ },
+ {
+  "id": "d-lab-045",
+  "domain": "lab",
+  "stem": "What is the purpose of an air-dried cytology smear?",
+  "options": [
+   "Increase the number of cells",
+   "Remove all bacteria",
+   "Preserve cellular morphology for appropriate staining and evaluation",
+   "Make the slide sterile"
+  ],
+  "answer": 2,
+  "explanation": "Proper drying helps retain cell detail for routine cytologic staining."
+ },
+ {
+  "id": "d-lab-046",
+  "domain": "lab",
+  "stem": "Which action reduces aerosol exposure when handling potentially infectious samples?",
+  "options": [
+   "Pipette by mouth",
+   "Use appropriate containment and protective equipment per biosafety protocol",
+   "Open tubes toward the face",
+   "Vortex uncapped specimens"
+  ],
+  "answer": 1,
+  "explanation": "Containment and PPE reduce exposure to infectious aerosols."
+ },
+ {
+  "id": "d-lab-047",
+  "domain": "lab",
+  "stem": "A specimen arrives without a label. What should the technician do?",
+  "options": [
+   "Follow rejection and identification policy; do not guess the patient identity",
+   "Label it with the most likely patient",
+   "Run the test and decide later",
+   "Ask another client to identify it"
+  ],
+  "answer": 0,
+  "explanation": "Unlabeled specimens cannot be reliably linked to a patient and must be handled under policy."
+ },
+ {
+  "id": "d-nursing-031",
+  "domain": "nursing",
+  "stem": "A dog arrives with a painful limb. What is the safest initial handling approach?",
+  "options": [
+   "Grip the injured limb firmly",
+   "Approach from behind without warning",
+   "Allow the dog to roam in the treatment area",
+   "Assess behavior and pain, then use a low-stress restraint plan with assistance as needed"
+  ],
+  "answer": 3,
+  "explanation": "Assessing pain and behavior first helps select safe handling and protect the patient and team."
+ },
+ {
+  "id": "d-nursing-032",
+  "domain": "nursing",
+  "stem": "A cat is hiding in the back of its carrier. What should the technician try first?",
+  "options": [
+   "Tip the carrier sharply",
+   "Use loud noise to force movement",
+   "Keep the environment quiet and use the carrier or towel to support low-stress handling",
+   "Pull the cat by the tail"
+  ],
+  "answer": 2,
+  "explanation": "Quiet handling and familiar carrier support reduce fear and improve safety."
+ },
+ {
+  "id": "d-nursing-033",
+  "domain": "nursing",
+  "stem": "A dog shows repeated lip licking, yawning, and avoidance during restraint. What may these behaviors indicate?",
+  "options": [
+   "A desire to play",
+   "Stress or discomfort",
+   "Normal anesthetic recovery only",
+   "Hypoglycemia in every case"
+  ],
+  "answer": 1,
+  "explanation": "These may be stress signals and should prompt reassessment of the handling plan."
+ },
+ {
+  "id": "d-nursing-034",
+  "domain": "nursing",
+  "stem": "What is an appropriate response when a patient’s respiratory effort suddenly increases?",
+  "options": [
+   "Assess the patient and alert the veterinarian promptly",
+   "Wait until the next scheduled vital-sign check",
+   "Offer food",
+   "Remove the oxygen without assessment"
+  ],
+  "answer": 0,
+  "explanation": "Increased respiratory effort can be urgent and requires immediate assessment and escalation."
+ },
+ {
+  "id": "d-nursing-035",
+  "domain": "nursing",
+  "stem": "A patient is recumbent and cannot reposition itself. Why should its position be changed as directed?",
+  "options": [
+   "To stop all urination",
+   "To increase body temperature in every patient",
+   "To replace nursing assessments",
+   "To reduce prolonged pressure and support ventilation and comfort"
+  ],
+  "answer": 3,
+  "explanation": "Repositioning reduces pressure injury risk and may support comfort and respiratory function."
+ },
+ {
+  "id": "d-nursing-036",
+  "domain": "nursing",
+  "stem": "Which finding should be monitored distal to a limb bandage?",
+  "options": [
+   "The patient’s appetite only",
+   "Pupil size only",
+   "Swelling, temperature, color, and circulation",
+   "Hair color only"
+  ],
+  "answer": 2,
+  "explanation": "Distal limb checks help identify bandage constriction or impaired circulation."
+ },
+ {
+  "id": "d-nursing-037",
+  "domain": "nursing",
+  "stem": "A patient’s toes become cool and swollen below a bandage. What is the best action?",
+  "options": [
+   "Apply a second tight layer",
+   "Notify the veterinarian immediately and follow instructions to assess the bandage",
+   "Tighten the bandage",
+   "Wait several days"
+  ],
+  "answer": 1,
+  "explanation": "Cool, swollen digits may indicate impaired circulation and require prompt attention."
+ },
+ {
+  "id": "d-nursing-038",
+  "domain": "nursing",
+  "stem": "What does capillary refill time assess in a basic perfusion check?",
+  "options": [
+   "Time for color to return to blanched mucous membrane",
+   "Urine concentration",
+   "Blood glucose",
+   "Lung capacity"
+  ],
+  "answer": 0,
+  "explanation": "Capillary refill time is a quick indicator of peripheral perfusion when interpreted with other findings."
+ },
+ {
+  "id": "d-nursing-039",
+  "domain": "nursing",
+  "stem": "Why should vital signs be recorded with the time of measurement?",
+  "options": [
+   "It determines the patient’s breed",
+   "It replaces the treatment record",
+   "It prevents all equipment errors",
+   "Trends and timing support clinical interpretation"
+  ],
+  "answer": 3,
+  "explanation": "Time-stamped observations allow the team to evaluate changes over time."
+ },
+ {
+  "id": "d-nursing-040",
+  "domain": "nursing",
+  "stem": "Which information should be included in a nursing note?",
+  "options": [
+   "Only the patient’s name",
+   "Only planned treatments",
+   "Objective observations, interventions, and patient response",
+   "Personal opinions about the client"
+  ],
+  "answer": 2,
+  "explanation": "Clear notes document what was observed, done, and how the patient responded."
+ },
+ {
+  "id": "d-nursing-041",
+  "domain": "nursing",
+  "stem": "A hospitalized patient has not eaten. What should the technician do?",
+  "options": [
+   "Assume the patient ate overnight",
+   "Record intake and report the change according to the care plan",
+   "Force-feed without authorization",
+   "Remove food and omit documentation"
+  ],
+  "answer": 1,
+  "explanation": "Reduced intake is clinically relevant and should be documented and communicated."
+ },
+ {
+  "id": "d-nursing-042",
+  "domain": "nursing",
+  "stem": "Why should water intake be monitored in a patient with a prescribed fluid-balance plan?",
+  "options": [
+   "It contributes to total fluid intake and helps assess trends",
+   "It identifies the patient’s blood type",
+   "It replaces urine-output measurement",
+   "It is unrelated to hydration"
+  ],
+  "answer": 0,
+  "explanation": "Oral water intake is part of overall fluid balance and may affect clinical evaluation."
+ },
+ {
+  "id": "d-nursing-043",
+  "domain": "nursing",
+  "stem": "A urinary collection bag is attached to a catheterized patient. Where should it generally be positioned?",
+  "options": [
+   "Above the patient’s abdomen",
+   "On top of the patient",
+   "At the same height as the head",
+   "Below the level of the bladder"
+  ],
+  "answer": 3,
+  "explanation": "Keeping the collection bag below the bladder supports drainage and helps prevent backflow."
+ },
+ {
+  "id": "d-nursing-044",
+  "domain": "nursing",
+  "stem": "Why should a urinary catheter drainage system remain closed when possible?",
+  "options": [
+   "To make urine harder to measure",
+   "To prevent all urine production",
+   "To reduce contamination and ascending infection risk",
+   "To increase air entry into the bladder"
+  ],
+  "answer": 2,
+  "explanation": "Maintaining a closed system limits contamination."
+ },
+ {
+  "id": "d-nursing-045",
+  "domain": "nursing",
+  "stem": "What should be assessed when monitoring urine output?",
+  "options": [
+   "The number of staff on shift",
+   "Volume, appearance, and changes over time",
+   "Only the container color",
+   "Only the patient’s appetite"
+  ],
+  "answer": 1,
+  "explanation": "Urine volume and characteristics can help assess renal and fluid status."
+ },
+ {
+  "id": "d-nursing-046",
+  "domain": "nursing",
+  "stem": "A patient has repeated vomiting. What should the technician do?",
+  "options": [
+   "Record frequency and appearance, assess the patient, and notify the veterinarian",
+   "Give an antiemetic without an order",
+   "Withhold all water indefinitely",
+   "Ignore it if the patient is quiet"
+  ],
+  "answer": 0,
+  "explanation": "Vomiting can cause dehydration or signal worsening disease; findings should be documented and escalated."
+ },
+ {
+  "id": "d-nursing-047",
+  "domain": "nursing",
+  "stem": "Which action is appropriate when cleaning a wound for a prescribed treatment?",
+  "options": [
+   "Use concentrated household disinfectant",
+   "Scrub aggressively until tissue bleeds",
+   "Apply multiple products without authorization",
+   "Use the solution and technique specified in the treatment plan"
+  ],
+  "answer": 3,
+  "explanation": "Wound care must follow the prescribed plan and avoid tissue-damaging products or excessive trauma."
+ },
+ {
+  "id": "d-nursing-048",
+  "domain": "nursing",
+  "stem": "A wound bandage becomes soaked with discharge. What should happen?",
+  "options": [
+   "Cover it with plastic wrap",
+   "Add powder over the wet bandage",
+   "Notify the veterinarian and replace or assess it according to the care plan",
+   "Leave it in place until the next week"
+  ],
+  "answer": 2,
+  "explanation": "A wet or saturated bandage can damage skin and requires assessment."
+ },
+ {
+  "id": "d-nursing-049",
+  "domain": "nursing",
+  "stem": "What is the purpose of a Robert Jones bandage?",
+  "options": [
+   "Protect the eyes",
+   "Provide support and padding to a limb",
+   "Deliver oxygen",
+   "Immobilize the jaw"
+  ],
+  "answer": 1,
+  "explanation": "A Robert Jones bandage is a bulky padded bandage used for limb support and swelling control."
+ },
+ {
+  "id": "d-nursing-050",
+  "domain": "nursing",
+  "stem": "A patient has a pressure sore. Which nursing action is appropriate?",
+  "options": [
+   "Relieve pressure and follow the veterinarian’s wound-care and repositioning plan",
+   "Massage the lesion vigorously",
+   "Keep the patient on the same surface",
+   "Apply an unapproved topical medication"
+  ],
+  "answer": 0,
+  "explanation": "Pressure relief and a prescribed wound plan are key to preventing progression."
+ },
+ {
+  "id": "d-nursing-051",
+  "domain": "nursing",
+  "stem": "Which position may help support breathing in a dyspneic patient if tolerated?",
+  "options": [
+   "Dorsal recumbency with the neck flexed",
+   "Tightly curled with the face covered",
+   "Suspended by the limbs",
+   "Sternal with the head and neck in a comfortable extended position"
+  ],
+  "answer": 3,
+  "explanation": "Sternal positioning and an open airway may reduce respiratory effort in some patients; avoid unnecessary stress."
+ },
+ {
+  "id": "d-nursing-052",
+  "domain": "nursing",
+  "stem": "A patient is suspected of having a contagious disease. What is the best immediate infection-control step?",
+  "options": [
+   "Share equipment without cleaning",
+   "Ask the client to wait in the treatment area",
+   "Place the patient in the designated isolation area and use required precautions",
+   "House it with healthy patients"
+  ],
+  "answer": 2,
+  "explanation": "Isolation and appropriate precautions help limit transmission."
+ },
+ {
+  "id": "d-nursing-053",
+  "domain": "nursing",
+  "stem": "What is the correct direction for patient flow in an isolation setting when possible?",
+  "options": [
+   "Bring all patients into the isolation area",
+   "Care for healthy patients before isolated patients",
+   "Care for isolated patients first, then all healthy patients without changing PPE",
+   "Move randomly between rooms"
+  ],
+  "answer": 1,
+  "explanation": "Healthy-to-isolation workflow reduces the chance of carrying pathogens to susceptible patients."
+ },
+ {
+  "id": "d-nursing-054",
+  "domain": "nursing",
+  "stem": "What should be done after handling an isolation patient?",
+  "options": [
+   "Remove PPE and perform hand hygiene according to protocol",
+   "Wear the same gloves to the next patient",
+   "Carry used gowns into the clean supply area",
+   "Skip hand hygiene if gloves were used"
+  ],
+  "answer": 0,
+  "explanation": "Proper PPE removal and hand hygiene reduce contamination spread."
+ },
+ {
+  "id": "d-nursing-055",
+  "domain": "nursing",
+  "stem": "Which practice is appropriate for disinfecting a kennel?",
+  "options": [
+   "Spray over feces and wipe immediately",
+   "Mix disinfectants together",
+   "Use a product without checking species safety",
+   "Remove organic debris, then use an effective product for the labeled contact time"
+  ],
+  "answer": 3,
+  "explanation": "Organic material can reduce disinfectant effectiveness; contact time and label directions matter."
+ },
+ {
+  "id": "d-nursing-056",
+  "domain": "nursing",
+  "stem": "A new puppy has an unknown vaccination history. What infection-control approach is prudent while awaiting evaluation?",
+  "options": [
+   "Share bowls with hospitalized patients",
+   "Assume it is fully protected",
+   "Limit contact with other patients and follow clinic isolation precautions",
+   "Place it in the communal play area"
+  ],
+  "answer": 2,
+  "explanation": "Unknown vaccination status warrants precautions to reduce exposure risk."
+ },
+ {
+  "id": "d-nursing-057",
+  "domain": "nursing",
+  "stem": "Which item is most important when collecting a history from a client?",
+  "options": [
+   "The technician’s assumptions",
+   "Onset, duration, progression, and relevant prior care",
+   "The client’s preferred parking space",
+   "The pet’s favorite toy only"
+  ],
+  "answer": 1,
+  "explanation": "A structured history helps the veterinarian understand the complaint and timeline."
+ },
+ {
+  "id": "d-nursing-058",
+  "domain": "nursing",
+  "stem": "A client reports a possible toxin exposure. What should the technician do?",
+  "options": [
+   "Gather the product, amount, time, and patient details and alert the veterinarian promptly",
+   "Induce vomiting without veterinary direction",
+   "Tell the client to wait until symptoms appear",
+   "Discard the product label"
+  ],
+  "answer": 0,
+  "explanation": "Exposure details help guide risk assessment; interventions should be directed by the veterinarian."
+ },
+ {
+  "id": "d-nursing-059",
+  "domain": "nursing",
+  "stem": "Which restraint method is appropriate for a fractious cat when safe and authorized?",
+  "options": [
+   "Hold the cat by the tail",
+   "Forcefully extend all limbs",
+   "Place the cat near an open exit",
+   "Use a towel or other low-stress technique with appropriate assistance"
+  ],
+  "answer": 3,
+  "explanation": "Appropriate towel restraint can improve safety while minimizing stress."
+ },
+ {
+  "id": "d-nursing-060",
+  "domain": "nursing",
+  "stem": "A patient becomes increasingly agitated during restraint. What should the team do?",
+  "options": [
+   "Punish the patient",
+   "Continue without communicating",
+   "Pause if safe, reduce stimulation, and reassess the approach",
+   "Increase force immediately"
+  ],
+  "answer": 2,
+  "explanation": "Escalating distress raises injury risk; reassessment may allow a safer plan."
+ },
+ {
+  "id": "d-nursing-061",
+  "domain": "nursing",
+  "stem": "Which location is commonly used to palpate a dog’s femoral pulse?",
+  "options": [
+   "Tail tip",
+   "Medial thigh",
+   "Dorsal paw",
+   "Lateral neck only"
+  ],
+  "answer": 1,
+  "explanation": "The femoral artery is palpated on the medial aspect of the thigh."
+ },
+ {
+  "id": "d-nursing-062",
+  "domain": "nursing",
+  "stem": "Which finding should be reported during a routine nursing assessment?",
+  "options": [
+   "New pale mucous membranes",
+   "A familiar coat pattern",
+   "The patient’s name tag color",
+   "A normal relaxed posture"
+  ],
+  "answer": 0,
+  "explanation": "Pale mucous membranes can indicate poor perfusion or anemia and merit veterinary assessment."
+ },
+ {
+  "id": "d-nursing-063",
+  "domain": "nursing",
+  "stem": "A patient’s gums appear yellow. What should the technician do?",
+  "options": [
+   "Apply dental polish",
+   "Wait for the next appointment",
+   "Give an iron supplement",
+   "Document and promptly report the finding"
+  ],
+  "answer": 3,
+  "explanation": "Icteric mucous membranes may indicate clinically important disease and require evaluation."
+ },
+ {
+  "id": "d-nursing-064",
+  "domain": "nursing",
+  "stem": "Which measurement should be recorded using a consistent method when tracking body weight?",
+  "options": [
+   "Food-bowl color",
+   "Leash length",
+   "Weight on the same calibrated scale when feasible",
+   "Tail length only"
+  ],
+  "answer": 2,
+  "explanation": "Consistent weighing methods improve comparison of serial measurements."
+ },
+ {
+  "id": "d-nursing-065",
+  "domain": "nursing",
+  "stem": "Why should the same scale be used for serial weights when practical?",
+  "options": [
+   "It measures hydration directly",
+   "It reduces variation between measurements",
+   "It guarantees the diagnosis",
+   "It replaces body condition scoring"
+  ],
+  "answer": 1,
+  "explanation": "Using the same calibrated scale improves trend reliability."
+ },
+ {
+  "id": "d-nursing-066",
+  "domain": "nursing",
+  "stem": "A patient’s body condition score is high. What does the score generally describe?",
+  "options": [
+   "Estimated body fat and body condition",
+   "Blood pressure",
+   "Hydration percentage",
+   "Muscle enzyme activity"
+  ],
+  "answer": 0,
+  "explanation": "Body condition scoring estimates adiposity and should be considered with weight and clinical findings."
+ },
+ {
+  "id": "d-nursing-067",
+  "domain": "nursing",
+  "stem": "Which approach is appropriate when feeding a patient with a prescribed diet?",
+  "options": [
+   "Use any available food",
+   "Mix diets without checking",
+   "Feed another patient’s leftovers",
+   "Verify the patient, diet, amount, and feeding instructions before serving"
+  ],
+  "answer": 3,
+  "explanation": "Diet and amount should match the treatment plan to support safe care."
+ },
+ {
+  "id": "d-nursing-068",
+  "domain": "nursing",
+  "stem": "A patient is on a feeding tube. What should be checked before feeding?",
+  "options": [
+   "The color of the food bowl",
+   "The number of staff in the room",
+   "Tube placement and patency as directed by the protocol",
+   "Only the patient’s collar"
+  ],
+  "answer": 2,
+  "explanation": "Placement and patency checks reduce the risk of delivering food into the wrong location."
+ },
+ {
+  "id": "d-nursing-069",
+  "domain": "nursing",
+  "stem": "A tube-fed patient coughs during feeding. What should the technician do?",
+  "options": [
+   "Turn the patient upside down",
+   "Stop the feeding and promptly notify the veterinarian",
+   "Continue at a faster rate",
+   "Flush with a large volume"
+  ],
+  "answer": 1,
+  "explanation": "Coughing may indicate aspiration or tube-related complications; stop and assess."
+ },
+ {
+  "id": "d-nursing-070",
+  "domain": "nursing",
+  "stem": "Why should a patient’s bedding be kept clean and dry?",
+  "options": [
+   "To support comfort and reduce skin contamination or injury",
+   "To increase microbial growth",
+   "To avoid recording urine output",
+   "To replace isolation protocols"
+  ],
+  "answer": 0,
+  "explanation": "Clean, dry bedding supports skin integrity and patient comfort."
+ },
+ {
+  "id": "d-nursing-071",
+  "domain": "nursing",
+  "stem": "A patient has diarrhea in its kennel. Which action is appropriate?",
+  "options": [
+   "Move the stool to another kennel",
+   "Leave it until discharge",
+   "Mix it with the food sample",
+   "Assess and document the stool, clean safely, and follow infection-control procedures"
+  ],
+  "answer": 3,
+  "explanation": "Stool quality can be clinically useful and cleanup should limit contamination."
+ },
+ {
+  "id": "d-nursing-072",
+  "domain": "nursing",
+  "stem": "What is an appropriate way to reduce the risk of zoonotic exposure?",
+  "options": [
+   "Eat in the treatment area",
+   "Reuse contaminated gloves",
+   "Use hand hygiene and PPE appropriate to the suspected hazard",
+   "Touch all samples with bare hands"
+  ],
+  "answer": 2,
+  "explanation": "PPE and hand hygiene are core measures for reducing zoonotic transmission."
+ },
+ {
+  "id": "d-nursing-073",
+  "domain": "nursing",
+  "stem": "A technician is bitten while restraining a patient. What should happen?",
+  "options": [
+   "Apply medication to the patient",
+   "Secure the patient, provide first aid, and report the injury under clinic policy",
+   "Ignore it if the wound is small",
+   "Continue without notifying anyone"
+  ],
+  "answer": 1,
+  "explanation": "Human injuries require prompt care and reporting, while maintaining patient and team safety."
+ },
+ {
+  "id": "d-nursing-074",
+  "domain": "nursing",
+  "stem": "What is the purpose of a fecal sample collection container label?",
+  "options": [
+   "Link the specimen to the correct patient and collection details",
+   "Identify the client’s car",
+   "Measure stool volume",
+   "Record the patient’s pulse"
+  ],
+  "answer": 0,
+  "explanation": "Accurate labeling ensures the specimen is traceable to the correct patient."
+ },
+ {
+  "id": "d-nursing-075",
+  "domain": "nursing",
+  "stem": "A patient has a peripheral IV catheter. Which site finding is concerning?",
+  "options": [
+   "A clean secure dressing",
+   "A visible label",
+   "A dry bandage",
+   "Swelling, pain, heat, or fluid leakage"
+  ],
+  "answer": 3,
+  "explanation": "These findings can indicate infiltration, phlebitis, or other catheter complications."
+ },
+ {
+  "id": "d-nursing-076",
+  "domain": "nursing",
+  "stem": "What should be done if an IV catheter becomes dislodged?",
+  "options": [
+   "Tape it over the opening",
+   "Flush it forcefully",
+   "Apply appropriate pressure if needed and notify the veterinarian",
+   "Push it back into the vein"
+  ],
+  "answer": 2,
+  "explanation": "A dislodged catheter should not be reinserted; assess the site and notify the veterinarian."
+ },
+ {
+  "id": "d-nursing-077",
+  "domain": "nursing",
+  "stem": "Why should an IV catheter be flushed only as directed?",
+  "options": [
+   "To replace dressing changes",
+   "To confirm patency while avoiding inappropriate fluid or medication delivery",
+   "To increase the patient’s blood pressure in every case",
+   "To sterilize the vein"
+  ],
+  "answer": 1,
+  "explanation": "Flush volume and solution must follow the prescribed protocol and catheter type."
+ },
+ {
+  "id": "d-nursing-078",
+  "domain": "nursing",
+  "stem": "A patient is receiving oxygen by flow-by. What should be monitored?",
+  "options": [
+   "Patient response and oxygen setup",
+   "Only the cage color",
+   "The client’s phone number",
+   "The time of the next meal only"
+  ],
+  "answer": 0,
+  "explanation": "Oxygen support requires observation of both patient response and delivery method."
+ },
+ {
+  "id": "d-nursing-079",
+  "domain": "nursing",
+  "stem": "A patient is wearing an Elizabethan collar. What is its primary purpose?",
+  "options": [
+   "Measure body temperature",
+   "Support the airway",
+   "Deliver medication",
+   "Prevent self-trauma or interference with a treatment site"
+  ],
+  "answer": 3,
+  "explanation": "The collar limits access to wounds or devices when properly fitted."
+ },
+ {
+  "id": "d-nursing-080",
+  "domain": "nursing",
+  "stem": "What is an appropriate check of an Elizabethan collar?",
+  "options": [
+   "Cover the nose",
+   "Remove it whenever staff leave",
+   "Confirm it is secure, comfortable, and does not impair breathing or swallowing",
+   "Tighten until it cannot move at all"
+  ],
+  "answer": 2,
+  "explanation": "Correct fit protects the treatment site while allowing normal breathing and swallowing."
+ },
+ {
+  "id": "d-nursing-081",
+  "domain": "nursing",
+  "stem": "A patient is trembling in a cool recovery area. What should the technician do?",
+  "options": [
+   "Give food immediately",
+   "Assess temperature and patient status, then provide approved warming support",
+   "Apply a heating pad directly at high heat",
+   "Ignore it as normal"
+  ],
+  "answer": 1,
+  "explanation": "Trembling may reflect hypothermia or other conditions; assess before applying controlled warming."
+ },
+ {
+  "id": "d-nursing-082",
+  "domain": "nursing",
+  "stem": "Why should warming devices be used cautiously in recumbent patients?",
+  "options": [
+   "They may cause thermal injury if the patient cannot move away",
+   "They always cause hypothermia",
+   "They sterilize the bedding",
+   "They eliminate monitoring needs"
+  ],
+  "answer": 0,
+  "explanation": "Patients unable to reposition are vulnerable to burns from concentrated heat."
+ },
+ {
+  "id": "d-nursing-083",
+  "domain": "nursing",
+  "stem": "A patient has a seizure. What is the safest immediate action?",
+  "options": [
+   "Place hands in the mouth",
+   "Restrain the limbs tightly",
+   "Offer oral medication during the seizure",
+   "Protect from nearby hazards, time the event, and alert the veterinarian"
+  ],
+  "answer": 3,
+  "explanation": "Protecting the patient and recording duration help guide emergency care; do not place hands in the mouth."
+ },
+ {
+  "id": "d-nursing-084",
+  "domain": "nursing",
+  "stem": "What should be noted after a seizure ends?",
+  "options": [
+   "The number of people in the room",
+   "The food brand",
+   "Duration, observed movements, recovery, and any recurrence",
+   "Only the patient’s coat color"
+  ],
+  "answer": 2,
+  "explanation": "Detailed observation supports clinical evaluation and seizure management."
+ },
+ {
+  "id": "d-nursing-085",
+  "domain": "nursing",
+  "stem": "A patient’s temperature is outside the expected range. What should the technician do?",
+  "options": [
+   "Ignore the result if the patient is quiet",
+   "Verify technique and report the result with other findings",
+   "Change the number in the record",
+   "Apply ice or heat without direction"
+  ],
+  "answer": 1,
+  "explanation": "Technique should be considered, and abnormal results must be communicated for evaluation."
+ },
+ {
+  "id": "d-nursing-086",
+  "domain": "nursing",
+  "stem": "Which technique supports accurate respiratory-rate measurement?",
+  "options": [
+   "Observe breathing before handling or stressing the patient when feasible",
+   "Count only during active restraint",
+   "Estimate from the patient’s size",
+   "Use the heart rate as a substitute"
+  ],
+  "answer": 0,
+  "explanation": "A calm observation can reduce stress-related changes in respiratory rate."
+ },
+ {
+  "id": "d-nursing-087",
+  "domain": "nursing",
+  "stem": "A patient is scheduled for a treatment that requires fasting. What should the technician verify?",
+  "options": [
+   "Assume all patients fast overnight",
+   "Feed extra food at check-in",
+   "Ask another patient",
+   "The prescribed fasting instructions and timing"
+  ],
+  "answer": 3,
+  "explanation": "Fasting instructions are patient- and procedure-specific and should be verified."
+ },
+ {
+  "id": "d-nursing-088",
+  "domain": "nursing",
+  "stem": "Which action helps prevent medication administration to the wrong patient?",
+  "options": [
+   "Recognize the patient by coat color only",
+   "Ask a nearby client",
+   "Use the required patient identifiers at the bedside or kennel",
+   "Rely on kennel location alone"
+  ],
+  "answer": 2,
+  "explanation": "Multiple identifiers reduce wrong-patient errors."
+ },
+ {
+  "id": "d-nursing-089",
+  "domain": "nursing",
+  "stem": "A treatment sheet is missing a route for a medication. What should the technician do?",
+  "options": [
+   "Skip the dose without telling anyone",
+   "Clarify the order before administration",
+   "Choose the usual route",
+   "Use the route from another patient’s chart"
+  ],
+  "answer": 1,
+  "explanation": "An incomplete order should be clarified rather than interpreted independently."
+ },
+ {
+  "id": "d-nursing-090",
+  "domain": "nursing",
+  "stem": "Why should a patient’s response after a treatment be documented?",
+  "options": [
+   "It informs ongoing care and helps identify benefit or adverse effects",
+   "It replaces the original order",
+   "It is needed only if the patient is discharged",
+   "It identifies the manufacturer"
+  ],
+  "answer": 0,
+  "explanation": "Response documentation supports treatment evaluation and continuity of care."
+ },
+ {
+  "id": "d-nursing-091",
+  "domain": "nursing",
+  "stem": "A patient with suspected contagious diarrhea needs a sample collected. What is important?",
+  "options": [
+   "Collect it on the exam-room floor",
+   "Use shared tools without cleaning",
+   "Carry the uncovered sample through the lobby",
+   "Use appropriate PPE and avoid contaminating other surfaces"
+  ],
+  "answer": 3,
+  "explanation": "Containment, PPE, and clean transport reduce pathogen spread."
+ },
+ {
+  "id": "d-nursing-092",
+  "domain": "nursing",
+  "stem": "Which action is appropriate when a client asks the technician to change the prescribed dose?",
+  "options": [
+   "Agree if the client insists",
+   "Double the dose for convenience",
+   "Refer the request to the veterinarian",
+   "Change the dose based on body size"
+  ],
+  "answer": 2,
+  "explanation": "Dose changes are veterinary decisions and require an authorized order."
+ },
+ {
+  "id": "d-nursing-093",
+  "domain": "nursing",
+  "stem": "A patient’s appetite improves after treatment. What should the technician do?",
+  "options": [
+   "Change the diet without authorization",
+   "Record the intake and communicate the trend as indicated",
+   "Assume the patient is cured",
+   "Stop all monitoring"
+  ],
+  "answer": 1,
+  "explanation": "Documenting response helps the team evaluate progress without overinterpreting one sign."
+ },
+ {
+  "id": "d-nursing-094",
+  "domain": "nursing",
+  "stem": "What is the purpose of a clean recovery kennel?",
+  "options": [
+   "Provide a safe, comfortable environment and reduce contamination",
+   "Replace monitoring",
+   "Prevent all postoperative pain",
+   "Guarantee normal temperature"
+  ],
+  "answer": 0,
+  "explanation": "A prepared recovery space supports hygiene and safe observation."
+ },
+ {
+  "id": "d-nursing-095",
+  "domain": "nursing",
+  "stem": "A patient is recovering from anesthesia and has an unsecured endotracheal tube. What is the concern?",
+  "options": [
+   "Improved appetite",
+   "Reduced need for monitoring",
+   "Increased urine concentration",
+   "Airway obstruction or injury if the tube is mishandled"
+  ],
+  "answer": 3,
+  "explanation": "Airway devices require careful monitoring and removal at the appropriate recovery stage by trained staff."
+ },
+ {
+  "id": "d-nursing-096",
+  "domain": "nursing",
+  "stem": "Which is an appropriate response to a client reporting a medication side effect at home?",
+  "options": [
+   "Diagnose the cause",
+   "Dismiss the concern if the pet is eating",
+   "Collect details and promptly relay them to the veterinarian",
+   "Tell the client to stop every medication permanently"
+  ],
+  "answer": 2,
+  "explanation": "The veterinarian needs the medication, timing, and observed signs to determine the plan."
+ },
+ {
+  "id": "d-nursing-097",
+  "domain": "nursing",
+  "stem": "A patient has a suspected fracture. How should the limb be handled during transport?",
+  "options": [
+   "Apply a tight circumferential bandage without assessment",
+   "Minimize movement and follow veterinary stabilization instructions",
+   "Manipulate the limb repeatedly",
+   "Allow the patient to walk"
+  ],
+  "answer": 1,
+  "explanation": "Limiting movement reduces pain and risk of further injury."
+ },
+ {
+  "id": "d-nursing-098",
+  "domain": "nursing",
+  "stem": "Why should a patient’s kennel card and medical record be checked together?",
+  "options": [
+   "To ensure current care instructions match the correct patient",
+   "To confirm the patient’s breed",
+   "To replace verbal communication",
+   "To avoid documenting treatments"
+  ],
+  "answer": 0,
+  "explanation": "Cross-checking the record and kennel information helps prevent identification and treatment errors."
+ },
+ {
+  "id": "d-nursing-099",
+  "domain": "nursing",
+  "stem": "A hospitalized patient is unusually quiet and less responsive. What is the best next step?",
+  "options": [
+   "Assume the patient is resting",
+   "Turn off alarms",
+   "Wait until morning rounds",
+   "Assess vital signs and promptly report the change"
+  ],
+  "answer": 3,
+  "explanation": "A change in mentation may signal deterioration and warrants assessment and communication."
+ },
+ {
+  "id": "d-nursing-100",
+  "domain": "nursing",
+  "stem": "What is an important nursing consideration for a patient with a pressure-sensitive eye condition?",
+  "options": [
+   "Place the patient face down",
+   "Use a tight facial bandage",
+   "Avoid pressure on the globe and follow handling instructions",
+   "Apply pressure to the eye to assess firmness"
+  ],
+  "answer": 2,
+  "explanation": "Pressure on the globe can be harmful in some ocular conditions."
+ },
+ {
+  "id": "d-imaging-010",
+  "domain": "imaging",
+  "stem": "A patient is positioned for a lateral abdominal radiograph. Where should the marker be placed?",
+  "options": [
+   "After exposure only",
+   "On the image receptor side, outside the anatomy of interest",
+   "Over the area being evaluated",
+   "On the patient’s face"
+  ],
+  "answer": 1,
+  "explanation": "A visible marker should identify orientation without obscuring diagnostic anatomy."
+ },
+ {
+  "id": "d-imaging-011",
+  "domain": "imaging",
+  "stem": "Why is collimation used in radiography?",
+  "options": [
+   "Limit the primary beam to the area of interest",
+   "Increase scatter",
+   "Expose staff to more radiation",
+   "Replace patient positioning"
+  ],
+  "answer": 0,
+  "explanation": "Collimation reduces irradiated volume and scatter while focusing the image on the region needed."
+ },
+ {
+  "id": "d-imaging-012",
+  "domain": "imaging",
+  "stem": "Which three principles reduce occupational radiation exposure?",
+  "options": [
+   "Increase time, reduce distance, remove shielding",
+   "Use gloves only",
+   "Stand in the primary beam",
+   "Minimize time, maximize distance, and use shielding"
+  ],
+  "answer": 3,
+  "explanation": "Time, distance, and shielding are the core radiation-protection principles."
+ },
+ {
+  "id": "d-imaging-013",
+  "domain": "imaging",
+  "stem": "A radiograph is blurred. Which cause is most likely?",
+  "options": [
+   "Correct marker placement",
+   "Proper collimation",
+   "Motion during exposure",
+   "Accurate positioning"
+  ],
+  "answer": 2,
+  "explanation": "Patient movement during exposure causes motion blur."
+ },
+ {
+  "id": "d-imaging-014",
+  "domain": "imaging",
+  "stem": "What is the purpose of using sandbags or foam positioning aids?",
+  "options": [
+   "Change tissue density",
+   "Maintain positioning while reducing manual restraint near the beam",
+   "Increase radiation scatter",
+   "Replace protective apparel"
+  ],
+  "answer": 1,
+  "explanation": "Positioning aids help stabilize the patient and reduce the need for personnel to hold it."
+ },
+ {
+  "id": "d-imaging-015",
+  "domain": "imaging",
+  "stem": "Which personnel should remain in the room during an exposure?",
+  "options": [
+   "Only essential personnel using appropriate protective measures",
+   "Everyone on the treatment team",
+   "The client and all staff",
+   "No one wearing PPE"
+  ],
+  "answer": 0,
+  "explanation": "Limiting personnel in the room reduces unnecessary radiation exposure."
+ },
+ {
+  "id": "d-imaging-016",
+  "domain": "imaging",
+  "stem": "Why should hands not be placed in the primary x-ray beam?",
+  "options": [
+   "It reduces image contrast only",
+   "It makes the patient move",
+   "It sterilizes the gloves",
+   "The beam can expose tissue to ionizing radiation"
+  ],
+  "answer": 3,
+  "explanation": "Hands are radiosensitive and should not be exposed to the primary beam."
+ },
+ {
+  "id": "d-imaging-017",
+  "domain": "imaging",
+  "stem": "What is the purpose of a lead apron and thyroid shield?",
+  "options": [
+   "Prevent patient motion",
+   "Replace dosimetry",
+   "Reduce occupational exposure to scattered radiation",
+   "Improve image resolution"
+  ],
+  "answer": 2,
+  "explanation": "Protective apparel attenuates scatter but does not replace other radiation-safety practices."
+ },
+ {
+  "id": "d-imaging-018",
+  "domain": "imaging",
+  "stem": "What does a personal dosimeter monitor?",
+  "options": [
+   "Image contrast",
+   "Cumulative occupational radiation exposure",
+   "Patient heart rate",
+   "X-ray machine temperature"
+  ],
+  "answer": 1,
+  "explanation": "Dosimeters track an individual’s occupational exposure over time."
+ },
+ {
+  "id": "d-imaging-019",
+  "domain": "imaging",
+  "stem": "An image is too light because too few photons reached the detector. Which adjustment may improve receptor exposure under protocol?",
+  "options": [
+   "Increase mAs",
+   "Decrease mAs",
+   "Remove the grid in every case",
+   "Increase motion"
+  ],
+  "answer": 0,
+  "explanation": "mAs controls photon quantity; exposure adjustments must follow the imaging protocol."
+ },
+ {
+  "id": "d-imaging-020",
+  "domain": "imaging",
+  "stem": "What does kVp primarily influence in radiography?",
+  "options": [
+   "Patient positioning",
+   "Marker orientation",
+   "The number of images stored",
+   "Beam energy and image penetration"
+  ],
+  "answer": 3,
+  "explanation": "kVp affects photon energy and penetration, as well as image contrast."
+ },
+ {
+  "id": "d-imaging-021",
+  "domain": "imaging",
+  "stem": "A radiograph is overexposed. Which parameter primarily controls the quantity of x-ray photons?",
+  "options": [
+   "Collimation",
+   "Focal-film distance only",
+   "mAs",
+   "kVp only"
+  ],
+  "answer": 2,
+  "explanation": "mAs controls the number of photons produced during the exposure."
+ },
+ {
+  "id": "d-imaging-022",
+  "domain": "imaging",
+  "stem": "Why should the patient be positioned symmetrically for a ventrodorsal view?",
+  "options": [
+   "Avoid using a marker",
+   "Reduce rotation and improve image interpretation",
+   "Increase motion blur",
+   "Change the patient’s anatomy"
+  ],
+  "answer": 1,
+  "explanation": "Symmetrical positioning reduces rotation-related distortion."
+ },
+ {
+  "id": "d-imaging-023",
+  "domain": "imaging",
+  "stem": "What does ultrasound gel do?",
+  "options": [
+   "Eliminate air between the transducer and skin to improve sound transmission",
+   "Sterilize the skin",
+   "Increase x-ray penetration",
+   "Measure blood flow directly in all cases"
+  ],
+  "answer": 0,
+  "explanation": "Gel improves acoustic coupling by removing air at the interface."
+ },
+ {
+  "id": "d-imaging-024",
+  "domain": "imaging",
+  "stem": "Which ultrasound artifact appears as repeated parallel echoes from repeated reflections?",
+  "options": [
+   "Acoustic shadowing",
+   "Hemolysis",
+   "Collimation",
+   "Reverberation"
+  ],
+  "answer": 3,
+  "explanation": "Reverberation results from sound reflecting repeatedly between strong interfaces."
+ },
+ {
+  "id": "d-imaging-025",
+  "domain": "imaging",
+  "stem": "What causes acoustic shadowing behind a structure?",
+  "options": [
+   "High heart rate",
+   "Patient identification error",
+   "Strong attenuation or reflection of the ultrasound beam",
+   "Excess gel"
+  ],
+  "answer": 2,
+  "explanation": "Highly attenuating or reflective structures reduce sound transmission to deeper tissues."
+ },
+ {
+  "id": "d-imaging-026",
+  "domain": "imaging",
+  "stem": "Why may a fluid-filled structure appear anechoic on ultrasound?",
+  "options": [
+   "The patient is moving",
+   "Fluid transmits sound with few internal echoes",
+   "Fluid blocks all sound like bone",
+   "The transducer is always broken"
+  ],
+  "answer": 1,
+  "explanation": "Simple fluid generally produces few internal echoes and appears dark."
+ },
+ {
+  "id": "d-imaging-027",
+  "domain": "imaging",
+  "stem": "What should be done if the ultrasound transducer has a damaged lens or cable?",
+  "options": [
+   "Remove it from use and report it for evaluation",
+   "Continue using it at higher power",
+   "Cover damage with tape",
+   "Use it only for deep structures"
+  ],
+  "answer": 0,
+  "explanation": "Damaged equipment can affect image quality and safety."
+ },
+ {
+  "id": "d-imaging-028",
+  "domain": "imaging",
+  "stem": "Which imaging modality uses ionizing radiation to create cross-sectional images using x-rays?",
+  "options": [
+   "Ultrasonography",
+   "Magnetic resonance imaging",
+   "Endoscopy",
+   "Computed tomography"
+  ],
+  "answer": 3,
+  "explanation": "CT uses x-rays and computer reconstruction to form cross-sectional images."
+ },
+ {
+  "id": "d-imaging-029",
+  "domain": "imaging",
+  "stem": "Which modality uses a strong magnetic field and radiofrequency pulses rather than ionizing radiation?",
+  "options": [
+   "CT",
+   "Fluoroscopy",
+   "Magnetic resonance imaging",
+   "Radiography"
+  ],
+  "answer": 2,
+  "explanation": "MRI relies on magnetic fields and radiofrequency signals, not ionizing x-rays."
+ },
+ {
+  "id": "d-imaging-030",
+  "domain": "imaging",
+  "stem": "Why is accurate patient and view labeling important?",
+  "options": [
+   "It reduces the need for a medical record",
+   "It links the image to the correct patient and orientation",
+   "It improves the patient’s circulation",
+   "It replaces image quality checks"
+  ],
+  "answer": 1,
+  "explanation": "Correct labeling is essential for identification and interpretation."
+ },
+ {
+  "id": "d-anesthesia-021",
+  "domain": "anesthesia",
+  "stem": "Before anesthetic induction, which check is essential?",
+  "options": [
+   "Verify the oxygen source, machine function, breathing circuit, and monitoring equipment",
+   "Check only the patient’s coat",
+   "Confirm the operating-room lights are on",
+   "Review the client’s parking location"
+  ],
+  "answer": 0,
+  "explanation": "Equipment checks help ensure reliable oxygen and anesthetic delivery before induction."
+ },
+ {
+  "id": "d-anesthesia-022",
+  "domain": "anesthesia",
+  "stem": "What is the purpose of a preanesthetic evaluation?",
+  "options": [
+   "Guarantee that no complication will occur",
+   "Replace anesthetic monitoring",
+   "Determine the procedure’s cost",
+   "Identify patient factors that may affect anesthetic risk and planning"
+  ],
+  "answer": 3,
+  "explanation": "Preanesthetic assessment helps the veterinarian plan for patient-specific risks."
+ },
+ {
+  "id": "d-anesthesia-023",
+  "domain": "anesthesia",
+  "stem": "A breathing circuit fails a leak test. What should happen?",
+  "options": [
+   "Increase the vaporizer setting",
+   "Ignore it if oxygen flows",
+   "Locate and correct the leak before using the circuit",
+   "Proceed if the patient is small"
+  ],
+  "answer": 2,
+  "explanation": "Leaks can impair ventilation and anesthetic delivery, so the circuit must be corrected first."
+ },
+ {
+  "id": "d-anesthesia-024",
+  "domain": "anesthesia",
+  "stem": "What does a reservoir bag allow the team to do?",
+  "options": [
+   "Monitor urine concentration",
+   "Observe and assist ventilation and assess breathing-system response",
+   "Measure body temperature",
+   "Deliver intravenous fluids"
+  ],
+  "answer": 1,
+  "explanation": "The reservoir bag helps visualize breathing and permits manual ventilation when appropriate."
+ },
+ {
+  "id": "d-anesthesia-025",
+  "domain": "anesthesia",
+  "stem": "What is the primary purpose of an oxygen flush valve?",
+  "options": [
+   "Deliver high-flow oxygen while bypassing the vaporizer",
+   "Deliver a measured dose of anesthetic vapor",
+   "Measure inspired carbon dioxide",
+   "Warm the patient"
+  ],
+  "answer": 0,
+  "explanation": "The flush valve provides high-flow oxygen and should be used with awareness of pressure risks."
+ },
+ {
+  "id": "d-anesthesia-026",
+  "domain": "anesthesia",
+  "stem": "Why can careless use of the oxygen flush valve be hazardous to a patient on a breathing circuit?",
+  "options": [
+   "It lowers oxygen concentration to zero",
+   "It measures blood pressure incorrectly",
+   "It cools the patient instantly",
+   "It can deliver high pressure and volume rapidly"
+  ],
+  "answer": 3,
+  "explanation": "High flow can cause excessive circuit pressure, especially with a closed airway or small patient."
+ },
+ {
+  "id": "d-anesthesia-027",
+  "domain": "anesthesia",
+  "stem": "What does a capnogram display?",
+  "options": [
+   "Oxygen saturation",
+   "Arterial blood pressure",
+   "Carbon dioxide concentration over the respiratory cycle",
+   "Electrical activity of the heart"
+  ],
+  "answer": 2,
+  "explanation": "Capnography displays exhaled carbon dioxide throughout the respiratory cycle."
+ },
+ {
+  "id": "d-anesthesia-028",
+  "domain": "anesthesia",
+  "stem": "A capnogram suddenly becomes flat during anesthesia. What should the technician do first?",
+  "options": [
+   "Increase anesthetic depth",
+   "Assess the patient and check the airway, circuit, and sampling line",
+   "Assume the patient is stable",
+   "Turn off all monitors"
+  ],
+  "answer": 1,
+  "explanation": "A flat tracing may reflect apnea, disconnection, obstruction, or sampling failure and requires immediate assessment."
+ },
+ {
+  "id": "d-anesthesia-029",
+  "domain": "anesthesia",
+  "stem": "What does pulse oximetry estimate?",
+  "options": [
+   "Peripheral arterial oxygen saturation",
+   "Carbon dioxide in exhaled gas",
+   "Systolic blood pressure",
+   "Body temperature"
+  ],
+  "answer": 0,
+  "explanation": "Pulse oximetry estimates hemoglobin oxygen saturation in pulsatile peripheral blood."
+ },
+ {
+  "id": "d-anesthesia-030",
+  "domain": "anesthesia",
+  "stem": "A pulse oximeter reading is erratic during movement. What is an appropriate response?",
+  "options": [
+   "Record the lowest value as definitive",
+   "Silence the monitor permanently",
+   "Ignore the patient and trust the number",
+   "Check probe position and signal quality while assessing the patient"
+  ],
+  "answer": 3,
+  "explanation": "Movement and poor signal can cause artifact; verify the reading and assess the patient."
+ },
+ {
+  "id": "d-anesthesia-031",
+  "domain": "anesthesia",
+  "stem": "What does an ECG monitor during anesthesia?",
+  "options": [
+   "Blood glucose",
+   "Core temperature",
+   "Electrical cardiac activity and rhythm",
+   "Oxygen delivery concentration"
+  ],
+  "answer": 2,
+  "explanation": "ECG shows electrical activity and helps identify rhythm disturbances."
+ },
+ {
+  "id": "d-anesthesia-032",
+  "domain": "anesthesia",
+  "stem": "A monitor displays an unexpected ECG rhythm. What should the technician do?",
+  "options": [
+   "Record a normal rhythm",
+   "Assess the patient and verify leads before reporting the rhythm to the veterinarian",
+   "Treat the monitor trace without checking the patient",
+   "Remove all leads"
+  ],
+  "answer": 1,
+  "explanation": "Artifact is possible, so patient assessment and lead verification are important."
+ },
+ {
+  "id": "d-anesthesia-033",
+  "domain": "anesthesia",
+  "stem": "Which method can provide a noninvasive blood-pressure estimate?",
+  "options": [
+   "Doppler or oscillometric monitoring",
+   "Pulse oximetry alone",
+   "Capnography alone",
+   "Thermometry"
+  ],
+  "answer": 0,
+  "explanation": "Doppler and oscillometric devices can estimate blood pressure noninvasively."
+ },
+ {
+  "id": "d-anesthesia-034",
+  "domain": "anesthesia",
+  "stem": "Why should the blood-pressure cuff be sized appropriately?",
+  "options": [
+   "Cuff size changes the patient’s blood type",
+   "A larger cuff always gives the most accurate result",
+   "Cuff size only affects temperature",
+   "Incorrect cuff size can distort the measurement"
+  ],
+  "answer": 3,
+  "explanation": "Cuff width and fit influence measurement accuracy."
+ },
+ {
+  "id": "d-anesthesia-035",
+  "domain": "anesthesia",
+  "stem": "Which site should be used for a temperature probe during anesthesia?",
+  "options": [
+   "Directly over wet fur",
+   "Under a tight bandage",
+   "A site appropriate to the probe and patient, secured per protocol",
+   "Any location in the room"
+  ],
+  "answer": 2,
+  "explanation": "Correct placement and secure contact are necessary for meaningful temperature monitoring."
+ },
+ {
+  "id": "d-anesthesia-036",
+  "domain": "anesthesia",
+  "stem": "Why are anesthetized patients at risk of hypothermia?",
+  "options": [
+   "The patient is always exposed to cold fluids",
+   "Anesthesia impairs thermoregulation and heat conservation",
+   "Anesthetic gases create fever in every patient",
+   "Monitoring stops body heat loss"
+  ],
+  "answer": 1,
+  "explanation": "Anesthesia and patient preparation can reduce heat production and promote heat loss."
+ },
+ {
+  "id": "d-anesthesia-037",
+  "domain": "anesthesia",
+  "stem": "Which warming method is safest for a recumbent patient when approved?",
+  "options": [
+   "A controlled warming device with regular skin checks",
+   "An unregulated heating pad directly on the skin",
+   "A heat lamp placed close to one spot",
+   "Hot water poured over the patient"
+  ],
+  "answer": 0,
+  "explanation": "Controlled warming with frequent checks reduces thermal-injury risk."
+ },
+ {
+  "id": "d-anesthesia-038",
+  "domain": "anesthesia",
+  "stem": "A patient’s jaw tone and reflexes are deeper than expected after induction. What should the technician do?",
+  "options": [
+   "Increase the anesthetic without direction",
+   "Stop all monitoring",
+   "Extubate immediately",
+   "Report the assessment to the veterinarian and continue close monitoring"
+  ],
+  "answer": 3,
+  "explanation": "Anesthetic depth changes should be communicated so the veterinarian can adjust the plan."
+ },
+ {
+  "id": "d-anesthesia-039",
+  "domain": "anesthesia",
+  "stem": "What is the purpose of preoxygenation when indicated?",
+  "options": [
+   "Prevent all apnea",
+   "Reduce the patient’s blood glucose",
+   "Increase oxygen reserves before induction",
+   "Sterilize the airway"
+  ],
+  "answer": 2,
+  "explanation": "Preoxygenation increases oxygen available during the induction period."
+ },
+ {
+  "id": "d-anesthesia-040",
+  "domain": "anesthesia",
+  "stem": "Which action helps confirm appropriate endotracheal tube placement?",
+  "options": [
+   "Listen to the room sound",
+   "Assess chest movement and exhaled carbon dioxide, with other clinical checks",
+   "Rely only on the tube color",
+   "Check the patient’s nail length"
+  ],
+  "answer": 1,
+  "explanation": "Multiple checks help confirm tracheal placement and ongoing ventilation."
+ },
+ {
+  "id": "d-anesthesia-041",
+  "domain": "anesthesia",
+  "stem": "The endotracheal tube cuff is inflated. What should be avoided?",
+  "options": [
+   "Excessive cuff pressure",
+   "Checking for leaks",
+   "Securing the tube",
+   "Monitoring ventilation"
+  ],
+  "answer": 0,
+  "explanation": "Excessive cuff pressure can injure tracheal mucosa."
+ },
+ {
+  "id": "d-anesthesia-042",
+  "domain": "anesthesia",
+  "stem": "Why is an endotracheal tube secured after placement?",
+  "options": [
+   "To prevent all coughing",
+   "To measure cardiac output",
+   "To make the tube sterile",
+   "To reduce the risk of displacement or accidental extubation"
+  ],
+  "answer": 3,
+  "explanation": "Securement helps maintain airway access during positioning and surgery."
+ },
+ {
+  "id": "d-anesthesia-043",
+  "domain": "anesthesia",
+  "stem": "A patient’s breathing circuit disconnects. What is the immediate concern?",
+  "options": [
+   "Dental injury",
+   "A change in body condition score",
+   "Loss of ventilation and anesthetic delivery",
+   "Increased urine output"
+  ],
+  "answer": 2,
+  "explanation": "Disconnection can rapidly compromise ventilation and anesthetic depth."
+ },
+ {
+  "id": "d-anesthesia-044",
+  "domain": "anesthesia",
+  "stem": "What is an appropriate response to a suspected circuit disconnection?",
+  "options": [
+   "Remove the patient from monitoring",
+   "Reconnect or correct it promptly while assessing ventilation and alerting the veterinarian",
+   "Wait for the next alarm",
+   "Turn off oxygen"
+  ],
+  "answer": 1,
+  "explanation": "Restoring the breathing circuit and assessing the patient are immediate priorities."
+ },
+ {
+  "id": "d-anesthesia-045",
+  "domain": "anesthesia",
+  "stem": "What does a scavenging system do?",
+  "options": [
+   "Remove waste anesthetic gases from the work area",
+   "Deliver oxygen to the patient",
+   "Measure blood pressure",
+   "Warm the breathing circuit"
+  ],
+  "answer": 0,
+  "explanation": "Scavenging captures or removes waste anesthetic gases to reduce occupational exposure."
+ },
+ {
+  "id": "d-anesthesia-046",
+  "domain": "anesthesia",
+  "stem": "A waste-gas scavenging hose is disconnected. What should happen?",
+  "options": [
+   "Continue as usual",
+   "Increase anesthetic flow",
+   "Cover the hose with a towel",
+   "Correct the connection and follow exposure-control procedures"
+  ],
+  "answer": 3,
+  "explanation": "A disconnected scavenging system can release waste gases into the room."
+ },
+ {
+  "id": "d-anesthesia-047",
+  "domain": "anesthesia",
+  "stem": "Why is the anesthetic vaporizer kept upright during use?",
+  "options": [
+   "It prevents oxygen from flowing",
+   "It sterilizes the gas",
+   "It is designed to deliver accurately in its proper orientation",
+   "It improves the patient’s circulation"
+  ],
+  "answer": 2,
+  "explanation": "Many vaporizers depend on correct orientation for accurate anesthetic delivery."
+ },
+ {
+  "id": "d-anesthesia-048",
+  "domain": "anesthesia",
+  "stem": "What should be checked when filling an anesthetic vaporizer?",
+  "options": [
+   "The surgery light intensity",
+   "Correct agent, fill level, and spill prevention",
+   "Only the patient’s weight",
+   "The color of the breathing bag"
+  ],
+  "answer": 1,
+  "explanation": "Correct agent and safe filling prevent wrong-agent use and exposure."
+ },
+ {
+  "id": "d-anesthesia-049",
+  "domain": "anesthesia",
+  "stem": "What is a common consequence of inadequate ventilation during anesthesia?",
+  "options": [
+   "Carbon dioxide retention",
+   "Low urine concentration only",
+   "Improved oxygen saturation in all cases",
+   "Increased body temperature in every patient"
+  ],
+  "answer": 0,
+  "explanation": "Hypoventilation can cause hypercapnia and requires assessment and correction."
+ },
+ {
+  "id": "d-anesthesia-050",
+  "domain": "anesthesia",
+  "stem": "A patient’s end-tidal CO2 rises progressively. What should the technician do?",
+  "options": [
+   "Ignore the trend if ECG is normal",
+   "Increase oxygen flush continuously",
+   "Remove the capnograph",
+   "Assess ventilation, equipment, and patient status; alert the veterinarian"
+  ],
+  "answer": 3,
+  "explanation": "A rising trend can indicate hypoventilation or other issues and merits prompt assessment."
+ },
+ {
+  "id": "d-anesthesia-051",
+  "domain": "anesthesia",
+  "stem": "Why should anesthetic depth be assessed using multiple indicators?",
+  "options": [
+   "Monitors are never useful",
+   "Depth is determined only by elapsed time",
+   "No single sign reliably describes the entire patient state",
+   "One reflex measures every body system"
+  ],
+  "answer": 2,
+  "explanation": "Combining clinical signs and monitoring provides a more complete assessment."
+ },
+ {
+  "id": "d-anesthesia-052",
+  "domain": "anesthesia",
+  "stem": "A patient becomes bradycardic under anesthesia. What is an appropriate technician response?",
+  "options": [
+   "Stop recording vital signs",
+   "Confirm the reading, assess perfusion and anesthetic status, and notify the veterinarian",
+   "Assume it is normal for every patient",
+   "Give an anticholinergic without direction"
+  ],
+  "answer": 1,
+  "explanation": "Bradycardia must be interpreted with patient status and anesthetic context."
+ },
+ {
+  "id": "d-anesthesia-053",
+  "domain": "anesthesia",
+  "stem": "What does an esophageal stethoscope help monitor?",
+  "options": [
+   "Heart and respiratory sounds",
+   "Blood glucose",
+   "Urine output",
+   "Anesthetic vaporizer concentration"
+  ],
+  "answer": 0,
+  "explanation": "An esophageal stethoscope permits ongoing auscultation during anesthesia."
+ },
+ {
+  "id": "d-anesthesia-054",
+  "domain": "anesthesia",
+  "stem": "Which position can reduce pressure on dependent tissues during a long procedure?",
+  "options": [
+   "No padding under any circumstance",
+   "Tight restraint over bony prominences",
+   "Head-down positioning for every patient",
+   "Appropriate padding and planned repositioning when feasible"
+  ],
+  "answer": 3,
+  "explanation": "Padding and position management help prevent pressure and nerve injury."
+ },
+ {
+  "id": "d-anesthesia-055",
+  "domain": "anesthesia",
+  "stem": "Why should the eyes be protected during general anesthesia when indicated?",
+  "options": [
+   "Protection prevents all facial swelling",
+   "It improves ECG readings",
+   "Reduced blinking can lead to corneal drying or injury",
+   "The eyes produce anesthetic gas"
+  ],
+  "answer": 2,
+  "explanation": "Anesthetized patients may have reduced tear distribution and blinking."
+ },
+ {
+  "id": "d-anesthesia-056",
+  "domain": "anesthesia",
+  "stem": "What is an appropriate action if the patient’s temperature falls during anesthesia?",
+  "options": [
+   "Pour hot water on the patient",
+   "Notify the veterinarian and apply approved active warming with monitoring",
+   "Apply unregulated heat directly",
+   "Stop temperature measurements"
+  ],
+  "answer": 1,
+  "explanation": "Hypothermia should be addressed with controlled warming and continued monitoring."
+ },
+ {
+  "id": "d-anesthesia-057",
+  "domain": "anesthesia",
+  "stem": "Why should anesthetic records include time-stamped monitoring values?",
+  "options": [
+   "They show trends and support continuity and review",
+   "They replace the surgical report",
+   "They identify the client’s home address",
+   "They prevent equipment failure"
+  ],
+  "answer": 0,
+  "explanation": "Time-stamped data help the team identify changes and evaluate the anesthetic course."
+ },
+ {
+  "id": "d-anesthesia-058",
+  "domain": "anesthesia",
+  "stem": "A patient begins swallowing during recovery. What should the technician consider?",
+  "options": [
+   "The patient is ready to walk immediately",
+   "All monitoring can stop",
+   "The endotracheal tube should be removed without assessment",
+   "The patient may be approaching a stage when extubation is evaluated by the veterinarian"
+  ],
+  "answer": 3,
+  "explanation": "Protective reflexes inform recovery, but extubation timing is assessed by trained staff."
+ },
+ {
+  "id": "d-anesthesia-059",
+  "domain": "anesthesia",
+  "stem": "Why should oxygen continue during recovery when prescribed?",
+  "options": [
+   "It eliminates the need for observation",
+   "It speeds every drug’s metabolism",
+   "The patient may still need respiratory support as anesthetic effects resolve",
+   "Oxygen prevents all pain"
+  ],
+  "answer": 2,
+  "explanation": "Recovery patients may have residual respiratory depression or other support needs."
+ },
+ {
+  "id": "d-anesthesia-060",
+  "domain": "anesthesia",
+  "stem": "Which sign requires close attention during anesthetic recovery?",
+  "options": [
+   "Stable mucous membrane color",
+   "Obstructed or noisy breathing",
+   "Quiet comfortable breathing",
+   "Normal purposeful movement"
+  ],
+  "answer": 1,
+  "explanation": "Airway obstruction can deteriorate quickly and requires prompt assessment."
+ },
+ {
+  "id": "d-anesthesia-061",
+  "domain": "anesthesia",
+  "stem": "What should be done if a pulse-oximeter probe loses its signal?",
+  "options": [
+   "Check probe contact, site perfusion, and device function while assessing the patient",
+   "Enter a normal value manually",
+   "Ignore the loss",
+   "Move the patient without support"
+  ],
+  "answer": 0,
+  "explanation": "Probe and signal problems must be resolved before interpreting saturation."
+ },
+ {
+  "id": "d-anesthesia-062",
+  "domain": "anesthesia",
+  "stem": "A patient has a sudden drop in end-tidal CO2 and weak pulses. What is the priority?",
+  "options": [
+   "Assume the monitor has failed",
+   "Increase vaporizer setting",
+   "Wait five minutes",
+   "Assess circulation and ventilation and alert the veterinarian immediately"
+  ],
+  "answer": 3,
+  "explanation": "The combination can indicate a serious change in perfusion or ventilation and requires immediate assessment."
+ },
+ {
+  "id": "d-anesthesia-063",
+  "domain": "anesthesia",
+  "stem": "Which item is important to record when a monitoring device is repositioned?",
+  "options": [
+   "Only the client’s name",
+   "Nothing if the number improves",
+   "The time and relevant patient or equipment change",
+   "The technician’s lunch time"
+  ],
+  "answer": 2,
+  "explanation": "Documenting changes helps interpret readings and maintain a useful anesthetic record."
+ },
+ {
+  "id": "d-anesthesia-064",
+  "domain": "anesthesia",
+  "stem": "Why should a rebreathing system’s carbon dioxide absorbent be checked?",
+  "options": [
+   "It sets the oxygen cylinder pressure",
+   "Exhausted absorbent can allow CO2 rebreathing",
+   "It controls the ECG trace",
+   "It sterilizes the circuit"
+  ],
+  "answer": 1,
+  "explanation": "Absorbent removes carbon dioxide in a rebreathing circuit and must be monitored."
+ },
+ {
+  "id": "d-anesthesia-065",
+  "domain": "anesthesia",
+  "stem": "Which clue may indicate exhausted CO2 absorbent?",
+  "options": [
+   "Color change according to the product indicator or increased inspired CO2",
+   "A normal reservoir bag",
+   "A clean mask",
+   "A low room temperature"
+  ],
+  "answer": 0,
+  "explanation": "Color indicators and inspired CO2 trends can signal absorbent exhaustion; follow the product protocol."
+ },
+ {
+  "id": "d-anesthesia-066",
+  "domain": "anesthesia",
+  "stem": "What is the purpose of an anesthetic induction agent?",
+  "options": [
+   "Provide long-term nutrition",
+   "Replace analgesia in every case",
+   "Measure blood pressure",
+   "Bring the patient to a state suitable for airway control and maintenance anesthesia"
+  ],
+  "answer": 3,
+  "explanation": "Induction agents facilitate transition to general anesthesia under the veterinarian’s plan."
+ },
+ {
+  "id": "d-anesthesia-067",
+  "domain": "anesthesia",
+  "stem": "Why is analgesia considered as part of an anesthetic plan?",
+  "options": [
+   "To prevent every anesthetic complication",
+   "To replace aseptic technique",
+   "To address nociception and improve patient comfort",
+   "To eliminate the need for monitoring"
+  ],
+  "answer": 2,
+  "explanation": "Pain control is a distinct and important part of perioperative planning."
+ },
+ {
+  "id": "d-emergency-012",
+  "domain": "ecc",
+  "stem": "A patient arrives with severe respiratory distress. Which assessment has the highest immediate priority?",
+  "options": [
+   "Toenail length",
+   "Airway and breathing",
+   "Diet history",
+   "Vaccination history"
+  ],
+  "answer": 1,
+  "explanation": "Airway and breathing are immediate priorities in an unstable patient."
+ },
+ {
+  "id": "d-emergency-013",
+  "domain": "ecc",
+  "stem": "A collapsed patient is unresponsive and not breathing normally. What should the team do?",
+  "options": [
+   "Activate the emergency response and begin the clinic CPR protocol",
+   "Take a complete diet history first",
+   "Move the patient to the lobby",
+   "Wait for the owner to arrive"
+  ],
+  "answer": 0,
+  "explanation": "Unresponsiveness with abnormal breathing requires immediate resuscitation response."
+ },
+ {
+  "id": "d-emergency-014",
+  "domain": "ecc",
+  "stem": "During CPR, what helps improve compression effectiveness?",
+  "options": [
+   "Pause frequently for long discussions",
+   "Compress only when the patient moves",
+   "Stop after the first cycle",
+   "Allow full chest recoil and minimize interruptions"
+  ],
+  "answer": 3,
+  "explanation": "Effective compressions require recoil and minimal pauses."
+ },
+ {
+  "id": "d-emergency-015",
+  "domain": "ecc",
+  "stem": "A patient has uncontrolled external bleeding. What is an appropriate initial action while summoning help?",
+  "options": [
+   "Pour concentrated disinfectant into the wound",
+   "Allow the patient to walk",
+   "Apply direct pressure with clean material when appropriate",
+   "Remove clots repeatedly"
+  ],
+  "answer": 2,
+  "explanation": "Direct pressure can help control external hemorrhage while the team prepares further care."
+ },
+ {
+  "id": "d-emergency-016",
+  "domain": "ecc",
+  "stem": "A patient is suspected of shock. Which combination is concerning?",
+  "options": [
+   "Normal appetite alone",
+   "Weak pulses, pale mucous membranes, and altered mentation",
+   "Normal strong pulses and alert behavior",
+   "Comfortable breathing and pink gums"
+  ],
+  "answer": 1,
+  "explanation": "These findings may indicate poor perfusion and require urgent evaluation."
+ },
+ {
+  "id": "d-emergency-017",
+  "domain": "ecc",
+  "stem": "What is the purpose of triage?",
+  "options": [
+   "Prioritize patients according to urgency and resource needs",
+   "Determine billing order",
+   "Assign kennel color",
+   "Replace examination"
+  ],
+  "answer": 0,
+  "explanation": "Triage identifies who needs the most immediate assessment and intervention."
+ },
+ {
+  "id": "d-emergency-018",
+  "domain": "ecc",
+  "stem": "A patient with suspected spinal injury needs transport. What should the team do?",
+  "options": [
+   "Allow the patient to walk",
+   "Flex the neck repeatedly",
+   "Lift by one limb",
+   "Minimize spinal movement and coordinate stabilization"
+  ],
+  "answer": 3,
+  "explanation": "Limiting movement reduces risk of worsening injury."
+ },
+ {
+  "id": "d-emergency-019",
+  "domain": "ecc",
+  "stem": "A patient is seizing in the treatment area. What is the safest action?",
+  "options": [
+   "Hold the limbs tightly",
+   "Offer oral water",
+   "Protect it from nearby hazards, time the episode, and call for veterinary help",
+   "Place a hand in its mouth"
+  ],
+  "answer": 2,
+  "explanation": "Protecting the patient and documenting duration support safe emergency care."
+ },
+ {
+  "id": "d-emergency-020",
+  "domain": "ecc",
+  "stem": "A patient has suspected heat illness. What is an appropriate first response?",
+  "options": [
+   "Wait for the temperature to normalize without monitoring",
+   "Move it from the heat, assess, and initiate the clinic’s cooling and emergency protocol",
+   "Wrap it in heavy blankets",
+   "Give ice water by force"
+  ],
+  "answer": 1,
+  "explanation": "Prompt controlled cooling and veterinary assessment are essential; avoid unmonitored extremes."
+ },
+ {
+  "id": "d-emergency-021",
+  "domain": "ecc",
+  "stem": "Why should cooling stop when directed before the patient becomes hypothermic?",
+  "options": [
+   "Overcooling can worsen instability",
+   "It prevents the thermometer from working",
+   "Cooling does not affect body temperature",
+   "It increases heat illness"
+  ],
+  "answer": 0,
+  "explanation": "Active cooling must be monitored to avoid overshooting into hypothermia."
+ },
+ {
+  "id": "d-emergency-022",
+  "domain": "ecc",
+  "stem": "A patient may have ingested a toxic substance. What information is most useful to obtain?",
+  "options": [
+   "Only the client’s address",
+   "Only the pet’s favorite food",
+   "The color of the exam room",
+   "Substance, amount, time, route, and patient details"
+  ],
+  "answer": 3,
+  "explanation": "Exposure details guide risk assessment and treatment decisions."
+ },
+ {
+  "id": "d-emergency-023",
+  "domain": "ecc",
+  "stem": "A cat is open-mouth breathing in the waiting room. What should happen?",
+  "options": [
+   "Restrain tightly for a full exam",
+   "Offer food and wait",
+   "Move promptly to a low-stress treatment area and alert the veterinary team",
+   "Complete routine paperwork first"
+  ],
+  "answer": 2,
+  "explanation": "Open-mouth breathing in a cat can indicate severe distress and requires urgent care."
+ },
+ {
+  "id": "d-emergency-024",
+  "domain": "ecc",
+  "stem": "A patient with trauma has a suspected open fracture. What is appropriate while awaiting veterinary treatment?",
+  "options": [
+   "Scrub the wound aggressively",
+   "Cover the area with a clean sterile dressing and minimize movement",
+   "Push exposed bone back into place",
+   "Apply a tight tourniquet routinely"
+  ],
+  "answer": 1,
+  "explanation": "A clean covering and movement restriction help protect the wound until treatment."
+ },
+ {
+  "id": "d-emergency-025",
+  "domain": "ecc",
+  "stem": "Which sign may indicate worsening neurologic status?",
+  "options": [
+   "Declining responsiveness",
+   "Normal purposeful movement",
+   "Improved orientation",
+   "Stable posture"
+  ],
+  "answer": 0,
+  "explanation": "A decline in mentation can signal neurologic or systemic deterioration."
+ },
+ {
+  "id": "d-emergency-026",
+  "domain": "ecc",
+  "stem": "A patient’s blood glucose is critically low. What should the technician do?",
+  "options": [
+   "Give an unmeasured sugar dose",
+   "Wait until the next feeding",
+   "Record it as normal",
+   "Alert the veterinarian and follow the prescribed emergency protocol"
+  ],
+  "answer": 3,
+  "explanation": "Severe hypoglycemia needs prompt veterinary-directed intervention and monitoring."
+ },
+ {
+  "id": "d-emergency-027",
+  "domain": "ecc",
+  "stem": "Why is oxygen delivery checked during emergency support?",
+  "options": [
+   "It measures blood pressure",
+   "It replaces airway assessment",
+   "A disconnected or empty source can make the therapy ineffective",
+   "Oxygen is never used in emergencies"
+  ],
+  "answer": 2,
+  "explanation": "The equipment and oxygen source must be functioning for oxygen therapy to help."
+ },
+ {
+  "id": "d-emergency-028",
+  "domain": "ecc",
+  "stem": "A patient with suspected anaphylaxis develops facial swelling and collapse. What should the technician do?",
+  "options": [
+   "Schedule a routine visit",
+   "Call the veterinarian and initiate the clinic emergency response immediately",
+   "Wait to see if swelling resolves",
+   "Offer a new food"
+  ],
+  "answer": 1,
+  "explanation": "Anaphylaxis can rapidly compromise circulation and airway and is an emergency."
+ },
+ {
+  "id": "d-emergency-029",
+  "domain": "ecc",
+  "stem": "A patient is receiving blood products and develops hives and vomiting. What should happen?",
+  "options": [
+   "Stop or pause the transfusion per protocol and notify the veterinarian immediately",
+   "Increase the transfusion rate",
+   "Ignore it as expected",
+   "Discard the product without reporting"
+  ],
+  "answer": 0,
+  "explanation": "New signs during transfusion may indicate a reaction and require immediate veterinary assessment."
+ },
+ {
+  "id": "d-emergency-030",
+  "domain": "ecc",
+  "stem": "Why is patient reassessment repeated after an emergency intervention?",
+  "options": [
+   "To avoid charting",
+   "To replace the initial assessment",
+   "To delay treatment",
+   "To determine response and identify deterioration or complications"
+  ],
+  "answer": 3,
+  "explanation": "Repeated reassessment shows whether the intervention is working and whether further action is needed."
+ },
+ {
+  "id": "d-emergency-031",
+  "domain": "ecc",
+  "stem": "A patient has a deep puncture wound. Why is veterinary evaluation important even if the opening looks small?",
+  "options": [
+   "Punctures cannot cause infection",
+   "The wound will always close safely",
+   "Deeper tissue damage and contamination may be hidden",
+   "Small wounds are always sterile"
+  ],
+  "answer": 2,
+  "explanation": "Punctures can inoculate bacteria and damage deeper structures beneath a small skin opening."
+ },
+ {
+  "id": "d-emergency-032",
+  "domain": "ecc",
+  "stem": "A patient is in respiratory arrest but has a pulse. What support may be needed under the CPR protocol?",
+  "options": [
+   "A bandage change",
+   "Ventilation and airway support",
+   "Only abdominal palpation",
+   "Feeding"
+  ],
+  "answer": 1,
+  "explanation": "Respiratory arrest with circulation requires prompt ventilation and airway management."
+ },
+ {
+  "id": "d-emergency-033",
+  "domain": "ecc",
+  "stem": "A technician notices the emergency oxygen cylinder is nearly empty. What should happen?",
+  "options": [
+   "Replace or secure a functional source and report the supply issue",
+   "Continue until completely empty",
+   "Hide the gauge",
+   "Disconnect the patient"
+  ],
+  "answer": 0,
+  "explanation": "A reliable oxygen supply is essential during emergency care."
+ },
+ {
+  "id": "d-pain-012",
+  "domain": "pain",
+  "stem": "A dog is reluctant to bear weight after surgery. What is an appropriate response?",
+  "options": [
+   "Assume the dog is being stubborn",
+   "Increase medication independently",
+   "Stop all activity restrictions",
+   "Assess pain using the clinic’s scale and report findings"
+  ],
+  "answer": 3,
+  "explanation": "Pain assessment should be systematic and communicated to the veterinarian."
+ },
+ {
+  "id": "d-pain-013",
+  "domain": "pain",
+  "stem": "Which behavior may indicate pain in a rabbit?",
+  "options": [
+   "Normal exploration",
+   "Consistent food intake",
+   "Reduced appetite and decreased normal activity",
+   "Relaxed posture and normal grooming"
+  ],
+  "answer": 2,
+  "explanation": "Prey species may show subtle signs such as reduced appetite and activity."
+ },
+ {
+  "id": "d-pain-014",
+  "domain": "pain",
+  "stem": "A cat hides and resists handling after a procedure. What should the technician consider?",
+  "options": [
+   "That analgesia should be stopped",
+   "Pain or stress and reassess using a feline-appropriate approach",
+   "That the cat cannot be painful if quiet",
+   "That the cat needs punishment"
+  ],
+  "answer": 1,
+  "explanation": "Withdrawal and defensive behavior can indicate pain or fear and need assessment."
+ },
+ {
+  "id": "d-pain-015",
+  "domain": "pain",
+  "stem": "Why is a validated pain scale useful?",
+  "options": [
+   "It supports consistent assessment and comparison over time",
+   "It gives a definitive diagnosis by itself",
+   "It replaces veterinary judgment",
+   "It guarantees a medication choice"
+  ],
+  "answer": 0,
+  "explanation": "Structured scales improve consistency but are interpreted with clinical context."
+ },
+ {
+  "id": "d-pain-016",
+  "domain": "pain",
+  "stem": "A patient remains painful after a prescribed analgesic. What should the technician do?",
+  "options": [
+   "Double the next dose",
+   "Skip the next assessment",
+   "Tell the client the medication failed",
+   "Document the response and notify the veterinarian"
+  ],
+  "answer": 3,
+  "explanation": "Persistent pain requires reassessment and veterinary direction before changing treatment."
+ },
+ {
+  "id": "d-pain-017",
+  "domain": "pain",
+  "stem": "Which sign may indicate acute pain in a dog?",
+  "options": [
+   "Normal appetite alone",
+   "Loose comfortable posture",
+   "Guarding or flinching when an area is approached",
+   "Relaxed sleep with normal response"
+  ],
+  "answer": 2,
+  "explanation": "Guarding and flinching can be behavioral signs of pain."
+ },
+ {
+  "id": "d-pain-018",
+  "domain": "pain",
+  "stem": "Why should pain be assessed before and after an intervention?",
+  "options": [
+   "To replace physical examination",
+   "To compare baseline with response to treatment",
+   "To avoid documenting the medication",
+   "To determine the patient’s breed"
+  ],
+  "answer": 1,
+  "explanation": "Before-and-after assessment helps evaluate treatment effect."
+ },
+ {
+  "id": "d-pain-019",
+  "domain": "pain",
+  "stem": "What is multimodal analgesia?",
+  "options": [
+   "Using more than one approach or mechanism to manage pain",
+   "Giving several drugs without evaluation",
+   "Using only a sedative",
+   "Avoiding reassessment"
+  ],
+  "answer": 0,
+  "explanation": "Different analgesic approaches can target different pain pathways when selected by the veterinarian."
+ },
+ {
+  "id": "d-pain-020",
+  "domain": "pain",
+  "stem": "Which factor should be considered when selecting a pain-assessment method?",
+  "options": [
+   "Coat color",
+   "Client’s preferred scale only",
+   "Kennel number",
+   "Species and individual behavior"
+  ],
+  "answer": 3,
+  "explanation": "Pain behaviors vary by species and individual, so assessment should be appropriate to the patient."
+ },
+ {
+  "id": "d-pain-021",
+  "domain": "pain",
+  "stem": "A patient vocalizes during wound care. What should the technician do?",
+  "options": [
+   "Continue faster",
+   "Increase restraint without assessment",
+   "Pause if safe, assess the patient, and alert the veterinarian about possible pain",
+   "Assume vocalization is unrelated"
+  ],
+  "answer": 2,
+  "explanation": "Vocalization may indicate pain or fear and should prompt reassessment."
+ },
+ {
+  "id": "d-pain-022",
+  "domain": "pain",
+  "stem": "Why might a sedated animal still need analgesia?",
+  "options": [
+   "Sedation replaces all postoperative care",
+   "Sedation does not necessarily provide pain relief",
+   "Sedation always eliminates pain",
+   "Analgesia is needed only for awake patients"
+  ],
+  "answer": 1,
+  "explanation": "Sedation and analgesia are distinct effects and should not be assumed interchangeable."
+ },
+ {
+  "id": "d-pain-023",
+  "domain": "pain",
+  "stem": "Which record entry best documents a pain assessment?",
+  "options": [
+   "Behavior observed, score or method used, intervention, and response",
+   "“Fine”",
+   "“Seems bad”",
+   "No entry if medication was given"
+  ],
+  "answer": 0,
+  "explanation": "Specific observations and response allow clear continuity of care."
+ },
+ {
+  "id": "d-pain-024",
+  "domain": "pain",
+  "stem": "A cat is purring after surgery. What is the best interpretation?",
+  "options": [
+   "Purring always means the cat is comfortable",
+   "The cat has no need for assessment",
+   "The cat is ready for discharge",
+   "Purring alone does not rule out pain"
+  ],
+  "answer": 3,
+  "explanation": "Purring can occur in different emotional states and should not replace pain assessment."
+ },
+ {
+  "id": "d-pain-025",
+  "domain": "pain",
+  "stem": "Which action can help reduce procedural pain and stress?",
+  "options": [
+   "Use forceful restraint by default",
+   "Skip pain monitoring",
+   "Use gentle handling and prescribed local or systemic analgesia as directed",
+   "Perform procedures without explanation or preparation"
+  ],
+  "answer": 2,
+  "explanation": "Low-stress handling and prescribed pain-control measures support patient comfort."
+ },
+ {
+  "id": "d-pain-026",
+  "domain": "pain",
+  "stem": "A patient has a known painful condition but shows few signs in hospital. What should the technician do?",
+  "options": [
+   "Wait for vocalization",
+   "Continue structured assessment because quiet behavior does not exclude pain",
+   "Assume there is no pain",
+   "Stop the analgesic plan"
+  ],
+  "answer": 1,
+  "explanation": "Some patients suppress or show subtle pain behaviors; routine assessment remains important."
+ },
+ {
+  "id": "d-pain-027",
+  "domain": "pain",
+  "stem": "What is a potential adverse effect to monitor after opioid administration?",
+  "options": [
+   "Sedation or respiratory depression",
+   "Improved appetite only",
+   "Hair growth",
+   "Increased urine specific gravity"
+  ],
+  "answer": 0,
+  "explanation": "Opioids can cause sedation and respiratory depression, among other effects."
+ },
+ {
+  "id": "d-pain-028",
+  "domain": "pain",
+  "stem": "A patient receiving an NSAID develops vomiting and dark stool. What should the technician do?",
+  "options": [
+   "Continue without reporting",
+   "Give another NSAID",
+   "Withhold water permanently",
+   "Promptly notify the veterinarian and document the findings"
+  ],
+  "answer": 3,
+  "explanation": "GI signs can be clinically significant during NSAID therapy and require veterinary review."
+ },
+ {
+  "id": "d-pain-029",
+  "domain": "pain",
+  "stem": "Why should NSAIDs and corticosteroids not be combined unless specifically directed?",
+  "options": [
+   "It prevents renal effects",
+   "It eliminates pain in all patients",
+   "The combination can increase gastrointestinal injury risk",
+   "They cancel each other’s effects safely"
+  ],
+  "answer": 2,
+  "explanation": "Concurrent use can markedly increase adverse gastrointestinal effects."
+ },
+ {
+  "id": "d-pain-030",
+  "domain": "pain",
+  "stem": "Which observation can be useful when assessing pain in a hospitalized animal?",
+  "options": [
+   "Room number",
+   "Posture, mobility, facial expression, and response to interaction",
+   "Coat color only",
+   "Food brand only"
+  ],
+  "answer": 1,
+  "explanation": "Pain assessment combines several behavioral and functional observations."
+ },
+ {
+  "id": "d-pain-031",
+  "domain": "pain",
+  "stem": "A patient receives a local anesthetic block. What should still be monitored?",
+  "options": [
+   "Pain response and potential local or systemic complications",
+   "Only the client’s consent form",
+   "No further assessment is needed",
+   "Only the room temperature"
+  ],
+  "answer": 0,
+  "explanation": "Local anesthesia reduces sensation in a region but does not eliminate the need for monitoring."
+ },
+ {
+  "id": "d-pain-032",
+  "domain": "pain",
+  "stem": "When should an analgesic plan be reassessed?",
+  "options": [
+   "Only at discharge",
+   "Never if the first dose was given",
+   "Only when the client asks",
+   "When pain signs persist or the patient’s condition changes"
+  ],
+  "answer": 3,
+  "explanation": "Changes in pain or status should trigger reassessment by the veterinary team."
+ },
+ {
+  "id": "d-pain-033",
+  "domain": "pain",
+  "stem": "A patient is more painful during movement than at rest. What should be documented?",
+  "options": [
+   "That the patient is comfortable",
+   "Nothing unless it vocalizes",
+   "The activity associated with pain and the observed behavior",
+   "Only the medication name"
+  ],
+  "answer": 2,
+  "explanation": "Pain notes should describe the context and behavior so the team can evaluate function and treatment response."
+ },
+ {
+  "id": "d-communication-009",
+  "domain": "communication",
+  "stem": "A client asks whether a lump is cancerous before the veterinarian evaluates it. What should the technician say?",
+  "options": [
+   "The technician can diagnose it by appearance",
+   "The veterinarian needs to examine it and may recommend testing before discussing what it is",
+   "It is definitely benign",
+   "It is definitely cancer"
+  ],
+  "answer": 1,
+  "explanation": "Diagnosis requires veterinary evaluation and may require diagnostic testing."
+ },
+ {
+  "id": "d-communication-010",
+  "domain": "communication",
+  "stem": "A client seems confused by medication instructions. What is a helpful communication technique?",
+  "options": [
+   "Ask the client to repeat the key directions in their own words",
+   "Repeat the instructions more quickly",
+   "Assume the client understands",
+   "End the conversation"
+  ],
+  "answer": 0,
+  "explanation": "Teach-back helps confirm understanding and identify points needing clarification."
+ },
+ {
+  "id": "d-communication-011",
+  "domain": "communication",
+  "stem": "A client asks a technician to change a medication dose. What is the appropriate response?",
+  "options": [
+   "Change it based on experience",
+   "Ask another client",
+   "Tell the client to double it",
+   "Refer the request to the veterinarian for authorization"
+  ],
+  "answer": 3,
+  "explanation": "Medication changes require veterinary authorization."
+ },
+ {
+  "id": "d-communication-012",
+  "domain": "communication",
+  "stem": "Which statement is most appropriate when a technician is unsure of an answer?",
+  "options": [
+   "“Search online.”",
+   "“It does not matter.”",
+   "“I want to confirm that with the veterinarian so I give you accurate information.”",
+   "“I’m sure it is fine.”"
+  ],
+  "answer": 2,
+  "explanation": "Acknowledging uncertainty and obtaining accurate information supports clear communication."
+ },
+ {
+  "id": "d-communication-013",
+  "domain": "communication",
+  "stem": "What should a technician do when receiving a verbal medical order?",
+  "options": [
+   "Skip documentation",
+   "Write it down and read it back for confirmation",
+   "Rely on memory",
+   "Ask the client to interpret it"
+  ],
+  "answer": 1,
+  "explanation": "Read-back helps confirm the order and supports accurate documentation."
+ },
+ {
+  "id": "d-communication-014",
+  "domain": "communication",
+  "stem": "A client is upset about a long wait. What is an appropriate response?",
+  "options": [
+   "Acknowledge the concern, explain what can be shared, and update the care team",
+   "Argue about the schedule",
+   "Ignore the client",
+   "Promise an exact wait time without checking"
+  ],
+  "answer": 0,
+  "explanation": "Acknowledgment and accurate updates can de-escalate concerns without making unsupported promises."
+ },
+ {
+  "id": "d-communication-015",
+  "domain": "communication",
+  "stem": "What is an appropriate way to discuss a patient’s condition in a public waiting room?",
+  "options": [
+   "Speak louder so everyone hears",
+   "Use the patient’s full history in public",
+   "Ask another client to interpret",
+   "Move the conversation to a private area when possible"
+  ],
+  "answer": 3,
+  "explanation": "Private communication helps protect client confidentiality."
+ },
+ {
+  "id": "d-communication-016",
+  "domain": "communication",
+  "stem": "Which entry is most appropriate in a medical record?",
+  "options": [
+   "“Probably fine.”",
+   "“Looks weird.”",
+   "“Patient limping on right forelimb; reluctant to bear weight.”",
+   "“Owner is difficult.”"
+  ],
+  "answer": 2,
+  "explanation": "Objective, observable language is more useful than judgment or vague statements."
+ },
+ {
+  "id": "d-communication-017",
+  "domain": "communication",
+  "stem": "A client reports that a pet may have been abused. What should the technician do?",
+  "options": [
+   "Ignore the report",
+   "Document objective observations and report the concern to the veterinarian according to policy",
+   "Confront the client immediately",
+   "Alter the record"
+  ],
+  "answer": 1,
+  "explanation": "Objective documentation and escalation support patient safety and appropriate follow-up."
+ },
+ {
+  "id": "d-communication-018",
+  "domain": "communication",
+  "stem": "Why should a technician avoid promising a specific treatment outcome?",
+  "options": [
+   "Outcomes depend on the patient and veterinary assessment",
+   "Promises improve diagnostic accuracy",
+   "Technicians control every outcome",
+   "It is required for consent"
+  ],
+  "answer": 0,
+  "explanation": "Avoiding guarantees prevents misleading clients when outcomes are uncertain."
+ },
+ {
+  "id": "d-communication-019",
+  "domain": "communication",
+  "stem": "A client asks for the results of a test that the veterinarian has not reviewed. What should the technician do?",
+  "options": [
+   "Guess from the values",
+   "Tell the client all results are normal",
+   "Post the result publicly",
+   "Follow clinic policy and arrange veterinarian communication rather than interpret results independently"
+  ],
+  "answer": 3,
+  "explanation": "Result interpretation and client communication should follow clinic policy and veterinary oversight."
+ },
+ {
+  "id": "d-communication-020",
+  "domain": "communication",
+  "stem": "What is an appropriate response when a client declines a recommended procedure?",
+  "options": [
+   "Criticize the client",
+   "Delete the recommendation from the record",
+   "Respectfully clarify questions, notify the veterinarian, and document the discussion per policy",
+   "Perform it anyway"
+  ],
+  "answer": 2,
+  "explanation": "Client decisions should be handled respectfully and documented with veterinary involvement."
+ },
+ {
+  "id": "d-communication-021",
+  "domain": "communication",
+  "stem": "A client is grieving after euthanasia. What response is appropriate?",
+  "options": [
+   "Criticize the decision",
+   "Listen compassionately and offer available aftercare or grief-support information",
+   "Tell the client to stop crying",
+   "Change the subject immediately"
+  ],
+  "answer": 1,
+  "explanation": "Empathetic listening and appropriate resources support clients through loss."
+ },
+ {
+  "id": "d-communication-022",
+  "domain": "communication",
+  "stem": "What should be confirmed before proceeding with euthanasia?",
+  "options": [
+   "The veterinarian has obtained and documented required informed consent",
+   "The technician assumes consent from prior visits",
+   "The client has paid in advance",
+   "The room is empty"
+  ],
+  "answer": 0,
+  "explanation": "Consent and documentation are essential parts of the euthanasia process."
+ },
+ {
+  "id": "d-communication-023",
+  "domain": "communication",
+  "stem": "A client asks what a medication is for. What should the technician do?",
+  "options": [
+   "Invent a reason",
+   "Tell the client to stop it",
+   "Avoid answering every question",
+   "Explain the veterinarian-approved instructions and clarify anything uncertain with the veterinarian"
+  ],
+  "answer": 3,
+  "explanation": "Technicians may reinforce authorized client education and should refer uncertain or diagnostic questions to the veterinarian."
  }
 ]
