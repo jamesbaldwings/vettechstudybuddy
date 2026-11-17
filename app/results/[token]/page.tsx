@@ -7,6 +7,7 @@ import { buildPlan, examLabel } from "@/lib/plan";
 import { todayISO } from "@/lib/dates";
 import { Buddy } from "@/components/Buddy";
 import { InstallPrompt } from "@/components/PWA";
+import VoiceBuddy from "@/components/VoiceBuddy";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Your VTNE diagnostic results", robots: { index: false } };
@@ -67,6 +68,8 @@ export default async function ResultsPage({ params }: { params: Promise<{ token:
           {band.line}
         </p>
       </div>
+
+      {r.lead_token && <VoiceBuddy attemptToken={token} />}
 
       <InstallPrompt />
 
@@ -167,8 +170,8 @@ export default async function ResultsPage({ params }: { params: Promise<{ token:
       <section className="card">
         <h2>What&apos;s next</h2>
         <p>
-          I&apos;ll email you a week before your exam, the night before, and a few days after to see how it went. Full
-          practice exams and a study buddy you can talk to out loud are on the way, and you&apos;re on the early list.
+          I&apos;ll email you a week before your exam, the night before, and a few days after to see how it went. Come
+          back anytime to talk it through with Sara. Full practice exams are on the way, and you&apos;re on the early list.
         </p>
         <p style={{ marginBottom: 0 }}>
           <Link href="/quiz" className="btn secondary">

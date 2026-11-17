@@ -1,6 +1,6 @@
 // Brand and buddy settings. Change these in one place.
 export const BRAND_NAME = "Vet Tech Study Buddy"; // placeholder until the final name is chosen
-export const BUDDY_NAME = "Scout";
+export const BUDDY_NAME = "Sara";
 export const FOUNDER_LINE =
   "Every question is written and reviewed by a veterinary technician with 20 years in the field.";
 
@@ -16,3 +16,7 @@ export const TRADEMARK_NOTE =
 export function appUrl(): string {
   return (process.env.APP_URL || "http://localhost:3000").replace(/\/$/, "");
 }
+
+// Voice study sessions with Sara (ElevenLabs agent). Each session is capped at 10 minutes on the agent itself.
+export const VOICE_SESSIONS_PER_DAY = Number(process.env.VOICE_SESSIONS_PER_DAY || 3);
+export const VOICE_SESSION_MINUTES = 10;

@@ -48,3 +48,14 @@ CREATE TABLE IF NOT EXISTS email_log (
   sent_at timestamptz NOT NULL DEFAULT now(),
   UNIQUE (lead_id, kind)
 );
+
+-- Voice sessions with Sara, for daily limits and to look up transcripts in ElevenLabs.
+CREATE TABLE IF NOT EXISTS voice_sessions (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  lead_id uuid NOT NULL REFERENCES leads(id) ON DELETE CASCADE,
+  attempt_id uuid REFERENCES attempts(id) ON DELETE SET NULL,
+  conversation_id text,
+  started_at timestamptz NOT NULL DEFAULT now(),
+  ended_at timestamptz
+);
+CREATE INDEX IF NOT EXISTS voice_sessions_lead_day ON voice_sessions (lead_id, started_at);

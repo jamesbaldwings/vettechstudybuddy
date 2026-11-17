@@ -1,18 +1,31 @@
 # Vet Tech Study Buddy: free VTNE diagnostic
 
-A free 25-question VTNE diagnostic with a study-buddy guide ("Scout"), exam-date capture, a personal study plan, and automatic emails before and after the exam, including a pass/fail check-in.
+A free 25-question VTNE diagnostic with a study-buddy guide ("Sara"), exam-date capture, a personal study plan, and automatic emails before and after the exam, including a pass/fail check-in.
 
 ## What's in it
 
 | Page | What it does |
 |---|---|
 | `/` | Landing page |
-| `/quiz` | Confidence check-in, then 25 questions one at a time; Scout reacts and explains every answer. Progress survives a refresh. |
+| `/quiz` | Confidence check-in, then 25 questions one at a time; Sara reacts and explains every answer. Progress survives a refresh. |
 | End of quiz | Shows the score and band. Then asks for first name, email, and the exam date (or a target month if the student hasn't booked yet). |
 | `/results/[token]` | Score, weakest areas, per-domain bars, week-by-week plan to the exam date, and every missed question with its explanation |
 | `/outcome/[token]` | The pass / didn't pass / haven't taken it yet page that emails link to. Students can add a retake or new date here. |
 | `/unsubscribe/[token]` | Unsubscribe page; email clients also get one-click unsubscribe |
 | `/admin?key=ADMIN_KEY` | Starts, completions, email capture rate, average score and confidence, reported pass rate, exam months, most-missed questions, emails sent, latest sign-ups |
+
+## Voice study buddy (Sara)
+
+Students who sign up can talk out loud with Sara from their results page. She can review the questions they missed, quiz them on their weak areas, explain topics, and help with exam nerves. Live captions appear on screen.
+
+- Runs on the ElevenLabs agent **"Sara - Vet Tech Study Buddy"** (`agent_9401m7ngg5ezfm8bm413a579rmz0`) in your ElevenLabs account.
+- Sara uses a warm American female voice and the Claude Haiku 4.5 model. She teaches from the reviewed question content, which is attached to the agent as a knowledge-base document. Her rules: no invented doses or numbers, no advice for real animals, no claims about real exam questions.
+- She gets each student's first name, exam date, confidence, score, weak areas and missed questions when a session starts.
+- Limits: 10 minutes per session (set on the agent), `VOICE_SESSIONS_PER_DAY` per student (default 3), and 300 sessions a day across the whole agent (an ElevenLabs setting).
+- The agent requires a signed URL to connect. `/api/voice/session` gets one from the server, so the API key never reaches the browser.
+- Sessions are logged in `voice_sessions` with the ElevenLabs conversation ID, so you can read transcripts in ElevenLabs.
+- To set it up, add `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID` to the web service.
+- When you add questions, update the knowledge-base document on the agent so Sara can teach them.
 
 ## Installable app (PWA)
 
@@ -50,6 +63,7 @@ Timing settings live in `src/config.ts`, along with the brand name, the buddy's 
    - `SENDGRID_API_KEY`, `EMAIL_FROM` (a verified SendGrid sender), `EMAIL_FROM_NAME`, `EMAIL_REPLY_TO`
    - `POSTAL_ADDRESS`: required by CAN-SPAM in every email footer
    - `CRON_SECRET` and `ADMIN_KEY`: long random strings
+   - `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID=agent_9401m7ngg5ezfm8bm413a579rmz0`: turns on voice
 4. Build command: `npm run build`. Start command: `npm start`. Start runs the database setup automatically.
 5. Add a second service from the same repo for the daily emails:
    - Start command: `npm run cron`
@@ -75,5 +89,5 @@ curl -X POST "http://localhost:3000/api/cron?today=2027-03-08" -H "authorization
 ## Next up
 
 - A full practice-question bank and timed practice exams
-- An AI tutor (text, then voice) that answers only from the reviewed question bank and explanations
+- Text chat with Sara using the same rules as voice
 - A retake plan built from the student's AAVSB score report

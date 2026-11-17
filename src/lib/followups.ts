@@ -51,7 +51,7 @@ export function welcomeEmail(lead: LeadRow) {
       },
       {
         paragraphs: [
-          "I'll check in before your exam and again afterward to see how it went. Hit reply anytime. A real person reads these.",
+          "Want to talk it through? Open your results page and tap Start talking. I'll walk you through what you missed, out loud. I'll also check in before your exam and again afterward to see how it went.",
         ],
       },
     ],

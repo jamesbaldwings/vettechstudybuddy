@@ -12,7 +12,7 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   if (!process.env.ADMIN_KEY || key !== process.env.ADMIN_KEY) notFound();
   const q = <T,>(sql: string, p: unknown[] = []) => db().query(sql, p).then((r) => r.rows as T[]);
 
-  const [[totals], firstOutcomes, months, emails, answers, recent] = await Promise.all([
+  const [[totals], firstOutcomes, months, emails, answers, recent, [voice]] = await Promise.all([
     q<{ starts: string; completions: string; signups: string; avg_score: string | null; avg_conf: string | null }>(
       `SELECT count(*) starts,
               count(*) FILTER (WHERE completed_at IS NOT NULL) completions,
@@ -42,6 +42,11 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
        LEFT JOIN LATERAL (SELECT score FROM attempts WHERE lead_id = l.id AND completed_at IS NOT NULL ORDER BY completed_at DESC LIMIT 1) a ON true
        ORDER BY l.created_at DESC LIMIT 50`,
     ),
+    q<{ sessions: string; students: string; avg_min: string | null }>(
+      `SELECT count(*) sessions, count(DISTINCT lead_id) students,
+              round(avg(extract(epoch FROM ended_at - started_at) / 60) FILTER (WHERE ended_at IS NOT NULL)::numeric, 1) avg_min
+       FROM voice_sessions`,
+    ),
   ]);
 
   const starts = +totals.starts, completions = +totals.completions, signups = +totals.signups;
@@ -63,6 +68,7 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
         <div className="kpi"><span className="muted small">Gave email</span><b>{signups}</b><span className="small muted">{pct(signups, completions)} of finishers</span></div>
         <div className="kpi"><span className="muted small">Avg score</span><b>{totals.avg_score ?? "–"}</b><span className="small muted">out of 25</span></div>
         <div className="kpi"><span className="muted small">Avg confidence</span><b>{totals.avg_conf ?? "–"}</b><span className="small muted">1 to 5</span></div>
+        <div className="kpi"><span className="muted small">Voice sessions</span><b>{voice.sessions}</b><span className="small muted">{voice.students} students, avg {voice.avg_min ?? "–"} min</span></div>
         <div className="kpi"><span className="muted small">Reported pass rate</span><b>{pct(passed, passed + failed)}</b><span className="small muted">{passed} passed, {failed} didn&apos;t</span></div>
       </div>
 

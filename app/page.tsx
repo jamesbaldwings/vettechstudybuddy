@@ -18,6 +18,7 @@ export default function Home() {
           <span className="pill">About 15 minutes</span>
           <span className="pill">No timer</span>
           <span className="pill">Free</span>
+          <span className="pill">🎙️ Voice study buddy</span>
         </div>
       </section>
 
@@ -25,7 +26,8 @@ export default function Home() {
         <Buddy>
           <p>
             Hi, I&apos;m {BUDDY_NAME}. We&apos;ll go through it together, one question at a time, and I&apos;ll explain every
-            answer as we go. When you&apos;re done, I&apos;ll build your plan and check in before and after your exam.
+            answer as we go. Then we can talk through what you missed, out loud, and I&apos;ll check in before and after
+            your exam.
           </p>
         </Buddy>
       </section>
@@ -43,8 +45,8 @@ export default function Home() {
         </div>
         <div className="card">
           <div className="step-num">3</div>
-          <h3>Never study alone</h3>
-          <p className="muted small">Check-ins a week before, the night before, and after, to see how it went.</p>
+          <h3>Talk it through out loud</h3>
+          <p className="muted small">Review what you missed or get quizzed by voice with {BUDDY_NAME}, like studying with a classmate.</p>
         </div>
       </section>
 
