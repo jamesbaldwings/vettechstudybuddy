@@ -16,6 +16,9 @@ export default function AdminNav({ current }: { current: string }) {
           {label}
         </Link>
       ))}
+      <Link href="/home" className="small" style={{ marginLeft: "auto" }}>
+        Student view
+      </Link>
     </nav>
   );
 }

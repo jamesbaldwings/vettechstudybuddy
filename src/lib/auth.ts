@@ -1,8 +1,8 @@
-import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
-import { ADMIN_COOKIE, SESSION_COOKIE } from "@/config";
+import { SESSION_COOKIE } from "@/config";
 
 export const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
 const SESSION_DAYS = 60;
@@ -18,6 +18,7 @@ export interface Lead {
   created_at: Date;
   marketing_ok: boolean;
   unsubscribed_at: Date | null;
+  role: string;
 }
 
 // Sign-in links last 30 minutes and work once.
@@ -83,32 +84,23 @@ export function safeNext(p: string | null | undefined) {
   return p && p.startsWith("/") && !p.startsWith("//") ? p : "/home";
 }
 
-// ----- Owner admin: a signed cookie derived from ADMIN_KEY -----
-const adminSig = () => createHmac("sha256", process.env.ADMIN_KEY || "").update("vtsb-admin-v1").digest("hex");
+// ----- Owner admin: a signed-in account whose role is "owner" -----
+const ownerEmails = () =>
+  (process.env.OWNER_EMAILS || "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean);
+export const isOwner = (lead: Lead | null) => !!lead && (lead.role === "owner" || ownerEmails().includes(lead.email.toLowerCase()));
 
-export async function isAdmin() {
-  if (!process.env.ADMIN_KEY) return false;
-  const v = (await cookies()).get(ADMIN_COOKIE)?.value || "";
-  const a = Buffer.from(v);
-  const b = Buffer.from(adminSig());
-  return a.length === b.length && timingSafeEqual(a, b);
+export async function currentOwner(): Promise<Lead | null> {
+  const lead = await currentLead();
+  return isOwner(lead) ? lead : null;
 }
 
-export async function signInAdmin(key: string) {
-  const expected = process.env.ADMIN_KEY || "";
-  const a = Buffer.from(key);
-  const b = Buffer.from(expected);
-  if (!expected || a.length !== b.length || !timingSafeEqual(a, b)) return false;
-  (await cookies()).set(ADMIN_COOKIE, adminSig(), {
-    httpOnly: true,
-    secure: (process.env.APP_URL || "").startsWith("https:"),
-    sameSite: "lax",
-    path: "/",
-    maxAge: 30 * 86400,
-  });
-  return true;
+export async function isAdmin() {
+  return !!(await currentOwner());
 }
 
 export async function requireAdmin() {
-  if (!(await isAdmin())) redirect("/admin/login");
+  const lead = await currentLead();
+  if (!lead) redirect("/signin?next=/admin");
+  if (!isOwner(lead)) redirect("/home");
+  return lead;
 }

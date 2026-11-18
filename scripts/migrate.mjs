@@ -42,5 +42,8 @@ for (const q of drafts) {
   );
   drafted += r.rowCount;
 }
+// Owner accounts (comma-separated emails). Promotes them if they exist; never demotes anyone.
+const owners = (process.env.OWNER_EMAILS || "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean);
+if (owners.length) await client.query(`UPDATE leads SET role = 'owner' WHERE lower(email) = ANY($1) AND role <> 'owner'`, [owners]);
 await client.end();
 console.log(`Database schema is up to date.${added ? ` Seeded ${added} questions.` : ""}${drafted ? ` Added or refreshed ${drafted} draft questions.` : ""}`);

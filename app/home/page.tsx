@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { requireLead } from "@/lib/auth";
+import { isOwner, requireLead } from "@/lib/auth";
 import { getAccess } from "@/lib/access";
 import { getReadiness } from "@/lib/readiness";
 import { db } from "@/lib/db";
@@ -155,6 +155,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
       </section>
 
       <p className="center small" style={{ marginTop: 20 }}>
+        {isOwner(lead) && (
+          <>
+            <Link href="/admin">Owner admin</Link> ·{" "}
+          </>
+        )}
         <Link href="/settings">Settings</Link> · <SignOutButton />
       </p>
     </>

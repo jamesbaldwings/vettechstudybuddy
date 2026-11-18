@@ -12,7 +12,7 @@ A free 25-question VTNE diagnostic with a study-buddy guide ("Sara"), exam-date 
 | `/results/[token]` | Score, weakest areas, per-domain bars, week-by-week plan to the exam date, and every missed question with its explanation |
 | `/outcome/[token]` | The pass / didn't pass / haven't taken it yet page that emails link to. Students can add a retake or new date here. |
 | `/unsubscribe/[token]` | Unsubscribe page; email clients also get one-click unsubscribe |
-| `/admin?key=ADMIN_KEY` | Starts, completions, email capture rate, average score and confidence, reported pass rate, exam months, most-missed questions, emails sent, latest sign-ups |
+| `/admin` (owner accounts) | Starts, completions, email capture rate, average score and confidence, reported pass rate, exam months, most-missed questions, emails sent, latest sign-ups |
 
 ## Voice study buddy (Sara)
 
@@ -62,7 +62,8 @@ Timing settings live in `src/config.ts`, along with the brand name, the buddy's 
    - `APP_URL`: `https://vettechstudybuddy.com`
    - `SENDGRID_API_KEY`, `EMAIL_FROM` (a verified SendGrid sender), `EMAIL_FROM_NAME`, `EMAIL_REPLY_TO`
    - `POSTAL_ADDRESS`: required by CAN-SPAM in every email footer
-   - `CRON_SECRET` and `ADMIN_KEY`: long random strings
+   - `CRON_SECRET`: a long random string
+   - `OWNER_EMAILS`: the emails of owner accounts that can open `/admin`
    - `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID=agent_9401m7ngg5ezfm8bm413a579rmz0`: turns on voice
 4. Build command: `npm run build`. Start command: `npm start`. Start runs the database setup automatically.
 5. Add a second service from the same repo for the daily emails:
@@ -101,7 +102,7 @@ curl -X POST "http://localhost:3000/api/cron?today=2027-03-08" -H "authorization
 - **Practice** (`/practice`): smart mix weighted by VTNE topic weight and weakness, by topic, or missed questions. Free accounts get `FREE_DAILY_PRACTICE` a day.
 - **Practice exams** (`/exam`, pass holders): up to 150 questions weighted like the VTNE, 72 seconds each, flags, autosave, scored automatically when time runs out.
 - **Text chat with Sara** (`/sara?mode=text`, pass holders): same ElevenLabs agent in text-only mode.
-- **Owner admin** (`/admin`, sign in with `ADMIN_KEY`): overview, sales, students (grant free passes, e.g. the pass guarantee), question bank editor (draft → reviewed → retired), question reports.
+- **Owner admin** (`/admin`, for accounts listed in `OWNER_EMAILS` or with role `owner`; sign in with email and password): overview, sales, students (grant free passes, e.g. the pass guarantee), question bank editor (draft → reviewed → retired), question reports.
 - **Daily job** also sends a reminder 7 days before a pass ends.
 
 To turn on payments: set `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`, and add a webhook endpoint `https://vettechstudybuddy.com/api/stripe/webhook` for `checkout.session.completed` and `charge.refunded`.

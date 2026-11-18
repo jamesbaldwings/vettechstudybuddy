@@ -89,7 +89,6 @@ export const FREE_DAILY_PRACTICE = Number(process.env.FREE_DAILY_PRACTICE || 10)
 export const EXAM_SECONDS_PER_QUESTION = 72;
 export const EXAM_MAX_QUESTIONS = 150;
 export const SESSION_COOKIE = "vtsb_session";
-export const ADMIN_COOKIE = "vtsb_admin";
 
 export const money = (cents: number) => `$${(cents / 100).toFixed(cents % 100 ? 2 : 0)}`;
 // "Ask Sara why": focused text chats about one question.

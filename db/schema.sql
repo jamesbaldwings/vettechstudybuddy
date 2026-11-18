@@ -174,3 +174,6 @@ CREATE TABLE IF NOT EXISTS login_failures (
   at timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS login_failures_email_at ON login_failures (lower(email), at);
+
+-- Account types. Owners can open /admin. (School admin and partner come later.)
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS role text NOT NULL DEFAULT 'student';
