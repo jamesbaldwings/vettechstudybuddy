@@ -7,6 +7,7 @@ const LINKS = [
   ["/admin/questions", "Questions"],
   ["/admin/reports", "Reports"],
   ["/admin/schools", "Schools"],
+  ["/admin/sara", "Sara"],
 ];
 
 export default function AdminNav({ current }: { current: string }) {

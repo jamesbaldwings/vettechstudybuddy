@@ -6,6 +6,14 @@ import { daysBetween, prettyDate, prettyMonth, todayISO } from "@/lib/dates";
 const LETTERS = ["A", "B", "C", "D"];
 
 // What Sara knows about the student at the start of a conversation.
+// Sara's first line only offers what the student actually has: missed questions, a weak topic, or a fresh start.
+function openingLine(name: string, missedCount: number, weakest: string | null) {
+  if (missedCount > 0)
+    return `Hey ${name}! It's Sara. Want to talk through ${missedCount === 1 ? "the question" : missedCount < 12 ? `the ${missedCount} questions` : "the questions"} you missed, or should I quiz you?`;
+  if (weakest) return `Hey ${name}! It's Sara. Want me to quiz you on ${weakest}, or is there a topic you'd rather work on?`;
+  return `Hey ${name}! It's Sara. What would you like to work on today? I can quiz you, or we can dig into any topic you pick.`;
+}
+
 export async function saraContext(lead: Lead) {
   const today = todayISO();
   let examText = "not set yet";
@@ -54,11 +62,11 @@ export async function saraContext(lead: Lead) {
     days_left: daysLeft,
     confidence: String(attempt?.confidence ?? 3),
     score: readiness.score === null ? "no score yet" : `readiness ${readiness.score} out of 100`,
-    weak_areas: weak.map((d) => `${d.name} (${d.pct}%)`).join(", "),
+    weak_areas: readiness.basis === "none" ? "not enough answers yet to tell" : weak.map((d) => `${d.name} (${d.pct}%)`).join(", "),
     missed_questions: missedText || "none recorded yet",
     session_mode: "study",
     focus: "none",
-    opening_line: `Hey ${lead.first_name?.trim() || "there"}! It's Sara. Want to talk through the questions you missed, or should I quiz you?`,
+    opening_line: openingLine(lead.first_name?.trim() || "there", missed.length, readiness.basis === "none" ? null : weak[0]?.name ?? null),
   };
 }
 
