@@ -96,3 +96,21 @@ export const WHY_FREE_PER_DAY = Number(process.env.WHY_FREE_PER_DAY || 3);
 export const WHY_PASS_PER_DAY = Number(process.env.WHY_PASS_PER_DAY || 40);
 export const WHY_MAX_STUDENT_TURNS = 8;
 export const WHY_IDLE_SECONDS = 180;
+
+// ===== Schools =====
+// License packages (usually invoiced) and add-on seats sold in blocks of 10.
+export const SCHOOL_PACKAGES = [
+  { seats: 25, priceCents: 150000 },
+  { seats: 50, priceCents: 250000 },
+  { seats: 100, priceCents: 450000 },
+];
+export const SCHOOL_SEAT_BLOCK = 10;
+// Per-seat price by order size (seats in this order).
+export const SCHOOL_SEAT_TIERS = [
+  { min: 100, centsPerSeat: 4500 },
+  { min: 50, centsPerSeat: 5000 },
+  { min: 30, centsPerSeat: 6000 },
+  { min: 10, centsPerSeat: 6500 },
+];
+export const schoolSeatPrice = (seats: number) =>
+  (SCHOOL_SEAT_TIERS.find((t) => seats >= t.min) ?? SCHOOL_SEAT_TIERS[SCHOOL_SEAT_TIERS.length - 1]).centsPerSeat;

@@ -3,6 +3,7 @@ import { verifyStripeSignature } from "@/lib/stripe";
 import { recordPurchase } from "@/lib/access";
 import { db } from "@/lib/db";
 import { PLANS, PlanId } from "@/config";
+import { addSeats } from "@/lib/school";
 
 export async function POST(req: Request) {
   const payload = await req.text();
@@ -11,6 +12,12 @@ export async function POST(req: Request) {
   const event = JSON.parse(payload);
   const obj = event.data?.object ?? {};
 
+  if (event.type === "checkout.session.completed" && obj.payment_status === "paid" && obj.metadata?.kind === "school_seats") {
+    const seats = Number(obj.metadata.seats);
+    if (obj.metadata.school_id && Number.isInteger(seats) && seats > 0)
+      await addSeats(obj.metadata.school_id, seats, obj.amount_total ?? 0, "stripe", obj.id, null);
+    return NextResponse.json({ received: true });
+  }
   if (event.type === "checkout.session.completed" && obj.payment_status === "paid") {
     const plan = obj.metadata?.plan as PlanId;
     const leadId = obj.metadata?.lead_id || obj.client_reference_id;

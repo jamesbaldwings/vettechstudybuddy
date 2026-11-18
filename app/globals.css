@@ -236,3 +236,5 @@ table.data th, table.data td { text-align: left; padding: 8px 6px; border-bottom
 .grid2 { display: grid; gap: 4px 24px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .grid2 ul { padding-left: 18px; margin: 6px 0 0; }
 .grid2 li { margin-bottom: 6px; }
+button.linkish { background: none; border: 0; padding: 0; color: var(--brand); text-decoration: underline; cursor: pointer; font: inherit; }
+button.linkish:disabled { opacity: 0.5; cursor: default; }

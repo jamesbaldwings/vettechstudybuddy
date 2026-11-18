@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { isOwner, requireLead } from "@/lib/auth";
+import { schoolsFor } from "@/lib/school";
 import { getAccess } from "@/lib/access";
 import { getReadiness } from "@/lib/readiness";
 import { db } from "@/lib/db";
@@ -17,7 +18,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { month: "long", day:
 export default async function Home({ searchParams }: { searchParams: Promise<{ purchased?: string }> }) {
   const lead = await requireLead("/home");
   const { purchased } = await searchParams;
-  const [access, readiness, latest] = await Promise.all([
+  const [access, readiness, latest, schools] = await Promise.all([
     getAccess(lead.id),
     getReadiness(lead.id),
     db()
@@ -26,6 +27,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         [lead.id],
       )
       .then((r) => r.rows[0]?.public_token ?? null),
+    isOwner(lead) ? Promise.resolve([]) : schoolsFor(lead),
   ]);
 
   const today = todayISO();
@@ -158,6 +160,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         {isOwner(lead) && (
           <>
             <Link href="/admin">Owner admin</Link> ·{" "}
+          </>
+        )}
+        {schools.length > 0 && (
+          <>
+            <Link href="/school">School dashboard</Link> ·{" "}
           </>
         )}
         <Link href="/settings">Settings</Link> · <SignOutButton />

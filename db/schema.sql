@@ -177,3 +177,43 @@ CREATE INDEX IF NOT EXISTS login_failures_email_at ON login_failures (lower(emai
 
 -- Account types. Owners can open /admin. (School admin and partner come later.)
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS role text NOT NULL DEFAULT 'student';
+
+-- ===== Schools =====
+CREATE TABLE IF NOT EXISTS schools (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  name text NOT NULL,
+  note text,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+-- Seats a school has bought or been given. Total seats = sum of these.
+CREATE TABLE IF NOT EXISTS school_seat_orders (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  school_id uuid NOT NULL REFERENCES schools(id) ON DELETE CASCADE,
+  seats integer NOT NULL CHECK (seats > 0),
+  amount_cents integer NOT NULL DEFAULT 0,
+  source text NOT NULL,                -- stripe | invoice | comp
+  stripe_session_id text UNIQUE,
+  note text,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+-- One-time join links. kind 'student' uses a seat; kind 'admin' makes someone a school admin.
+CREATE TABLE IF NOT EXISTS school_invites (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  school_id uuid NOT NULL REFERENCES schools(id) ON DELETE CASCADE,
+  kind text NOT NULL,                  -- student | admin
+  email text NOT NULL,
+  name text,
+  token text NOT NULL UNIQUE,
+  created_by uuid REFERENCES leads(id) ON DELETE SET NULL,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  used_by uuid REFERENCES leads(id) ON DELETE SET NULL,
+  used_at timestamptz,
+  revoked_at timestamptz,
+  purchase_id uuid
+);
+CREATE INDEX IF NOT EXISTS school_invites_school ON school_invites (school_id, kind);
+CREATE UNIQUE INDEX IF NOT EXISTS school_invites_one_live_per_email
+  ON school_invites (school_id, kind, lower(email)) WHERE revoked_at IS NULL;
+ALTER TABLE purchases ADD COLUMN IF NOT EXISTS school_id uuid;
+ALTER TABLE school_invites ADD COLUMN IF NOT EXISTS sent_count integer NOT NULL DEFAULT 0;
+ALTER TABLE school_invites ADD COLUMN IF NOT EXISTS last_sent_at timestamptz;

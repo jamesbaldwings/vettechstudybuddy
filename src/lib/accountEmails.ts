@@ -77,3 +77,35 @@ export async function sendResetEmail(to: string, name: string | null, leadToken:
   });
   return sendEmail({ to, subject: "Reset your password", html, text, unsubscribeUrl: unsub });
 }
+
+// School join links. Transactional: sent because a school added this person.
+export async function sendSchoolInviteEmail(to: string, name: string | null, schoolName: string, token: string, kind: "student" | "admin", resend: boolean) {
+  const url = `${appUrl()}/join/${token}`;
+  const unsub = `mailto:${process.env.EMAIL_FROM || "hello@vettechstudybuddy.com"}?subject=Stop%20school%20emails`;
+  const first =
+    kind === "admin"
+      ? `${schoolName} set you up as a school admin on Vet Tech Study Buddy. Use the button below to sign in or create your account, then you can add students and see how they're doing.`
+      : `${schoolName} is giving you a free Exam Pass for Vet Tech Study Buddy: 90 days of VTNE practice, timed practice exams, and help from me whenever you want to know why an answer is right. Your 90 days don't start until you press Start.`;
+  const { html, text } = layout({
+    greeting: hi(name),
+    unsubscribeUrl: unsub,
+    blocks: [
+      {
+        paragraphs: [
+          ...(resend ? ["Here's your link again."] : []),
+          first,
+          "This link is just for you and works once, so please don't forward it.",
+        ],
+        buttons: [{ label: kind === "admin" ? "Set up my admin account" : "Claim my Exam Pass", url }],
+      },
+      { paragraphs: [`See you there. — ${BUDDY_NAME}`] },
+    ],
+  });
+  return sendEmail({
+    to,
+    subject: kind === "admin" ? `Your ${schoolName} admin access` : `${schoolName} gave you a VTNE Exam Pass`,
+    html,
+    text,
+    unsubscribeUrl: unsub,
+  });
+}

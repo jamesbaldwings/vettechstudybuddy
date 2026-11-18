@@ -40,6 +40,16 @@ export default function Terms() {
         <Link href="/refunds">refunds and pass guarantee</Link>.
       </p>
 
+      <h2>Passes from your school</h2>
+      <p>
+        If your school gives you a pass, it works like any Exam Pass and starts when you press Start. When you accept it, your school can see your name
+        and email, whether you&apos;ve joined and started, when you were last active, how many questions you&apos;ve answered, your accuracy and
+        readiness, your weakest topic, practice exam scores, how often you mark answers as guesses, how you said you feel about the exam, your VTNE
+        date and the result you report. Your school can&apos;t see your conversations with {BUDDY_NAME} or your individual answers. Each school link
+        works once and can&apos;t be transferred. School seats are refunded under the school&apos;s own agreement with us, not the student refund
+        policy.
+      </p>
+
       <h2>No guarantee of results</h2>
       <p>
         We work hard to make practice questions accurate and representative, but they are not the real VTNE, and readiness scores are
