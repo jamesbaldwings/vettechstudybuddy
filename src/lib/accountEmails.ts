@@ -60,3 +60,20 @@ export function passEndingMessage(to: string, name: string | null, leadToken: st
   });
   return { to, subject: `Your ${planName} ends ${end}`, html, text, unsubscribeUrl: unsub };
 }
+
+export async function sendResetEmail(to: string, name: string | null, leadToken: string, resetToken: string) {
+  const url = `${appUrl()}/reset?t=${encodeURIComponent(resetToken)}`;
+  const unsub = links.unsubscribe(leadToken);
+  const { html, text } = layout({
+    greeting: hi(name),
+    unsubscribeUrl: unsub,
+    blocks: [
+      {
+        paragraphs: ["Here's your link to set a new password for Vet Tech Study Buddy. It works once and expires in 30 minutes."],
+        buttons: [{ label: "Set a new password", url }],
+      },
+      { paragraphs: ["If you didn't ask for this, you can ignore this email. Your password won't change."] },
+    ],
+  });
+  return sendEmail({ to, subject: "Reset your password", html, text, unsubscribeUrl: unsub });
+}

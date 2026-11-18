@@ -3,8 +3,8 @@ import { db } from "@/lib/db";
 import { newToken } from "@/lib/tokens";
 import { addDays, todayISO, upcomingMonths } from "@/lib/dates";
 import { LEAD_SELECT, LeadRow, sendOnce, welcomeEmail } from "@/lib/followups";
-import { createLoginToken, currentLead, startSession } from "@/lib/auth";
-import { sendSignInEmail } from "@/lib/accountEmails";
+import { currentLead, startSession } from "@/lib/auth";
+import { checkLogin, hashPassword, passwordProblem } from "@/lib/password";
 import { QUESTIONS } from "@/data/questions";
 import { ensureFreeTrial } from "@/lib/access";
 
@@ -74,17 +74,48 @@ export async function POST(req: Request) {
       { status: 400 },
     );
 
-  const signedIn = await currentLead();
+  let signedIn = await currentLead();
   const existing = await db().query<{ id: string }>(
     `SELECT id FROM leads WHERE lower(email) = $1`,
     [email],
   );
-  // Someone who isn't signed in can't change an existing account's details by typing its email.
-  const mayUpdate = !existing.rowCount || signedIn?.id === existing.rows[0].id;
-  const lead = mayUpdate
-    ? await db().query<{ id: string; created: boolean }>(
-        `INSERT INTO leads (token, email, first_name, exam_date, target_month, consent_at, marketing_ok)
-     VALUES ($1, $2, $3, $4, $5, now(), true)
+  const password = typeof body?.password === "string" ? body.password : "";
+  if (existing.rowCount && signedIn?.id !== existing.rows[0].id) {
+    // The email already has an account: the student signs in with their password to save these results.
+    // Nobody can change or enter someone else's account by typing their email.
+    if (!password)
+      return NextResponse.json(
+        {
+          error:
+            "You already have an account with that email. Enter your password to save these results.",
+          existingAccount: true,
+        },
+        { status: 409 },
+      );
+    const r = await checkLogin(email, password);
+    if (!r.ok)
+      return NextResponse.json(
+        {
+          error: r.error,
+          existingAccount: true,
+          noPassword: r.noPassword ?? false,
+        },
+        { status: 401 },
+      );
+    await startSession(r.leadId);
+    signedIn = { id: r.leadId } as typeof signedIn;
+  } else if (!existing.rowCount) {
+    const problem = passwordProblem(password);
+    if (problem)
+      return NextResponse.json(
+        { error: `Create a password: ${problem.toLowerCase()}` },
+        { status: 400 },
+      );
+  }
+  const passwordHash = !existing.rowCount ? await hashPassword(password) : null;
+  const lead = await db().query<{ id: string; created: boolean }>(
+    `INSERT INTO leads (token, email, first_name, exam_date, target_month, consent_at, marketing_ok, password_hash)
+     VALUES ($1, $2, $3, $4, $5, now(), true, $6)
      ON CONFLICT ((lower(email))) DO UPDATE SET
        first_name = COALESCE(EXCLUDED.first_name, leads.first_name),
        exam_date = EXCLUDED.exam_date,
@@ -95,9 +126,9 @@ export async function POST(req: Request) {
        outcome = CASE WHEN EXCLUDED.exam_date IS DISTINCT FROM leads.exam_date THEN NULL ELSE leads.outcome END,
        updated_at = now()
      RETURNING id, (xmax = 0) AS created`,
-        [newToken(), email, firstName, examDate, targetMonth],
-      )
-    : { rows: [{ id: existing.rows[0].id, created: false }] };
+    [newToken(), email, firstName, examDate, targetMonth, passwordHash],
+  );
+  const mayUpdate = true;
   const leadId = lead.rows[0].id;
   await ensureFreeTrial(leadId);
   if (mayUpdate) {
@@ -119,26 +150,10 @@ export async function POST(req: Request) {
       [leadId, ids, ids.map((_, i) => answers[i] ?? null)],
     );
   }
-  // A brand-new account is signed in right away. An email that already has an account
-  // gets a sign-in link instead, so nobody can get into someone else's account by typing their email.
-  let signInSent = false;
-  if (lead.rows[0].created || signedIn?.id === leadId)
+  // New accounts are signed in right away; existing ones were signed in by their password above.
+  const signInSent = false;
+  if (lead.rows[0].created || signedIn?.id !== leadId)
     await startSession(leadId);
-  else {
-    const row0 = (
-      await db().query<{ token: string; first_name: string | null }>(
-        `SELECT token, first_name FROM leads WHERE id = $1`,
-        [leadId],
-      )
-    ).rows[0];
-    await sendSignInEmail(
-      email,
-      row0.first_name,
-      row0.token,
-      await createLoginToken(leadId, "/home"),
-    );
-    signInSent = true;
-  }
 
   const row = (
     await db().query<LeadRow>(`${LEAD_SELECT} WHERE l.id = $1`, [leadId])

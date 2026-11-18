@@ -274,6 +274,8 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
   const [notBooked, setNotBooked] = useState(false);
   const [targetMonth, setTargetMonth] = useState("");
   const [consent, setConsent] = useState(false);
+  const [password, setPassword] = useState("");
+  const [existing, setExisting] = useState(false);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
   const r = s.result;
@@ -296,9 +298,11 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
           examDate: notBooked ? null : examDate,
           targetMonth: notBooked ? targetMonth : null,
           consent,
+          password,
         }),
       });
       const j = await res.json();
+      if (j.existingAccount) setExisting(true);
       if (!res.ok) throw new Error(j.error || "Something went wrong.");
       onSaved(j.signInSent ? `${j.resultsUrl}?signin=sent` : j.resultsUrl);
     } catch (e2) {
@@ -327,8 +331,8 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
 
       <Buddy>
         <p>
-          Nice work getting through all 25. Want me to show you exactly which areas to focus on and build a plan around your
-          exam date? Tell me where to send it.
+          Nice work getting through all 25. Create your free account and I&apos;ll show you exactly which areas to focus on,
+          with a plan built around your exam date.
         </p>
       </Buddy>
 
@@ -339,7 +343,38 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
         </div>
         <div className="field">
           <label htmlFor="em">Email</label>
-          <input id="em" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" />
+          <input
+            id="em"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setExisting(false);
+            }}
+            autoComplete="email"
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="pw">{existing ? "Your password" : "Create a password"}</label>
+          <input
+            id="pw"
+            type="password"
+            required
+            minLength={existing ? undefined : 8}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete={existing ? "current-password" : "new-password"}
+          />
+          <span className="small muted">
+            {existing ? (
+              <>
+                <a href="/signin?mode=forgot">Forgot password?</a>
+              </>
+            ) : (
+              "At least 8 characters."
+            )}
+          </span>
         </div>
         {!notBooked ? (
           <div className="field">
@@ -369,13 +404,14 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
           <label className="check">
             <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required />
             <span>
-              Send me my plan and check-ins from {BUDDY_NAME} before and after my VTNE. I can unsubscribe anytime.
+              Send me my plan and check-ins from {BUDDY_NAME} before and after my VTNE. I can unsubscribe anytime. I agree to
+              the <a href="/terms" target="_blank">terms</a>.
             </span>
           </label>
         </div>
         {err && <p className="error">{err}</p>}
         <button className="btn block" type="submit" disabled={busy}>
-          {busy ? "Building your plan..." : "Show me my plan"}
+          {busy ? "Building your plan..." : existing ? "Sign in and show my plan" : "Create my account and show my plan"}
         </button>
       </form>
       <p className="center small">

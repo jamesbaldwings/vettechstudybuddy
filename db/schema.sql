@@ -165,3 +165,12 @@ CREATE TABLE IF NOT EXISTS question_reports (
 -- Understanding-first: how sure the student was, and focused "why" chats with Sara.
 ALTER TABLE practice_answers ADD COLUMN IF NOT EXISTS confidence smallint;  -- 1 guessing, 2 think so, 3 sure
 ALTER TABLE voice_sessions ADD COLUMN IF NOT EXISTS question_id text;
+
+-- Password sign-in. Hashes only (scrypt); failed attempts are counted to slow down guessing.
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS password_hash text;
+CREATE TABLE IF NOT EXISTS login_failures (
+  id bigserial PRIMARY KEY,
+  email text NOT NULL,
+  at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS login_failures_email_at ON login_failures (lower(email), at);
