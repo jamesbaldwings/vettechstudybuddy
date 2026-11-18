@@ -31,8 +31,8 @@ export async function POST(req: Request) {
         },
       },
     },
-    payment_intent_data: { description: `Vet Tech Study Buddy: ${plan.name}` },
-    metadata: { lead_id: lead.id, plan: plan.id, founding: founding ? "1" : "0" },
+    payment_intent_data: { description: `Vet Tech Study Buddy: ${plan.name}`, metadata: { app: "vtsb" } },
+    metadata: { app: "vtsb", lead_id: lead.id, plan: plan.id, founding: founding ? "1" : "0" },
   });
   return NextResponse.json({ url: session.url });
 }

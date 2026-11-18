@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       },
     },
     invoice_creation: { enabled: "true" },
-    metadata: { kind: "school_seats", school_id: schoolId, seats: String(seats), lead_id: lead!.id },
+    metadata: { app: "vtsb", kind: "school_seats", school_id: schoolId, seats: String(seats), lead_id: lead!.id },
   });
   return NextResponse.json({ url: session.url });
 }

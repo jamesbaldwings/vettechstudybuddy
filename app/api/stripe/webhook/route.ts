@@ -11,6 +11,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "bad signature" }, { status: 400 });
   const event = JSON.parse(payload);
   const obj = event.data?.object ?? {};
+  // The Stripe account is shared with other Agsperience products: only act on checkouts this app created.
+  if (event.type === "checkout.session.completed" && obj.metadata?.app !== "vtsb") return NextResponse.json({ received: true, ignored: true });
 
   if (event.type === "checkout.session.completed" && obj.payment_status === "paid" && obj.metadata?.kind === "school_seats") {
     const seats = Number(obj.metadata.seats);
