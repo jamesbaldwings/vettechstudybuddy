@@ -73,6 +73,7 @@ export default function WhyChat({ questionId, onClose }: { questionId: string; o
         conv.current = (await Conversation.startSession({
           signedUrl: j.signedUrl,
           textOnly: true,
+          stripAudioTags: true,
           overrides: { conversation: { textOnly: true } },
           dynamicVariables: j.dynamicVariables,
           onConnect: ({ conversationId }) => {

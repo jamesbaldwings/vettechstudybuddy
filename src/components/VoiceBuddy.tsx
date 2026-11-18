@@ -93,6 +93,7 @@ export default function VoiceBuddy({ attemptToken, initialMinutes }: { attemptTo
         signedUrl: j.signedUrl,
         connectionType: "websocket",
         textOnly: false,
+        stripAudioTags: true,
         dynamicVariables: j.dynamicVariables,
         onConnect: ({ conversationId }) => {
           setPhase("live");
