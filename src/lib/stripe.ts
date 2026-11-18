@@ -48,4 +48,5 @@ export const checkoutBranding = (appUrl: string) => ({
   display_name: "Vet Tech Study Buddy",
   button_color: "#0b5a45",
   icon: { type: "url", url: `${appUrl}/icons/icon-512.png` },
+  logo: { type: "url", url: `${appUrl}/images/logo.png` },
 });
