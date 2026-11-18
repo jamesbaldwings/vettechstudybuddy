@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { currentLead } from "@/lib/auth";
 import { foundingSpotsLeft } from "@/lib/access";
-import { stripe, stripeEnabled } from "@/lib/stripe";
+import { checkoutBranding, stripe, stripeEnabled } from "@/lib/stripe";
 import { appUrl, PLANS, PlanId } from "@/config";
 
 export async function POST(req: Request) {
@@ -16,6 +16,7 @@ export async function POST(req: Request) {
   const amount = founding ? plan.foundingPriceCents! : plan.priceCents;
   const session = await stripe<{ url: string; id: string }>("checkout/sessions", {
     mode: "payment",
+    branding_settings: checkoutBranding(appUrl()),
     customer_email: lead.email,
     client_reference_id: lead.id,
     success_url: `${appUrl()}/home?purchased=1`,

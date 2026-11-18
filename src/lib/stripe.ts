@@ -42,3 +42,10 @@ export function verifyStripeSignature(payload: string, header: string | null, se
     return b.length === expected.length && timingSafeEqual(b, expected);
   });
 }
+
+// The Stripe account is shared with other businesses: show this product's name and look at the top of Checkout.
+export const checkoutBranding = (appUrl: string) => ({
+  display_name: "Vet Tech Study Buddy",
+  button_color: "#0b5a45",
+  icon: { type: "url", url: `${appUrl}/icons/icon-512.png` },
+});

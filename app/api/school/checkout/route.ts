@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { currentLead } from "@/lib/auth";
 import { canManage, getSchool } from "@/lib/school";
-import { stripe, stripeEnabled } from "@/lib/stripe";
+import { checkoutBranding, stripe, stripeEnabled } from "@/lib/stripe";
 import { appUrl, SCHOOL_SEAT_BLOCK, schoolSeatPrice } from "@/config";
 
 // Schools buy more seats in blocks of 10; the per-seat price drops with larger orders.
@@ -18,6 +18,7 @@ export async function POST(req: Request) {
   const unit = schoolSeatPrice(seats);
   const session = await stripe<{ url: string }>("checkout/sessions", {
     mode: "payment",
+    branding_settings: checkoutBranding(appUrl()),
     customer_email: lead!.email,
     client_reference_id: lead!.id,
     success_url: `${appUrl()}/school/${schoolId}?seats=added`,
