@@ -2,7 +2,7 @@
 export const BRAND_NAME = "Vet Tech Study Buddy"; // placeholder until the final name is chosen
 export const BUDDY_NAME = "Sara";
 export const FOUNDER_LINE =
-  "Every question is reviewed and approved by a veterinary technician with 20 years in the field before it reaches you.";
+  "Every question is reviewed and approved by veterinary technicians and instructors before it reaches you.";
 
 // Days after the exam date to ask how it went. AAVSB posts scores in the MyAAVSB portal within about three days.
 export const OUTCOME_CHECK_DAYS_AFTER = 4;

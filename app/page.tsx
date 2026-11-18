@@ -88,7 +88,7 @@ export default function Home() {
             <h3 style={{ marginTop: 0 }}>It is</h3>
             <ul>
               <li>Study prep for the VTNE only.</li>
-              <li>Practice questions reviewed by an experienced vet tech, each with an explanation of why.</li>
+              <li>Practice questions reviewed and approved by veterinary technicians and instructors, each with an explanation of why.</li>
               <li>{BUDDY_NAME}, an AI study buddy you can talk to by text or voice.</li>
               <li>A readiness estimate based on your practice, and check-ins before and after your exam.</li>
             </ul>
