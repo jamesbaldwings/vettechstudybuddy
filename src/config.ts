@@ -92,3 +92,8 @@ export const SESSION_COOKIE = "vtsb_session";
 export const ADMIN_COOKIE = "vtsb_admin";
 
 export const money = (cents: number) => `$${(cents / 100).toFixed(cents % 100 ? 2 : 0)}`;
+// "Ask Sara why": focused text chats about one question.
+export const WHY_FREE_PER_DAY = Number(process.env.WHY_FREE_PER_DAY || 3);
+export const WHY_PASS_PER_DAY = Number(process.env.WHY_PASS_PER_DAY || 40);
+export const WHY_MAX_STUDENT_TURNS = 8;
+export const WHY_IDLE_SECONDS = 180;

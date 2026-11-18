@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BUDDY_NAME } from "@/config";
+import WhyChat from "@/components/WhyChat";
 
 interface Q {
   id: string;
@@ -38,6 +39,8 @@ export default function Practice({
   const [reporting, setReporting] = useState(false);
   const [report, setReport] = useState("");
   const [reported, setReported] = useState(false);
+  const [conf, setConf] = useState<number | null>(null);
+  const [why, setWhy] = useState(false);
   const nameOf = (id: string) => domains.find((d) => d.id === id)?.name ?? id;
 
   async function load(s: string, exclude?: string) {
@@ -47,6 +50,8 @@ export default function Practice({
     setReporting(false);
     setReported(false);
     setReport("");
+    setConf(null);
+    setWhy(false);
     const j = await fetch(`/api/practice/next?set=${encodeURIComponent(s)}${exclude ? `&exclude=${exclude}` : ""}`).then((r) => r.json());
     setBusy(false);
     if (j.limit) return setLimit(true);
@@ -55,13 +60,14 @@ export default function Practice({
     setQ(j.question);
   }
 
-  async function submit() {
+  async function submit(confidence: number) {
     if (chosen === null || !q) return;
+    setConf(confidence);
     setBusy(true);
     const r = await fetch("/api/practice/answer", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ questionId: q.id, chosen }),
+      body: JSON.stringify({ questionId: q.id, chosen, confidence }),
     });
     const j = await r.json();
     setBusy(false);
@@ -158,9 +164,22 @@ export default function Practice({
             );
           })}
           {!res ? (
-            <button className="btn block" onClick={submit} disabled={chosen === null || busy}>
-              Check answer
-            </button>
+            <div>
+              <p className="small muted" style={{ margin: "4px 0 6px" }}>
+                How sure are you?
+              </p>
+              <div className="conf-row">
+                {[
+                  [3, "I'm sure"],
+                  [2, "I think so"],
+                  [1, "Guessing"],
+                ].map(([v, label]) => (
+                  <button key={v} className="btn secondary" onClick={() => submit(v as number)} disabled={chosen === null || busy}>
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
           ) : (
             <>
               <div className="card" style={{ background: res.correct ? "var(--good-soft)" : "var(--accent-soft)", marginTop: 8 }}>
@@ -168,7 +187,19 @@ export default function Practice({
                   <strong>{res.correct ? CHEERS[streak.total % CHEERS.length] : `Not quite. The answer is ${LETTERS[res.answer]}.`}</strong>
                 </p>
                 <p style={{ marginBottom: 0 }}>{res.explanation}</p>
+                {res.correct && conf === 1 && (
+                  <p className="small" style={{ marginBottom: 0, marginTop: 8 }}>
+                    You got it, but you were guessing, so this one still counts as &quot;learning&quot; in your readiness.
+                  </p>
+                )}
               </div>
+              {why ? (
+                <WhyChat questionId={q.id} onClose={() => setWhy(false)} />
+              ) : (
+                <button className={`btn ${!res.correct || conf === 1 ? "" : "secondary"} block`} onClick={() => setWhy(true)} style={{ marginBottom: 10 }}>
+                  {!res.correct ? `Ask ${BUDDY_NAME} why` : conf === 1 ? `Ask ${BUDDY_NAME} why it's right` : `Explain it to ${BUDDY_NAME}`}
+                </button>
+              )}
               <div className="spread">
                 <button className="linklike small" onClick={() => setReporting((r) => !r)} disabled={reported}>
                   {reported ? "Thanks, we'll take a look." : "Something off with this question?"}

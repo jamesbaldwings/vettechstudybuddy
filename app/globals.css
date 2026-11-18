@@ -230,3 +230,6 @@ table.data th, table.data td { text-align: left; padding: 8px 6px; border-bottom
 @media (max-width: 520px) { .site-nav a:not(.btn) { display: none; } .site-nav .btn { padding: 7px 10px; font-size: 14px; } }
 .prose h2 { font-size: 1.15rem; margin-top: 22px; }
 .prose li { margin-bottom: 6px; }
+.conf-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.conf-row .btn { padding: 10px 6px; }
+.why { border-color: var(--brand); background: #fbfdfc; }

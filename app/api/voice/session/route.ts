@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { currentLead, Lead } from "@/lib/auth";
 import { getAccess } from "@/lib/access";
-import { saraContext } from "@/lib/studentContext";
-import { BUDDY_NAME, VOICE_SESSION_MINUTES, VOICE_SESSIONS_PER_DAY } from "@/config";
+import { saraContext, whyContext } from "@/lib/studentContext";
+import { BUDDY_NAME, VOICE_SESSION_MINUTES, VOICE_SESSIONS_PER_DAY, WHY_FREE_PER_DAY, WHY_PASS_PER_DAY } from "@/config";
 
 export const dynamic = "force-dynamic";
 const TEXT_SESSIONS_PER_DAY = 40;
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
   if (!apiKey || !agentId) return NextResponse.json({ error: `${BUDDY_NAME} isn't switched on yet. Check back soon!` }, { status: 503 });
 
   const body = await req.json().catch(() => null);
-  const mode: "voice" | "text" = body?.mode === "text" ? "text" : "voice";
+  const mode: "voice" | "text" | "why" = body?.mode === "text" ? "text" : body?.mode === "why" ? "why" : "voice";
 
   let lead: Lead | null = await currentLead();
   if (!lead && body?.attemptToken) {
@@ -30,7 +30,12 @@ export async function POST(req: Request) {
 
   const access = await getAccess(lead.id);
   let maxMinutes = VOICE_SESSION_MINUTES;
-  if (mode === "text") {
+  let why: Awaited<ReturnType<typeof whyContext>> = null;
+  if (mode === "why") {
+    // Always built from the student's own saved answer, never from what the browser sends.
+    why = await whyContext(lead.id, String(body?.questionId ?? ""));
+    if (!why) return NextResponse.json({ error: "Answer the question first, then ask me why." }, { status: 400 });
+  } else if (mode === "text") {
     if (!access.activePass)
       return NextResponse.json({ error: `Text chat with ${BUDDY_NAME} comes with a pass.`, upgrade: true }, { status: 402 });
   } else {
@@ -46,9 +51,15 @@ export async function POST(req: Request) {
     `SELECT count(*) n FROM voice_sessions WHERE lead_id = $1 AND mode = $2 AND started_at > now() - interval '24 hours'`,
     [lead.id, mode],
   );
-  const cap = mode === "voice" ? VOICE_SESSIONS_PER_DAY : TEXT_SESSIONS_PER_DAY;
+  const cap =
+    mode === "voice" ? VOICE_SESSIONS_PER_DAY : mode === "why" ? (access.activePass ? WHY_PASS_PER_DAY : WHY_FREE_PER_DAY) : TEXT_SESSIONS_PER_DAY;
   if (Number(used.rows[0].n) >= cap)
-    return NextResponse.json({ error: `That's a lot of studying today! ${BUDDY_NAME} will be ready again tomorrow.` }, { status: 429 });
+    return NextResponse.json(
+      mode === "why" && !access.activePass
+        ? { error: `That's your ${WHY_FREE_PER_DAY} free "why" chats for today. A pass gives you as many as you need.`, upgrade: true }
+        : { error: `That's a lot of studying today! ${BUDDY_NAME} will be ready again tomorrow.` },
+      { status: 429 },
+    );
 
   const signed = await fetch(
     `${process.env.ELEVENLABS_API_BASE || "https://api.elevenlabs.io"}/v1/convai/conversation/get-signed-url?agent_id=${encodeURIComponent(agentId)}`,
@@ -65,8 +76,8 @@ export async function POST(req: Request) {
     [lead.id],
   );
   const session = await db().query<{ id: string }>(
-    `INSERT INTO voice_sessions (lead_id, attempt_id, mode) VALUES ($1, $2, $3) RETURNING id`,
-    [lead.id, attempt.rows[0]?.id ?? null, mode],
+    `INSERT INTO voice_sessions (lead_id, attempt_id, mode, question_id) VALUES ($1, $2, $3, $4) RETURNING id`,
+    [lead.id, attempt.rows[0]?.id ?? null, mode, mode === "why" ? String(body.questionId) : null],
   );
 
   return NextResponse.json({
@@ -74,6 +85,8 @@ export async function POST(req: Request) {
     signedUrl: signed_url,
     maxSeconds: maxMinutes * 60,
     voiceMinutes: access.voiceMinutes,
-    dynamicVariables: await saraContext(lead),
+    dynamicVariables: why
+      ? { ...(await saraContext(lead)), session_mode: "why", focus: why.focus, opening_line: why.opening }
+      : await saraContext(lead),
   });
 }

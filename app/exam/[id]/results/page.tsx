@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import { domainById } from "@/data/questions";
 import { Buddy } from "@/components/Buddy";
 import { BUDDY_NAME } from "@/config";
+import AskWhy from "@/components/AskWhy";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Exam results", robots: { index: false } };
@@ -93,6 +94,7 @@ export default async function ExamResults({ params }: { params: Promise<{ id: st
                 </strong>
               </p>
               <p className="small muted">{q.explanation}</p>
+              <AskWhy questionId={q.id} />
             </div>
           ))}
         </section>

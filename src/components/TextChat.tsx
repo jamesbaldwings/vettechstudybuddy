@@ -22,7 +22,9 @@ export default function TextChat() {
   const sessionId = useRef<string | null>(null);
   const end = useRef<HTMLDivElement>(null);
 
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), [msgs, waiting]);
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [msgs, waiting]);
   useEffect(() => () => void conv.current?.endSession().catch(() => {}), []);
 
   async function connect() {
@@ -53,6 +55,7 @@ export default function TextChat() {
         conv.current = null;
         report({ ended: true });
       },
+          onError: (message) => console.error("sara error", message),
       onMessage: ({ message, role }) => {
         if (role === "user" || !message?.trim()) return;
         // Sara's greeting is skipped once a conversation is under way.
@@ -83,7 +86,8 @@ export default function TextChat() {
       if (!conv.current) await connect();
       conv.current!.sendUserMessage(text);
     } catch (e2) {
-      setErr(String((e2 as Error).message));
+      setErr(sessionId.current ? `${BUDDY_NAME} couldn't connect. Check your internet connection and try again.` : String((e2 as Error).message));
+      conv.current = null;
       setWaiting(false);
     }
   }

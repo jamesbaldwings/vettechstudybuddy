@@ -161,3 +161,7 @@ CREATE TABLE IF NOT EXISTS question_reports (
   status text NOT NULL DEFAULT 'open',  -- open | resolved
   created_at timestamptz NOT NULL DEFAULT now()
 );
+
+-- Understanding-first: how sure the student was, and focused "why" chats with Sara.
+ALTER TABLE practice_answers ADD COLUMN IF NOT EXISTS confidence smallint;  -- 1 guessing, 2 think so, 3 sure
+ALTER TABLE voice_sessions ADD COLUMN IF NOT EXISTS question_id text;

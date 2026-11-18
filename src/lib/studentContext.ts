@@ -31,7 +31,7 @@ export async function saraContext(lead: Lead) {
     db()
       .query<{ stem: string; options: string[]; answer: number; chosen: number | null; domain: string }>(
         `SELECT DISTINCT ON (q.id) q.stem, q.options, q.answer, a.chosen, q.domain FROM practice_answers a JOIN questions q ON q.id = a.question_id
-         WHERE a.lead_id = $1 AND NOT a.correct ORDER BY q.id, a.answered_at DESC LIMIT 12`,
+         WHERE a.lead_id = $1 AND NOT a.correct AND q.status = 'reviewed' ORDER BY q.id, a.answered_at DESC LIMIT 12`,
         [lead.id],
       )
       .then((r) => r.rows),
@@ -56,5 +56,40 @@ export async function saraContext(lead: Lead) {
     score: readiness.score === null ? "no score yet" : `readiness ${readiness.score} out of 100`,
     weak_areas: weak.map((d) => `${d.name} (${d.pct}%)`).join(", "),
     missed_questions: missedText || "none recorded yet",
+    session_mode: "study",
+    focus: "none",
+    opening_line: `Hey ${lead.first_name?.trim() || "there"}! It's Sara. Want to talk through the questions you missed, or should I quiz you?`,
   };
+}
+
+const CONF = ["", "guessing", "thought so but wasn't sure", "sure"];
+
+// Context for a focused "why" chat about the student's latest answer to one question.
+export async function whyContext(leadId: string, questionId: string) {
+  const r = await db().query<{
+    stem: string; options: string[]; answer: number; explanation: string; domain: string;
+    chosen: number | null; correct: boolean; confidence: number | null;
+  }>(
+    `SELECT q.stem, q.options, q.answer, q.explanation, q.domain, a.chosen, a.correct, a.confidence
+     FROM practice_answers a JOIN questions q ON q.id = a.question_id
+     WHERE a.lead_id = $1 AND a.question_id = $2 AND q.status = 'reviewed' ORDER BY a.answered_at DESC LIMIT 1`,
+    [leadId, questionId],
+  );
+  const x = r.rows[0];
+  if (!x) return null;
+  const opts = x.options.map((o, i) => `${LETTERS[i]}. ${o}`).join(" | ");
+  const picked = x.chosen == null ? "nothing" : `${LETTERS[x.chosen]} (${x.options[x.chosen]})`;
+  const focus =
+    `Question: "${x.stem}" Choices: ${opts}. Correct answer: ${LETTERS[x.answer]} (${x.options[x.answer]}). ` +
+    `The student picked ${picked}, which is ${x.correct ? "correct" : "wrong"}` +
+    (x.confidence ? `, and said they were ${CONF[x.confidence]}.` : ".") +
+    ` Reviewed explanation: ${x.explanation}`;
+  let opening: string;
+  if (x.chosen == null) opening = "You left that one blank. Let's work through it together. What do you know about this topic so far?";
+  else if (!x.correct)
+    opening = `You went with ${LETTERS[x.chosen]}, ${x.options[x.chosen].replace(/[.]$/, "")}. Before I explain anything, what made that one look right to you?`;
+  else if ((x.confidence ?? 3) < 3)
+    opening = `You got it right, but you weren't sure. What made you lean toward ${LETTERS[x.chosen]}?`;
+  else opening = `Nice, that's right. Can you tell me in your own words why ${LETTERS[x.chosen]} is the answer?`;
+  return { focus, opening, correct: x.correct };
 }

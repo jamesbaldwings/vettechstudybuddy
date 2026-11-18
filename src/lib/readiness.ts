@@ -26,8 +26,9 @@ const PRIOR_WEIGHT = 4;
 // It's an estimate of how you'd do on exam-style questions today, not a predicted VTNE score.
 export async function getReadiness(leadId: string): Promise<Readiness> {
   const r = await db().query<{ domain: DomainId; correct: string; total: string }>(
-    `SELECT domain, sum(CASE WHEN correct THEN 1 ELSE 0 END) correct, count(*) total FROM (
-       SELECT q.domain, a.correct, row_number() OVER (PARTITION BY q.domain ORDER BY a.answered_at DESC) rn
+    // A right answer the student said was a guess counts as half: it isn't understood yet.
+    `SELECT domain, sum(CASE WHEN correct AND confidence = 1 THEN 0.5 WHEN correct THEN 1 ELSE 0 END) correct, count(*) total FROM (
+       SELECT q.domain, a.correct, a.confidence, row_number() OVER (PARTITION BY q.domain ORDER BY a.answered_at DESC) rn
        FROM practice_answers a JOIN questions q ON q.id = a.question_id
        WHERE a.lead_id = $1
      ) x WHERE rn <= $2 GROUP BY domain`,
@@ -52,7 +53,7 @@ export async function getReadiness(leadId: string): Promise<Readiness> {
   const domains = DOMAINS.map((dm) => {
     const v = rows.get(dm.id) ?? { correct: 0, total: 0 };
     const est = (v.correct + PRIOR * PRIOR_WEIGHT) / (v.total + PRIOR_WEIGHT);
-    return { id: dm.id, name: dm.name, weight: dm.weight, correct: v.correct, total: v.total, pct: Math.round(est * 100) };
+    return { id: dm.id, name: dm.name, weight: dm.weight, correct: Math.round(v.correct), total: v.total, pct: Math.round(est * 100) };
   });
   const score = basis === "none" ? null : Math.round(domains.reduce((s, d) => s + d.pct * d.weight, 0) / 100);
   const label =

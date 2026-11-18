@@ -17,12 +17,11 @@ export async function POST(req: Request) {
   );
   if (!q.rowCount) return NextResponse.json({ error: "Question not found." }, { status: 404 });
   const correct = q.rows[0].answer === chosen;
-  await db().query(`INSERT INTO practice_answers (lead_id, question_id, chosen, correct, mode) VALUES ($1, $2, $3, $4, 'practice')`, [
-    lead.id,
-    b.questionId,
-    chosen,
-    correct,
-  ]);
+  const confidence = [1, 2, 3].includes(Number(b?.confidence)) ? Number(b.confidence) : null;
+  await db().query(
+    `INSERT INTO practice_answers (lead_id, question_id, chosen, correct, mode, confidence) VALUES ($1, $2, $3, $4, 'practice', $5)`,
+    [lead.id, b.questionId, chosen, correct, confidence],
+  );
   return NextResponse.json({
     correct,
     answer: q.rows[0].answer,
