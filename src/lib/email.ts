@@ -36,9 +36,15 @@ export async function sendEmail(msg: OutgoingEmail): Promise<SendResult> {
         },
       }),
     });
-    if (!res.ok) return { status: "error", error: `SendGrid ${res.status}: ${(await res.text()).slice(0, 300)}` };
+    if (!res.ok) {
+      const error = `SendGrid ${res.status}: ${(await res.text()).slice(0, 300)}`;
+      console.error(`[email error] to=${msg.to} subject="${msg.subject}" ${error}`);
+      return { status: "error", error };
+    }
+    console.log(`[email sent] to=${msg.to.replace(/^(.).*@/, "$1***@")} subject="${msg.subject}"`);
     return { status: "sent" };
   } catch (e) {
+    console.error(`[email error] to=${msg.to} subject="${msg.subject}"`, e);
     return { status: "error", error: String(e).slice(0, 300) };
   }
 }

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { TURNSTILE_ERROR, turnstileOk } from "@/lib/turnstile";
 import { db } from "@/lib/db";
 import { newToken } from "@/lib/tokens";
 import { startSession, safeNext } from "@/lib/auth";
@@ -10,6 +11,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 // Create an account without taking the diagnostic first.
 export async function POST(req: Request) {
   const b = await req.json().catch(() => null);
+  if (!(await turnstileOk(req, b?.turnstile))) return NextResponse.json({ error: TURNSTILE_ERROR }, { status: 400 });
   const email = String(b?.email ?? "").trim().toLowerCase();
   const firstName = String(b?.firstName ?? "").trim().slice(0, 60) || null;
   if (!EMAIL_RE.test(email) || email.length > 200) return NextResponse.json({ error: "Please enter a valid email." }, { status: 400 });

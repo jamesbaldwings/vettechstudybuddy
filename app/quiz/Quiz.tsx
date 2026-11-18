@@ -1,4 +1,5 @@
 "use client";
+import Turnstile from "@/components/Turnstile";
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -70,7 +71,7 @@ const fresh = (): Saved => ({
   result: null,
 });
 
-export default function Quiz() {
+export default function Quiz({ siteKey }: { siteKey: string | null }) {
   const router = useRouter();
   const [s, setS] = useState<Saved>(fresh);
   const [loaded, setLoaded] = useState(false);
@@ -197,7 +198,7 @@ export default function Quiz() {
 
   if (s.stage === "question") return <QuestionView s={s} choose={choose} next={next} busy={busy} err={err} />;
 
-  return <Done s={s} restart={restart} onSaved={(url) => { try { localStorage.removeItem(KEY); } catch {} router.push(url); }} />;
+  return <Done s={s} siteKey={siteKey} restart={restart} onSaved={(url) => { try { localStorage.removeItem(KEY); } catch {} router.push(url); }} />;
 }
 
 function QuestionView({
@@ -266,7 +267,9 @@ function QuestionView({
   );
 }
 
-function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved: (url: string) => void }) {
+function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | null; restart: () => void; onSaved: (url: string) => void }) {
+  const [token, setToken] = useState("");
+  const [resetN, setResetN] = useState(0);
   const months = useMemo(upcomingMonths, []);
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
@@ -299,6 +302,7 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
           targetMonth: notBooked ? targetMonth : null,
           consent,
           password,
+          turnstile: token,
         }),
       });
       const j = await res.json();
@@ -308,6 +312,7 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
     } catch (e2) {
       setErr(String((e2 as Error).message));
       setBusy(false);
+      setResetN((n) => n + 1);
     }
   }
 
@@ -410,7 +415,8 @@ function Done({ s, restart, onSaved }: { s: Saved; restart: () => void; onSaved:
           </label>
         </div>
         {err && <p className="error">{err}</p>}
-        <button className="btn block" type="submit" disabled={busy}>
+        <Turnstile siteKey={siteKey} onToken={setToken} reset={resetN} />
+        <button className="btn block" type="submit" disabled={busy || (!!siteKey && !token)}>
           {busy ? "Building your plan..." : existing ? "Sign in and show my plan" : "Create my account and show my plan"}
         </button>
       </form>

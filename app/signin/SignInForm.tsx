@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { Buddy } from "@/components/Buddy";
+import Turnstile from "@/components/Turnstile";
 
 type Mode = "signin" | "create" | "forgot";
 
-export default function SignInForm({ next, initialMode }: { next: string; initialMode: Mode }) {
+export default function SignInForm({ next, initialMode, siteKey }: { next: string; initialMode: Mode; siteKey: string | null }) {
+  const [token, setToken] = useState("");
+  const [resetN, setResetN] = useState(0);
   const [mode, setMode] = useState<Mode>(initialMode);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,9 +34,11 @@ export default function SignInForm({ next, initialMode }: { next: string; initia
     const url = mode === "signin" ? "/api/auth/login" : mode === "create" ? "/api/auth/register" : "/api/auth/forgot";
     const body =
       mode === "signin" ? { email, password, next } : mode === "create" ? { email, password, firstName, agree, checkIns, next } : { email };
+    Object.assign(body, { turnstile: token });
     const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
     const j = await res.json().catch(() => ({}));
     setBusy(false);
+    setResetN((n) => n + 1);
     if (!res.ok) {
       setErr(j.error || "Something went wrong.");
       setNoPassword(!!j.noPassword);
@@ -127,7 +132,8 @@ export default function SignInForm({ next, initialMode }: { next: string; initia
             )}
           </p>
         )}
-        <button className="btn block" disabled={busy}>
+        <Turnstile siteKey={siteKey} onToken={setToken} reset={resetN} />
+        <button className="btn block" disabled={busy || (!!siteKey && !token)}>
           {busy ? "One moment..." : mode === "signin" ? "Sign in" : mode === "create" ? "Create account" : "Email me a reset link"}
         </button>
       </form>

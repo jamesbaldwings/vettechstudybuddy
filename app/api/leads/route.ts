@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { TURNSTILE_ERROR, turnstileOk } from "@/lib/turnstile";
 import { db } from "@/lib/db";
 import { newToken } from "@/lib/tokens";
 import { addDays, todayISO, upcomingMonths } from "@/lib/dates";
@@ -12,6 +13,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
+  if (!(await turnstileOk(req, body?.turnstile))) return NextResponse.json({ error: TURNSTILE_ERROR }, { status: 400 });
   const attemptToken =
     typeof body?.attemptToken === "string" ? body.attemptToken : "";
   const email = String(body?.email ?? "")

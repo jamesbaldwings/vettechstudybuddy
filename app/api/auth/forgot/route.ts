@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { TURNSTILE_ERROR, turnstileOk } from "@/lib/turnstile";
 import { db } from "@/lib/db";
 import { createLoginToken } from "@/lib/auth";
 import { sendResetEmail } from "@/lib/accountEmails";
@@ -6,6 +7,7 @@ import { sendResetEmail } from "@/lib/accountEmails";
 // Emails a one-time link to set a new password. Answers the same way whether or not the email has an account.
 export async function POST(req: Request) {
   const b = await req.json().catch(() => null);
+  if (!(await turnstileOk(req, b?.turnstile))) return NextResponse.json({ error: TURNSTILE_ERROR }, { status: 400 });
   const email = String(b?.email ?? "").trim().toLowerCase();
   if (!email.includes("@")) return NextResponse.json({ error: "Please enter a valid email." }, { status: 400 });
   const r = await db().query<{ id: string; token: string; first_name: string | null; recent: string }>(
