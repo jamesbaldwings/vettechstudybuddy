@@ -233,3 +233,6 @@ table.data th, table.data td { text-align: left; padding: 8px 6px; border-bottom
 .conf-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .conf-row .btn { padding: 10px 6px; }
 .why { border-color: var(--brand); background: #fbfdfc; }
+.grid2 { display: grid; gap: 4px 24px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid2 ul { padding-left: 18px; margin: 6px 0 0; }
+.grid2 li { margin-bottom: 6px; }

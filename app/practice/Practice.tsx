@@ -93,7 +93,7 @@ export default function Practice({
       <section className="card">
         <h2>That&apos;s today&apos;s free practice</h2>
         <p>
-          Nice work today. Free accounts get a few questions a day. Come back tomorrow, or get a pass for unlimited practice, full practice
+          Nice work today. Free accounts get a few questions a day. Come back tomorrow, or get a pass for unlimited practice, timed practice
           exams and more time with {BUDDY_NAME}.
         </p>
         <a href="/pricing" className="btn">

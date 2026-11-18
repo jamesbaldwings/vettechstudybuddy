@@ -29,8 +29,8 @@ export function buildPlan(opts: {
 
   const anxietyTip =
     (opts.confidence ?? 3) <= 2
-      ? "Feeling nervous is the most common thing I hear, and it's beatable. The fix is familiarity: we'll do full-length, timed practice exams so test day feels like something you've already done."
-      : "Confidence is great. Let's back it with proof: a couple of full-length, timed practice exams before test day so nothing surprises you.";
+      ? "Feeling nervous is the most common thing I hear, and it's beatable. The fix is familiarity: we'll do timed practice exams so test day feels like something you've already done."
+      : "Confidence is great. Let's back it with proof: a couple of timed practice exams before test day so nothing surprises you.";
 
   if (daysLeft === null) {
     return {

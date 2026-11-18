@@ -8,6 +8,7 @@ import { todayISO } from "@/lib/dates";
 import { Buddy } from "@/components/Buddy";
 import { InstallPrompt } from "@/components/PWA";
 import VoiceBuddy from "@/components/VoiceBuddy";
+import AskWhy from "@/components/AskWhy";
 import { currentLead } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -24,6 +25,7 @@ interface Row {
   exam_date: string | null;
   target_month: string | null;
   lead_token: string | null;
+  lead_id: string | null;
 }
 
 export default async function ResultsPage({
@@ -37,13 +39,15 @@ export default async function ResultsPage({
   const { signin } = await searchParams;
   const me = await currentLead();
   const res = await db().query<Row>(
-    `SELECT a.confidence, a.answers, a.score, a.domain_scores, l.first_name, l.exam_date, l.target_month, l.token AS lead_token
+    `SELECT a.confidence, a.answers, a.score, a.domain_scores, l.first_name, l.exam_date, l.target_month, l.token AS lead_token, a.lead_id
      FROM attempts a LEFT JOIN leads l ON l.id = a.lead_id
      WHERE a.public_token = $1 AND a.completed_at IS NOT NULL`,
     [token],
   );
   if (!res.rowCount) notFound();
   const r = res.rows[0];
+  // "Ask Sara why" needs the student's own saved answers, so only the signed-in owner of this attempt sees it.
+  const canAsk = !!me && me.id === r.lead_id;
   const band = BAND_COPY[bandFor(r.score)];
   const ranked = rankWeakDomains(r.domain_scores);
   const weakIds = new Set(ranked.slice(0, 3).map((d) => d.id));
@@ -184,6 +188,7 @@ export default async function ResultsPage({
                 </span>
               </p>
               <p className="small">{q.explanation}</p>
+              {canAsk && <AskWhy questionId={q.id} />}
             </details>
           ))}
         </section>
@@ -192,8 +197,9 @@ export default async function ResultsPage({
       <section className="card">
         <h2>What&apos;s next</h2>
         <p>
-          I&apos;ll email you a week before your VTNE, the night before, and a few days after to see how it went. Come
-          back anytime to talk it through with Sara. Full practice exams are on the way, and you&apos;re on the early list.
+          Don&apos;t just reread the right answers. Pick one you missed and tap "Ask Sara why" under it, or start
+          practicing your weakest topic. I&apos;ll also email you a week before your VTNE, the night before, and a few days after to
+          see how it went.
         </p>
         <p style={{ marginBottom: 0 }}>
           <Link href="/quiz" className="btn secondary">

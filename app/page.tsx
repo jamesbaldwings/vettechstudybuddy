@@ -19,8 +19,8 @@ export default function Home() {
         <div className="hero-copy">
           <h1>A study buddy for the VTNE.</h1>
           <p className="lede">
-            Take a free 25-question diagnostic weighted like the real exam. See where you stand, get a plan built around your
-            test date, and talk it through out loud with {BUDDY_NAME} until you pass.
+            Learn the why, not just the answer. When you understand the concept, you can get the question right no matter how it&apos;s
+            written. Start with a free 25-question diagnostic and see where you stand.
           </p>
           <Link href="/quiz" className="btn">
             Start the free diagnostic
@@ -29,7 +29,7 @@ export default function Home() {
             <span className="pill">About 15 minutes</span>
             <span className="pill">No timer</span>
             <span className="pill">Free</span>
-            <span className="pill">🎙️ Voice study buddy</span>
+            <span className="pill">Text and voice with {BUDDY_NAME}</span>
           </div>
         </div>
       </section>
@@ -37,9 +37,9 @@ export default function Home() {
       <section style={{ margin: "34px 0" }}>
         <Buddy>
           <p>
-            Hi, I&apos;m {BUDDY_NAME}. We&apos;ll go through it together, one question at a time, and I&apos;ll explain every
-            answer as we go. Then we can talk through what you missed, out loud, and I&apos;ll check in before and after
-            your VTNE.
+            Hi, I&apos;m {BUDDY_NAME}, your AI study buddy. When you miss a question, I won&apos;t just tell you the answer. I&apos;ll
+            ask what you were thinking, find where it went sideways, and walk you through the reasoning until you can explain it back to
+            me.
           </p>
         </Buddy>
       </section>
@@ -48,33 +48,61 @@ export default function Home() {
         <div className="card">
           <div className="step-num">1</div>
           <h3>Take the diagnostic</h3>
-          <p className="muted small">25 questions across all 10 VTNE domains, in the same proportions as the real exam.</p>
+          <p className="muted small">25 questions across all 10 VTNE topic areas, in about the same proportions as the real exam.</p>
         </div>
         <div className="card">
           <div className="step-num">2</div>
-          <h3>Get your plan</h3>
-          <p className="muted small">See your weakest areas and a week-by-week plan counting down to your exam date.</p>
+          <h3>Practice your weak spots</h3>
+          <p className="muted small">
+            Practice leans toward the topics you&apos;re missing. Tell us how sure you were, so a lucky guess doesn&apos;t count as
+            learned.
+          </p>
         </div>
         <div className="card">
           <div className="step-num">3</div>
-          <h3>Talk it through out loud</h3>
-          <p className="muted small">Review what you missed or get quizzed by voice with {BUDDY_NAME}, like studying with a classmate.</p>
+          <h3>Ask {BUDDY_NAME} why</h3>
+          <p className="muted small">
+            After any question, work through the reasoning with {BUDDY_NAME} by text, or study out loud with her by voice.
+          </p>
         </div>
       </section>
 
       <section className="card">
-        <h2>Why VTNE-only matters</h2>
+        <h2>Why understanding beats memorizing</h2>
         <p>
-          General test-prep sites cover hundreds of exams. This one covers one. That means questions that sound like the
-          clinic, explanations that tell you <em>why</em>, and a plan shaped around how the VTNE is actually weighted.
+          The VTNE can ask about the same idea a dozen different ways. If you memorized &quot;furosemide, low potassium,&quot; a question
+          about a dog that&apos;s weak after starting a diuretic can still trip you up. If you understand why the drug pulls potassium out,
+          you can answer any version of it.
         </p>
+        <p>That&apos;s what {BUDDY_NAME} is for: the why behind every answer, so it sticks.</p>
         <p className="muted">{FOUNDER_LINE}</p>
-        <p className="muted">
-          Nervous? Most people are. That&apos;s why practice here is built to make test day feel familiar.
-        </p>
         <Link href="/quiz" className="btn secondary">
           Start the free diagnostic
         </Link>
+      </section>
+
+      <section className="card">
+        <h2>What this is, and what it isn&apos;t</h2>
+        <div className="grid2">
+          <div>
+            <h3 style={{ marginTop: 0 }}>It is</h3>
+            <ul>
+              <li>Study prep for the VTNE only.</li>
+              <li>Practice questions reviewed by an experienced vet tech, each with an explanation of why.</li>
+              <li>{BUDDY_NAME}, an AI study buddy you can talk to by text or voice.</li>
+              <li>A readiness estimate based on your practice, and check-ins before and after your exam.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style={{ marginTop: 0 }}>It isn&apos;t</h3>
+            <ul>
+              <li>The real VTNE questions. Nobody outside the AAVSB has those.</li>
+              <li>A replacement for your program, your textbooks or your instructors.</li>
+              <li>Always right. {BUDDY_NAME} is an AI and can make mistakes, so check anything important against your textbook.</li>
+              <li>A promise that you&apos;ll pass. Readiness is an estimate, not a predicted VTNE score.</li>
+            </ul>
+          </div>
+        </div>
       </section>
     </>
   );

@@ -78,8 +78,8 @@ export default async function Pricing() {
       <section className="card">
         <h3>Free, always</h3>
         <p className="muted" style={{ margin: 0 }}>
-          The diagnostic, your study plan, check-in emails before and after your VTNE, daily practice questions, and one voice session with{" "}
-          {BUDDY_NAME}.
+          The diagnostic, your study plan, check-in emails before and after your VTNE, 10 practice questions a day, 3 &quot;why&quot;
+          chats a day, and 10 minutes of voice study with {BUDDY_NAME}.
         </p>
       </section>
 

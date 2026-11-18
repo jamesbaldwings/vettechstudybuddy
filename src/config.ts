@@ -2,7 +2,7 @@
 export const BRAND_NAME = "Vet Tech Study Buddy"; // placeholder until the final name is chosen
 export const BUDDY_NAME = "Sara";
 export const FOUNDER_LINE =
-  "Every question is written and reviewed by a veterinary technician with 20 years in the field.";
+  "Every question is reviewed and approved by a veterinary technician with 20 years in the field before it reaches you.";
 
 // Days after the exam date to ask how it went. AAVSB posts scores in the MyAAVSB portal within about three days.
 export const OUTCOME_CHECK_DAYS_AFTER = 4;
@@ -43,11 +43,11 @@ export const PLANS: Record<PlanId, Plan> = {
     voiceMinutes: 300,
     blurb: "Everything you need to get ready, for 90 days.",
     features: [
-      "Full question bank with explanations",
-      "Timed full-length practice exams",
-      "Unlimited text chat with Sara",
+      "Unlimited practice, with an explanation for every question",
+      "Ask Sara why on any question, as much as you need",
+      "Timed practice exams weighted like the VTNE",
       "5 hours of voice study with Sara",
-      "Readiness score and a plan that adjusts",
+      "Readiness score that counts understanding, not lucky guesses",
       "Pass guarantee",
     ],
   },
@@ -58,7 +58,7 @@ export const PLANS: Record<PlanId, Plan> = {
     accessDays: 30,
     voiceMinutes: 100,
     blurb: "Starting late? 30 days of focused prep.",
-    features: ["Everything in the Exam Pass for 30 days", "100 voice minutes with Sara"],
+    features: ["Everything in the Exam Pass, for 30 days", "100 voice minutes with Sara"],
   },
   retake_pass: {
     id: "retake_pass",
@@ -67,7 +67,7 @@ export const PLANS: Record<PlanId, Plan> = {
     accessDays: 60,
     voiceMinutes: 200,
     blurb: "Didn't pass? Let's build on your score report.",
-    features: ["Everything in the Exam Pass for 60 days", "200 voice minutes with Sara", "Plan built around your weakest areas"],
+    features: ["Everything in the Exam Pass, for 60 days", "200 voice minutes with Sara", "Practice aimed at your weakest areas"],
   },
   extra_voice: {
     id: "extra_voice",

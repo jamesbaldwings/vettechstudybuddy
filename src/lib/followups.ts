@@ -73,7 +73,7 @@ function weekBeforeEmail(lead: LeadRow) {
           "Here's what I'd do:",
         ],
         list: [
-          "Take one full-length timed practice exam early this week, so test day feels familiar.",
+          "Take a timed practice exam early this week, so test day feels familiar.",
           "Spend the rest of the week on whatever that exam shows is weakest.",
           "No new material in the last two days.",
           "Confirm your test center and check that the name on your ID matches your application exactly.",
@@ -130,7 +130,7 @@ function outcomeEmail(lead: LeadRow, reminder: boolean) {
       },
       {
         paragraphs: [
-          "If it didn't go your way, you're not alone. About a third of first-time takers don't pass. I'll help you build a retake plan around your score report.",
+          "If it didn't go your way, you're not alone, and a retake is very doable. I'll help you build a plan around your score report.",
         ],
       },
     ],

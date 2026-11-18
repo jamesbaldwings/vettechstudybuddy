@@ -7,12 +7,12 @@ import { RegisterSW } from "@/components/PWA";
 export const metadata: Metadata = {
   title: `${BRAND_NAME}: free VTNE diagnostic and study plan`,
   description:
-    "A free 25-question VTNE diagnostic weighted like the real exam, with a study plan built around your exam date and a study buddy who checks in until test day.",
+    "VTNE prep that teaches the why, not just the answer. Start with a free 25-question diagnostic, then practice your weak spots and work through the reasoning with Sara, an AI study buddy.",
   applicationName: BRAND_NAME,
   metadataBase: new URL(process.env.APP_URL || "https://vettechstudybuddy.com"),
   openGraph: {
     title: `${BRAND_NAME}: your VTNE study buddy`,
-    description: "Free VTNE diagnostic, a plan around your exam date, and a voice study buddy who helps you pass.",
+    description: "Learn the concepts behind VTNE questions, not just the answers. Free diagnostic to start.",
     images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
     type: "website",
   },

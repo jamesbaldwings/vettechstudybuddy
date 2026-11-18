@@ -132,7 +132,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         </Link>
         <Link href={pass ? "/exam" : "/pricing"} className="tile">
           <strong>Practice exam {pass ? "" : "🔒"}</strong>
-          <span className="muted small">Timed, full-length, just like test day</span>
+          <span className="muted small">Timed and weighted like the VTNE</span>
         </Link>
         <Link href="/sara" className="tile">
           <strong>Talk with {BUDDY_NAME} 🎙️</strong>
