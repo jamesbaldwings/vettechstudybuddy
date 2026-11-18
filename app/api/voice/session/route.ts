@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { currentLead, Lead } from "@/lib/auth";
+import { currentLead, isOwner, Lead } from "@/lib/auth";
 import { getAccess } from "@/lib/access";
 import { saraContext, whyContext } from "@/lib/studentContext";
 import { BUDDY_NAME, VOICE_SESSION_MINUTES, VOICE_SESSIONS_PER_DAY, WHY_FREE_PER_DAY, WHY_PASS_PER_DAY } from "@/config";
@@ -53,11 +53,12 @@ export async function POST(req: Request) {
   );
   const cap =
     mode === "voice" ? VOICE_SESSIONS_PER_DAY : mode === "why" ? (access.activePass ? WHY_PASS_PER_DAY : WHY_FREE_PER_DAY) : TEXT_SESSIONS_PER_DAY;
-  if (Number(used.rows[0].n) >= cap)
+  // Owners skip the daily session cap so testing never locks them out (minutes still apply).
+  if (!isOwner(lead) && Number(used.rows[0].n) >= cap)
     return NextResponse.json(
       mode === "why" && !access.activePass
         ? { error: `That's your ${WHY_FREE_PER_DAY} free "why" chats for today. A pass gives you as many as you need.`, upgrade: true }
-        : { error: `That's a lot of studying today! ${BUDDY_NAME} will be ready again tomorrow.` },
+        : { error: `That's ${cap} sessions with ${BUDDY_NAME} in the last 24 hours, so she's taking a break. Your minutes are saved and she'll be ready again in a few hours.` },
       { status: 429 },
     );
 
