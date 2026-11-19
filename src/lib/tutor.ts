@@ -192,7 +192,7 @@ export async function tutorVariables(s: TutorSession, firstName: string) {
     : "none (new session)";
   const resuming = s.transcript.length > 0;
   const opening = resuming
-    ? `Welcome back, ${firstName}! We were working on ${s.topic}. Want to pick up where we left off?`
+    ? `Welcome back${firstName === "there" ? "" : `, ${firstName}`}! We were working on ${s.topic}. Want to pick up where we left off?`
     : `Hey ${firstName}! Let's get ${s.topic} to click. ${s.material ? "I've got the notes you pasted, so I'll teach from those. " : ""}Before I explain anything, what do you already know about it, even if it's just a little?`;
   return {
     session_mode: "tutor",

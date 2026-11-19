@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: BRAND_NAME,
     short_name: "Study Buddy",
-    description: "Your VTNE study buddy: learn the why behind every answer.",
+    description: "Your vet tech study buddy, from first semester to the VTNE: learn the why behind every answer.",
     start_url: "/?source=pwa",
     scope: "/",
     display: "standalone",

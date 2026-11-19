@@ -17,18 +17,23 @@ export default function Home() {
           />
         </picture>
         <div className="hero-copy">
-          <h1>A study buddy for the VTNE.</h1>
+          <h1>Your vet tech study buddy, from first semester to the VTNE.</h1>
           <p className="lede">
-            Learn the why, not just the answer. When you understand the concept, you can get the question right no matter how it&apos;s
-            written. Start with a free 25-question diagnostic and see where you stand.
+            Learn the why, not just the answer. Stuck on a topic in class? {BUDDY_NAME} explains it until it clicks. Getting ready for the
+            VTNE? Start with a free 25-question diagnostic and see where you stand.
           </p>
-          <Link href="/quiz" className="btn">
-            Start the free diagnostic
-          </Link>
+          <div className="row">
+            <Link href="/quiz" className="btn">
+              Start the free diagnostic
+            </Link>
+            <Link href="/tutor" className="btn secondary">
+              Try Tutor Mode
+            </Link>
+          </div>
           <div className="pills">
-            <span className="pill">About 15 minutes</span>
-            <span className="pill">No timer</span>
-            <span className="pill">Free</span>
+            <span className="pill">Free to start</span>
+            <span className="pill">Any vet tech course</span>
+            <span className="pill">VTNE diagnostic in about 15 minutes</span>
             <span className="pill">Text and voice with {BUDDY_NAME}</span>
           </div>
         </div>
@@ -47,22 +52,24 @@ export default function Home() {
       <section className="grid3" style={{ marginBottom: 30 }}>
         <div className="card">
           <div className="step-num">1</div>
-          <h3>Take the diagnostic</h3>
-          <p className="muted small">25 questions across all 10 VTNE topic areas, in about the same proportions as the real exam.</p>
+          <h3>Get unstuck in class</h3>
+          <p className="muted small">
+            Pick your course and topic, paste your notes if you have them, and {BUDDY_NAME} tutors you step by step until it clicks.
+          </p>
         </div>
         <div className="card">
           <div className="step-num">2</div>
-          <h3>Practice your weak spots</h3>
+          <h3>Find your VTNE gaps</h3>
           <p className="muted small">
-            Practice leans toward the topics you&apos;re missing. Tell us how sure you were, so a lucky guess doesn&apos;t count as
-            learned.
+            A free diagnostic across all 10 VTNE topic areas, in about the same proportions as the real exam, plus a study plan built on
+            what you missed.
           </p>
         </div>
         <div className="card">
           <div className="step-num">3</div>
-          <h3>Ask {BUDDY_NAME} why</h3>
+          <h3>Practice and ask why</h3>
           <p className="muted small">
-            After any question, work through the reasoning with {BUDDY_NAME} by text, or study out loud with her by voice.
+            Practice leans toward your weak spots. After any question, talk the reasoning through with {BUDDY_NAME} by text or voice.
           </p>
         </div>
       </section>
@@ -109,7 +116,7 @@ export default function Home() {
           <div>
             <h3 style={{ marginTop: 0 }}>It is</h3>
             <ul>
-              <li>Study prep for the VTNE, plus Tutor Mode for the courses you take on the way there.</li>
+              <li>Tutoring for your vet tech courses, and prep for the VTNE when you get there.</li>
               <li>Practice questions reviewed and approved by veterinary technicians and instructors, each with an explanation of why.</li>
               <li>{BUDDY_NAME}, an AI study buddy you can talk to by text or voice.</li>
               <li>A readiness estimate based on your practice, and check-ins before and after your exam.</li>

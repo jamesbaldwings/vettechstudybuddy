@@ -5,14 +5,14 @@ import { BRAND_NAME, TRADEMARK_NOTE } from "@/config";
 import { RegisterSW } from "@/components/PWA";
 
 export const metadata: Metadata = {
-  title: `${BRAND_NAME}: free VTNE diagnostic and study plan`,
+  title: `${BRAND_NAME}: tutoring for vet tech school and VTNE prep`,
   description:
-    "VTNE prep that teaches the why, not just the answer. Start with a free 25-question diagnostic, then practice your weak spots and work through the reasoning with Sara, an AI study buddy.",
+    "An AI study buddy for vet tech students. Sara tutors you through any course topic until it clicks, and gets you ready for the VTNE with a free diagnostic, practice and voice study.",
   applicationName: BRAND_NAME,
   metadataBase: new URL(process.env.APP_URL || "https://vettechstudybuddy.com"),
   openGraph: {
-    title: `${BRAND_NAME}: your VTNE study buddy`,
-    description: "Learn the concepts behind VTNE questions, not just the answers. Free diagnostic to start.",
+    title: `${BRAND_NAME}: from first semester to the VTNE`,
+    description: "Stuck on a topic in class? Sara explains it until it clicks. Getting ready for the VTNE? Start with a free diagnostic.",
     images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
     type: "website",
   },
