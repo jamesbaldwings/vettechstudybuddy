@@ -8,6 +8,7 @@ import { currentLead, startSession } from "@/lib/auth";
 import { checkLogin, hashPassword, passwordProblem } from "@/lib/password";
 import { QUESTIONS } from "@/data/questions";
 import { ensureFreeTrial } from "@/lib/access";
+import { alertNewSignup, signupSource } from "@/lib/ownerAlerts";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -133,6 +134,10 @@ export async function POST(req: Request) {
   const mayUpdate = true;
   const leadId = lead.rows[0].id;
   await ensureFreeTrial(leadId);
+  if (lead.rows[0].created) {
+    await db().query(`UPDATE leads SET signup_source = $2 WHERE id = $1`, [leadId, await signupSource()]);
+    await alertNewSignup({ email, firstName, how: "Took the free diagnostic and created an account", examDate, targetMonth });
+  }
   if (mayUpdate) {
     await db().query(
       `UPDATE attempts SET lead_id = $1 WHERE public_token = $2`,

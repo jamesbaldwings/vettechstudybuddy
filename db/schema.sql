@@ -217,3 +217,6 @@ CREATE UNIQUE INDEX IF NOT EXISTS school_invites_one_live_per_email
 ALTER TABLE purchases ADD COLUMN IF NOT EXISTS school_id uuid;
 ALTER TABLE school_invites ADD COLUMN IF NOT EXISTS sent_count integer NOT NULL DEFAULT 0;
 ALTER TABLE school_invites ADD COLUMN IF NOT EXISTS last_sent_at timestamptz;
+
+-- Where a student first came from (UTM, Facebook, Instagram...), shown in the owner sign-up alert.
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS signup_source text;
