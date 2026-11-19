@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { DOMAINS, DomainId } from "@/data/questions";
 import { getReadiness } from "@/lib/readiness";
+import { subjectById, TUTOR_FLAG_FAILED_CHECKS } from "@/config";
 
 export interface StudentRow {
   inviteId: string;
@@ -23,6 +24,9 @@ export interface StudentRow {
   guessingPct: number | null; // share of rated answers marked "Guessing"
   examFeeling: number | null; // 1–5, from the diagnostic
   whyChats: number;
+  tutorSessions: number;
+  tutorPassed14d: number; // understanding checks in Tutor Mode, last 14 days
+  tutorFailed14d: number;
   examDate: string | null;
   outcome: "passed" | "failed" | null;
   flags: string[];
@@ -37,7 +41,7 @@ export async function schoolStudents(schoolId: string): Promise<StudentRow[]> {
     revoked_at: Date | null; lead_id: string | null; first_name: string | null; activated_at: Date | null; expires_at: Date | null;
     last_login_at: Date | null; last_answer: Date | null; last_voice: Date | null; answered: string; answered7d: string;
     recent_correct: string | null; recent_total: string | null; rated: string; guessed: string; feeling: number | null;
-    why_chats: string; exams: string; last_exam_score: number | null; last_exam_total: number | null;
+    why_chats: string; tutor_sessions: string; tutor_passed: string; tutor_failed: string; exams: string; last_exam_score: number | null; last_exam_total: number | null;
     exam_date: string | null; outcome: "passed" | "failed" | null;
   }>(
     `SELECT i.id invite_id, i.email, i.name, i.token, i.created_at, i.used_at, i.revoked_at, l.id lead_id, l.first_name,
@@ -52,6 +56,9 @@ export async function schoolStudents(schoolId: string): Promise<StudentRow[]> {
        (SELECT count(*) FROM practice_answers a WHERE a.lead_id = l.id AND a.confidence = 1) guessed,
        (SELECT confidence FROM attempts t WHERE t.lead_id = l.id AND t.completed_at IS NOT NULL ORDER BY completed_at DESC LIMIT 1) feeling,
        (SELECT count(*) FROM voice_sessions v WHERE v.lead_id = l.id AND v.mode = 'why') why_chats,
+       (SELECT count(*) FROM tutor_sessions ts WHERE ts.lead_id = l.id) tutor_sessions,
+       (SELECT count(*) FROM tutor_checks tc WHERE tc.lead_id = l.id AND tc.passed AND tc.at > now() - interval '14 days') tutor_passed,
+       (SELECT count(*) FROM tutor_checks tc WHERE tc.lead_id = l.id AND NOT tc.passed AND tc.at > now() - interval '14 days') tutor_failed,
        (SELECT count(*) FROM practice_exams e WHERE e.lead_id = l.id AND e.finished_at IS NOT NULL) exams,
        (SELECT score FROM practice_exams e WHERE e.lead_id = l.id AND e.finished_at IS NOT NULL ORDER BY finished_at DESC LIMIT 1) last_exam_score,
        (SELECT total FROM practice_exams e WHERE e.lead_id = l.id AND e.finished_at IS NOT NULL ORDER BY finished_at DESC LIMIT 1) last_exam_total
@@ -92,6 +99,9 @@ export async function schoolStudents(schoolId: string): Promise<StudentRow[]> {
     const guessingPct = rated >= 10 ? Math.round((100 * Number(x.guessed)) / rated) : null;
     if (guessingPct !== null && guessingPct >= 40) flags.push("Guessing a lot");
     if (x.feeling !== null && x.feeling <= 2) flags.push("Anxious about the exam");
+    const tp = Number(x.tutor_passed);
+    const tf = Number(x.tutor_failed);
+    if (tf >= TUTOR_FLAG_FAILED_CHECKS && tf > tp) flags.push("Missing Tutor Mode checks");
     rows.push({
       inviteId: x.invite_id,
       email: x.email,
@@ -113,6 +123,9 @@ export async function schoolStudents(schoolId: string): Promise<StudentRow[]> {
       guessingPct,
       examFeeling: x.feeling,
       whyChats: Number(x.why_chats),
+      tutorSessions: Number(x.tutor_sessions),
+      tutorPassed14d: tp,
+      tutorFailed14d: tf,
       examDate: x.exam_date,
       outcome: x.outcome,
       flags,
@@ -150,7 +163,8 @@ export function csvFor(rows: StudentRow[]) {
   const head = [
     "Name", "Email", "Status", "Invited", "Joined", "Pass started", "Pass ends", "Last active", "Questions answered",
     "Answered last 7 days", "Recent accuracy %", "Readiness", "Weakest topic", "Practice exams", "Last exam %",
-    "Marked guessing %", "Exam feeling (1-5)", "Why chats", "VTNE date", "Outcome", "Flags",
+    "Marked guessing %", "Exam feeling (1-5)", "Why chats", "Tutor sessions", "Tutor checks passed (14d)",
+    "Tutor checks missed (14d)", "VTNE date", "Outcome", "Flags",
   ];
   const d = (x: Date | null) => (x ? x.toISOString().slice(0, 10) : "");
   const esc = (v: unknown) => {
@@ -163,8 +177,37 @@ export function csvFor(rows: StudentRow[]) {
     [
       r.name, r.email, r.status, d(r.invitedAt), d(r.joinedAt), d(r.passStartedAt), d(r.passEndsAt), d(r.lastActive),
       r.answered, r.answered7d, r.recentAccuracy, r.readiness, r.weakest, r.examsTaken, r.lastExamPct, r.guessingPct,
-      r.examFeeling, r.whyChats, r.examDate, r.outcome, r.flags.join("; "),
+      r.examFeeling, r.whyChats, r.tutorSessions, r.tutorPassed14d, r.tutorFailed14d, r.examDate, r.outcome, r.flags.join("; "),
     ].map(esc).join(","),
   );
   return [head.join(","), ...lines].join("\n");
+}
+
+// Tutor Mode topics across the class, last 60 days. Counts only: never what anyone said to Sara.
+export async function schoolTutorTopics(schoolId: string) {
+  const r = await db().query<{ subject: string; topic: string; students: string; sessions: string; passed: string; failed: string; mastered: string }>(
+    `SELECT ts.subject, min(ts.topic) topic, count(DISTINCT ts.lead_id) students, count(*) sessions,
+       sum(ts.checks_passed) passed, sum(ts.checks_failed) failed, count(*) FILTER (WHERE ts.mastered) mastered
+     FROM tutor_sessions ts
+     JOIN school_invites i ON i.used_by = ts.lead_id AND i.school_id = $1 AND i.kind = 'student' AND i.revoked_at IS NULL
+     WHERE ts.started_at > now() - interval '60 days'
+     GROUP BY ts.subject, lower(ts.topic)`,
+    [schoolId],
+  );
+  return r.rows
+    .map((x) => {
+      const passed = Number(x.passed);
+      const failed = Number(x.failed);
+      const checks = passed + failed;
+      return {
+        subject: subjectById(x.subject)?.name ?? x.subject,
+        topic: x.topic,
+        students: Number(x.students),
+        sessions: Number(x.sessions),
+        checkPct: checks ? Math.round((100 * passed) / checks) : null,
+        checks,
+        masteredPct: Math.round((100 * Number(x.mastered)) / Number(x.sessions)),
+      };
+    })
+    .sort((a, b) => (a.checkPct ?? 101) - (b.checkPct ?? 101) || b.students - a.students);
 }

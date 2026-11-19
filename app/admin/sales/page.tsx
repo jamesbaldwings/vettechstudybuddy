@@ -30,7 +30,7 @@ export default async function Sales() {
       `SELECT l.email, p.plan, p.amount_cents, p.source, p.status, p.created_at, p.activated_at, p.note FROM purchases p JOIN leads l ON l.id = p.lead_id ORDER BY p.created_at DESC LIMIT 50`,
     ),
     q<{ sessions: string; minutes: string }>(
-      `SELECT count(*) sessions, coalesce(sum(minutes_charged), 0) minutes FROM voice_sessions WHERE mode = 'voice' AND started_at > now() - interval '30 days'`,
+      `SELECT count(*) sessions, coalesce(sum(minutes_charged), 0) minutes FROM voice_sessions WHERE mode IN ('voice', 'tutor_voice') AND started_at > now() - interval '30 days'`,
     ),
     foundingSpotsLeft(),
   ]);

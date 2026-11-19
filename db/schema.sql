@@ -220,3 +220,63 @@ ALTER TABLE school_invites ADD COLUMN IF NOT EXISTS last_sent_at timestamptz;
 
 -- Where a student first came from (UTM, Facebook, Instagram...), shown in the owner sign-up alert.
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS signup_source text;
+
+-- ===== Multi-exam content and Tutor Mode =====
+-- Content carries the exam it belongs to (vtne now; vts specialties later) and a course subject,
+-- so a new exam or subject is just new content.
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS exam text NOT NULL DEFAULT 'vtne';
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS subject text;
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS topic text;
+UPDATE questions SET subject = CASE domain
+    WHEN 'pharm' THEN 'pharmacology' WHEN 'surgery' THEN 'surgical_nursing' WHEN 'dentistry' THEN 'dentistry'
+    WHEN 'lab' THEN 'clinical_pathology' WHEN 'nursing' THEN 'animal_nursing' WHEN 'imaging' THEN 'imaging'
+    WHEN 'anesthesia' THEN 'anesthesia' WHEN 'ecc' THEN 'ecc' WHEN 'pain' THEN 'pain' WHEN 'communication' THEN 'communication'
+    ELSE domain END
+  WHERE subject IS NULL;
+CREATE INDEX IF NOT EXISTS questions_exam_subject ON questions (exam, subject, status);
+
+CREATE TABLE IF NOT EXISTS topics (
+  id bigserial PRIMARY KEY,
+  exam text NOT NULL DEFAULT 'vtne',
+  subject text NOT NULL,
+  name text NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX IF NOT EXISTS topics_unique ON topics (exam, subject, lower(name));
+
+-- One tutoring session: a student working through one topic until it clicks.
+CREATE TABLE IF NOT EXISTS tutor_sessions (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  lead_id uuid NOT NULL REFERENCES leads(id) ON DELETE CASCADE,
+  exam text NOT NULL DEFAULT 'course',
+  subject text NOT NULL,
+  topic text NOT NULL,
+  topic_id bigint REFERENCES topics(id) ON DELETE SET NULL,
+  material text,                       -- notes, study guide or objectives the student pasted
+  channel text NOT NULL DEFAULT 'text', -- text | voice
+  free boolean NOT NULL DEFAULT false, -- counted against the free weekly allowance
+  checks_passed int NOT NULL DEFAULT 0,
+  checks_failed int NOT NULL DEFAULT 0,
+  mastered boolean,
+  recap text,
+  struggled jsonb NOT NULL DEFAULT '[]'::jsonb,
+  related jsonb NOT NULL DEFAULT '[]'::jsonb,
+  practice jsonb NOT NULL DEFAULT '[]'::jsonb,
+  transcript jsonb NOT NULL DEFAULT '[]'::jsonb, -- only the student sees this, never their school
+  started_at timestamptz NOT NULL DEFAULT now(),
+  last_activity_at timestamptz NOT NULL DEFAULT now(),
+  ended_at timestamptz
+);
+CREATE INDEX IF NOT EXISTS tutor_sessions_lead ON tutor_sessions (lead_id, started_at DESC);
+
+-- Each check-for-understanding Sara asks, and whether the student got it.
+CREATE TABLE IF NOT EXISTS tutor_checks (
+  id bigserial PRIMARY KEY,
+  session_id uuid NOT NULL REFERENCES tutor_sessions(id) ON DELETE CASCADE,
+  lead_id uuid NOT NULL REFERENCES leads(id) ON DELETE CASCADE,
+  concept text,
+  passed boolean NOT NULL,
+  at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS tutor_checks_lead ON tutor_checks (lead_id, at);
+ALTER TABLE voice_sessions ADD COLUMN IF NOT EXISTS tutor_session_id uuid;

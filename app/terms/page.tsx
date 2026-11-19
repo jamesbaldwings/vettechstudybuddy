@@ -28,6 +28,15 @@ export default function Terms() {
         provider so {BUDDY_NAME} can respond, and we may review them to improve the service. See the <Link href="/privacy">privacy policy</Link>.
       </p>
 
+      <h2>Tutor Mode is tutoring, not homework help</h2>
+      <p>
+        In Tutor Mode, {BUDDY_NAME} teaches the concepts from your vet tech courses. She won&apos;t write graded assignments, essays, lab reports
+        or answers to take-home exams, and she&apos;ll steer back to teaching the idea if asked. Follow your program&apos;s academic integrity
+        rules. A Semester Pass starts the day you buy it and gives unlimited Tutor Mode for the number of days shown at checkout. If your school
+        gives you a seat, your school can see summary progress (such as topics the class finds hard and whether you&apos;re passing
+        understanding checks), never your conversations.
+      </p>
+
       <h2>Your account</h2>
       <p>
         Accounts are for one person. Don&apos;t share your sign-in or resell access. Don&apos;t copy, scrape or republish our questions. We may

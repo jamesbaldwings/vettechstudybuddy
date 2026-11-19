@@ -249,8 +249,8 @@ export async function runFollowups(today = todayISO()) {
   // Passes ending in the next 7 days, for students who haven't opted out of email.
   const ending = await db().query<{ id: string; lead_id: string; plan: PlanId; expires_at: Date; email: string; first_name: string | null; token: string }>(
     `SELECT p.id, p.lead_id, p.plan, p.expires_at, l.email, l.first_name, l.token FROM purchases p JOIN leads l ON l.id = p.lead_id
-     WHERE p.status = 'paid' AND l.unsubscribed_at IS NULL AND p.expires_at > $1::date AND p.expires_at <= $1::date + 7
-       AND NOT EXISTS (SELECT 1 FROM purchases n WHERE n.lead_id = p.lead_id AND n.status = 'paid' AND n.plan <> 'extra_voice' AND n.id <> p.id
+     WHERE p.status = 'paid' AND p.plan <> 'semester_pass' AND l.unsubscribed_at IS NULL AND p.expires_at > $1::date AND p.expires_at <= $1::date + 7
+       AND NOT EXISTS (SELECT 1 FROM purchases n WHERE n.lead_id = p.lead_id AND n.status = 'paid' AND n.plan NOT IN ('extra_voice', 'semester_pass') AND n.id <> p.id
                        AND (n.activated_at IS NULL OR n.expires_at > p.expires_at))`,
     [today],
   );

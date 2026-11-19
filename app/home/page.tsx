@@ -4,6 +4,7 @@ import { schoolsFor } from "@/lib/school";
 import { getAccess } from "@/lib/access";
 import { getReadiness } from "@/lib/readiness";
 import { db } from "@/lib/db";
+import { pathLine, tutorAccess, tutorProgress, tutorStruggles } from "@/lib/tutor";
 import { Buddy } from "@/components/Buddy";
 import StartPassButton from "@/components/StartPassButton";
 import SignOutButton from "@/components/SignOutButton";
@@ -18,7 +19,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { month: "long", day:
 export default async function Home({ searchParams }: { searchParams: Promise<{ purchased?: string }> }) {
   const lead = await requireLead("/home");
   const { purchased } = await searchParams;
-  const [access, readiness, latest, schools] = await Promise.all([
+  const [access, readiness, latest, schools, tutor, tutorProg, struggles] = await Promise.all([
     getAccess(lead.id),
     getReadiness(lead.id),
     db()
@@ -28,7 +29,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
       )
       .then((r) => r.rows[0]?.public_token ?? null),
     isOwner(lead) ? Promise.resolve([]) : schoolsFor(lead),
+    tutorAccess(lead),
+    tutorProgress(lead.id),
+    tutorStruggles(lead.id),
   ]);
+  const path = pathLine(tutorProg.mastered);
 
   const today = todayISO();
   const examText = lead.exam_date
@@ -77,6 +82,19 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
             </p>
             <StartPassButton purchaseId={access.waitingPasses[0].id} days={PLANS[access.waitingPasses[0].plan].accessDays} />
           </>
+        ) : access.tutorPass ? (
+          <>
+            <h2 style={{ marginBottom: 4 }}>{PLANS[access.tutorPass.plan].name}</h2>
+            <p className="muted">
+              Unlimited Tutor Mode ·{" "}
+              {Math.max(0, Math.ceil((access.tutorPass.expires_at!.getTime() - Date.now()) / 86400_000))} days left · ends{" "}
+              {fmtDate(access.tutorPass.expires_at!)}. When you&apos;re ready for the VTNE, an Exam Pass adds full practice, practice exams and
+              more voice time.
+            </p>
+            <Link href="/pricing" className="btn secondary">
+              See VTNE passes
+            </Link>
+          </>
         ) : (
           <>
             <h2 style={{ marginBottom: 4 }}>Free account</h2>
@@ -120,6 +138,21 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
                 ))}
               </p>
             )}
+            {struggles.length > 0 && (
+              <p className="small" style={{ margin: "6px 0 0" }}>
+                From Tutor Mode, still working on:{" "}
+                {struggles.slice(0, 4).map((t) => (
+                  <Link key={t.topic} className="tag" href={`/tutor?subject=${t.subject}&topic=${encodeURIComponent(t.topic)}`}>
+                    {t.topic}
+                  </Link>
+                ))}
+              </p>
+            )}
+            {path && (
+              <p className="small" style={{ margin: "6px 0 0" }}>
+                {path}
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -135,6 +168,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         <Link href={pass ? "/exam" : "/pricing"} className="tile">
           <strong>Practice exam {pass ? "" : "🔒"}</strong>
           <span className="muted small">Timed and weighted like the VTNE</span>
+        </Link>
+        <Link href="/tutor" className="tile">
+          <strong>Tutor Mode 📚</strong>
+          <span className="muted small">
+            Stuck on a class topic? {BUDDY_NAME} explains it until it clicks
+            {tutor.unlimited ? "" : ` · ${tutor.freeLeft} free this week`}
+          </span>
         </Link>
         <Link href="/sara" className="tile">
           <strong>Talk with {BUDDY_NAME} 🎙️</strong>

@@ -2,7 +2,8 @@ import Link from "next/link";
 import { requireSchool } from "./guard";
 import SchoolNav from "./SchoolNav";
 import { seatSummary } from "@/lib/school";
-import { schoolStudents, schoolTopics } from "@/lib/schoolReports";
+import { TUTOR_FLAG_FAILED_CHECKS } from "@/config";
+import { schoolStudents, schoolTopics, schoolTutorTopics } from "@/lib/schoolReports";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "School dashboard", robots: { index: false } };
@@ -18,7 +19,7 @@ export default async function SchoolDashboard({ params, searchParams }: { params
   const { id } = await params;
   const { seats: seatsMsg } = await searchParams;
   const { school } = await requireSchool(id, `/school/${id}`);
-  const [seats, all, topics] = await Promise.all([seatSummary(id), schoolStudents(id), schoolTopics(id)]);
+  const [seats, all, topics, tutorTopics] = await Promise.all([seatSummary(id), schoolStudents(id), schoolTopics(id), schoolTutorTopics(id)]);
   const students = all.filter((s) => s.status !== "removed");
   const joined = students.filter((s) => s.status !== "invited");
   const started = students.filter((s) => s.passStartedAt);
@@ -95,7 +96,7 @@ export default async function SchoolDashboard({ params, searchParams }: { params
         )}
         <p className="small muted" style={{ marginBottom: 0 }}>
           Flags: hasn&apos;t joined after 7 days, inactive 7+ days, VTNE within 30 days with readiness under 60, marks 40%+ of answers as guesses, or said
-          they feel anxious about the exam.
+          they feel anxious about the exam, or missed {TUTOR_FLAG_FAILED_CHECKS}+ Tutor Mode understanding checks in the last 14 days (more missed than passed).
         </p>
       </section>
 
@@ -115,6 +116,45 @@ export default async function SchoolDashboard({ params, searchParams }: { params
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="card">
+        <h2 style={{ marginTop: 0 }}>Tutor Mode: topics your class is working on</h2>
+        <p className="small muted">
+          Last 60 days. Hardest first, by the share of Sara&apos;s understanding checks students got right. {joined.reduce((a, s) => a + s.tutorSessions, 0)}{" "}
+          tutor sessions so far.
+        </p>
+        {tutorTopics.length ? (
+          <table className="stats">
+            <thead>
+              <tr>
+                <th>Topic</th>
+                <th>Students</th>
+                <th>Checks right</th>
+                <th>Sessions ending in &quot;got it&quot;</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tutorTopics.slice(0, 20).map((t) => (
+                <tr key={`${t.subject}-${t.topic}`}>
+                  <td>
+                    {t.topic}
+                    <div className="small muted">{t.subject}</div>
+                  </td>
+                  <td>{t.students}</td>
+                  <td className={t.checkPct !== null && t.checkPct < 60 ? "error" : ""}>
+                    {t.checkPct !== null ? `${t.checkPct}% of ${t.checks}` : "–"}
+                  </td>
+                  <td>{t.masteredPct}%</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p className="small muted" style={{ marginBottom: 0 }}>
+            When students use Tutor Mode for their courses, the topics they&apos;re working on and how they&apos;re doing show up here.
+          </p>
+        )}
       </section>
 
       <section className="grid3">
@@ -162,7 +202,7 @@ export default async function SchoolDashboard({ params, searchParams }: { params
       </section>
 
       <p className="small muted">
-        Your students&apos; conversations with Sara stay private. You see progress and summary numbers, not what they said or their individual answers.
+        Your students&apos; conversations with Sara stay private, including in Tutor Mode. You see progress and summary numbers, not what they said or their individual answers.
       </p>
     </>
   );

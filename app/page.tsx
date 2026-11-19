@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Buddy } from "@/components/Buddy";
-import { BUDDY_NAME, FOUNDER_LINE } from "@/config";
+import { BUDDY_NAME, FOUNDER_LINE, TUTOR_FREE_PER_WEEK } from "@/config";
 
 export default function Home() {
   return (
@@ -67,6 +67,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="card" id="tutor-mode">
+        <span className="badge">New: Tutor Mode</span>
+        <h2 style={{ marginTop: 10 }}>Stuck on a topic in class? {BUDDY_NAME} explains it until it clicks.</h2>
+        <p>
+          Pharmacology, anatomy and physiology, anesthesia, clinical pathology, surgical nursing, parasitology: pick the course, type the topic,
+          and paste your notes or learning objectives if you have them. {BUDDY_NAME} checks what you already know, walks you through it step by
+          step with real clinic examples, and asks a quick question after each step. If something doesn&apos;t land, she explains it a different
+          way. You finish with a recap and practice questions. Text or voice, your choice.
+        </p>
+        <p>
+          <strong>{BUDDY_NAME} is a tutor, not a homework service.</strong> She teaches the concept, but she won&apos;t write graded assignments,
+          essays or take-home exam answers. She won&apos;t guess at drug doses, she shows her work on every calculation, and she tells you when a
+          topic goes beyond our reviewed material so you can check with your instructor.
+        </p>
+        <p className="muted">
+          {FOUNDER_LINE} Free accounts get {TUTOR_FREE_PER_WEEK} tutor sessions a week. Everything you master in class counts toward the VTNE too.
+        </p>
+        <Link href="/tutor" className="btn">
+          Try Tutor Mode free
+        </Link>
+      </section>
+
       <section className="card">
         <h2>Why understanding beats memorizing</h2>
         <p>
@@ -87,7 +109,7 @@ export default function Home() {
           <div>
             <h3 style={{ marginTop: 0 }}>It is</h3>
             <ul>
-              <li>Study prep for the VTNE only.</li>
+              <li>Study prep for the VTNE, plus Tutor Mode for the courses you take on the way there.</li>
               <li>Practice questions reviewed and approved by veterinary technicians and instructors, each with an explanation of why.</li>
               <li>{BUDDY_NAME}, an AI study buddy you can talk to by text or voice.</li>
               <li>A readiness estimate based on your practice, and check-ins before and after your exam.</li>
@@ -98,6 +120,7 @@ export default function Home() {
             <ul>
               <li>The real VTNE questions. Nobody outside the AAVSB has those.</li>
               <li>A replacement for your program, your textbooks or your instructors.</li>
+              <li>A homework service. {BUDDY_NAME} teaches; she doesn&apos;t do graded work for you.</li>
               <li>Always right. {BUDDY_NAME} is an AI and can make mistakes, so check anything important against your textbook.</li>
               <li>A promise that you&apos;ll pass. Readiness is an estimate, not a predicted VTNE score.</li>
             </ul>

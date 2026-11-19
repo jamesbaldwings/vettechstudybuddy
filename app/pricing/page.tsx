@@ -2,7 +2,7 @@ import Link from "next/link";
 import { currentLead } from "@/lib/auth";
 import { foundingSpotsLeft } from "@/lib/access";
 import { stripeEnabled } from "@/lib/stripe";
-import { BUDDY_NAME, money, PLANS } from "@/config";
+import { BUDDY_NAME, money, PLANS, TUTOR_FREE_PER_WEEK } from "@/config";
 import BuyButton from "./BuyButton";
 import { Buddy } from "@/components/Buddy";
 
@@ -63,6 +63,28 @@ export default async function Pricing() {
         ))}
       </section>
 
+      <section className="card plan" id="semester">
+        <div className="spread">
+          <h3 style={{ margin: 0 }}>{PLANS.semester_pass.name}</h3>
+          <span className="badge">Tutor Mode</span>
+        </div>
+        <div className="price">{money(PLANS.semester_pass.priceCents)}</div>
+        <p className="muted small">
+          {PLANS.semester_pass.blurb} Stuck on a topic in pharmacology, A&amp;P, anesthesia, parasitology or any other class? {BUDDY_NAME}{" "}
+          explains it until it clicks. {PLANS.semester_pass.accessDays} days, starting the day you buy it.
+        </p>
+        <ul>
+          {PLANS.semester_pass.features.map((f) => (
+            <li key={f}>{f}</li>
+          ))}
+        </ul>
+        <BuyButton plan="semester_pass" signedIn={!!lead} open={open} label="Get the Semester Pass" secondary />
+        <p className="small muted" style={{ marginTop: 10, marginBottom: 0 }}>
+          Every VTNE pass above includes Tutor Mode while it&apos;s running, and so do school licenses. {BUDDY_NAME} is a tutor: she teaches the
+          concept but won&apos;t write graded assignments, essays or take-home exam answers.
+        </p>
+      </section>
+
       <section className="card">
         <div className="spread">
           <div>
@@ -79,7 +101,7 @@ export default async function Pricing() {
         <h3>Free, always</h3>
         <p className="muted" style={{ margin: 0 }}>
           The diagnostic, your study plan, check-in emails before and after your VTNE, 10 practice questions a day, 3 &quot;why&quot;
-          chats a day, and 10 minutes of voice study with {BUDDY_NAME}.
+          chats a day, {TUTOR_FREE_PER_WEEK} Tutor Mode sessions a week, and 10 minutes of voice study with {BUDDY_NAME}.
         </p>
       </section>
 

@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import { getReadiness } from "@/lib/readiness";
 import { Lead } from "@/lib/auth";
 import { daysBetween, prettyDate, prettyMonth, todayISO } from "@/lib/dates";
+import { TUTOR_VARIABLE_DEFAULTS, tutorStruggles } from "@/lib/tutor";
 
 const LETTERS = ["A", "B", "C", "D"];
 
@@ -27,7 +28,7 @@ export async function saraContext(lead: Lead) {
     daysLeft = "exact date not booked yet";
   }
 
-  const [readiness, attempt, missed] = await Promise.all([
+  const [readiness, attempt, missed, struggles] = await Promise.all([
     getReadiness(lead.id),
     db()
       .query<{ score: number; confidence: number | null }>(
@@ -43,6 +44,7 @@ export async function saraContext(lead: Lead) {
         [lead.id],
       )
       .then((r) => r.rows),
+    tutorStruggles(lead.id),
   ]);
 
   const weak = [...readiness.domains].sort((a, b) => a.pct - b.pct || b.weight - a.weight).slice(0, 3);
@@ -62,10 +64,13 @@ export async function saraContext(lead: Lead) {
     days_left: daysLeft,
     confidence: String(attempt?.confidence ?? 3),
     score: readiness.score === null ? "no score yet" : `readiness ${readiness.score} out of 100`,
-    weak_areas: readiness.basis === "none" ? "not enough answers yet to tell" : weak.map((d) => `${d.name} (${d.pct}%)`).join(", "),
+    weak_areas:
+      (readiness.basis === "none" ? "not enough answers yet to tell" : weak.map((d) => `${d.name} (${d.pct}%)`).join(", ")) +
+      (struggles.length ? `. Topics they struggled with in Tutor Mode: ${struggles.map((t) => t.topic).join(", ")}` : ""),
     missed_questions: missedText || "none recorded yet",
     session_mode: "study",
     focus: "none",
+    ...TUTOR_VARIABLE_DEFAULTS,
     opening_line: openingLine(lead.first_name?.trim() || "there", missed.length, readiness.basis === "none" ? null : weak[0]?.name ?? null),
   };
 }

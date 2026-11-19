@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { currentLead, isOwner, Lead } from "@/lib/auth";
 import { getAccess } from "@/lib/access";
 import { saraContext, whyContext } from "@/lib/studentContext";
+import { canContinue, getTutorSession, TutorSession, tutorVariables } from "@/lib/tutor";
 import { BUDDY_NAME, VOICE_SESSION_MINUTES, VOICE_SESSIONS_PER_DAY, WHY_FREE_PER_DAY, WHY_PASS_PER_DAY } from "@/config";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +17,9 @@ export async function POST(req: Request) {
   if (!apiKey || !agentId) return NextResponse.json({ error: `${BUDDY_NAME} isn't switched on yet. Check back soon!` }, { status: 503 });
 
   const body = await req.json().catch(() => null);
-  const mode: "voice" | "text" | "why" = body?.mode === "text" ? "text" : body?.mode === "why" ? "why" : "voice";
+  const MODES = ["voice", "text", "why", "tutor_text", "tutor_voice"] as const;
+  const mode: (typeof MODES)[number] = MODES.includes(body?.mode) ? body.mode : "voice";
+  const isVoice = mode === "voice" || mode === "tutor_voice";
 
   let lead: Lead | null = await currentLead();
   if (!lead && body?.attemptToken) {
@@ -31,6 +34,14 @@ export async function POST(req: Request) {
   const access = await getAccess(lead.id);
   let maxMinutes = VOICE_SESSION_MINUTES;
   let why: Awaited<ReturnType<typeof whyContext>> = null;
+  let tutor: TutorSession | null = null;
+  if (mode === "tutor_text" || mode === "tutor_voice") {
+    // Tutor sessions are created (and counted against the free weekly allowance) by /api/tutor/start.
+    tutor = await getTutorSession(String(body?.tutorSessionId ?? ""), lead.id);
+    if (!tutor) return NextResponse.json({ error: "Start a tutor session first." }, { status: 400 });
+    if (!canContinue(tutor))
+      return NextResponse.json({ error: "This session has ended. Start a new one to keep going.", ended: true }, { status: 409 });
+  }
   if (mode === "why") {
     // Always built from the student's own saved answer, never from what the browser sends.
     why = await whyContext(lead.id, String(body?.questionId ?? ""));
@@ -38,7 +49,7 @@ export async function POST(req: Request) {
   } else if (mode === "text") {
     if (!access.activePass)
       return NextResponse.json({ error: `Text chat with ${BUDDY_NAME} comes with a pass.`, upgrade: true }, { status: 402 });
-  } else {
+  } else if (isVoice) {
     if (access.voiceMinutes < 1)
       return NextResponse.json(
         { error: `You're out of voice minutes. Add more to keep talking with ${BUDDY_NAME}.`, upgrade: true },
@@ -51,8 +62,13 @@ export async function POST(req: Request) {
     `SELECT count(*) n FROM voice_sessions WHERE lead_id = $1 AND mode = $2 AND started_at > now() - interval '24 hours'`,
     [lead.id, mode],
   );
-  const cap =
-    mode === "voice" ? VOICE_SESSIONS_PER_DAY : mode === "why" ? (access.activePass ? WHY_PASS_PER_DAY : WHY_FREE_PER_DAY) : TEXT_SESSIONS_PER_DAY;
+  const cap = isVoice
+    ? VOICE_SESSIONS_PER_DAY
+    : mode === "why"
+      ? access.activePass
+        ? WHY_PASS_PER_DAY
+        : WHY_FREE_PER_DAY
+      : TEXT_SESSIONS_PER_DAY;
   // Owners skip the daily session cap so testing never locks them out (minutes still apply).
   if (!isOwner(lead) && Number(used.rows[0].n) >= cap)
     return NextResponse.json(
@@ -77,8 +93,8 @@ export async function POST(req: Request) {
     [lead.id],
   );
   const session = await db().query<{ id: string }>(
-    `INSERT INTO voice_sessions (lead_id, attempt_id, mode, question_id) VALUES ($1, $2, $3, $4) RETURNING id`,
-    [lead.id, attempt.rows[0]?.id ?? null, mode, mode === "why" ? String(body.questionId) : null],
+    `INSERT INTO voice_sessions (lead_id, attempt_id, mode, question_id, tutor_session_id) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+    [lead.id, attempt.rows[0]?.id ?? null, mode, mode === "why" ? String(body.questionId) : null, tutor?.id ?? null],
   );
 
   return NextResponse.json({
@@ -86,8 +102,10 @@ export async function POST(req: Request) {
     signedUrl: signed_url,
     maxSeconds: maxMinutes * 60,
     voiceMinutes: access.voiceMinutes,
-    dynamicVariables: why
-      ? { ...(await saraContext(lead)), session_mode: "why", focus: why.focus, opening_line: why.opening }
-      : await saraContext(lead),
+    dynamicVariables: tutor
+      ? { ...(await saraContext(lead)), ...(await tutorVariables(tutor, lead.first_name?.trim() || "there")) }
+      : why
+        ? { ...(await saraContext(lead)), session_mode: "why", focus: why.focus, opening_line: why.opening }
+        : await saraContext(lead),
   });
 }

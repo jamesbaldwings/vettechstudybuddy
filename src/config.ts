@@ -22,7 +22,7 @@ export const VOICE_SESSIONS_PER_DAY = Number(process.env.VOICE_SESSIONS_PER_DAY 
 export const VOICE_SESSION_MINUTES = 10;
 
 // ===== Plans =====
-export type PlanId = "exam_pass" | "final_stretch" | "retake_pass" | "extra_voice";
+export type PlanId = "exam_pass" | "final_stretch" | "retake_pass" | "extra_voice" | "semester_pass";
 export interface Plan {
   id: PlanId;
   name: string;
@@ -69,6 +69,20 @@ export const PLANS: Record<PlanId, Plan> = {
     blurb: "Didn't pass? Let's build on your score report.",
     features: ["Everything in the Exam Pass, for 60 days", "200 voice minutes with Sara", "Practice aimed at your weakest areas"],
   },
+  semester_pass: {
+    id: "semester_pass",
+    name: "Semester Pass",
+    priceCents: Number(process.env.SEMESTER_PASS_CENTS || 2900),
+    accessDays: Number(process.env.SEMESTER_PASS_DAYS || 150),
+    voiceMinutes: Number(process.env.SEMESTER_PASS_VOICE_MINUTES || 60),
+    blurb: "Unlimited Tutor Mode for your whole semester.",
+    features: [
+      "Unlimited Tutor Mode in any vet tech course",
+      "Text tutoring, plus voice minutes to talk it through",
+      "Recaps and practice questions saved for every session",
+      "Starts the day you buy it",
+    ],
+  },
   extra_voice: {
     id: "extra_voice",
     name: "Extra voice time",
@@ -114,3 +128,42 @@ export const SCHOOL_SEAT_TIERS = [
 ];
 export const schoolSeatPrice = (seats: number) =>
   (SCHOOL_SEAT_TIERS.find((t) => seats >= t.min) ?? SCHOOL_SEAT_TIERS[SCHOOL_SEAT_TIERS.length - 1]).centsPerSeat;
+
+// Plans that only unlock Tutor Mode (not VTNE practice exams or the VTNE pass features).
+export const TUTOR_ONLY_PLANS: PlanId[] = ["semester_pass"];
+// Plans that start the day they're bought instead of waiting for Start.
+export const STARTS_AT_PURCHASE: PlanId[] = ["semester_pass", "extra_voice"];
+
+// ===== Tutor Mode =====
+// Free accounts get a few tutor sessions a week (weeks start Monday, Central time).
+export const TUTOR_FREE_PER_WEEK = Number(process.env.TUTOR_FREE_PER_WEEK || 3);
+export const TUTOR_MATERIAL_MAX = 6000; // characters of pasted notes
+export const TUTOR_REOPEN_HOURS = 4; // an unfinished session can be picked back up this long after its last message
+// "You've mastered N topics": shown as a gentle path toward the VTNE.
+export const TUTOR_ON_TRACK_TOPICS = Number(process.env.TUTOR_ON_TRACK_TOPICS || 40);
+// Early-warning flag for schools: this many failed checks in 14 days, with fewer passed than failed.
+export const TUTOR_FLAG_FAILED_CHECKS = 4;
+
+export type VtneDomain = "pharm" | "surgery" | "dentistry" | "lab" | "nursing" | "imaging" | "anesthesia" | "ecc" | "pain" | "communication";
+// Vet tech course subjects. Each maps to the VTNE domain it feeds, so Tutor Mode struggles show up in the VTNE plan.
+export const SUBJECTS: { id: string; name: string; domain: VtneDomain }[] = [
+  { id: "anatomy_physiology", name: "Anatomy & Physiology", domain: "nursing" },
+  { id: "pharmacology", name: "Pharmacology", domain: "pharm" },
+  { id: "vet_math", name: "Dosage Calculations & Vet Math", domain: "pharm" },
+  { id: "anesthesia", name: "Anesthesia", domain: "anesthesia" },
+  { id: "surgical_nursing", name: "Surgical Nursing", domain: "surgery" },
+  { id: "clinical_pathology", name: "Clinical Pathology & Lab", domain: "lab" },
+  { id: "parasitology", name: "Parasitology", domain: "lab" },
+  { id: "microbiology", name: "Microbiology", domain: "lab" },
+  { id: "imaging", name: "Diagnostic Imaging", domain: "imaging" },
+  { id: "dentistry", name: "Dentistry", domain: "dentistry" },
+  { id: "animal_nursing", name: "Animal Nursing & Care", domain: "nursing" },
+  { id: "nutrition", name: "Nutrition", domain: "nursing" },
+  { id: "large_animal", name: "Large Animal Nursing", domain: "nursing" },
+  { id: "lab_animal_exotics", name: "Lab Animals & Exotics", domain: "nursing" },
+  { id: "ecc", name: "Emergency & Critical Care", domain: "ecc" },
+  { id: "pain", name: "Pain Management", domain: "pain" },
+  { id: "behavior", name: "Animal Behavior", domain: "communication" },
+  { id: "communication", name: "Client Communication & Practice", domain: "communication" },
+];
+export const subjectById = (id: string) => SUBJECTS.find((s) => s.id === id) ?? null;

@@ -42,6 +42,10 @@ for (const q of drafts) {
   );
   drafted += r.rowCount;
 }
+// Questions added above get their course subject from their VTNE domain (same mapping as schema.sql).
+await client.query(`UPDATE questions SET subject = CASE domain
+    WHEN 'pharm' THEN 'pharmacology' WHEN 'surgery' THEN 'surgical_nursing' WHEN 'lab' THEN 'clinical_pathology'
+    WHEN 'nursing' THEN 'animal_nursing' ELSE domain END WHERE subject IS NULL`);
 // Owner accounts (comma-separated emails). Promotes them if they exist; never demotes anyone.
 const owners = (process.env.OWNER_EMAILS || "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean);
 if (owners.length) await client.query(`UPDATE leads SET role = 'owner' WHERE lower(email) = ANY($1) AND role <> 'owner'`, [owners]);

@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { ACTIVATE_WITHIN_DAYS, FREE_DAILY_PRACTICE, FREE_VOICE_MINUTES, PLANS, PlanId } from "@/config";
+import { ACTIVATE_WITHIN_DAYS, FREE_DAILY_PRACTICE, FREE_VOICE_MINUTES, PLANS, PlanId, STARTS_AT_PURCHASE, TUTOR_ONLY_PLANS } from "@/config";
 
 export interface Purchase {
   id: string;
@@ -18,7 +18,8 @@ export interface Purchase {
 }
 
 export interface Access {
-  activePass: Purchase | null; // started and not expired
+  activePass: Purchase | null; // a VTNE pass, started and not expired
+  tutorPass: Purchase | null; // a Tutor Mode-only pass (Semester Pass), running
   waitingPasses: Purchase[]; // paid, not started yet
   hasPaid: boolean;
   voiceMinutes: number; // balance
@@ -45,8 +46,13 @@ export async function getAccess(leadId: string): Promise<Access> {
     [leadId],
   );
   const now = Date.now();
-  const active = p.rows.filter((x) => x.activated_at && x.expires_at && x.expires_at.getTime() > now);
-  const waiting = p.rows.filter((x) => !x.activated_at && (!x.activate_by || x.activate_by.getTime() > now));
+  const running = p.rows.filter((x) => x.activated_at && x.expires_at && x.expires_at.getTime() > now);
+  const tutorPass =
+    running.filter((x) => TUTOR_ONLY_PLANS.includes(x.plan)).sort((a, b) => b.expires_at!.getTime() - a.expires_at!.getTime())[0] ?? null;
+  const active = running.filter((x) => !TUTOR_ONLY_PLANS.includes(x.plan));
+  const waiting = p.rows.filter(
+    (x) => !x.activated_at && !TUTOR_ONLY_PLANS.includes(x.plan) && (!x.activate_by || x.activate_by.getTime() > now),
+  );
   const activePass = active.sort((a, b) => b.expires_at!.getTime() - a.expires_at!.getTime())[0] ?? null;
   let freePracticeLeft: number | null = null;
   if (!activePass) {
@@ -59,6 +65,7 @@ export async function getAccess(leadId: string): Promise<Access> {
   const paid = await db().query(`SELECT 1 FROM purchases WHERE lead_id = $1 AND status = 'paid' LIMIT 1`, [leadId]);
   return {
     activePass,
+    tutorPass,
     waitingPasses: waiting,
     hasPaid: !!paid.rowCount,
     voiceMinutes: await voiceBalance(leadId),
@@ -98,13 +105,18 @@ export async function recordPurchase(opts: {
     ],
   );
   const id = r.rows[0]?.id;
-  if (id && plan.id === "extra_voice") {
-    await db().query(`UPDATE purchases SET activated_at = now() WHERE id = $1`, [id]);
-    await db().query(`INSERT INTO voice_ledger (lead_id, minutes, reason) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING`, [
-      opts.leadId,
-      plan.voiceMinutes,
-      `extra:${id}`,
-    ]);
+  // Extra voice time and the Semester Pass start the day they're bought.
+  if (id && STARTS_AT_PURCHASE.includes(plan.id)) {
+    await db().query(
+      `UPDATE purchases SET activated_at = now(), expires_at = CASE WHEN access_days > 0 THEN now() + (access_days || ' days')::interval END WHERE id = $1`,
+      [id],
+    );
+    if (plan.voiceMinutes > 0)
+      await db().query(`INSERT INTO voice_ledger (lead_id, minutes, reason) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING`, [
+        opts.leadId,
+        plan.voiceMinutes,
+        `${plan.id === "extra_voice" ? "extra" : "pass"}:${id}`,
+      ]);
   }
   return id ?? null;
 }
@@ -123,9 +135,10 @@ export async function activatePurchase(leadId: string, purchaseId: string) {
       await c.query("ROLLBACK");
       return null;
     }
+    // A Semester Pass running alongside doesn't push back a VTNE pass's start.
     const cur = await c.query<{ e: Date | null }>(
-      `SELECT max(expires_at) e FROM purchases WHERE lead_id = $1 AND status = 'paid' AND expires_at > now()`,
-      [leadId],
+      `SELECT max(expires_at) e FROM purchases WHERE lead_id = $1 AND status = 'paid' AND expires_at > now() AND NOT (plan = ANY($2))`,
+      [leadId, TUTOR_ONLY_PLANS],
     );
     const start = cur.rows[0].e && cur.rows[0].e.getTime() > Date.now() ? cur.rows[0].e : new Date();
     const expires = new Date(start.getTime() + row.access_days * 86400_000);
@@ -154,7 +167,7 @@ export async function chargeVoiceSession(sessionId: string, minutes: number) {
     [sessionId, minutes],
   );
   const s = r.rows[0];
-  if (!s || s.mode !== "voice" || minutes <= 0) return;
+  if (!s || (s.mode !== "voice" && s.mode !== "tutor_voice") || minutes <= 0) return;
   await db().query(`INSERT INTO voice_ledger (lead_id, minutes, reason) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING`, [
     s.lead_id,
     -minutes,
@@ -164,7 +177,7 @@ export async function chargeVoiceSession(sessionId: string, minutes: number) {
 
 export async function chargeAbandonedSessions(leadId?: string) {
   const r = await db().query<{ id: string }>(
-    `SELECT id FROM voice_sessions WHERE minutes_charged IS NULL AND mode = 'voice' AND started_at < now() - interval '15 minutes'
+    `SELECT id FROM voice_sessions WHERE minutes_charged IS NULL AND mode IN ('voice', 'tutor_voice') AND started_at < now() - interval '15 minutes'
      ${leadId ? "AND lead_id = $1" : ""}`,
     leadId ? [leadId] : [],
   );
