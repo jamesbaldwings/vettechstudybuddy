@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import type { PoolClient } from "pg";
 import { db } from "@/lib/db";
 import { isOwner, Lead } from "@/lib/auth";
 import { getAccess } from "@/lib/access";
@@ -10,6 +11,7 @@ import {
   TUTOR_MATERIAL_MAX,
   TUTOR_ON_TRACK_TOPICS,
   TUTOR_REOPEN_HOURS,
+  TUTOR_START_REUSE_MINUTES,
 } from "@/config";
 
 export const PREVIEW_FREE_COOKIE = "vtsb_preview_free";
@@ -60,8 +62,8 @@ export async function previewingFree(lead: Lead) {
 }
 
 // Free sessions used since Monday (Central time).
-async function freeUsedThisWeek(leadId: string) {
-  const r = await db().query<{ n: string }>(
+async function freeUsedThisWeek(leadId: string, q: Pick<PoolClient, "query"> = db()) {
+  const r = await q.query<{ n: string }>(
     `SELECT count(*) n FROM tutor_sessions WHERE lead_id = $1 AND free
        AND started_at >= (date_trunc('week', now() AT TIME ZONE 'America/Chicago') AT TIME ZONE 'America/Chicago')`,
     [leadId],
@@ -95,24 +97,53 @@ export async function startTutorSession(lead: Lead, input: { subject: string; to
   const channel = input.channel === "voice" ? "voice" : "text";
 
   const access = await tutorAccess(lead);
-  if (!access.unlimited && access.freeLeft <= 0)
-    return {
-      ok: false as const,
-      upgrade: true,
-      error: `That's your ${access.freePerWeek} free tutor sessions this week. They reset Monday, or a Semester Pass gives you unlimited Tutor Mode.`,
-    };
+  const capMessage = `That's your ${access.freePerWeek} free tutor sessions this week. They reset Monday, or a Semester Pass gives you unlimited Tutor Mode.`;
 
-  const t = await db().query<{ id: string }>(
-    `INSERT INTO topics (exam, subject, name) VALUES ('course', $1, $2)
-     ON CONFLICT (exam, subject, lower(name)) DO UPDATE SET name = topics.name RETURNING id`,
-    [subject.id, topic],
-  );
-  const r = await db().query<{ id: string }>(
-    `INSERT INTO tutor_sessions (lead_id, subject, topic, topic_id, material, channel, free)
-     VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id`,
-    [lead.id, subject.id, topic, t.rows[0].id, material, channel, !access.unlimited],
-  );
-  return { ok: true as const, id: r.rows[0].id };
+  // One start per student at a time: the lock makes the weekly count and the insert atomic, so two requests
+  // arriving together (double tap, two tabs, a retry) can't both slip under the free limit.
+  const c = await db().connect();
+  try {
+    await c.query("BEGIN");
+    await c.query(`SELECT pg_advisory_xact_lock(hashtext('tutor_start:' || $1))`, [lead.id]);
+
+    // Same subject, topic and channel started in the last few minutes and never used: hand that one back
+    // instead of charging another free session (a student retrying after a dropped connection, for example).
+    const recent = await c.query<{ id: string }>(
+      `SELECT id FROM tutor_sessions
+        WHERE lead_id = $1 AND subject = $2 AND lower(topic) = lower($3) AND channel = $4
+          AND ended_at IS NULL AND jsonb_array_length(transcript) = 0
+          AND started_at > now() - make_interval(mins => $5)
+        ORDER BY started_at DESC LIMIT 1`,
+      [lead.id, subject.id, topic, channel, TUTOR_START_REUSE_MINUTES],
+    );
+    if (recent.rows[0]) {
+      await c.query("COMMIT");
+      return { ok: true as const, id: recent.rows[0].id, reused: true };
+    }
+
+    if (!access.unlimited && TUTOR_FREE_PER_WEEK - (await freeUsedThisWeek(lead.id, c)) <= 0) {
+      await c.query("ROLLBACK");
+      return { ok: false as const, upgrade: true, error: capMessage };
+    }
+
+    const t = await c.query<{ id: string }>(
+      `INSERT INTO topics (exam, subject, name) VALUES ('course', $1, $2)
+       ON CONFLICT (exam, subject, lower(name)) DO UPDATE SET name = topics.name RETURNING id`,
+      [subject.id, topic],
+    );
+    const r = await c.query<{ id: string }>(
+      `INSERT INTO tutor_sessions (lead_id, subject, topic, topic_id, material, channel, free)
+       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id`,
+      [lead.id, subject.id, topic, t.rows[0].id, material, channel, !access.unlimited],
+    );
+    await c.query("COMMIT");
+    return { ok: true as const, id: r.rows[0].id, reused: false };
+  } catch (e) {
+    await c.query("ROLLBACK").catch(() => {});
+    throw e;
+  } finally {
+    c.release();
+  }
 }
 
 export async function getTutorSession(id: string, leadId: string) {
