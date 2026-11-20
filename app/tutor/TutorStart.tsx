@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BUDDY_NAME, SUBJECTS, TUTOR_MATERIAL_MAX } from "@/config";
 
@@ -14,24 +14,36 @@ export default function TutorStart(props: { defaultSubject?: string; defaultTopi
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
   const [upgrade, setUpgrade] = useState(props.locked);
+  const starting = useRef(false);
 
   async function start(e: React.FormEvent) {
     e.preventDefault();
+    // A ref, not state, so a second tap before React re-renders can't send a second start.
+    if (starting.current) return;
+    starting.current = true;
     setErr("");
     setBusy(true);
-    const res = await fetch("/api/tutor/start", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ subject, topic, material, channel }),
-    });
-    const j = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      setErr(j.error || "Something went wrong. Try again.");
-      setUpgrade(!!j.upgrade);
+    try {
+      const res = await fetch("/api/tutor/start", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ subject, topic, material, channel }),
+      });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok || !j.id) {
+        setErr(j.error || "Something went wrong. Try again.");
+        setUpgrade(!!j.upgrade);
+        starting.current = false;
+        setBusy(false);
+        return;
+      }
+      router.push(`/tutor/${j.id}`);
+    } catch {
+      // Dropped connection: let them try again. If the session was created, the server hands the same one back.
+      setErr("We couldn't reach the server. Check your connection and try again.");
+      starting.current = false;
       setBusy(false);
-      return;
     }
-    router.push(`/tutor/${j.id}`);
   }
 
   return (

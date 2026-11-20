@@ -137,6 +137,8 @@ export const STARTS_AT_PURCHASE: PlanId[] = ["semester_pass", "extra_voice"];
 // ===== Tutor Mode =====
 // Free accounts get a few tutor sessions a week (weeks start Monday, Central time).
 export const TUTOR_FREE_PER_WEEK = Number(process.env.TUTOR_FREE_PER_WEEK || 3);
+// A start that repeats an unused session from the last few minutes gets that session back instead of a new one.
+export const TUTOR_START_REUSE_MINUTES = 10;
 export const TUTOR_MATERIAL_MAX = 6000; // characters of pasted notes
 export const TUTOR_REOPEN_HOURS = 4; // an unfinished session can be picked back up this long after its last message
 // "You've mastered N topics": shown as a gentle path toward the VTNE.
