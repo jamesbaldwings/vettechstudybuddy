@@ -71,7 +71,7 @@ const fresh = (): Saved => ({
   result: null,
 });
 
-export default function Quiz({ siteKey }: { siteKey: string | null }) {
+export default function Quiz({ siteKey, freePerWeek }: { siteKey: string | null; freePerWeek: number }) {
   const router = useRouter();
   const [s, setS] = useState<Saved>(fresh);
   const [loaded, setLoaded] = useState(false);
@@ -198,7 +198,7 @@ export default function Quiz({ siteKey }: { siteKey: string | null }) {
 
   if (s.stage === "question") return <QuestionView s={s} choose={choose} next={next} busy={busy} err={err} />;
 
-  return <Done s={s} siteKey={siteKey} restart={restart} onSaved={(url) => { try { localStorage.removeItem(KEY); } catch {} router.push(url); }} />;
+  return <Done s={s} siteKey={siteKey} freePerWeek={freePerWeek} restart={restart} onSaved={(url) => { try { localStorage.removeItem(KEY); } catch {} router.push(url); }} />;
 }
 
 function QuestionView({
@@ -267,17 +267,58 @@ function QuestionView({
   );
 }
 
-function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | null; restart: () => void; onSaved: (url: string) => void }) {
+// The course subject Tutor Mode opens on for each VTNE domain.
+const DOMAIN_SUBJECT: Record<string, string> = {
+  pharm: "pharmacology",
+  surgery: "surgical_nursing",
+  dentistry: "dentistry",
+  lab: "clinical_pathology",
+  nursing: "animal_nursing",
+  imaging: "imaging",
+  anesthesia: "anesthesia",
+  ecc: "ecc",
+  pain: "pain",
+  communication: "communication",
+};
+
+// The domain with the most misses on this diagnostic (ties go to the one the VTNE weighs more).
+function weakestDomain(answers: (number | null)[]) {
+  const missed = new Map<string, number>();
+  QUESTIONS.forEach((q, i) => {
+    if (answers[i] !== q.answer) missed.set(q.domain, (missed.get(q.domain) ?? 0) + 1);
+  });
+  let best: { id: string; name: string; weight: number; n: number } | null = null;
+  for (const [id, n] of missed) {
+    const d = domainById(id as Parameters<typeof domainById>[0]);
+    if (!best || n > best.n || (n === best.n && d.weight > best.weight)) best = { id, name: d.name, weight: d.weight, n };
+  }
+  return best;
+}
+
+function Done({
+  s,
+  siteKey,
+  freePerWeek,
+  restart,
+  onSaved,
+}: {
+  s: Saved;
+  siteKey: string | null;
+  freePerWeek: number;
+  restart: () => void;
+  onSaved: (url: string) => void;
+}) {
   const [token, setToken] = useState("");
   const [resetN, setResetN] = useState(0);
   const months = useMemo(upcomingMonths, []);
-  const [firstName, setFirstName] = useState("");
+  const weak = useMemo(() => weakestDomain(s.answers), [s.answers]);
   const [email, setEmail] = useState("");
-  const [examDate, setExamDate] = useState("");
-  const [notBooked, setNotBooked] = useState(false);
-  const [targetMonth, setTargetMonth] = useState("");
-  const [consent, setConsent] = useState(false);
   const [password, setPassword] = useState("");
+  const [showPw, setShowPw] = useState(false);
+  // One question for the exam: a booked date, or the month they're aiming for.
+  const [when, setWhen] = useState("");
+  const [examDate, setExamDate] = useState("");
+  const [consent, setConsent] = useState(false);
   const [existing, setExisting] = useState(false);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
@@ -285,9 +326,21 @@ function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | nu
   if (!r) return null;
   const band = BAND_TEXT[r.band];
   const today = new Date().toISOString().slice(0, 10);
+  const booked = when === "booked";
+  const waitingOnCheck = !!siteKey && !token;
 
-  async function submit(e: React.FormEvent) {
+  // Where the student goes once the account exists: straight into Tutor Mode on their weakest area, or to the plan.
+  function tutorUrl() {
+    if (!weak) return "/tutor";
+    const subject = DOMAIN_SUBJECT[weak.id] ?? "";
+    const topic = `${weak.name} (what I missed on the diagnostic)`;
+    return `/tutor?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(topic)}`;
+  }
+
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const submitter = (e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
+    const goTutor = submitter?.value !== "plan";
     setBusy(true);
     setErr("");
     try {
@@ -296,10 +349,9 @@ function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | nu
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           attemptToken: s.attemptToken,
-          firstName,
           email,
-          examDate: notBooked ? null : examDate,
-          targetMonth: notBooked ? targetMonth : null,
+          examDate: booked ? examDate : null,
+          targetMonth: booked ? null : when || null,
           consent,
           password,
           turnstile: token,
@@ -308,7 +360,7 @@ function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | nu
       const j = await res.json();
       if (j.existingAccount) setExisting(true);
       if (!res.ok) throw new Error(j.error || "Something went wrong.");
-      onSaved(j.signInSent ? `${j.resultsUrl}?signin=sent` : j.resultsUrl);
+      onSaved(goTutor ? tutorUrl() : j.signInSent ? `${j.resultsUrl}?signin=sent` : j.resultsUrl);
     } catch (e2) {
       setErr(String((e2 as Error).message));
       setBusy(false);
@@ -318,7 +370,7 @@ function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | nu
 
   return (
     <div>
-      <div className="card center">
+      <div className="card center quiz-score">
         <p className="muted" style={{ marginBottom: 6 }}>
           Your score
         </p>
@@ -335,23 +387,33 @@ function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | nu
       </div>
 
       <Buddy>
-        <p>
-          Nice work getting through all 25. Create your free account and I&apos;ll show you exactly which areas to focus on,
-          with a plan built around your exam date.
-        </p>
+        {weak ? (
+          <p>
+            Nice work getting through all 25. You missed {weak.n} in <strong>{weak.name}</strong>. Want me to walk you through
+            it right now? Your first tutor session is on me.
+          </p>
+        ) : (
+          <p>
+            A perfect 25. Impressive. Want to try me on whatever you&apos;re covering in class? Your first tutor session is on me.
+          </p>
+        )}
       </Buddy>
 
-      <form className="card" onSubmit={submit}>
-        <div className="field">
-          <label htmlFor="fn">First name</label>
-          <input id="fn" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} autoComplete="given-name" />
-        </div>
+      <form className="card tutor-offer" onSubmit={submit}>
+        <h2 style={{ marginTop: 0, marginBottom: 4 }}>Free tutor session with {BUDDY_NAME}</h2>
+        <p className="small muted" style={{ marginTop: 0 }}>
+          Make a free account and you get {freePerWeek} tutor sessions every week, plus your study plan. No card needed.
+        </p>
         <div className="field">
           <label htmlFor="em">Email</label>
           <input
             id="em"
             type="email"
             required
+            inputMode="email"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -362,53 +424,46 @@ function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | nu
         </div>
         <div className="field">
           <label htmlFor="pw">{existing ? "Your password" : "Create a password"}</label>
-          <input
-            id="pw"
-            type="password"
-            required
-            minLength={existing ? undefined : 8}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete={existing ? "current-password" : "new-password"}
-          />
+          <div className="pw-wrap">
+            <input
+              id="pw"
+              type={showPw ? "text" : "password"}
+              required
+              minLength={existing ? undefined : 8}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete={existing ? "current-password" : "new-password"}
+            />
+            <button type="button" className="pw-toggle" onClick={() => setShowPw((v) => !v)} aria-pressed={showPw}>
+              {showPw ? "Hide" : "Show"}
+            </button>
+          </div>
           <span className="small muted">
-            {existing ? (
-              <>
-                <a href="/signin?mode=forgot">Forgot password?</a>
-              </>
-            ) : (
-              "At least 8 characters."
-            )}
+            {existing ? <a href="/signin?mode=forgot">Forgot password?</a> : "At least 8 characters."}
           </span>
         </div>
-        {!notBooked ? (
+        <div className="field">
+          <label htmlFor="when">When are you taking the VTNE?</label>
+          <select id="when" required value={when} onChange={(e) => setWhen(e.target.value)}>
+            <option value="">Choose one</option>
+            <option value="booked">I&apos;ve booked a date</option>
+            {months.map((m) => (
+              <option key={m.value} value={m.value}>
+                Aiming for {m.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        {booked && (
           <div className="field">
-            <label htmlFor="ed">When is your VTNE?</label>
-            <input id="ed" type="date" min={today} required={!notBooked} value={examDate} onChange={(e) => setExamDate(e.target.value)} />
-          </div>
-        ) : (
-          <div className="field">
-            <label htmlFor="tm">Which month are you aiming for?</label>
-            <select id="tm" required value={targetMonth} onChange={(e) => setTargetMonth(e.target.value)}>
-              <option value="">Choose a month</option>
-              {months.map((m) => (
-                <option key={m.value} value={m.value}>
-                  {m.label}
-                </option>
-              ))}
-            </select>
+            <label htmlFor="ed">Your exam date</label>
+            <input id="ed" type="date" min={today} required value={examDate} onChange={(e) => setExamDate(e.target.value)} />
           </div>
         )}
         <div className="field">
           <label className="check">
-            <input type="checkbox" checked={notBooked} onChange={(e) => setNotBooked(e.target.checked)} />
-            <span>I haven&apos;t booked my exam date yet</span>
-          </label>
-        </div>
-        <div className="field">
-          <label className="check">
             <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required />
-            <span>
+            <span className="small">
               Send me my plan and check-ins from {BUDDY_NAME} before and after my VTNE. I can unsubscribe anytime. I agree to
               the <a href="/terms" target="_blank">terms</a>.
             </span>
@@ -416,9 +471,15 @@ function Done({ s, siteKey, restart, onSaved }: { s: Saved; siteKey: string | nu
         </div>
         {err && <p className="error">{err}</p>}
         <Turnstile siteKey={siteKey} onToken={setToken} reset={resetN} />
-        <button className="btn block" type="submit" disabled={busy || (!!siteKey && !token)}>
-          {busy ? "Building your plan..." : existing ? "Sign in and show my plan" : "Create my account and show my plan"}
+        <button className="btn block" type="submit" value="tutor" disabled={busy || waitingOnCheck}>
+          {busy ? "Getting things ready..." : existing ? `Sign in and start with ${BUDDY_NAME}` : `Start my free session with ${BUDDY_NAME}`}
         </button>
+        {waitingOnCheck && !busy && <p className="small muted center" style={{ margin: "8px 0 0" }}>One sec, running a quick security check...</p>}
+        <p className="center" style={{ margin: "10px 0 0" }}>
+          <button className="btn ghost" type="submit" value="plan" disabled={busy || waitingOnCheck}>
+            Just show my study plan
+          </button>
+        </p>
       </form>
       <p className="center small">
         <button className="btn ghost" onClick={restart}>

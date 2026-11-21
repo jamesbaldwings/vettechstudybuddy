@@ -238,3 +238,15 @@ table.data th, table.data td { text-align: left; padding: 8px 6px; border-bottom
 .grid2 li { margin-bottom: 6px; }
 button.linkish { background: none; border: 0; padding: 0; color: var(--brand); text-decoration: underline; cursor: pointer; font: inherit; }
 button.linkish:disabled { opacity: 0.5; cursor: default; }
+
+/* Quiz end: free tutor session offer */
+.tutor-offer { border: 2px solid var(--brand); }
+.pw-wrap { position: relative; }
+.pw-wrap input { padding-right: 72px; }
+.pw-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: transparent; border: 0; color: var(--brand); font-weight: 700; font-size: 15px; padding: 8px 10px; cursor: pointer; }
+@media (max-width: 520px) {
+  .quiz-score { padding: 16px; }
+  .quiz-score .score-big { font-size: 44px; }
+  .tutor-offer { padding: 18px 16px; }
+  .tutor-offer h2 { font-size: 21px; }
+}
